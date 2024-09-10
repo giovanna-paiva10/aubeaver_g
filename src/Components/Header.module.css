@@ -1,0 +1,40 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #7CA377;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  max-width: 1820px;
+  padding: 16px;
+  margin: auto;
+}
+
+li {
+  list-style-type: none;
+  font-size: 24px;
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  padding: 0%;
+  margin: 0%;
+}
+
+.navlinks {
+  display: flex;
+  gap: 16%;
+}
