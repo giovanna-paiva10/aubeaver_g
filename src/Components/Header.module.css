@@ -6,6 +6,7 @@
 
 header {
   background-color: #7CA377;
+  position: relative;
 }
 
 nav {
@@ -13,15 +14,41 @@ nav {
   justify-content: space-between;
   align-items: center;
 
-  max-width: 1820px;
+  max-width: 1120px;
   padding: 16px;
   margin: auto;
 }
 
 li {
   list-style-type: none;
-  font-size: 24px;
-  display: inline;
+}
+
+ .navlinks{
+  display: flex;
+  gap: 12px;
+
+} 
+
+/*
+
+ .navlinks li a {
+  text-align: center;
+  line-height:  30px;
+  width: 100%;
+  display: block;
+} */
+
+.hamburguer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-left: 20px;
+}
+
+.btn_line{
+  width: 24px;
+  height: 3px;
+  background-color: black;
 }
 
 a {
@@ -34,7 +61,3 @@ img {
   margin: 0%;
 }
 
-.navlinks {
-  display: flex;
-  gap: 16%;
-}

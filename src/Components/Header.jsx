@@ -4,19 +4,27 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 
 
+
 const Header = () => {
 
 
     return ( 
     <>
     <header >
-      <nav className={styles.navlinks}>
+      <nav >
            <Link to='/'><img src={logo} alt='logo'/></Link>
-        <ul>
-        <li> <Link to='quemSomos'> Quem somos </Link> </li>
-        <li> <Link to='doacao'> Doação </Link> </li>
-        <li> <Link to='login'> Criar / Entrar </Link> </li>
+
+        <ul className={styles.navlinks}>
+          <li> <Link to='quemSomos'> Quem somos </Link> </li>
+          <li> <Link to='doacao'> Doação </Link> </li>
+          <li> <Link to='login'> Criar / Entrar </Link> </li>
+          <li> <div className={styles.hamburguer}>
+            <div className={styles.btn_line}></div>
+            <div className={styles.btn_line}></div>
+            <div className={styles.btn_line}></div>
+        </div></li>
         </ul>
+        
       </nav>
     </header>
     </>

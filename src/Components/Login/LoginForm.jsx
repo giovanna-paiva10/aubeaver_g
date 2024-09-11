@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Link, Form } from 'react-router-dom';
 import Input from '../Forms/Input';
 import Select from '../Forms/Select';
-
-
+import styles from './LoginForm.module.css';
+import foto from '../../assets/rosto.svg';
 
 
 const LoginForm = () => {
@@ -20,23 +20,32 @@ const LoginForm = () => {
 
     return (
         <section> 
-        <h1>Login</h1>
+        <div className={styles.fundo}>
         
+        <div>
+
+        <div className={styles.container}>
             <form action='' onSubmit={handleSubmit}>
 
-            <Input label="Email" type="email" id="email" value={email} setValue={setEmail}/>
+            <a><Input label="Email" type="email" id="email" value={email} setValue={setEmail}/></a>
             <p></p>
-            <Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/>
+            <a><Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/></a>
             <p></p>
-            <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa}/>
+            <a><Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa}/></a>
             <p></p>
-            <label> <input type="checkbox" value={termos} checked={termos} onChange={ 
+            <a><label className={styles.checkbox}> <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={ 
                 function handleChange({ target }) {
-                setTermos(target.checked)}} /> Li e aceito os termos. </label>
+                setTermos(target.checked)}} /> Li e aceito os termos. </label> </a>
             </form>
 
-        <button><Link to='/login/criar'>Cadastro</Link></button>
+            <center><button><Link to='/login/criar'>Enviar</Link></button></center>  
+        </div>
+
+            <div className={styles.imagem}> <img src={foto} alt="RostoMascote" /> </div>
             
+        </div>
+
+        </div>
         </section>
     )
 };
