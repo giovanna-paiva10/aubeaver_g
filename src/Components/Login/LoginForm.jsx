@@ -20,25 +20,24 @@ const LoginForm = () => {
 
     return (
         <section> 
-        <div className={styles.fundo}>
+        <div className={styles.container}>
         
         <div>
 
-        <div className={styles.container}>
-            <form action='' onSubmit={handleSubmit}>
+        <div className={styles.content}>
+            <form onSubmit={handleSubmit}>
 
             <a><Input label="Email" type="email" id="email" value={email} setValue={setEmail}/></a>
             <p></p>
             <a><Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/></a>
             <p></p>
-            <a><Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa}/></a>
-            <p></p>
-            <a><label className={styles.checkbox}> <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={ 
-                function handleChange({ target }) {
-                setTermos(target.checked)}} /> Li e aceito os termos. </label> </a>
+
+
+               <center><button>Entrar</button></center>
             </form>
 
-            <center><button><Link to='/login/criar'>Enviar</Link></button></center>  
+            <Link to='/login/criar'>Cadastre-se</Link>
+
         </div>
 
             <div className={styles.imagem}> <img src={foto} alt="RostoMascote" /> </div>

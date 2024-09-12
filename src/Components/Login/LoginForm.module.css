@@ -26,9 +26,10 @@ button {
     color: #FFFFFF;
     border: none;
     font-weight: bold;
+    margin: 6%;
 }
 
-.fundo{
+.container{
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -36,11 +37,11 @@ button {
     grid-template-columns: 1fr;
 }
 
-.container{
+.content{
     background-color: #FFFFFF;
-    top: 1rem;
+    top: 2.5rem;
     width: 30%;
-    height: 425px;
+    height: 350px;
     padding: 20px;
     margin-top: 3%;;
     border-radius: 16px;

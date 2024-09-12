@@ -1,0 +1,115 @@
+input{
+    display: flex;
+    border: 1px solid #ccc;
+    width: 95%;
+    padding: 0.8rem;
+    margin-top: 8px;
+    border-radius: 8px;
+    height: 16px;
+  }
+  
+  select{
+      display: flex;
+      border: 1px solid #ccc;
+      width: 95%;
+      height: 28px;
+      border-radius: 8px;
+      font-size: 14px;
+  }
+  
+  button {
+      background-color: #517655;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 1%;
+      width: 45%;
+      color: #FFFFFF;
+      border: none;
+      font-weight: bold;
+  }
+  
+  .container{
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr;
+  }
+  
+  .content{
+      background-color: #FFFFFF;
+      top: 1rem;
+      width: 29%;
+      height: 425px;
+      padding: 20px;
+      margin-top: 3%;;
+      border-radius: 16px;
+      display: flexbox;
+      position: relative;
+      left: 13%;
+      border: 8px;
+      overflow: auto;
+      overflow-y: scroll;
+  }
+
+  .content::-webkit-scrollbar{
+    width: 8px;   
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #adadad;
+    height: 415;
+  }
+  
+  .content::-webkit-scrollbar-track {
+    background: white; 
+    border-radius: 16px;
+  }
+  
+  .content::-webkit-scrollbar-thumb {
+    background-color: rgb(221, 221, 221);
+    border-radius: 16px 
+  }
+  
+  a{
+      font-size: 16px;
+      margin-left: 8px;
+  }
+  
+  p {
+      height: 20px;
+  }
+  
+  .checkbox{
+    display: inline;
+    width: 90%;
+    font-size: 16px;
+    border: 0%;
+    padding: 0%;
+  }
+  
+  .inputCheckbox {
+    display: inline;
+    width: 10%;
+    font-size: 10px;
+    text-align: left;
+  }
+  
+  center {
+      margin: 5%;
+  }
+  
+  section {
+      align-content: center;
+      justify-items: center;
+  }
+  
+  .imagem{
+      position: absolute;
+      right: 14%;
+      top: 13rem;
+  }
+  
+  img {
+      max-width: 100%;
+      min-width: 10%;
+  }

@@ -9,10 +9,12 @@ const Login = () => {
 
 
     return (
+        <>
         <Routes> 
             <Route path='/' element={<LoginForm/>}/>
             <Route path='criar' element ={<LoginCreate/>}/>
         </Routes>
+        </>
     )
 
 };
