@@ -1,3 +1,9 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+  }
+
 input{
   display: flex;
   border: 1px solid #ccc;
@@ -8,13 +14,9 @@ input{
   height: 16px;
 }
 
-select{
-    display: flex;
-    border: 1px solid #ccc;
-    width: 95%;
-    height: 28px;
-    border-radius: 8px;
-    font-size: 14px;
+h4{
+    text-decoration: underline;
+    color: rgb(54, 54, 54);
 }
 
 button {
@@ -27,40 +29,87 @@ button {
     border: none;
     font-weight: bold;
     margin: 6%;
+    font-size: max(12px, 1.5vw);
 }
 
-.container{
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+section{
     display: grid;
-    grid-template-columns: 1fr;
-}
+    grid-template-columns: 2fr 2fr;
+    margin-top: 5%;
+ }
 
-.content{
+ @media(max-width: 800px) {
+    .containerImg {
+        display: block;
+    }
+}
+@media(max-width: 600px) {
+    .containerImg {
+        display: none;
+    }
+}
+  
+  .content{
+    height: 98%;
+    margin-top: 12px;
+    margin-left: 6px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+
+  .content1{
     background-color: #FFFFFF;
-    top: 2.5rem;
-    width: 30%;
-    height: 350px;
-    padding: 20px;
-    margin-top: 3%;;
-    border-radius: 16px;
+    width: 65%;
+    height: 23rem;
+    padding: 6px;
     align-items: center;
     justify-content: center;
+    border-radius: 1rem;
     display: flexbox;
+    padding: 1vw;
     position: relative;
-    left: 13%;
-    
+    font-size: 1rem;
+    min-width: 275px;
+    margin-top: 18px;
+  }
+
+  .content::-webkit-scrollbar{
+    width: 6px;   
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #adadad;
+  }
+  
+  .content::-webkit-scrollbar-track {
+    background: white; 
+    border-radius: 16px;
+  }
+  
+  .content::-webkit-scrollbar-thumb {
+    background-color: rgb(221, 221, 221);
+    border-radius: 16px 
+  }
+
+  .containerImg{
+    width: 50%;
+    margin-top: 10%;
+  }
+
+  @media(max-width: 650px) {
+    .containerImg {
+      display: none;
+      margin-top: 600px;
+      margin-top: 60px;
+    }
+    .content1  {
+      margin-left: 75px;
+      margin-top: 18px;
+    }
+    .containerImg{
+      align-items: center;
+    }
 }
 
-a{
-    font-size: 16px;
-    margin-left: 8px;
-}
-
-p {
-    height: 20px;
-}
 
 .checkbox{
   display: inline;

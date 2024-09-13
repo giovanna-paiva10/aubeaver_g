@@ -1,3 +1,9 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
 input{
     display: flex;
     border: 1px solid #ccc;
@@ -21,43 +27,70 @@ input{
       background-color: #517655;
       cursor: pointer;
       border-radius: 8px;
-      padding: 1%;
+      padding: 1vw;
       width: 45%;
       color: #FFFFFF;
       border: none;
       font-weight: bold;
+      margin: 4%;
+      font-size: max(12px, 1.5vw);
   }
   
-  .container{
-      width: 100%;
-      align-items: center;
-      justify-content: center;
-      display: grid;
-      grid-template-columns: 1fr;
-  }
+ section{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    margin-top: 5%;
+    font-size: max(16px, 1.5vw);
+ }
   
   .content{
-      background-color: #FFFFFF;
-      top: 1rem;
-      width: 29%;
-      height: 425px;
-      padding: 20px;
-      margin-top: 3%;;
-      border-radius: 16px;
-      display: flexbox;
-      position: relative;
-      left: 13%;
-      border: 8px;
-      overflow: auto;
-      overflow-y: scroll;
+    height: 98%;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-top: 12px;
+    margin-left: 6px;
   }
 
+  .content1{
+    background-color: #FFFFFF;
+    width: 65%;
+    height: 25rem;
+    padding: 6px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    display: flexbox;
+    position: relative;
+    min-width: 275px;
+  }
+
+  .containerImg{
+    width: 50%;
+    min-width: 200px;
+    margin: 5vw;
+  }
+
+  @media(max-width: 650px) {
+    .containerImg {
+      display: none;
+      margin-top: 600px;
+      margin-top: 60px;
+    }
+    .content1  {
+      margin-left: 75px;
+      margin-top: 18px;
+    }
+    .containerImg{
+      align-items: center;
+    }
+}
+
+
   .content::-webkit-scrollbar{
-    width: 8px;   
+    width: 6px;   
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     background-color: #adadad;
-    height: 415;
   }
   
   .content::-webkit-scrollbar-track {
@@ -70,11 +103,6 @@ input{
     border-radius: 16px 
   }
   
-  a{
-      font-size: 16px;
-      margin-left: 8px;
-  }
-  
   p {
       height: 20px;
   }
@@ -82,15 +110,16 @@ input{
   .checkbox{
     display: inline;
     width: 90%;
-    font-size: 16px;
+    font-size: 1vw;
     border: 0%;
     padding: 0%;
+    font-size: max(12px, 1.5vw);
   }
   
   .inputCheckbox {
     display: inline;
     width: 10%;
-    font-size: 10px;
+    font-size: 1vw;
     text-align: left;
   }
   
@@ -103,13 +132,3 @@ input{
       justify-items: center;
   }
   
-  .imagem{
-      position: absolute;
-      right: 14%;
-      top: 13rem;
-  }
-  
-  img {
-      max-width: 100%;
-      min-width: 10%;
-  }

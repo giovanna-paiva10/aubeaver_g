@@ -20,9 +20,8 @@ const LoginForm = () => {
 
     return (
         <section> 
-        <div className={styles.container}>
         
-        <div>
+        <div className={styles.content1}>
 
         <div className={styles.content}>
             <form onSubmit={handleSubmit}>
@@ -32,19 +31,17 @@ const LoginForm = () => {
             <a><Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/></a>
             <p></p>
 
-
                <center><button>Entrar</button></center>
             </form>
 
-            <Link to='/login/criar'>Cadastre-se</Link>
+            <h4><Link to='/login/criar'>Cadastre-se</Link></h4>
 
+        </div>            
         </div>
 
-            <div className={styles.imagem}> <img src={foto} alt="RostoMascote" /> </div>
-            
-        </div>
+        <div className={styles.containerImg}> <img src={foto} alt="RostoMascote" /> </div>
 
-        </div>
+    
         </section>
     )
 };

@@ -20,12 +20,17 @@ const LoginCreate = () => {
         console.log('cadastrado');
       }
 
+      
+    
+
+
     return (
         <>
-<div className={styles.container} > 
 <section>
 
 <div className={styles.content1}>
+
+
 <div className={styles.content}>
 
         <h2>Cadastre-se</h2>
@@ -33,13 +38,14 @@ const LoginCreate = () => {
  <p></p>
 <form action="" onSubmit={handleSubmit}>
 
+
     <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa}/>
         <p></p>
     <Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
         <p></p>
     <Input label="Email" type="email" id="email" value={email} setValue={setEmail}/>
         <p></p>
-    <Input label="Usename" type="username" id="usename" value={username} setValue={setUsername}/>
+    <Input label="Username" type="username" id="usename" value={username} setValue={setUsername}/>
         <p></p>
     <Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/>
         <p></p>
@@ -48,14 +54,14 @@ const LoginCreate = () => {
 <p></p>
         <center><button>Cadastre-se</button></center>
 </form>
+
+
 </div>
 </div>
 
-        <div className={styles.imagem}> <img  src={foto} alt="RostoMascote" /> </div>
-
+<div className={styles.containerImg}><img  src={foto} alt="RostoMascote" /></div>
 
 </section>
-</div>
 
         </>
     )

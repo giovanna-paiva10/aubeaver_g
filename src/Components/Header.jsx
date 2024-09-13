@@ -12,7 +12,7 @@ const Header = () => {
     <>
     <header >
       <nav >
-           <Link to='/'><img src={logo} alt='logo'/></Link>
+          <div className={styles.imgContainer}><Link to='/'><img src={logo} alt='logo'/></Link></div>
 
         <ul className={styles.navlinks}>
           <li> <Link to='quemSomos'> Quem somos </Link> </li>
