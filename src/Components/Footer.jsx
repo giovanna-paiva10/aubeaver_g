@@ -3,9 +3,17 @@ import styles from './Footer.module.css';
 
 const Footer = () => {
 
-    return <> 
-    <div className={styles.Footer}>Footer</div>
-    </>
+    return (
+     <> 
+        <footer>
+            <nav>
+                <ul>
+                   <li><a href=""></a></li>
+                </ul>
+            </nav>
+        </footer>
+     </>
+    )
 };
 
 export default Footer;

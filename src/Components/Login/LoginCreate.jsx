@@ -20,12 +20,11 @@ const LoginCreate = () => {
         console.log('cadastrado');
       }
 
-      
-    
-
 
     return (
         <>
+        <body>
+            
 <section>
 
 <div className={styles.content1}>
@@ -63,6 +62,7 @@ const LoginCreate = () => {
 
 </section>
 
+</body>
         </>
     )
 };

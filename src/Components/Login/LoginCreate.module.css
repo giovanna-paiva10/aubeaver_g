@@ -2,6 +2,11 @@
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
+  
+}
+
+body{
+  background: linear-gradient(to right, #517655, #B2CEB5);
 }
 
 input{
@@ -41,6 +46,7 @@ input{
     grid-template-columns: 2fr 2fr;
     margin-top: 5%;
     font-size: max(16px, 1.5vw);
+    
  }
   
   .content{
@@ -62,6 +68,7 @@ input{
     display: flexbox;
     position: relative;
     min-width: 275px;
+    margin-top: 14px;
   }
 
   .containerImg{
@@ -73,16 +80,23 @@ input{
   @media(max-width: 650px) {
     .containerImg {
       display: none;
-      margin-top: 600px;
-      margin-top: 60px;
     }
     .content1  {
       margin-left: 75px;
-      margin-top: 18px;
     }
     .containerImg{
       align-items: center;
     }
+}
+
+.elemento {
+  margin: 0;
+}
+
+@media (min-width: 600px) {
+  .containerImg {
+    margin: 80px;
+  }
 }
 
 

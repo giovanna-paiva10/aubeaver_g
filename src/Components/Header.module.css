@@ -13,9 +13,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  max-width: 1120px;
-  padding: 16px;
+  padding: 8px;
   margin: auto;
 }
 
@@ -25,8 +23,7 @@ li {
 
  .navlinks{
   display: flex;
-  gap: 12px;
-
+  gap: 2vw;
 } 
 
 .hamburguer {
@@ -47,11 +44,8 @@ a {
   color: inherit;
 }
 
-img {
-  padding: 0%;
-  margin: 0%;
-}
-
 .imgContainer{
   width: 50%;
+  min-width: 25px;
+  margin-left: 3vw;
 }

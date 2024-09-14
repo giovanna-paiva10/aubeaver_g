@@ -22,7 +22,7 @@ const Header = () => {
             <div className={styles.btn_line}></div>
             <div className={styles.btn_line}></div>
             <div className={styles.btn_line}></div>
-        </div></li>
+        </div> </li>
         </ul>
         
       </nav>
