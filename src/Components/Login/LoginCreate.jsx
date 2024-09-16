@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styles from './LoginCreate.module.css';
 import foto from '../../assets/rosto.svg';
 import { firestore } from '../../firebase';
-import { addCad, collection } from '@firebase/firestore'
+import { addDoc, collection } from '@firebase/firestore'
 
 
 const LoginCreate = () => {
@@ -35,7 +35,7 @@ const LoginCreate = () => {
 
       try {
 
-        addCad(ref, data);
+        addDoc(ref, data);
 
       } catch(e) {
         
