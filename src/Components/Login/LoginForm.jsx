@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link, Form } from 'react-router-dom';
+import { BrowserRouter, Link, Form, redirect } from 'react-router-dom';
 import Input from '../Forms/Input';
 import Select from '../Forms/Select';
 import styles from './LoginForm.module.css';
@@ -16,13 +16,12 @@ const LoginForm = () => {
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        console.log("entrou");
 
         try {
             
-            await signInWithEmailAndPassword(auth, email, password)
+            await signInWithEmailAndPassword(auth, email, password);
             console.log('Login feito com sucesso!');
-            //criar tela de logado
+            window.location.href = '/profile'
 
         } catch (err) {
 
@@ -45,7 +44,7 @@ const LoginForm = () => {
             <a><Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/></a>
             <p></p>
 
-               <center><button>Entrar</button></center>
+               <center><button type="submit" >Entrar</button></center>
             </form>
 
             <h4><Link to='/login/criar'>Cadastre-se</Link></h4>
