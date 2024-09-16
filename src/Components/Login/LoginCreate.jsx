@@ -33,13 +33,16 @@ const LoginCreate = () => {
         const user = auth.currentUser;
         console.log(user)
         
-        await addDoc(ref, {
-            nome: nome,
-            email: user.email,
-            username: username,
-            senha: password,
-            Tipo_de_cadastro: tipoPessoa,
-        });
+        if(user){
+            await addDoc(ref, {
+                nome: nome,
+                email: user.email,
+                username: username,
+                senha: password,
+                Tipo_de_cadastro: tipoPessoa,
+            });
+        }
+            
 
       } catch(e) {
         
