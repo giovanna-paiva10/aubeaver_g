@@ -5,14 +5,29 @@ const Footer = () => {
 
     return (
      <> 
+
         <footer>
             <nav>
-                <ul>
-                   <li><a href=""></a></li>
-                </ul>
-            </nav>
+       <ul className={styles.navLinks}>
+        <li>Termos</li>
+       </ul>
+       <ul className={styles.navLinks}>
+        <li>Contato</li>
+       </ul>
+       <ul className={styles.navLinks}>
+        <li>Feedbacks</li>
+       </ul>
+       <ul className={styles.navLinks}>
+        <li>Sociais</li>
+       </ul>
+    </nav>
         </footer>
      </>
+
+
+
+
+
     )
 };
 
