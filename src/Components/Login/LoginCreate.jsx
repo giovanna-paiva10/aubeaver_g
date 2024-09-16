@@ -17,7 +17,7 @@ const LoginCreate = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(messageRef.current.value);
+        console.log(nome, email, username, password );
       }
 
 
