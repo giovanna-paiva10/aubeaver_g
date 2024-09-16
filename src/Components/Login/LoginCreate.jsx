@@ -6,6 +6,9 @@ import styles from './LoginCreate.module.css';
 import foto from '../../assets/rosto.svg';
 import { firestore } from '../../firebase';
 import { addDoc, collection } from '@firebase/firestore'
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase';
+import { setDoc, doc } from 'firebase/firestore';
 
 
 const LoginCreate = () => {
@@ -24,18 +27,19 @@ const LoginCreate = () => {
         console.log(nome, email, username, password );
 
       
-
-      let data = {
-        nome: nome,
-        email: email,
-        username: username,
-        senha: password,
-        Tipo_de_cadastro: tipoPessoa,
-      }
-
       try {
 
-        addDoc(ref, data);
+        await createUserWithEmailAndPassword(auth, email, password);
+        const user = auth.currentUser;
+        console.log(user)
+        
+        await addDoc(ref, {
+            nome: nome,
+            email: user.email,
+            username: username,
+            senha: password,
+            Tipo_de_cadastro: tipoPessoa,
+        });
 
       } catch(e) {
         
