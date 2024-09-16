@@ -19,11 +19,11 @@ const LoginCreate = () => {
 
     const ref = collection(firestore,"Usuários")
 
-    function handleSubmit(event) {
-        event.preventDefault();
+    const handleSubmit = async(e) => {
+        e.preventDefault();
         console.log(nome, email, username, password );
 
-      }
+      
 
       let data = {
         nome: nome,
@@ -43,6 +43,9 @@ const LoginCreate = () => {
 
       }
 
+    }
+    
+
     return (
         <>
         <body>
@@ -57,7 +60,7 @@ const LoginCreate = () => {
         <h2>Cadastre-se</h2>
  <p></p>
  <p></p>
-<form action="" onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit}>
 
 
     <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa}/>
@@ -73,7 +76,7 @@ const LoginCreate = () => {
     <label className={styles.checkbox}> <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={ 
         function handleChange({ target }) {setTermos(target.checked)}} /> Li e aceito os termos. </label>
 <p></p>
-        <center><button>Cadastre-se</button></center>
+        <center><button type="submit">Cadastre-se</button></center>
 </form>
 
 
