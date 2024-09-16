@@ -4,6 +4,8 @@ import Select from '../Forms/Select';
 import { Link } from 'react-router-dom';
 import styles from './LoginCreate.module.css';
 import foto from '../../assets/rosto.svg';
+import { firestore } from '../../firebase';
+import { addCad, collection } from '@firebase/firestore'
 
 
 const LoginCreate = () => {
@@ -15,11 +17,31 @@ const LoginCreate = () => {
     const [password, setPassword] = React.useState('');
     const [termos, setTermos] = React.useState('');
 
+    const ref = collection(firestore,"Usuários")
+
     function handleSubmit(event) {
         event.preventDefault();
         console.log(nome, email, username, password );
+
       }
 
+      let data = {
+        nome: nome,
+        email: email,
+        username: username,
+        senha: password,
+        Tipo_de_cadastro: tipoPessoa,
+      }
+
+      try {
+
+        addCad(ref, data);
+
+      } catch(e) {
+        
+        console.log(e);
+
+      }
 
     return (
         <>
