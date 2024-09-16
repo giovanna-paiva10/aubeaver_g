@@ -22,6 +22,7 @@ const LoginForm = () => {
             
             await signInWithEmailAndPassword(auth, email, password)
             console.log('Login feito com sucesso!');
+            //criar tela de logado
 
         } catch (err) {
 
