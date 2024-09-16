@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import styles from './LoginCreate.module.css';
 import foto from '../../assets/rosto.svg';
 import { firestore } from '../../firebase';
-import { addDoc, collection } from '@firebase/firestore'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { setDoc, doc } from 'firebase/firestore';
@@ -20,12 +19,10 @@ const LoginCreate = () => {
     const [password, setPassword] = React.useState('');
     const [termos, setTermos] = React.useState('');
 
-    const ref = collection(firestore,"Usuários")
 
     const handleSubmit = async(e) => {
         e.preventDefault();
         console.log(nome, email, username, password );
-
       
       try {
 
@@ -34,13 +31,13 @@ const LoginCreate = () => {
         console.log(user)
         
         if(user){
-            await addDoc(ref, {
+            await setDoc(doc(firestore, "Usuários" , user.uid), {
                 nome: nome,
                 email: user.email,
                 username: username,
                 senha: password,
                 Tipo_de_cadastro: tipoPessoa,
-            });
+            })
         }
             
 
