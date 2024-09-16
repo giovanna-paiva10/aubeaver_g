@@ -5,6 +5,7 @@ import Select from '../Forms/Select';
 import styles from './LoginForm.module.css';
 import foto from '../../assets/rosto.svg';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase';
 
 
 const LoginForm = () => {
