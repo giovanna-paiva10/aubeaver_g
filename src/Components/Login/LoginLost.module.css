@@ -18,28 +18,17 @@ input{
   height: 16px;
 }
 
-h4{
-    text-decoration: underline;
-    color: rgb(54, 54, 54);
-}
-
-h5{
-  color: #517655;
-  text-align: end;
-  padding-right: 18px;
-}
-
 button {
     background-color: #517655;
     cursor: pointer;
     border-radius: 8px;
-    padding: 1%;
+    padding: 3%;
     width: 45%;
     color: #FFFFFF;
     border: none;
     font-weight: bold;
     margin: 6%;
-    font-size: max(12px, 1vw);
+    font-size: max(12px, 10%);
 }
 
 section{
@@ -47,7 +36,7 @@ section{
     grid-template-columns: 2fr 2fr;
     align-items: center;
     justify-content: center;
-    margin: 7%;
+    margin: 10%;
  }
 
  @media(max-width: 800px) {
@@ -70,7 +59,7 @@ section{
 .content1{
     background-color: #FFFFFF;
     width: 50%;
-    height: auto;
+    height: 15rem;
     align-items: center;
     justify-content: center;
     border-radius: 1rem;

@@ -30,6 +30,7 @@ const LoginForm = () => {
             <p></p>
             <a><Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/></a>
             <p></p>
+            <h5><Link to='/login/perdeu'>Esqueci a senha</Link></h5>
 
                <center><button>Entrar</button></center>
             </form>
