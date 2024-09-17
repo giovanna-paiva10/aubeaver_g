@@ -7,18 +7,26 @@ const Footer = () => {
      <> 
 
         <footer>
-            <nav>
+            <nav className={styles.navfot}>
        <ul className={styles.navLinks}>
-        <li>Termos</li>
+        <li>
+            <a href="/Termos">Termos</a>
+       </li>
        </ul>
        <ul className={styles.navLinks}>
-        <li>Contato</li>
+        <li>
+        <a href="/Contato">Contato</a>
+        </li>
        </ul>
        <ul className={styles.navLinks}>
-        <li>Feedbacks</li>
+        <li>
+        <a href="/Feedbacks">Feedbacks</a>
+       </li>
        </ul>
        <ul className={styles.navLinks}>
-        <li>Sociais</li>
+        <li>
+        <a href="/Sociais">Sociais</a>
+        </li>
        </ul>
     </nav>
         </footer>

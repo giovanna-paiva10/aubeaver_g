@@ -1,15 +1,18 @@
+/* Reset de padding e margin */
 * {
-  padding: 0%;
-  margin: 0%;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
+/* Estilos para o header */
 header {
   background-color: #7CA377;
   position: relative;
 }
 
-nav {
+/* Container de navegação */
+.navh {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,35 +20,71 @@ nav {
   margin: auto;
 }
 
+/* Estilos dos itens da lista */
 li {
   list-style-type: none;
 }
 
- .navlinks{
+/* Links de navegação */
+.navlinks {
   display: flex;
   gap: 2vw;
 } 
 
+/* Menu hamburger */
 .hamburguer {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 6px;
   margin-left: 20px;
+  cursor: pointer;
 }
 
-.btn_line{
+/* Linhas do menu hamburger */
+.btn_line {
   width: 24px;
   height: 3px;
   background-color: black;
 }
 
+/* Estilos dos links */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-.imgContainer{
+/* Container da imagem */
+.imgContainer {
   width: 50%;
   min-width: 25px;
   margin-left: 3vw;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .navlinks {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #7CA377; /* Mantém a cor de fundo do header */
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transições suaves */
+    transform: translateX(100%); /* Inicialmente fora da tela */
+    opacity: 0; /* Inicialmente invisível */
+  }
+
+  .navlinks.show {
+    display: flex;
+    transform: translateX(0); /* Menu visível, deslocado para a tela */
+    opacity: 1; /* Torna o menu visível */
+  }
+
+  .hamburguer {
+    display: flex;
+  }
 }
