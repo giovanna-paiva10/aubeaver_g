@@ -25,18 +25,36 @@ li {
   list-style-type: none;
 }
 
-/* Links de navegação */
-.navlinks {
+/* Links de navegação em telas grandes (fora do menu) */
+.navlinksLarge {
   display: flex;
-  gap: 2vw;
-} 
+  gap: 2vw; /* Mantém espaçamento entre os links */
+  margin-left: 20px; /* Afasta os links um pouco mais do menu hambúrguer */
+}
+
+/* Links de navegação dentro do menu hamburguer (para telas pequenas) */
+.navlinksMobile {
+  display: none; /* Escondido até o hambúrguer ser clicado */
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #ffffff;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(100%);
+  opacity: 0;
+}
 
 /* Menu hamburger */
 .hamburguer {
-  display: none;
+  display: flex; /* Sempre exibido */
   flex-direction: column;
   gap: 6px;
-  margin-left: 20px;
+  margin-right: 20px; /* Mantém o menu hambúrguer deslocado da borda direita */
   cursor: pointer;
 }
 
@@ -60,31 +78,22 @@ a {
   margin-left: 3vw;
 }
 
-/* Estilos responsivos */
+/* Menu de navegação aberto */
+.navlinksMobile.show {
+  display: flex;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Estilos responsivos aaa */
 @media (max-width: 768px) {
-  .navlinks {
+  /* Esconder os links fora do menu em telas pequenas */
+  .navlinksLarge {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #7CA377; /* Mantém a cor de fundo do header */
-    width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 8px;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Transições suaves */
-    transform: translateX(100%); /* Inicialmente fora da tela */
-    opacity: 0; /* Inicialmente invisível */
   }
 
-  .navlinks.show {
-    display: flex;
-    transform: translateX(0); /* Menu visível, deslocado para a tela */
-    opacity: 1; /* Torna o menu visível */
-  }
-
-  .hamburguer {
+  /* Mostrar os links dentro do menu hambúrguer em telas pequenas */
+  .navlinksMobile {
     display: flex;
   }
 }
