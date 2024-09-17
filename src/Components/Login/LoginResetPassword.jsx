@@ -3,6 +3,9 @@ import { BrowserRouter, Link, Form } from 'react-router-dom';
 import Input from '../Forms/Input';
 import styles from './LoginReset.module.css';
 import foto from '../../assets/rosto.svg';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { firestore } from '../../firebase';
+import firebase from 'firebase/compat/app';
 
 
 const LoginResetPassword = () => {
@@ -10,10 +13,12 @@ const LoginResetPassword = () => {
     const [key, setKey] = React.useState('');
 
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        console.log();
-      }
+    const handleSubmit = async(e) =>{
+        e.preventDefault();
+
+    }
+
+    
     
 
     return (
@@ -22,12 +27,12 @@ const LoginResetPassword = () => {
         <div className={styles.content1}>
 
         <div className={styles.content}>
-            <form>
+            <form onSubmit={handleSubmit}>
             <p>{key}</p>
             <p>{login}</p>
             <a><Input label="Nova senha" type="password" id="password" name="password"/></a>
             <p></p>
-               <center><button>Enviar</button></center>
+               <center><button type='submit'>Enviar</button></center>
             </form>
         </div>            
         </div>
