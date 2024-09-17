@@ -1,9 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Link, Form } from 'react-router-dom';
+import { BrowserRouter, Link, Form, redirect } from 'react-router-dom';
 import Input from '../Forms/Input';
 import Select from '../Forms/Select';
 import styles from './LoginForm.module.css';
 import foto from '../../assets/rosto.svg';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase';
 
 
 const LoginForm = () => {
@@ -12,10 +14,21 @@ const LoginForm = () => {
     const [tipoPessoa, setTipoPessoa] = React.useState('');
     const [termos, setTermos] = React.useState([]);
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        console.log();
-      }
+    const handleSubmit = async(e) =>{
+        e.preventDefault();
+
+        try {
+            
+            await signInWithEmailAndPassword(auth, email, password);
+            console.log('Login feito com sucesso!');
+            window.location.href = '/profile'
+
+        } catch (err) {
+
+            console.log(err)
+
+        }
+    }
     
 
     return (
@@ -32,7 +45,7 @@ const LoginForm = () => {
             <p></p>
             <h5><Link to='/login/perdeu'>Esqueci a senha</Link></h5>
 
-               <center><button>Entrar</button></center>
+               <center><button type="submit" >Entrar</button></center>
             </form>
 
             <h4><Link to='/login/criar'>Cadastre-se</Link></h4>

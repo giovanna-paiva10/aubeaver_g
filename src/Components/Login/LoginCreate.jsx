@@ -4,6 +4,10 @@ import Select from '../Forms/Select';
 import { Link } from 'react-router-dom';
 import styles from './LoginCreate.module.css';
 import foto from '../../assets/rosto.svg';
+import { firestore } from '../../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase';
+import { setDoc, doc } from 'firebase/firestore';
 
 
 const LoginCreate = () => {
@@ -15,11 +19,36 @@ const LoginCreate = () => {
     const [password, setPassword] = React.useState('');
     const [termos, setTermos] = React.useState('');
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        console.log('cadastrado');
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        console.log(nome, email, username, password );
+      
+      try {
+
+        await createUserWithEmailAndPassword(auth, email, password);
+        const user = auth.currentUser;
+        console.log(user)
+        
+        if(user){
+            await setDoc(doc(firestore, "Usuários" , user.uid), {
+                nome: nome,
+                email: user.email,
+                username: username,
+                senha: password,
+                Tipo_de_cadastro: tipoPessoa,
+            })
+        }
+            
+
+      } catch(e) {
+        
+        console.log(e);
+
       }
 
+    }
+    
 
     return (
         <>
@@ -35,7 +64,7 @@ const LoginCreate = () => {
         <h2>Cadastre-se</h2>
  <p></p>
  <p></p>
-<form action="" onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit}>
 
 
     <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa}/>
@@ -51,7 +80,7 @@ const LoginCreate = () => {
     <label className={styles.checkbox}> <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={ 
         function handleChange({ target }) {setTermos(target.checked)}} /> Li e aceito os termos. </label>
 <p></p>
-        <center><button>Cadastre-se</button></center>
+        <center><button type="submit">Cadastre-se</button></center>
 </form>
 
 

@@ -3,7 +3,7 @@
   "name": "teste",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,6 +13,9 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "express": "^4.21.0",
+    "firebase": "^10.13.1",
+    "firebase-admin": "^12.5.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -30,6 +33,18 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "gh-pages": "^6.1.1",
     "globals": "^15.9.0",
-    "vite": "^5.4.1"
-  }
+    "vite": "^5.4.5"
+  },
+  "main": "api.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giovanna-paiva10/aubeaver_g.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giovanna-paiva10/aubeaver_g/issues"
+  },
+  "description": ""
 }
