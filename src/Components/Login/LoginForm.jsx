@@ -6,6 +6,7 @@ import styles from './LoginForm.module.css';
 import foto from '../../assets/rosto.svg';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
+import App from '../../App';
 
 
 const LoginForm = () => {
@@ -21,7 +22,7 @@ const LoginForm = () => {
             
             await signInWithEmailAndPassword(auth, email, password);
             console.log('Login feito com sucesso!');
-            window.location.href = '/profile'
+            window.location.href = 'profile'
 
         } catch (err) {
 

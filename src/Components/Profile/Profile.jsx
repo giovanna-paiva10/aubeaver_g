@@ -11,7 +11,9 @@ const Profile = () => {
     return (
         <>
         <Routes> 
-            <Route path='/' element={<PerfilCriado/>}/>
+            <Route path='/' element={<Profile/>}/>
+            <Route path='/login/*' element={<PerfilCriado/>}/>
+
         </Routes>
         </>
     )

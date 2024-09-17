@@ -55,7 +55,7 @@ function PerfilCriado() {
             <a><Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/></a>
             <p></p>
 
-            <center><button type="submit" >Entrar</button></center>
+            <center><button type="submit" >Entraaaaaaaar</button></center>
             </form>
 
 
