@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '../Forms/Input';
 import Select from '../Forms/Select';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { firestore } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { setDoc, doc } from 'firebase/firestore';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 
 const LoginCreate = () => {
@@ -18,6 +19,14 @@ const LoginCreate = () => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [termos, setTermos] = React.useState('');
+
+    const[capVal,setcapVal] = useState(null)
+
+    const [ desabilitado, setDesabilitado] = useState(true)
+
+    useEffect(()=>{
+        (capVal && termos) ? setDesabilitado(false) : setDesabilitado(true)
+    }, [capVal, termos])
 
 
     const handleSubmit = async(e) => {
@@ -80,8 +89,13 @@ const LoginCreate = () => {
         <p></p>
     <label className={styles.checkbox}> <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={ 
         function handleChange({ target }) {setTermos(target.checked)}} /> Li e aceito os termos. </label>
-<p></p>
-        <center><button type="submit">Cadastre-se</button></center>
+        <p></p>
+        <ReCAPTCHA
+            sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
+            onChange={(val) => setcapVal(val)}
+        />      
+        <p></p>  
+        <center><button type="submit" disabled={desabilitado}>Cadastre-se</button></center>
 </form>
 
 
