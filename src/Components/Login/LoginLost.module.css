@@ -27,7 +27,7 @@ button {
     color: #FFFFFF;
     border: none;
     font-weight: bold;
-    margin: 6%;
+    margin: 2%;
     font-size: max(12px, 10%);
 }
 
@@ -58,8 +58,8 @@ section{
 
 .content1{
     background-color: #FFFFFF;
-    width: 50%;
-    height: 15rem;
+    width: auto;
+    height: auto;
     align-items: center;
     justify-content: center;
     border-radius: 1rem;

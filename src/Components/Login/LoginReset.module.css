@@ -58,8 +58,8 @@ section{
 
 .content1{
     background-color: #FFFFFF;
-    width: 50%;
-    height: 15rem;
+    width: auto;
+    height: auto;
     align-items: center;
     justify-content: center;
     border-radius: 1rem;

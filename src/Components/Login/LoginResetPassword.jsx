@@ -27,6 +27,10 @@ const LoginResetPassword = () => {
         <div className={styles.content1}>
 
         <div className={styles.content}>
+
+        <h2>Recuperar senha</h2>
+ <p></p>
+ <p></p>
             <form onSubmit={handleSubmit}>
             <p>{key}</p>
             <p>{login}</p>

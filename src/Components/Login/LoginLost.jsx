@@ -28,10 +28,16 @@ const LoginLostPassword = () => {
 
     return (
         <section> 
+
+    
         
         <div className={styles.content1}>
 
         <div className={styles.content}>
+
+        <h2>Recuperar senha</h2>
+ <p></p>
+ <p></p>
             <form onSubmit={(e)=>handleSubmit(e)}>
 
             <a><Input label="Email" type="email" id="email" value={email} setValue={setEmail}/></a>
