@@ -30,6 +30,7 @@ const Footer = () => {
        </ul>
     </nav>
         </footer>
+    
      </>
 
 

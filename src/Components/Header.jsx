@@ -33,6 +33,7 @@ const Header = () => {
           <Link to='/'><img src={logo} alt='logo' /></Link>
         </div>
         
+        
         {/* Links de navegação para "Quem somos" e "Doação" sempre visíveis em telas grandes */}
         <ul className={styles.navlinksLarge}>
           <li><Link to='quemSomos'>Quem somos</Link></li>
@@ -52,6 +53,7 @@ const Header = () => {
           <li><Link to='doacao'>Doação</Link></li>
           <li><Link to='login'>Criar / Entrar</Link></li> {/* Sempre dentro do menu */}
         </ul>
+        
       </nav>
     </header>
   );

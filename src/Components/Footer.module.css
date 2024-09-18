@@ -1,16 +1,16 @@
 .navfot{
-    display: flex;
+     display: flex;
      justify-content: space-between;
      align-items: center;
      padding: 8px;
      margin: auto;
-     width: 35%;
+     width: auto;
+     border: 5px;
      opacity: 45%;
-     
    }
+
    ul{
        display:inline;
-     
    }
    
    
@@ -21,15 +21,16 @@
    
    footer{
        background-color: #7ca474;
-       position: absolute;
+       position: fixed;
        bottom: 0;
-       width: 100%;
-       height: 2.5rem; 
+       width: 60%;
+       height: 2rem;
+       left: 20%; 
    }
    
    .navLinks{
        display: flex;
-       gap: 2vw;
+       gap: 2rem;
    }
    
    .tit {

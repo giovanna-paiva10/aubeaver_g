@@ -16,7 +16,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
+  padding: 7px;
   margin: auto;
 }
 
@@ -28,8 +28,8 @@ li {
 /* Links de navegação em telas grandes (fora do menu) */
 .navlinksLarge {
   display: flex;
-  gap: 2vw; /* Mantém espaçamento entre os links */
-  margin-left: 20px; /* Afasta os links um pouco mais do menu hambúrguer */
+  gap: 2.5rem; /* Mantém espaçamento entre os links */
+  margin-left: 2%;/* Afasta os links um pouco mais do menu hambúrguer */
 }
 
 /* Links de navegação dentro do menu hamburguer (para telas pequenas) */
@@ -73,9 +73,14 @@ a {
 
 /* Container da imagem */
 .imgContainer {
-  width: 50%;
-  min-width: 25px;
+  width: 40%;
   margin-left: 3vw;
+
+}
+
+img{
+  max-width: 100%;
+  min-width: 50px;
 }
 
 /* Menu de navegação aberto */
