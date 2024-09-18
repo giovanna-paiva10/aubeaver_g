@@ -19,7 +19,7 @@ const LoginLostPassword = () => {
         const emailVeri = e.target.email.value;
         await sendPasswordResetEmail(auth, emailVeri).then(data =>{
             alert("Confira sua caixa de entrada do email")
-            window.location.href = '/login/'
+            // window.location.href = '/login/'
         }).catch(error =>{
             console.log(error)
         })

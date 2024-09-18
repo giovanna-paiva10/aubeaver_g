@@ -41,7 +41,7 @@ const LoginForm = () => {
 
         <div className={styles.content}>
 
-        <h2>Cadastre-se</h2>
+        <h2>Entrar</h2>
  <p></p>
  <p></p>
             <form onSubmit={handleSubmit}>
