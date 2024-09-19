@@ -26,13 +26,17 @@ li {
   list-style-type: none;
 }
 
-/* Links de navegação em telas grandes (fora do menu) */
+/* Links de navegação visíveis em telas grandes */
 .navlinksLarge {
   display: flex;
   gap: 2.5rem; /* Mantém espaçamento entre os links */
+<<<<<<< HEAD
+=======
+  margin-left: 28vw; /* Movendo os links mais à direita */
+>>>>>>> f7a4d1851774fe9b1c01a7fa5c05c0967d3e45f6
 }
 
-/* Links de navegação dentro do menu hamburguer (para telas pequenas) */
+/* Links de navegação dentro do menu hambúrguer (para telas pequenas) */
 .navlinksMobile {
   display: none; /* Escondido até o hambúrguer ser clicado */
   flex-direction: column;
@@ -75,6 +79,10 @@ a {
 .imgContainer {
   width: 40%;
   margin-left: 3vw;
+}
+
+img {
+  max-width: 100%;
   min-width: 50px;
 }
 
@@ -85,11 +93,21 @@ a {
   opacity: 1;
 }
 
-/* Estilos responsivos aaa */
+/* Esconde links "Quem somos" e "Doação" no menu em telas grandes */
+.hideOnLarge {
+  display: none;
+}
+
+/* Estilos responsivos */
 @media (max-width: 768px) {
   /* Esconder os links fora do menu em telas pequenas */
   .navlinksLarge {
     display: none;
+  }
+
+  /* Mostrar os links "Quem somos" e "Doação" dentro do menu hambúrguer em telas pequenas */
+  .hideOnLarge {
+    display: block;
   }
 
   /* Mostrar os links dentro do menu hambúrguer em telas pequenas */
