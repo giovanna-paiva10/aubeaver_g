@@ -22,7 +22,7 @@ const Home = () =>{
         <div className={styles.content}>
 
         <div className={styles.content1}>
-            <div> <img src={garf} alt="garfield" /> 
+            <div> <img className={styles.imgg} src={garf} alt="garfield" /> 
             <div> 
             <h4>Doação de alimentos</h4>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h5>
@@ -30,7 +30,7 @@ const Home = () =>{
         </div>
 
         <div className={styles.content1}>
-            <div> <img src={garf} alt="garfield" /> 
+            <div> <img className={styles.imgg} src={garf} alt="garfield" /> 
             <div> 
             <h4>Doação de alimentos</h4>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h5>
@@ -38,7 +38,7 @@ const Home = () =>{
         </div>
 
         <div className={styles.content1}>
-            <div> <img src={garf} alt="garfield" /> 
+            <div> <img className={styles.imgg}src={garf} alt="garfield" /> 
             <div> 
             <h4>Doação de alimentos</h4>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h5>
@@ -46,7 +46,7 @@ const Home = () =>{
         </div>
 
         <div className={styles.content1}>
-            <div> <img src={garf} alt="garfield" /> 
+            <div> <img className={styles.imgg} src={garf} alt="garfield" /> 
             <div> 
             <h4>Doação de alimentos</h4>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h5>

@@ -71,7 +71,7 @@ const LoginForm = () => {
         </div>            
         </div>
 
-        <div className={styles.containerImg}> <img src={foto} alt="RostoMascote" /> </div>
+        <div className={styles.containerImg}> <img className={styles.imgg} src={foto} alt="RostoMascote" /> </div>
 
     
         </section>

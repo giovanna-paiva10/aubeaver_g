@@ -30,7 +30,6 @@ li {
 .navlinksLarge {
   display: flex;
   gap: 2.5rem; /* Mantém espaçamento entre os links */
-  margin-left: 2%;/* Afasta os links um pouco mais do menu hambúrguer */
 }
 
 /* Links de navegação dentro do menu hamburguer (para telas pequenas) */
@@ -76,11 +75,6 @@ a {
 .imgContainer {
   width: 40%;
   margin-left: 3vw;
-
-}
-
-img{
-  max-width: 100%;
   min-width: 50px;
 }
 

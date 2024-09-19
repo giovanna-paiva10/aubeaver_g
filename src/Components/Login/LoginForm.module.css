@@ -109,7 +109,7 @@ button {
 .containerImg{
     width: 50%;
     position: relative;
-    left: 20%;
+    border: 3%;
   }
 
 @media(max-width: 450px) {
@@ -134,7 +134,7 @@ button {
   text-align: justify;
 }
 
-img {
+.imgg {
     max-width: 100%;
-    min-width: 200px;
+    min-width: 200px; 
 }
