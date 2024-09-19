@@ -2,10 +2,12 @@
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
+
   }
 
-  body{
+  #borda{
     background: linear-gradient(to right, #517655, #B2CEB5);
+    padding: 1%;
   }
 
 input{
@@ -18,12 +20,12 @@ input{
   height: 16px;
 }
 
-h4{
+.estiloh4{
     text-decoration: underline;
     color: rgb(54, 54, 54);
 }
 
-h5{
+.estiloh5{
   color: #517655;
   text-align: end;
   padding-right: 18px;
@@ -42,12 +44,13 @@ button {
     font-size: max(12px, 1vw);
 }
 
-section{
+.gridsection{
     display: grid;
     grid-template-columns: 2fr 2fr;
     align-items: center;
     justify-content: center;
     margin: 10%;
+    background: linear-gradient(to right, #517655, #B2CEB5);
  }
 
  @media(max-width: 800px) {

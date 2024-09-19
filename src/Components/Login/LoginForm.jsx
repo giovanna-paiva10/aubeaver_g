@@ -7,6 +7,7 @@ import foto from '../../assets/rosto.svg';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { bool } from 'prop-types';
 
 
 const LoginForm = () => {
@@ -35,6 +36,9 @@ const LoginForm = () => {
     
 
     return (
+<body id={styles.borda}>
+    
+    
         <section> 
         
         <div className={styles.content1}>
@@ -50,7 +54,7 @@ const LoginForm = () => {
             <p></p>
             <a><Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/></a>
             <p></p>
-            <h5><Link to='/login/perdeu'>Esqueci a senha</Link></h5>
+            <h5 className={styles.estiloh5}><Link to='/login/perdeu'>Esqueci a senha</Link></h5>
             <p></p>
             <ReCAPTCHA
             sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
@@ -62,7 +66,7 @@ const LoginForm = () => {
                <center><button type="submit" disabled={!capVal}>Entrar</button></center>
             </form>
 
-            <h4><Link to='/login/criar'>Cadastre-se</Link></h4>
+            <h4 className={styles.estiloh4}><Link to='/login/criar'>Cadastre-se</Link></h4>
 
         </div>            
         </div>
@@ -71,6 +75,8 @@ const LoginForm = () => {
 
     
         </section>
+
+        </body>
     )
 };
 

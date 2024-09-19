@@ -2,11 +2,11 @@
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
-  
 }
 
-body{
+#borda{
   background: linear-gradient(to right, #517655, #B2CEB5);
+  padding: 1%;
 }
 
 input{
@@ -44,7 +44,6 @@ input{
  section{
     display: grid;
     grid-template-columns: 2fr 2fr;
-    
     font-size: max(16px, 1vw); 
  }
   
@@ -63,7 +62,6 @@ input{
     width: auto;
     height: 22rem;
     padding: 6px;
-  
     align-items: center;
     justify-content: center;
     border-radius: 1rem;
@@ -71,7 +69,6 @@ input{
     position: relative;
     min-width: 275px;
     margin-top: 14px;
-    
   }
 
   .containerImg{

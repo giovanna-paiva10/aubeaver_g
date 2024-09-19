@@ -1,0 +1,52 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+#borda{
+    padding: 3%;
+}
+
+.estiloh3{
+   color: #517655;
+   font-weight: bolder;
+   font-size: max(18px, 1.5vw)
+}
+
+.estiloh4{
+    color: #797979;
+    font-weight: bold;
+    font-size: max(12px, 1vw)
+}
+
+.container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    gap: 3rem;
+    display: flex;
+    position: relative;
+}
+
+.content1{
+    width: 14rem;
+    height: 20rem;
+    border-radius: 8px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    padding: 4px;
+}
+
+img{
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+h5 {
+    text-align: justify;
+}

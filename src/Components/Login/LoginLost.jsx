@@ -27,7 +27,10 @@ const LoginLostPassword = () => {
     }
 
     return (
-        <section> 
+
+<body id={styles.borda}>
+    
+        <section className={styles.gridsection}> 
 
     
         
@@ -56,6 +59,8 @@ const LoginLostPassword = () => {
 
     
         </section>
+
+</body>
     )
 };
 

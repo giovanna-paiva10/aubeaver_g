@@ -4,10 +4,11 @@
     box-sizing: border-box;
   }
 
-  body{
+ /* body{
     background: linear-gradient(to right, #517655, #B2CEB5);
   }
 
+  */
 input{
   display: flex;
   border: 1px solid #ccc;

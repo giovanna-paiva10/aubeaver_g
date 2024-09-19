@@ -5,7 +5,7 @@ const Footer = () => {
 
     return (
      <> 
-
+<div>
         <footer>
             <nav className={styles.navfot}>
        <ul className={styles.navLinks}>
@@ -30,13 +30,10 @@ const Footer = () => {
        </ul>
     </nav>
         </footer>
-    
+
+</div>
+
      </>
-
-
-
-
-
     )
 };
 

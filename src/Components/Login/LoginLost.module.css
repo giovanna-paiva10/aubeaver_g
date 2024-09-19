@@ -4,8 +4,9 @@
     box-sizing: border-box;
   }
 
-  body{
+  #borda{
     background: linear-gradient(to right, #517655, #B2CEB5);
+    padding: 1%;
   }
 
 input{

@@ -62,7 +62,8 @@ const LoginCreate = () => {
 
     return (
         <>
-        <body>
+<body id={styles.borda}>
+    
             
 <section>
 

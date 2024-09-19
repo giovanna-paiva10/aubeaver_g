@@ -9,6 +9,7 @@
 header {
   background-color: #7CA377;
   position: relative;
+  color: #E7E3E0;
 }
 
 /* Container de navegação */
@@ -62,7 +63,7 @@ li {
 .btn_line {
   width: 24px;
   height: 3px;
-  background-color: black;
+  background-color: #E7E3E0;
 }
 
 /* Estilos dos links */
