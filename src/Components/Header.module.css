@@ -29,11 +29,8 @@ li {
 /* Links de navegação visíveis em telas grandes */
 .navlinksLarge {
   display: flex;
-  gap: 2.5rem; /* Mantém espaçamento entre os links */
-<<<<<<< HEAD
-=======
-  margin-left: 28vw; /* Movendo os links mais à direita */
->>>>>>> f7a4d1851774fe9b1c01a7fa5c05c0967d3e45f6
+  gap: 2.5rem; 
+  margin-left: 28vw;
 }
 
 /* Links de navegação dentro do menu hambúrguer (para telas pequenas) */

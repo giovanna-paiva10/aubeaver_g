@@ -39,11 +39,13 @@ const LoginForm = () => {
 <body id={styles.borda}>
     
     
-        <section> 
-        
-        <div className={styles.content1}>
+        <section className={styles.conteiner}> 
 
-        <div className={styles.content}>
+
+<div className={styles.content}>
+    <div className={styles.content1}>
+
+        <div className={styles.content2}>
 
         <h2>Entrar</h2>
  <p></p>
@@ -67,16 +69,19 @@ const LoginForm = () => {
             </form>
 
             <h4 className={styles.estiloh4}><Link to='/login/criar'>Cadastre-se</Link></h4>
-
-        </div>            
         </div>
+    </div>
+        
 
-        <div className={styles.containerImg}> <img className={styles.imgg} src={foto} alt="RostoMascote" /> </div>
+    <div className={styles.containerImg}>
+            <img className={styles.imgg} src={foto} alt="RostoMascote" />
+    </div>
+</div>
 
-    
+
         </section>
 
-        </body>
+</body>
     )
 };
 
