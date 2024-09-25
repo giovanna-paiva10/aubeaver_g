@@ -7,14 +7,11 @@ import PerfilCriado from './PerfilCriado';
 
 const Profile = () => {
 
-
+    console.log("profile simples")
     return (
+        
         <>
-        <Routes> 
-            <Route path='/' element={<Profile/>}/>
-            <Route path='/login/*' element={<PerfilCriado/>}/>
-
-        </Routes>
+        
         </>
     )
 
