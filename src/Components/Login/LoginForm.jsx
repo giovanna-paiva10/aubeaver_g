@@ -35,7 +35,7 @@ const LoginForm = () => {
     }
     
 
-    return (
+    return ( <>
 <body id={styles.borda}>
     
     
@@ -43,7 +43,8 @@ const LoginForm = () => {
 
 
 <div className={styles.content}>
-    <div className={styles.content1}>
+
+<div className={styles.content1}>
 
         <div className={styles.content2}>
 
@@ -70,18 +71,17 @@ const LoginForm = () => {
 
             <h4 className={styles.estiloh4}><Link to='/login/criar'>Cadastre-se</Link></h4>
         </div>
-    </div>
-        
+</div>
+    
+     <img className={styles.imgg} src={foto} alt="RostoMascote" />
 
-    <div className={styles.containerImg}>
-            <img className={styles.imgg} src={foto} alt="RostoMascote" />
-    </div>
 </div>
 
 
         </section>
 
 </body>
+</>
     )
 };
 

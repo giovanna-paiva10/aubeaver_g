@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Link, Form } from 'react-router-dom';
 import Input from '../Forms/Input'; 
-import styles from './LoginLost.module.css';
+import styles from './LoginForm.module.css';
 import foto from '../../assets/rosto.svg';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../firebase';
@@ -30,13 +30,13 @@ const LoginLostPassword = () => {
 
 <body id={styles.borda}>
     
-        <section className={styles.gridsection}> 
+        <section className={styles.container}> 
 
     
-        
-        <div className={styles.content1}>
+    <div className={styles.content}>
 
-        <div className={styles.content}>
+        <div className={styles.content1}>
+        <div className={styles.content2}>
 
         <h2>Recuperar senha</h2>
  <p></p>
@@ -55,9 +55,9 @@ const LoginLostPassword = () => {
         </div>            
         </div>
 
-        <div className={styles.containerImg}> <img src={foto} alt="RostoMascote" /> </div>
+        <img className={styles.imgg} src={foto} alt="RostoMascote" />
 
-    
+        </div>  
         </section>
 
 </body>

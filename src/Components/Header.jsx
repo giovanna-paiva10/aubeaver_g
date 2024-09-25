@@ -30,7 +30,7 @@ const Header = () => {
     <header>
       <nav className={styles.navh}>
         <div className={styles.imgContainer}>
-          <Link to='/'><img src={logo} alt='logo' /></Link>
+          <Link to='/aubeaver_g/login'><img src={logo} alt='logo' /></Link>
         </div>
 
         {/* Links de navegação para "Quem somos" e "Doação" sempre visíveis em telas grandes */}

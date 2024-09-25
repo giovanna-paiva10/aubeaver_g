@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Input from '../Forms/Input';
 import Select from '../Forms/Select';
 import { Link } from 'react-router-dom';
-import styles from './LoginCreate.module.css';
+import styles from './LoginForm.module.css';
 import foto from '../../assets/rosto.svg';
 import { firestore } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -62,15 +62,15 @@ const LoginCreate = () => {
 
     return (
         <>
-<body id={styles.borda}>
-    
-            
-<section>
+<body id={styles.borda}> 
 
-<div className={styles.content1}>
+<section className={styles.container}>
 
 
 <div className={styles.content}>
+
+<div className={styles.content1}>
+    <div className={styles.content2}>
 
         <h2>Cadastre-se</h2>
  <p></p>
@@ -99,11 +99,13 @@ const LoginCreate = () => {
         <center><button type="submit" disabled={desabilitado}>Cadastre-se</button></center>
 </form>
 
-
 </div>
 </div>
 
-<div className={styles.containerImg}><img  src={foto} alt="RostoMascote" /></div>
+    <img className={styles.imgg} src={foto} alt="RostoMascote" />
+
+</div>
+
 
 </section>
 

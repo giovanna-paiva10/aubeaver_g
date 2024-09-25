@@ -26,32 +26,28 @@ const Home = () =>{
             <div> 
             <h4>Doação de alimentos</h4>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h5>
-        </div></div>
-        </div>
+        </div></div></div>
 
         <div className={styles.content1}>
             <div> <img className={styles.imgg} src={garf} alt="garfield" /> 
             <div> 
             <h4>Doação de alimentos</h4>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h5>
-        </div></div>
-        </div>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel </h5>
+        </div></div></div>
 
         <div className={styles.content1}>
             <div> <img className={styles.imgg}src={garf} alt="garfield" /> 
             <div> 
             <h4>Doação de alimentos</h4>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h5>
-        </div></div>
-        </div>
+        </div></div></div>
 
         <div className={styles.content1}>
             <div> <img className={styles.imgg} src={garf} alt="garfield" /> 
             <div> 
             <h4>Doação de alimentos</h4>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h5>
-        </div></div>
-        </div>
+        </div></div></div>
 
 
  </div>
