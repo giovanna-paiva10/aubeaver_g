@@ -1,13 +1,14 @@
   #borda{
     background: linear-gradient(to right, #517655, #B2CEB5);
     padding: 1%;
+    width: 100%;
   }
 
 section{
   align-items: center;
   justify-content: center;
   display: flex;
-  margin: 8%;
+  margin: 25%;
 }
 
 .conteiner{

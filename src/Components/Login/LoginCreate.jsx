@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createElement } from 'react';
 import Input from '../Forms/Input';
 import Select from '../Forms/Select';
 import { Link } from 'react-router-dom';
@@ -29,6 +29,9 @@ const LoginCreate = () => {
     }, [capVal, termos])
 
 
+    } //<Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
+
+
     const handleSubmit = async(e) => {
         e.preventDefault();
         console.log(nome, email, username, password );
@@ -37,7 +40,7 @@ const LoginCreate = () => {
 
         await createUserWithEmailAndPassword(auth, email, password);
         const user = auth.currentUser;
-        // window.location.href = '/login/'
+        window.location.href = '/login/'
         console.log(user)
         
         if(user){
@@ -78,7 +81,7 @@ const LoginCreate = () => {
 <form onSubmit={handleSubmit}>
 
 
-    <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa}/>
+    <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa} />
         <p></p>
     <Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
         <p></p>
@@ -112,6 +115,5 @@ const LoginCreate = () => {
 </body>
         </>
     )
-};
 
 export default LoginCreate;

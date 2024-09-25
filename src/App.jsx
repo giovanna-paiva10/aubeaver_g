@@ -4,7 +4,7 @@ import './App.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Home from './Components/Home';
-import Login from './Components/Login/Login'
+import Login from './Components/Login/Login';
 import Profile from './Components/Profile/Profile';
 import { auth } from './firebase.js';
 
@@ -23,9 +23,9 @@ const App = () => {
     <Header />
 
       <Routes>
-        <Route path='/aubeaver_g/login' element={<Home/>}/>
+        <Route path='/' element={<Home/>}/>
         <Route path='/login/*' element={<Login/>}/>
-        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/profile/*' element={<Profile/>}/>
       </Routes>
 
     <Footer />

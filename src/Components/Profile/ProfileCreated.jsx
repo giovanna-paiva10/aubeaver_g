@@ -1,9 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import { BrowserRouter, Link, Form, redirect } from 'react-router-dom';
-import styles from '../Login/LoginForm.module.css';
-import foto from '../../assets/rosto.svg';
-import { auth, firestore } from '../../firebase';
-import { getDoc, doc } from 'firebase/firestore';
+import React from 'react';
+
+/*o codigo antigo era:
 
 
 function PerfilCriado() {
@@ -76,18 +73,16 @@ function PerfilCriado() {
                     ) : (
                         <p>Carregando</p>
                     )}
+*/
+const ProfileCreated = () => {
 
 
-            </form> */}
-
-        </div>            
-        </div>
-
-        <div className={styles.containerImg}> <img src={foto} alt="RostoMascote" /> </div>
-
-    
-        </section>
+    return (
+          <>
+          <label>Oi</label>
+            <input type='text'></input>
+          </>
     )
 };
 
-export default PerfilCriado;
+export default ProfileCreated;

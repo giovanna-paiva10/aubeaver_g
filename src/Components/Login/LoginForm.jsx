@@ -25,7 +25,10 @@ const LoginForm = () => {
             
             await signInWithEmailAndPassword(auth, email, password);
             console.log('Login feito com sucesso!');
-            // window.location.href = 'profile'
+
+            window.location.href = '/profile/perfilcriado'
+
+            window.location.href = './profile/'
 
         } catch (err) {
 
@@ -70,6 +73,8 @@ const LoginForm = () => {
             </form>
 
             <h4 className={styles.estiloh4}><Link to='/login/criar'>Cadastre-se</Link></h4>
+
+        
         </div>
 </div>
     
