@@ -1,36 +1,70 @@
+/* Footer general styles */
 .footer {
-    background-color: #7ca474;
-    width: 100%;
-    height: 2,1rem;
-    justify-content: center;
+    background-color: #3B3B3B; /* Dark gray background for the main footer */
+    color: #E7E3E0;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    position: relative;
-    bottom: 0;
+    justify-content: space-between;
 }
 
-.navfot {
+.container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    opacity: 45%;
     width: 100%;
+    max-width: 1200px;
+    padding: 1rem 0;
 }
 
-ul {
-    display: inline;
-}
-
-li {
-    list-style-type: none;
-}
-
-.navLinks {
+.navSections {
     display: flex;
-    gap: 2rem;
-    color: #E7E3E0;
+    gap: 5rem;
 }
 
-.tit {
-    color: white;
+.section h4 {
+    margin-bottom: 0.5rem;
+}
+
+.section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.section ul li a {
+    color: #E7E3E0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.section ul li a:hover {
+    color: #7ca474; /* Light green hover effect */
+}
+
+.logoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* Footer bottom section */
+.footerBottom {
+    background-color: #2B2B2B; /* Darker gray background for the copyright area */
+    padding: 1rem 0;
+    margin-top: 1rem;
+    text-align: center;
+    width: 103%;
+    color: #E7E3E0;
+    font-size: 0.875rem;
 }
