@@ -25,7 +25,10 @@ const LoginForm = () => {
             
             await signInWithEmailAndPassword(auth, email, password);
             console.log('Login feito com sucesso!');
+
             window.location.href = '/profile/perfilcriado'
+
+            window.location.href = './profile/'
 
         } catch (err) {
 
