@@ -6,7 +6,6 @@ import ProfileCreated from './ProfileCreated';
 const Profile = () => {
 
     return (
-        
         <>
 
             <Routes>
@@ -14,7 +13,6 @@ const Profile = () => {
                 <Route path='perfilcriado' element={<ProfileCreated/>}/>
             </Routes>
 
-        
         </>
     )
 };

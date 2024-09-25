@@ -29,7 +29,7 @@ const LoginCreate = () => {
     }, [capVal, termos])
 
 
-    } //<Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
+    
 
 
     const handleSubmit = async(e) => {
@@ -64,56 +64,56 @@ const LoginCreate = () => {
     
 
     return (
-        <>
-<body id={styles.borda}> 
+            <>
+        <body id={styles.borda}> 
 
-<section className={styles.container}>
-
-
-<div className={styles.content}>
-
-<div className={styles.content1}>
-    <div className={styles.content2}>
-
-        <h2>Cadastre-se</h2>
- <p></p>
- <p></p>
-<form onSubmit={handleSubmit}>
+        <section className={styles.container}>
 
 
-    <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa} />
+        <div className={styles.content}>
+
+        <div className={styles.content1}>
+            <div className={styles.content2}>
+
+                <h2>Cadastre-se</h2>
         <p></p>
-    <Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
         <p></p>
-    <Input label="Email" type="email" id="email" value={email} setValue={setEmail}/>
-        <p></p>
-    <Input label="Username" type="username" id="usename" value={username} setValue={setUsername}/>
-        <p></p>
-    <Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/>
-        <p></p>
-    <label className={styles.checkbox}> <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={ 
-        function handleChange({ target }) {setTermos(target.checked)}} /> Li e aceito os termos. </label>
-        <p></p>
-        <ReCAPTCHA
-            sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
-            onChange={(val) => setcapVal(val)}
-        />      
-        <p></p>  
-        <center><button type="submit" disabled={desabilitado}>Cadastre-se</button></center>
-</form>
-
-</div>
-</div>
-
-    <img className={styles.imgg} src={foto} alt="RostoMascote" />
-
-</div>
+        <form onSubmit={handleSubmit}>
 
 
-</section>
+        <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa} />
+            <p></p>
+        <Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
+            <p></p>
+        <Input label="Email" type="email" id="email" value={email} setValue={setEmail}/>
+            <p></p>
+        <Input label="Username" type="username" id="usename" value={username} setValue={setUsername}/>
+            <p></p>
+        <Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/>
+            <p></p>
+        <label className={styles.checkbox}> <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={ 
+            function handleChange({ target }) {setTermos(target.checked)}} /> Li e aceito os termos. </label>
+            <p></p>
+            <ReCAPTCHA
+                sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
+                onChange={(val) => setcapVal(val)}
+            />      
+            <p></p>  
+            <center><button type="submit" disabled={desabilitado}>Cadastre-se</button></center>
+        </form>
 
-</body>
-        </>
+        </div>
+        </div>
+
+            <img className={styles.imgg} src={foto} alt="RostoMascote" />
+
+        </div>
+
+
+        </section>
+
+        </body>
+            </> 
     )
-
+};
 export default LoginCreate;
