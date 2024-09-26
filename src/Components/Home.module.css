@@ -6,13 +6,15 @@
 .estiloh3{
    color: #517655;
    font-weight: bolder;
-   font-size: max(18px, 1.5vw)
+   font-size: max(18px, 1.5vw);
+   margin-bottom: 18px;
 }
 
 .estiloh4{
     color: #797979;
     font-weight: bold;
-    font-size: max(12px, 1vw)
+    font-size: max(12px, 1vw);
+    margin-bottom: 24px;
 }
 
 h5 {
@@ -21,7 +23,6 @@ h5 {
 
 .container{
   display: flex;
-  flex: auto;
 }
 
 .content{
@@ -44,4 +45,37 @@ h5 {
     border-top-right-radius: 12px;
     width: clamp(50px, 100%, 300px);
     margin: auto;
+}
+
+.contentt{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.qualquer {
+    gap: 4rem;
+    display: flex; 
+    justify-content: space-between;
+    text-align: justify;
+}
+
+.imggg{
+    border-radius: 16px;
+    display: flex;
+    width: 40vw;
+}
+
+.texto{
+    width: 60%;
+    margin: 16px 16px 16px 16px;
+}
+
+.espaco {
+    margin: 32px;
+}
+
+.banner {
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
