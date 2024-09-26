@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './Footer.module.css';
 import logo from '../assets/rosto.svg'; // Assuming rosto.svg is the logo image
+import iconTik from '../assets/iconTik.svg';
+import iconInsta from '../assets/iconInsta.svg';
+import iconFace2 from '../assets/iconFace2.svg';
 
 const Footer = () => {
     return (
@@ -26,6 +29,13 @@ const Footer = () => {
                         </ul>
                     </div>
                 </nav>
+
+                
+                <div className={styles.redesContainer}>
+                    <img src={iconTik} alt="Icon Tiktok" className={styles.redes} />
+                    <img src={iconFace2} alt="Icon Facebook" className={styles.redes} />
+                    <img src={iconInsta} alt="Icon Tiktok" className={styles.redes} />
+                </div>
                 <div className={styles.logoContainer}>
                     <img src={logo} alt="Beaver logo" className={styles.logo} />
                 </div>

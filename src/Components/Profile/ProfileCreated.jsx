@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { auth, firestore } from '../../firebase';
+import { getDoc, doc } from 'firebase/firestore'
 
-/*o codigo antigo era:
-
-
-function PerfilCriado() {
+const ProfileCreated = () => {
     const [userDetails, setUserDetails] = useState(null);
     const fetchUserData = async() => {
         auth.onAuthStateChanged(async(user)=>{
             console.log(user)
             const docRef = doc(firestore, "Usuários", user.uid)
-            const docSnap = getDoc(docRef)
+            const docSnap = await getDoc(docRef)
 
             if(docSnap.exists()){
                 setUserDetails(docSnap.data())
@@ -39,24 +38,9 @@ function PerfilCriado() {
     }
 
     return (
-        <section> 
         
-        <div className={styles.content1}>
 
-        <div className={styles.content}>
-            
-            <form onSubmit={handleSubmit}>
-
-            <a><Input label="Email" type="email" id="email" value={email} setValue={setEmail}/></a>
-            <p></p>
-            <a><Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/></a>
-            <p></p>
-
-            <center><button type="submit" >Entraaaaaaaar</button></center>
-            </form>
-
-
-            {/* <form>
+            <form>
                 {userDetails ? (
 
                     <>
@@ -72,16 +56,11 @@ function PerfilCriado() {
                     </>
                     ) : (
                         <p>Carregando</p>
-                    )}
-*/
-const ProfileCreated = () => {
-
-
-    return (
-          <>
-          <label>Oi</label>
-            <input type='text'></input>
-          </>
+                    )
+                }
+            </form>
+            
+            
     )
 };
 

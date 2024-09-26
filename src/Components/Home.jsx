@@ -3,6 +3,11 @@ import styles from './Home.module.css';
 import garf from '..//assets/garfield.png';
 import banner from '../assets/bannerjin.png';
 import fotoo from '../assets/fotoo.png';
+import aguag from '..//assets/garrafasAgua.svg';
+import receb from '..//assets/doacaoRecebendo.svg';
+import maos from '..//assets/maosDadas.svg';
+import caixas from '..//assets/caixasMulher.svg';
+
 
 const Home = () =>{
     
