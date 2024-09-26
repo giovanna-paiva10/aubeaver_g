@@ -27,8 +27,7 @@ const LoginForm = () => {
             console.log('Login feito com sucesso!');
 
             window.location.href = '/profile/perfilcriado'
-
-            window.location.href = './profile/'
+    
 
         } catch (err) {
 
