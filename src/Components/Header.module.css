@@ -1,10 +1,3 @@
-/* Reset de padding e margin */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 /* Estilos para o header */
 header {
   background-color: #7CA377;
@@ -29,8 +22,13 @@ li {
 /* Links de navegação visíveis em telas grandes */
 .navlinksLarge {
   display: flex;
-  gap: 2.5rem; 
-  margin-left: 28vw;
+  justify-content: space-between; /* Espaça uniformemente os links */
+  align-items: center;
+  gap: 2rem; /* Espaçamento entre os links */
+  margin-left: auto;
+  margin-right: 2vw;
+  font-size: 0.9rem; /* Tamanho da fonte reduzido */
+  white-space: nowrap; /* Impede quebra de linha */
 }
 
 /* Links de navegação dentro do menu hambúrguer (para telas pequenas) */
@@ -41,13 +39,21 @@ li {
   top: 60px;
   right: 20px;
   background-color: #ffffff;
-  width: 200px;
+  width: 200px; /* Voltando ao tamanho maior para o menu */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  padding: 20px; /* Voltando o padding para o valor anterior */
   border-radius: 8px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform: translateX(100%);
   opacity: 0;
+  font-size: 1rem; /* Voltando o tamanho da fonte para o valor original */
+}
+
+/* Ajuste para evitar quebra de linha no "Quem somos" */
+.navlinksMobile li {
+  white-space: nowrap; /* Impede quebra de linha */
+  text-align: left;
+  margin-left: 0; /* Removendo o deslocamento à esquerda */
 }
 
 /* Menu hamburger */
@@ -55,7 +61,7 @@ li {
   display: flex; /* Sempre exibido */
   flex-direction: column;
   gap: 6px;
-  margin-right: 20px; /* Mantém o menu hambúrguer deslocado da borda direita */
+  margin-right: 30px; /* Mantém o menu hambúrguer deslocado da borda direita */
   cursor: pointer;
 }
 
@@ -102,13 +108,15 @@ img {
     display: none;
   }
 
-  /* Mostrar os links "Quem somos" e "Doação" dentro do menu hambúrguer em telas pequenas */
-  .hideOnLarge {
-    display: block;
-  }
-
   /* Mostrar os links dentro do menu hambúrguer em telas pequenas */
   .navlinksMobile {
-    display: flex;
+    display: inline-block;
+  }
+  
+  /* Ajuste adicional para telas muito pequenas (como 320px) */
+  @media (max-width: 400px) {
+    .navlinksMobile {
+      width: 220px; /* Ajusta a largura do menu em telas muito pequenas */
+    }
   }
 }
