@@ -28,30 +28,48 @@ const LoginCreate = () => {
         (capVal && termos) ? setDesabilitado(false) : setDesabilitado(true)
     }, [capVal, termos])
 
-    function opcaoTipoPessoa() {
+    // function opcaoTipoPessoa() {
 
-        var valref = 0;
+    //     var valref = 0;
 
-        if(tipoPessoa == 0){
-            valref = 1;
-        } else if(tipoPessoa == 1) {
-            valref = 2;
-        }else {
-            valref = 0; //pra nn aparecer o campo
-        }
-        var cnpjoto = valref.value //get the value
+    //     if(tipoPessoa == 0){
+    //         valref = 1;
+    //     } else if(tipoPessoa == 1) {
+    //         valref = 2;
+    //     }else {
+    //         valref = 0; //pra nn aparecer o campo
+    //     }
+    //     var cnpjoto = valref.value //get the value
+    //     var cnpjoucpf = document.querySelector('#results') //append results
+    //     cnpjoucpf.innerHTML = '' //clear the results on each update
+    //     for (var i = 1; i <= cnpjoto; i++) {
+    //       var input = document.createElement('input') 
+    //       input.label.innerText = 'CNPJ'
+    //       input.type = "text";
+    //       input.placeholder = "teste"; //add a placeholder
+    //       cnpjoucpf.appendChild(label); //append label
+    //       cnpjoucpf.appendChild(document.createElement("br"));
+    //       cnpjoucpf.appendChild(input); //append input
+    //       cnpjoucpf.appendChild(document.createElement("br"));
+    //     }//<Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
+    //   }
+
+    function updateItems(_this) {
+        var ItemCount = +_this.value //get the value
         var results = document.querySelector('#results') //append results
         results.innerHTML = '' //clear the results on each update
-        for (var i = 1; i <= cnpjoto; i++) {
-          var input = document.createElement('input') 
-          input.label.innerText = 'CNPJ'
+        for (var i = 1; i <= ItemCount; i++) {
+          var input = document.createElement('input') //create input
+          var label = document.createElement("label"); //create label
+          label.innerText = 'Input ' + i
           input.type = "text";
-          input.placeholder = "teste"; //add a placeholder
+          input.placeholder = "Type text here"; //add a placeholder
+          input.className = "my-inputs"; // set the CSS class
           results.appendChild(label); //append label
           results.appendChild(document.createElement("br"));
           results.appendChild(input); //append input
           results.appendChild(document.createElement("br"));
-        }//<Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
+        }
       }
      
 
@@ -105,8 +123,9 @@ const LoginCreate = () => {
 <form onSubmit={handleSubmit}>
 
 
-    <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa} onChange={opcaoTipoPessoa()}/>
+    <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa} />
         <p></p>
+    <div id="cnpjoucpf"></div> 
     <Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
         <p></p>
     <Input label="Email" type="email" id="email" value={email} setValue={setEmail}/>
@@ -125,6 +144,9 @@ const LoginCreate = () => {
         <option value="6">6</option>
         <option value="7">7</option>
     </select>
+        <p></p>
+    <div id="results"></div> 
+    <p></p>  
     <label className={styles.checkbox}> <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={ 
         function handleChange({ target }) {setTermos(target.checked)}} /> Li e aceito os termos. </label>
         <p></p>
