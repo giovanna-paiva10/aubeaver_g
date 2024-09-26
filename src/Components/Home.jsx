@@ -1,6 +1,10 @@
 import React from 'react';
 import styles from './Home.module.css';
 import garf from '..//assets/garfield.png';
+import aguag from '..//assets/garrafasAgua.svg';
+import receb from '..//assets/doacaoRecebendo.svg';
+import maos from '..//assets/maosDadas.svg';
+import caixas from '..//assets/caixasMulher.svg';
 
 const Home = () =>{
     
