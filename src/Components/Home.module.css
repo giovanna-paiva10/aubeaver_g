@@ -1,6 +1,8 @@
 #borda{
     padding: 3%;
     width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 .estiloh3{
@@ -26,49 +28,50 @@ h5 {
 }
 
 .content{
-    gap: 2rem;
+    gap: 3rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .content1{
-    width: 20vw;
+    display: flex;
+    flex-basis: 20vw;
+    min-width: 200px;
     border-radius: 8px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     padding: 4px;
-    display: flex;
 }
 
 .imgg{
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    width: clamp(50px, 100%, 300px);
+    width: clamp(100px, 100%, 400px);
     margin: auto;
 }
 
 .contentt{
-    display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .qualquer {
     gap: 4rem;
     display: flex; 
-    justify-content: space-between;
     text-align: justify;
 }
 
 .imggg{
     border-radius: 16px;
     display: flex;
-    width: 40vw;
+    width: 30vw;
 }
+
+@media(max-width: 600px) {
+  }
 
 .texto{
     width: 60%;
-    margin: 16px 16px 16px 16px;
+    margin: 4px
 }
 
 .espaco {
@@ -78,4 +81,14 @@ h5 {
 .banner {
     margin-bottom: 8px;
     margin-top: 8px;
+}
+
+.contenttext{
+    color: #B296AD;
+    margin: 4px;
+}
+
+.contenttitle{
+    color: #755071;
+    margin: 4px;
 }

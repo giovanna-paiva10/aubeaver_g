@@ -31,8 +31,8 @@ const Home = () =>{
                 <div className={styles.content1}>
                     <div> <img className={styles.imgg} src={garf} alt="garfield" /> 
                     <div> 
-                    <h4>Doação de alimentos</h4>
-                    <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h5>
+                    <h3 className={styles.contenttitle}>Doação de alimentos</h3>
+                    <h4 className={styles.contenttext}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h4>
                 </div></div></div>
 
                 <div className={styles.content1}>
@@ -64,7 +64,7 @@ const Home = () =>{
         <h3 className={styles.estiloh3}>QUEM SOMOS</h3>
         <img className={styles.banner} src={banner} alt="bannerjin" />
 
-            <p></p>
+            <p className={styles.espaco}></p>
 
     <div className={styles.container}>
 
