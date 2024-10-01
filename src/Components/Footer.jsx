@@ -15,8 +15,8 @@ const Footer = () => {
                         <ul>
                             <li><a href="#">Sobre a Ong</a></li>
                             <li><a href="#">Importância da doação</a></li>
+                            <li><a href="#">Parceiros</a></li>
                             <li><a href="#">Termos de uso</a></li>
-                            <li><a href="#">Conscientização</a></li>
                         </ul>
                     </div>
                     <div className={styles.section}>
