@@ -55,7 +55,8 @@ const LoginCreate = () => {
                 email: user.email,
                 username: username,
                 senha: password,
-                Tipo_de_cadastro: tipoPessoa,
+                Tipo_de_identificador: tipoPessoa,
+                Identificador: identificador,
             })
         }
             
@@ -88,23 +89,22 @@ const LoginCreate = () => {
 
 
     <select label="Entrar como" onChange={handleChange}>
-        <option value="" disabled selected>Selecione o tipo de pessoa</option>
+        <option value="" disabled selected>Entrar como</option>
         <option value="fisica">Pessoa Física</option>
         <option value="juridica">Pessoa Jurídica</option>
     </select>
         <p></p>
     <div id="results">
-                {/* Renderiza um campo de acordo com o tipo de pessoa selecionado */}
-                {tipoPessoa === 'fisica' && (
-                    <div>
-                        <Input label="CPF" type="CPF" id="identunic" value={identificador} setValue={setNome}/>
-                    </div>
-                )}
-                {tipoPessoa === 'juridica' && (
-                    <div>
-                        <Input label="CNPJ" type="CNPJ" id="identunic" value={identificador} setValue={setNome}/>
-                    </div>
-                )}
+        {tipoPessoa === 'fisica' && (
+            <div>
+                <Input label="CPF" type="CPF" id="identunic" value={identificador} setValue={setIdentificador}/>
+            </div>
+        )}
+        {tipoPessoa === 'juridica' && (
+            <div>
+                <Input label="CNPJ" type="CNPJ" id="identunic" value={identificador} setValue={setIdentificador}/>
+            </div>
+        )}
     </div> 
     <p></p>
     <Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
