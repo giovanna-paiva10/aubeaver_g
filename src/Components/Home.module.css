@@ -53,6 +53,10 @@ h5 {
     width: clamp(100px, 100%, 400px);
     margin: auto;
 }
+.sditem{
+ width: 100%;
+ height: 250px;
+}
 
 .contentt{
     flex-wrap: wrap;

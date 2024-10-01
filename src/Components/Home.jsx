@@ -8,9 +8,20 @@ import receb from '..//assets/doacaoRecebendo.svg';
 import maos from '..//assets/maosDadas.svg';
 import caixas from '..//assets/caixasMulher.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { register } from 'swiper/element/bundle'
+register();
+import 'swiper/css'
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+
 
 const Home = () =>{
-    
+    const data = [
+    { id: '1', image: maos },
+    { id: '2', image: aguag },      
+    ]
 
     return (
         <>
@@ -18,13 +29,29 @@ const Home = () =>{
     
         <div className={styles.contslider}>
         <h3 className={styles.estiloh3}>QUEM SOMOS</h3>
-        <Swiper>
-            <SwiperSlide>
-                
+        <Swiper
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          navigation
+        >
+               {data.map( (item) => (
+                <SwiperSlide key={item.id}>
+               <img
+               src={item.image}
+               alt="Slider"
+               className={styles.sditem}
+            
+            />
+               
+   
+        
+     
             </SwiperSlide>
+          ))}   
         </Swiper>
         </div>
 
+               
 <p></p>
 
         <h3 className={styles.estiloh3}>O QUE DOAR</h3>
