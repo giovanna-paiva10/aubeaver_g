@@ -7,7 +7,7 @@ import aguag from '..//assets/garrafasAgua.svg';
 import receb from '..//assets/doacaoRecebendo.svg';
 import maos from '..//assets/maosDadas.svg';
 import caixas from '..//assets/caixasMulher.svg';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const Home = () =>{
     
@@ -16,7 +16,14 @@ const Home = () =>{
         <>
 <body id={styles.borda}>
     
-        <div>carrossel</div>
+        <div className={styles.contslider}>
+        <h3 className={styles.estiloh3}>QUEM SOMOS</h3>
+        <Swiper>
+            <SwiperSlide>
+                
+            </SwiperSlide>
+        </Swiper>
+        </div>
 
 <p></p>
 
