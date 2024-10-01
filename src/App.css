@@ -10,3 +10,7 @@ body {
         font-style: normal;
         background-color: #E7E3E0;
 }
+
+#root {
+  height: 100vh;
+}

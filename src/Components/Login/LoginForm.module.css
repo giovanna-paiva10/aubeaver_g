@@ -1,14 +1,18 @@
+
   #borda{
     background: linear-gradient(to right, #517655, #B2CEB5);
-    padding: 1%;
-    width: 100%;
+    height: max-content;
   }
+
+header {
+  height: 10vh;
+}
 
 section{
   align-items: center;
   justify-content: center;
   display: flex;
-  margin: 5%;
+  margin-inline: 5%;
 }
 
 .conteiner{
@@ -24,7 +28,7 @@ section{
 
 .content1{
   background-color: #FFFFFF;
-  width: 32vw;
+  min-width: 15vw;
   height: 28vw;
   padding: 6px;
   border-radius: 16px;
