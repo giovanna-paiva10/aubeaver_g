@@ -12,7 +12,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 
 const LoginCreate = () => {
-    const [tipoPessoa, setTipoPessoa] = React.useState('');
+    const [identificador, setIdentificador] = React.useState('');
     const [username, setUsername] = React.useState('');
     const [nome, setNome] = React.useState('');
     const [cadUnico, setCadUnico] = React.useState('');
@@ -28,55 +28,19 @@ const LoginCreate = () => {
         (capVal && termos) ? setDesabilitado(false) : setDesabilitado(true)
     }, [capVal, termos])
 
-    // function opcaoTipoPessoa() {
+    const [tipoPessoa, setTipoPessoa] = useState('');
 
-    //     var valref = 0;
+    const [itemCount, setItemCount] = useState(0);
+    const [inputs, setInputs] = useState([]);
 
-    //     if(tipoPessoa == 0){
-    //         valref = 1;
-    //     } else if(tipoPessoa == 1) {
-    //         valref = 2;
-    //     }else {
-    //         valref = 0; //pra nn aparecer o campo
-    //     }
-    //     var cnpjoto = valref.value //get the value
-    //     var cnpjoucpf = document.querySelector('#results') //append results
-    //     cnpjoucpf.innerHTML = '' //clear the results on each update
-    //     for (var i = 1; i <= cnpjoto; i++) {
-    //       var input = document.createElement('input') 
-    //       input.label.innerText = 'CNPJ'
-    //       input.type = "text";
-    //       input.placeholder = "teste"; //add a placeholder
-    //       cnpjoucpf.appendChild(label); //append label
-    //       cnpjoucpf.appendChild(document.createElement("br"));
-    //       cnpjoucpf.appendChild(input); //append input
-    //       cnpjoucpf.appendChild(document.createElement("br"));
-    //     }//<Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
-    //   }
-
-    function updateItems(_this) {
-        var ItemCount = +_this.value //get the value
-        var results = document.querySelector('#results') //append results
-        results.innerHTML = '' //clear the results on each update
-        for (var i = 1; i <= ItemCount; i++) {
-          var input = document.createElement('input') //create input
-          var label = document.createElement("label"); //create label
-          label.innerText = 'Input ' + i
-          input.type = "text";
-          input.placeholder = "Type text here"; //add a placeholder
-          input.className = "my-inputs"; // set the CSS class
-          results.appendChild(label); //append label
-          results.appendChild(document.createElement("br"));
-          results.appendChild(input); //append input
-          results.appendChild(document.createElement("br"));
-        }
-      }
-     
+    const handleChange = (event) => {
+        setTipoPessoa(event.target.value);
+    };
 
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log(nome, email, username, password );
+        console.log(nome, email, identificador, username, password );
       
       try {
 
@@ -123,9 +87,26 @@ const LoginCreate = () => {
 <form onSubmit={handleSubmit}>
 
 
-    <Select label="Entrar como" options={['Pessoa física', 'Pessoa jurídica']} value={tipoPessoa} setValue={setTipoPessoa} />
+    <select label="Entrar como" onChange={handleChange}>
+        <option value="" disabled selected>Selecione o tipo de pessoa</option>
+        <option value="fisica">Pessoa Física</option>
+        <option value="juridica">Pessoa Jurídica</option>
+    </select>
         <p></p>
-    <div id="cnpjoucpf"></div> 
+    <div id="results">
+                {/* Renderiza um campo de acordo com o tipo de pessoa selecionado */}
+                {tipoPessoa === 'fisica' && (
+                    <div>
+                        <Input label="CPF" type="CPF" id="identunic" value={identificador} setValue={setNome}/>
+                    </div>
+                )}
+                {tipoPessoa === 'juridica' && (
+                    <div>
+                        <Input label="CNPJ" type="CNPJ" id="identunic" value={identificador} setValue={setNome}/>
+                    </div>
+                )}
+    </div> 
+    <p></p>
     <Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
         <p></p>
     <Input label="Email" type="email" id="email" value={email} setValue={setEmail}/>
@@ -133,19 +114,6 @@ const LoginCreate = () => {
     <Input label="Username" type="username" id="usename" value={username} setValue={setUsername}/>
         <p></p>
     <Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/>
-        <p></p>
-    <select id="membership-members" onchange="updateItems(this)">
-        <option value="0" disabled selected>Select</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-    </select>
-        <p></p>
-    <div id="results"></div> 
     <p></p>  
     <label className={styles.checkbox}> <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={ 
         function handleChange({ target }) {setTermos(target.checked)}} /> Li e aceito os termos. </label>
