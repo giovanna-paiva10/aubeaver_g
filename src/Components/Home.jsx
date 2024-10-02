@@ -7,6 +7,15 @@ import aguag from '..//assets/garrafasAgua.svg';
 import receb from '..//assets/doacaoRecebendo.svg';
 import maos from '..//assets/maosDadas.svg';
 import caixas from '..//assets/caixasMulher.svg';
+import carro1 from '..//assets/carro.svg';
+import carro2 from '..//assets/carro2.svg';
+import conect from '..//assets/conect.png';
+import verde from '..//assets/verde.png';
+import row1 from '..//assets/row1.png';
+import row2 from '..//assets/row2.png';
+import who from '..//assets/who.png';
+
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { register } from 'swiper/element/bundle'
 register();
@@ -19,20 +28,25 @@ import 'swiper/css/scrollbar';
 
 const Home = () =>{
     const data = [
-    { id: '1', image: maos },
-    { id: '2', image: aguag },      
+    { id: '1', image: row1 },
+    { id: '2', image: conect }, 
+   // { id: '3', image: row1 },  
     ]
+ 
+
 
     return (
         <>
 <body id={styles.borda}>
-    
-        <div className={styles.contslider}>
-        <h3 className={styles.estiloh3}>QUEM SOMOS</h3>
+
+
+  <div className={styles.contslider}>
+
+        
         <Swiper
           slidesPerView={1}
-          pagination={{ clickable: true }}
-          navigation
+         // pagination={{ clickable: true }}
+
         >
                {data.map( (item) => (
                 <SwiperSlide key={item.id}>
@@ -49,10 +63,11 @@ const Home = () =>{
             </SwiperSlide>
           ))}   
         </Swiper>
-        </div>
+      </div>
 
                
 <p></p>
+
 
         <h3 className={styles.estiloh3}>O QUE DOAR</h3>
         <h4 className={styles.estiloh4}>Escolha o item com qual você deseja ajudar ou receber ajuda</h4>
@@ -96,7 +111,11 @@ const Home = () =>{
         <p className={styles.espaco}></p>
 
         <h3 className={styles.estiloh3}>QUEM SOMOS</h3>
-        <img className={styles.banner} src={banner} alt="bannerjin" />
+        <img className={StyleSheet.banner} src={banner} alt="bannerjin" />
+
+
+
+<p></p>
 
             <p className={styles.espaco}></p>
 
