@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { auth, firestore } from '../../firebase';
 import { getDoc, doc } from 'firebase/firestore'
+import Input from '../Forms/Input';
 
 const ProfileCreated = () => {
-    
-    
-    
+
+    const [nome, setNome] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [telefone, setTelefone] = React.useState('');
+    const [password, setPassword] = React.useState('');
+
+
+
     const [userDetails, setUserDetails] = useState(null);
     const fetchUserData = async() => {
         auth.onAuthStateChanged(async(user)=>{
@@ -47,13 +53,28 @@ const ProfileCreated = () => {
                 {userDetails ? (
 
                     <>
+                    <label>add foto</label>
+                    <Input type="file" />
 
-                        <p>Olá, {userDetails.username}</p>
+                    <Input label="nome" type="nome" id="nome" value={nome} setValue={setNome}/>
 
-                        <h4>Cadastrareee</h4>
+                    <Input label="telefone" type="text" id="telefone" value={telefone} setValue={setTelefone}/>
+
+                    <Input label="email" type="email" id="email" value={email} setValue={setEmail} />
+
+                    <Input label="senha" type="password" id="password" value={password} setValue={setPassword}/>
+
+                    <label>Minha história</label> <p></p>
+                    <textarea />
+                    <p></p>
+                    <Input type="file" />
 
                         <button className='btn btn-primary' onClick={handleLogout}>
                             Logout
+                        </button>
+
+                        <button>
+                            Salvar alteração
                         </button>
 
                     </>

@@ -52,7 +52,7 @@ const Home = () =>{
         </div>
 
                
-<p></p>
+    <p className={styles.espaco}></p>
 
         <h3 className={styles.estiloh3}>O QUE DOAR</h3>
         <h4 className={styles.estiloh4}>Escolha o item com qual você deseja ajudar ou receber ajuda</h4>
@@ -100,21 +100,23 @@ const Home = () =>{
 
             <p className={styles.espaco}></p>
 
-    <div className={styles.container}>
+    <div className={styles.container2}>
 
-        <div className={styles.contentt}>
-            <div className={styles.qualquer}>
-                <h4 className={styles.texto}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel malesuada tellus. Mauris ornare maximus libero, ut tempor odio tempus eu. Nam sed risus rhoncus, hendrerit ex nec, mattis ante. Morbi accumsan ac risus a scelerisque. Maecenas quis ligula vel diam finibus cursus nec eu elit. Donec ex tellus, facilisis vitae mi eget, malesuada malesuada diam. Praesent porttitor risus convallis tellus efficitur euismod. Vestibulum iaculis orci eget odio pharetra, id dignissim dui pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla metus urna, venenatis sit amet nulla eu, mattis mollis ligula.
+                <div className={styles.content2}>
+                    <div className={styles.contentt}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel malesuada tellus. Mauris ornare maximus libero, ut tempor odio tempus eu. Nam sed risus rhoncus, hendrerit ex nec, mattis ante. Morbi accumsan ac risus a scelerisque. Maecenas quis ligula vel diam finibus cursus nec eu elit. Donec ex tellus, facilisis vitae mi eget, malesuada malesuada diam. Praesent porttitor risus convallis tellus efficitur euismod. Vestibulum iaculis orci eget odio pharetra, id dignissim dui pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla metus urna, venenatis sit amet nulla eu, mattis mollis ligula.
 
-                Curabitur viverra justo a augue commodo volutpat. Curabitur id leo tortor. Donec vel pharetra purus. Maecenas et varius ipsum. Etiam aliquet neque nisl, ornare pellentesque lacus tristique at. Donec dictum mollis ante, a vestibulum arcu pellentesque sit amet. Nulla tempus tellus ac mi pellentesque, rhoncus dignissim elit tincidunt.</h4>
-                <div>
-                <img className={styles.imggg} src={fotoo} alt="foto" />
+                    Curabitur viverra justo a augue commodo volutpat. Curabitur id leo tortor. Donec vel pharetra purus. Maecenas et varius ipsum. Etiam aliquet neque nisl, ornare pellentesque lacus tristique at. Donec dictum mollis ante, a vestibulum arcu pellentesque sit amet. Nulla tempus tellus ac mi pellentesque, rhoncus dignissim elit tincidunt.
+                
+                    
+                    </div>
+
+                    <div> <img className={styles.imggg} src={fotoo} alt="foto" /> </div>
                 </div>
-            </div>
-        </div>
-    
+
+                
     </div>
-    
+
 </body>
         </>
     )
