@@ -4,10 +4,12 @@ import { getDoc, doc } from 'firebase/firestore'
 import Input from '../Forms/Input';
 
 const ProfileCreated = () => {
+
     const [nome, setNome] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [telefone, setTelefone] = React.useState('');
     const [password, setPassword] = React.useState('');
+
 
 
     const [userDetails, setUserDetails] = useState(null);
