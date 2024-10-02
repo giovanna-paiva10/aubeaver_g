@@ -90,17 +90,20 @@ const LoginCreate = () => {
 
     <select label="Entrar como" onChange={handleChange}>
         <option value="" disabled selected>Entrar como</option>
-        <option value="fisica">Pessoa Física</option>
-        <option value="juridica">Pessoa Jurídica</option>
+        <option value="Doador">Doador</option>
+        <option value="Solicitante">Solicitante</option>
+        <option value="ONG">ONG</option>
+
     </select>
         <p></p>
     <div id="results">
-        {tipoPessoa === 'fisica' && (
+        {(tipoPessoa === 'Doador' || tipoPessoa === 'Solicitante') && (
             <div>
                 <Input label="CPF" type="CPF" id="identunic" value={identificador} setValue={setIdentificador}/>
             </div>
+            
         )}
-        {tipoPessoa === 'juridica' && (
+        {tipoPessoa === 'ONG' && (
             <div>
                 <Input label="CNPJ" type="CNPJ" id="identunic" value={identificador} setValue={setIdentificador}/>
             </div>

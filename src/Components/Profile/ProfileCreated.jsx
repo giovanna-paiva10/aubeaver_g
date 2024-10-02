@@ -47,7 +47,7 @@ const ProfileCreated = () => {
 
                         <p>Olá, {userDetails.username}</p>
 
-                        <h4><Link to='/login/criar'>Cadastre-se</Link></h4>
+                        <h4>Cadastrareee</h4>
 
                         <button className='btn btn-primary' onClick={handleLogout}>
                             Logout
