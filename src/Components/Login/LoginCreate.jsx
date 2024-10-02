@@ -44,9 +44,9 @@ const LoginCreate = () => {
       
       try {
 
-        await createUserWithEmailAndPassword(auth, email, password);
-        const user = auth.currentUser;
-        window.location.href = '/login/'
+        const CredenciaisUsuario = await createUserWithEmailAndPassword(auth, email, password);
+        const user = CredenciaisUsuario.user        ;
+        // window.location.href = '/login/'
         console.log(user)
         
         if(user){
