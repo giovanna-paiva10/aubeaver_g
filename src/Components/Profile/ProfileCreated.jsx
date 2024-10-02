@@ -3,6 +3,9 @@ import { auth, firestore } from '../../firebase';
 import { getDoc, doc } from 'firebase/firestore'
 
 const ProfileCreated = () => {
+    
+    
+    
     const [userDetails, setUserDetails] = useState(null);
     const fetchUserData = async() => {
         auth.onAuthStateChanged(async(user)=>{
