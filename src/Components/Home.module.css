@@ -1,5 +1,8 @@
 #borda{
+
     padding: 0%;
+
+
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -11,6 +14,10 @@
    font-size: max(18px, 1.5vw);
    margin-bottom: 18px;
 
+
+
+   padding-left: 24px;
+
 }
 
 .estiloh4{
@@ -18,7 +25,11 @@
     font-weight: bold;
     font-size: max(12px, 1vw);
     margin-bottom: 24px;
+
     
+
+    padding-left: 26px;
+
 }
 
 h4 {
@@ -59,37 +70,35 @@ h4 {
     width: clamp(100px, 100%, 400px);
     margin: auto;
 }
+
 .sditem{
  width: 1340px;
  height: 540px;
  padding: 0%;
 }
 
-    
 
+.container2{
 
-.contentt{
     display: flex;
-    gap: 4rem;
-    flex-wrap: wrap;
 }
 
-.qualquer {
-    display: flex; 
-    text-align: justify;
-    width: 50%;
+.content2{
+    display: flex;
+    width: 40%;
+}
+
+.contentt {
+    display: flex;
+    margin-left: 10%;
 }
 
 .imggg{
-    display: flex;
-    border-radius: 16px;
-    justify-content: center;
-    width: 50%;
+    width: 250px;
 }
 
 @media(max-width: 600px) {
-    .imggg{
-        flex-wrap: wrap;
+    .imggg{    
     }
   }
 

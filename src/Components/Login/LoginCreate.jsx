@@ -46,7 +46,7 @@ const LoginCreate = () => {
 
         const CredenciaisUsuario = await createUserWithEmailAndPassword(auth, email, password);
         const user = CredenciaisUsuario.user        ;
-        // window.location.href = '/login/'
+        window.location.href = '/login/'
         console.log(user)
         
         if(user){
@@ -90,17 +90,20 @@ const LoginCreate = () => {
 
     <select label="Entrar como" onChange={handleChange}>
         <option value="" disabled selected>Entrar como</option>
-        <option value="fisica">Pessoa Física</option>
-        <option value="juridica">Pessoa Jurídica</option>
+        <option value="Doador">Doador</option>
+        <option value="Solicitante">Solicitante</option>
+        <option value="ONG">ONG</option>
+
     </select>
         <p></p>
     <div id="results">
-        {tipoPessoa === 'fisica' && (
+        {(tipoPessoa === 'Doador' || tipoPessoa === 'Solicitante') && (
             <div>
                 <Input label="CPF" type="CPF" id="identunic" value={identificador} setValue={setIdentificador}/>
             </div>
+            
         )}
-        {tipoPessoa === 'juridica' && (
+        {tipoPessoa === 'ONG' && (
             <div>
                 <Input label="CNPJ" type="CNPJ" id="identunic" value={identificador} setValue={setIdentificador}/>
             </div>
@@ -113,8 +116,16 @@ const LoginCreate = () => {
         <p></p>
     <Input label="Username" type="username" id="usename" value={username} setValue={setUsername}/>
         <p></p>
-    <Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/>
-    <p></p>  
+    <Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/><br/>
+            <p>Sua senha deve ter pelo menos:</p>
+            <p></p>
+            <p>7 Caracteres</p>
+            <p>Letras maiúsculas</p>
+            <p>Letras minúsculas</p>
+            <p>Caracteres especiais</p>
+            
+
+        <p></p> 
     <label className={styles.checkbox}> <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={ 
         function handleChange({ target }) {setTermos(target.checked)}} /> Li e aceito os termos. </label>
         <p></p>
