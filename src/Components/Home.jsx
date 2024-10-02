@@ -108,11 +108,9 @@ const Home = () =>{
 
                     Curabitur viverra justo a augue commodo volutpat. Curabitur id leo tortor. Donec vel pharetra purus. Maecenas et varius ipsum. Etiam aliquet neque nisl, ornare pellentesque lacus tristique at. Donec dictum mollis ante, a vestibulum arcu pellentesque sit amet. Nulla tempus tellus ac mi pellentesque, rhoncus dignissim elit tincidunt.
                 
-                    
                     </div>
-
-                    <div> <img className={styles.imggg} src={fotoo} alt="foto" /> </div>
                 </div>
+                <div> <img className={styles.imggg} src={fotoo} alt="foto" /> </div>
 
                 
     </div>
