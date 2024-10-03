@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.svg';
+import logoo from '../assets/logoo.svg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +30,7 @@ const Header = () => {
     <header>
       <nav className={styles.navh}>
         <div className={styles.imgContainer}>
-          <Link to='/'><img src={logo} alt='logo' /></Link>
+          <Link to='/'><img src={logoo} alt='logo' /></Link>
         </div>
 
         {/* Links de navegação para "Quem somos" e "Doação" sempre visíveis em telas grandes */}

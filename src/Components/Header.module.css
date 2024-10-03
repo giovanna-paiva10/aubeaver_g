@@ -2,8 +2,7 @@
 header {
   background-color: #7CA377;
   position: relative;
-  color: #E7E3E0;
-  height: 8vh;
+  color: #ffffff;
   padding: 1vh;
 
 }
@@ -72,7 +71,7 @@ li {
 .btn_line {
   width: 24px;
   height: 3px;
-  background-color: #E7E3E0;
+  background-color: #ffffff;
 }
 
 /* Estilos dos links */

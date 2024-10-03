@@ -1,5 +1,4 @@
 #borda{
-
     padding: 3%;
     width: 100%;
     align-items: center;
@@ -75,42 +74,54 @@ h4 {
  padding: 0%;
 }
 
-
 .container2{
     display: flex;
     width: 95vw;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
 }
 
 .content2{
     display: flex;
-    font-size: max(18px, 1vw);
-    
+    font-size: max(16px, 2vh);
+    justify-content: space-around;
+    align-items: center;
+    gap: 4rem;
+    color: #797979;
 }
 
 .contentt {
     display: flex;
-    width: 65%;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
 }
 
 .imggg{
-    width: 200px;
-    min-width: 150px;
+    display: flex;
+    width: 100%;
+    min-width: 175px;
     border-radius: 24px;
+    justify-content: center;
+    align-items: center;
 }
 
 .contentImg{
-    width: 100%;
+    width: 64%;
+    justify-content: center;
+    align-items: center;
 }
 
-@media(max-width:  950px) {
-    .container2 {
+@media(max-width:  1000px) {
+    .content2 {
         flex-direction: column;
     }
     .contentImg{
-        width: 100%;
+        width: 70%;
         height: 35%;
     }
-  }
+}
 
 .texto {
     margin: 4px
