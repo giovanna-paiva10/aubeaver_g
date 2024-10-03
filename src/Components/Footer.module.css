@@ -17,6 +17,26 @@
     padding: 1rem 0;
 }
 
+.fttitulo {
+    color: #ffffff;
+    /* font-weight: bold; */
+    font-size: max(12px, 1vw);
+    font-size: min(12px, 1vw);
+}
+
+.ftcamp {
+    color: #492121;
+    /* font-weight: bold; */
+    font-size: max(12px, 1vw);
+    font-size: min(12px, 1vw); 
+}
+
+.espaco2 {
+    margin: 18px;
+}
+.ulft {
+margin-top: 20px;
+}
 .navSections {
     display: flex;
     gap: 5rem;
@@ -37,26 +57,30 @@
 }
 
 .section ul li a {
-    color: #E7E3E0;
+    color: #c2c2c2;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .section ul li a:hover {
-    color: #7ca474; /* Light green hover effect */
+    /* color: #7ca474; /* Light green hover effect */
+    color: white
 }
 
 .logoContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: right;
     text-align: center;
+    padding-bottom: 1%;
+
 }
 
 .redesContainer {
     display: flex;
     width: 500px;
     height: 200px;
+    align-items: right;
 }
 
 .redes {
@@ -66,11 +90,18 @@
 }
 
 .logo {
-    width: 208px;
+    width: 148px;
     height: 190px;
-    margin-bottom: 1rem;
+    
 }
-
+.textoredes {
+    color: #bebebe;
+    /* font-weight: bold; */
+    font-size: max(9px, 1vw);
+    font-size: min(9px, 1vw);
+    margin-bottom: 24px;
+    padding-bottom: 0px;
+}
 /* Footer bottom section */
 .footerBottom {
     background-color: #2B2B2B; /* Darker gray background for the copyright area */

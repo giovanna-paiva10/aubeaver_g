@@ -11,33 +11,44 @@ const Footer = () => {
             <div className={styles.container}>
                 <nav className={styles.navSections}>
                     <div className={styles.section}>
-                        <h4>AUBEAVER</h4>
-                        <ul>
+                        <h4 className={styles.fttitulo}>AUBEAVER</h4>
+                        <ul className={styles.ulft}>
                             <li><a href="#">Sobre a Ong</a></li>
+                            <div className={styles.espaco2}></div>
                             <li><a href="#">Importância da doação</a></li>
+                            <div className={styles.espaco2}></div>
                             <li><a href="#">Parceiros</a></li>
+                            <div className={styles.espaco2}></div>
                             <li><a href="#">Termos de uso</a></li>
                         </ul>
                     </div>
                     <div className={styles.section}>
-                        <h4>CAUSAS</h4>
-                        <ul>
+                    <h4 className={styles.fttitulo}>CAUSAS</h4>
+                        <ul className={styles.ulft}>
                             <li><a href="#">Combate à fome</a></li>
+                            <div className={styles.espaco2}></div>
                             <li><a href="#">Auxílio de itens de higiene</a></li>
+                            <div className={styles.espaco2}></div>
                             <li><a href="#">Auxílio financeiro</a></li>
+                            <div className={styles.espaco2}></div>
                             <li><a href="#">Auxílio de mão de obra</a></li>
+                            <div className={styles.espaco2}></div>
                         </ul>
                     </div>
                 </nav>
 
                 
+               
+                <div className={styles.logoContainer}>
+                    <ul>
+                    <img src={logo} alt="Beaver logo" className={styles.logo} />
+                    <li className={styles.textoredes}><a href="#">Fique por dentro nas nossas redes sociais</a></li>
+                    </ul>
+                </div>
                 <div className={styles.redesContainer}>
                     <img src={iconTik} alt="Icon Tiktok" className={styles.redes} />
                     <img src={iconFace2} alt="Icon Facebook" className={styles.redes} />
                     <img src={iconInsta} alt="Icon Tiktok" className={styles.redes} />
-                </div>
-                <div className={styles.logoContainer}>
-                    <img src={logo} alt="Beaver logo" className={styles.logo} />
                 </div>
             </div>
             <div className={styles.footerBottom}>
