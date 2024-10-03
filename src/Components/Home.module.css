@@ -17,7 +17,6 @@
    font-weight: bolder;
    font-size: max(18px, 1.5vw);
    margin-bottom: 18px;
-
    padding-left: 24px;
 }
 
@@ -66,6 +65,7 @@ h4 {
     border-top-right-radius: 24px;
     width: clamp(100px, 100%, 400px);
     margin: auto;
+    height: 260px;
 }
 
 .sditem{
