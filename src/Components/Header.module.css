@@ -3,7 +3,8 @@ header {
   background-color: #7CA377;
   position: relative;
   color: #E7E3E0;
-
+  height: 8vh;
+  padding: 1vh;
 
 }
 
@@ -40,7 +41,7 @@ li {
   position: absolute;
   top: 60px;
   right: 20px;
-  background-color: #ffffff;
+  background-color: #ce4545;
   width: 200px; /* Voltando ao tamanho maior para o menu */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px; /* Voltando o padding para o valor anterior */

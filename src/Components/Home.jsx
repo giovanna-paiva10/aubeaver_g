@@ -129,9 +129,7 @@ const Home = () =>{
                 
                     </div>
                 </div>
-                <div> <img className={styles.imggg} src={fotoo} alt="foto" /> </div>
-
-                
+                <div className={styles.contentImg}> <img className={styles.imggg} src={fotoo} alt="foto" /> </div>
     </div>
 
 </body>
