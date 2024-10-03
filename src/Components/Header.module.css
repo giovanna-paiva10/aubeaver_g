@@ -3,9 +3,9 @@ header {
   background-color: #7CA377;
   position: relative;
   color: #E7E3E0;
-  height: 8vh;
+  height: 11vh;
   padding: 1vh;
-
+  padding-bottom: 1%;
 }
 
 /* Container de navegação */
