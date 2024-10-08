@@ -64,28 +64,6 @@ const ProfileCreated = () => {
         }
     };
 
-    const verificaTelefone = async () => {
-
-        let telefoneusuario = ""
-
-        try {
-            if(userDetails.telefone !== null) {
-                telefoneusuario = userDetails.telefone;
-            } else{
-                telefoneusuario = "Telefone não cadastrado"
-            }
-
-            setTelefone(telefoneusuario)
-            console.log(telefone)
-
-        } catch (error) {
-            console.log(error)
-        }
-    };
-
-    useEffect(() => {
-        verificaTelefone();
-    }, []);
 
     return (
         <form>
@@ -98,7 +76,7 @@ const ProfileCreated = () => {
                     
 
                     <Input label="nome" type="nome" id="nome" value={userDetails.nome} />
-                    <Input label="telefone" type="text" id="telefone" value={telefone} setValue={setTelefone} />
+                    <Input label="telefone" type="text" id="telefone" value={userDetails.telefone} setValue={setTelefone} />
                     <Input label="email" type="email" id="email" value={userDetails.email} setValue={setEmail} />
                     <Input label="senha" type="password" id="password" value={password} setValue={setPassword} />
 
