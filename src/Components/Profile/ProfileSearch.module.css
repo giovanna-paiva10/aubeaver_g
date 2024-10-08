@@ -1,0 +1,39 @@
+#borda{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+}
+
+.estiloh3{
+    color: #517655;
+    font-weight: bolder;
+    font-size: max(18px, 1.5vw);
+    margin-bottom: 18px;
+    padding-left: 24px;
+ }
+ 
+ .estiloh4{
+     color: #797979;
+     font-weight: bold;
+     font-size: max(12px, 1vw);
+     margin-bottom: 24px;
+ 
+     padding-left: 26px;
+ }
+
+ .img{
+    width: clamp(160px, 100%, 160px);
+    margin: auto;
+}
+
+.container{
+    display: flex;
+}
+
+.content{
+    gap: 3rem;
+    display: flex;
+    justify-content: center;
+}
+

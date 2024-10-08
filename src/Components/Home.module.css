@@ -1,15 +1,7 @@
 #borda{
-    padding: 3%;
     width: 100%;
     align-items: center;
     justify-content: center;
- 
-
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    padding: 2%;
-
 }
 
 .estiloh3{
@@ -35,6 +27,7 @@ h4 {
 
 .container{
   display: flex;
+  padding: 2%;
 }
 
 .contslider{
@@ -76,10 +69,10 @@ h4 {
 
 .container2{
     display: flex;
-    width: 95vw;
+    width: 98vw;
     justify-content: space-around;
     align-items: center;
-    padding: 8px;
+    padding: 3%;
 }
 
 .content2{

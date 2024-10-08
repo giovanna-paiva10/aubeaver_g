@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Link, Form, redirect } from 'react-router-dom';
 import styles from './Home.module.css';
 import garf from '..//assets/garfield.png';
 import banner from '../assets/bannerjin.png';
@@ -14,6 +15,7 @@ import verde from '..//assets/verde.png';
 import row1 from '..//assets/row1.png';
 import row2 from '..//assets/row2.png';
 import who from '..//assets/who.png';
+
 
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -78,32 +80,41 @@ const Home = () =>{
                 <div className={styles.content}>
 
                 <div className={styles.content1}>
-                    <div> <img className={styles.imgg} src={garf} alt="garfield" /> 
+                    <div> 
+                    <Link to='/profile/perfilpesquisar'>   
+                    <img className={styles.imgg} src={garf} alt="garfield" /> 
                     <div> 
                     <h3 className={styles.contenttitle}>Doação de alimentos</h3>
                     <h4 className={styles.contenttext}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h4>
-                </div></div></div>
+                </div></Link>
+                </div></div>
 
                 <div className={styles.content1}>
-                    <div> <img className={styles.imgg} src={garf} alt="garfield" /> 
+                    <div>
+                    <Link to='/profile/perfilpesquisar'>   <img className={styles.imgg} src={garf} alt="garfield" /> 
                     <div> 
                     <h3 className={styles.contenttitle}>Doação de mão de obra</h3>
                     <h4 className={styles.contenttext}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h4>
-                </div></div></div>
+                </div></Link>  
+                </div></div>
 
                 <div className={styles.content1}>
-                    <div> <img className={styles.imgg}src={garf} alt="garfield" /> 
+                    <div> 
+                    <Link to='/profile/perfilpesquisar'>  <img className={styles.imgg}src={garf} alt="garfield" /> 
                     <div> 
                     <h3 className={styles.contenttitle}>Doação de dinheiro</h3>
                     <h4 className={styles.contenttext}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h4>
-                </div></div></div>
+                </div></Link>
+                </div></div>
 
                 <div className={styles.content1}>
-                    <div> <img className={styles.imgg} src={garf} alt="garfield" /> 
+                    <div> 
+                    <Link to='/profile/perfilpesquisar'>   <img className={styles.imgg} src={garf} alt="garfield" /> 
                     <div> 
                     <h3 className={styles.contenttitle}>Itens de higiene</h3>
                     <h4 className={styles.contenttext}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, </h4>
-                </div></div></div>
+                </div></Link>
+                </div></div>
 
         </div>
     </div>

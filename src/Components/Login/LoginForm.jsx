@@ -8,7 +8,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { bool } from 'prop-types';
-import ProfileCreated from '../Profile/ProfileCreated';
+
 
 
 const LoginForm = () => {
@@ -72,10 +72,6 @@ const LoginForm = () => {
             </form>
 
             <h4 className={styles.estiloh4}><Link to='/login/criar'>Cadastre-se</Link></h4>
-
-            {/* <h4 className={styles.estiloh4}><Link to='/profile/perfilcriado'>Cadastre-se</Link></h4> 
-            nao entendi pra que esse botão :((
-            */}
 
         
         </div>

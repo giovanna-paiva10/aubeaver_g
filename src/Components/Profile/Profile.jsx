@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProfileCreated from './ProfileCreated';
+import ProfileSearch from './ProfileSearch';
 
 
 const Profile = () => {
@@ -11,6 +12,7 @@ const Profile = () => {
             <Routes>
                 <Route path='/' element={<Profile/>}/>
                 <Route path='perfilcriado' element={<ProfileCreated/>}/>
+                <Route path='perfilpesquisar' element={<ProfileSearch/>} />
             </Routes>
 
         </>

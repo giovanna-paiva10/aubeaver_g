@@ -10,6 +10,7 @@ body {
         font-style: normal;
         background-color: #ffffff;
         text-align: justify;
+        height: 100vw;
 }
 
 #root {
