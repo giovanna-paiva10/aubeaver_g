@@ -10,7 +10,6 @@
     font-weight: bolder;
     font-size: max(18px, 1.5vw);
     margin-bottom: 18px;
-    padding-left: 24px;
  }
  
  .estiloh4{
@@ -18,22 +17,40 @@
      font-weight: bold;
      font-size: max(12px, 1vw);
      margin-bottom: 24px;
- 
-     padding-left: 26px;
  }
 
  .img{
-    width: clamp(160px, 100%, 160px);
-    margin: auto;
+    display: flex;
+    width: 100%;
+}
+
+.contentImg{
+    width: 90%;
+    justify-content: center;
 }
 
 .container{
     display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .content{
-    gap: 3rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    color: #797979;
+    padding: 6px;
+    
+    gap: 5rem;
+    width: 90%;
+    height: 24vw;
 }
 
+.content1{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    gap: 2rem;
+}
