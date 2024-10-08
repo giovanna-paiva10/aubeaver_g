@@ -14,6 +14,8 @@ import verde from '..//assets/verde.png';
 import row1 from '..//assets/row1.png';
 import row2 from '..//assets/row2.png';
 import who from '..//assets/who.png';
+import cc from '..//assets/conectandoc.png';
+
 
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -111,7 +113,7 @@ const Home = () =>{
         <p className={styles.espaco}></p>
 
         <h3 className={styles.estiloh3}>QUEM SOMOS</h3>
-        <img className={StyleSheet.banner} src={banner} alt="bannerjin" />
+        <img className={StyleSheet.banner} src={cc} alt="cc" />
 
 
 
