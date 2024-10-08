@@ -32,15 +32,15 @@ const ProfileCreated = () => {
         fetchUserData();
     }, []);
 
-    const handleChange = async (event) => {
-        const file = event.target.files[0]; // Pega o arquivo selecionado
+    const handleChange = async (fotoPerfil) => {
+        const file = fotoPerfil.target.files[0]; 
         if (file) {
             try {
                 setUpload(true);
-                const storage = getStorage(); // Certifique-se de que o storage foi inicializado corretamente
-                const storageRef = ref(storage, `images/${file.name}`); // Referência ao local no Firebase Storage
-                await uploadBytes(storageRef, file); // Faz o upload do arquivo para o Firebase Storage
-                const downloadURL = await getDownloadURL(storageRef); // Obtém a URL de download do arquivo
+                const storage = getStorage(); 
+                const storageRef = ref(storage, `fotosdeperfil/${file.name}`); 
+                await uploadBytes(storageRef, file); 
+                const downloadURL = await getDownloadURL(storageRef); 
                 setImageURL(downloadURL);
                 console.log(downloadURL);
             } catch (error) {
@@ -49,6 +49,10 @@ const ProfileCreated = () => {
                 setUpload(false);
             }
         }
+    };
+
+    const handleClick = async () => {
+        const valueRef = collection(collection)
     };
 
     const handleLogout = async () => {
@@ -60,18 +64,42 @@ const ProfileCreated = () => {
         }
     };
 
+    const verificaTelefone = async () => {
+
+        let telefoneusuario = ""
+
+        try {
+            if(userDetails.telefone !== null) {
+                telefoneusuario = userDetails.telefone;
+            } else{
+                telefoneusuario = "Telefone não cadastrado"
+            }
+
+            setTelefone(telefoneusuario)
+            console.log(telefone)
+
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    useEffect(() => {
+        verificaTelefone();
+    }, []);
+
     return (
         <form>
             {userDetails ? (
                 <>
-                    <label>add foto</label>
-                    <input type="file" value={fotoPerfil} onChange={handleChange} />
-                    <button disabled={upload}>{upload ? "Enviando" : "Envio completo!"}</button>
-                    {imageURL && <img src={imageURL} style={{ maxWidth: 150 }} alt="Perfil" />}
+                    <label>Foto de Perfil</label>
+                    <input type="file" value={fotoPerfil} onChange={handleChange} /><br/>
+                    <center>{imageURL && <img src={imageURL} style={{ maxWidth: 150 }} alt="Perfil" />}<br/></center>
+                    <button disabled={upload} onClick={handleClick}>{upload ? "Enviando" : "Enviar"}</button><br/>
+                    
 
-                    <Input label="nome" type="nome" id="nome" value={nome} setValue={setNome} />
+                    <Input label="nome" type="nome" id="nome" value={userDetails.nome} />
                     <Input label="telefone" type="text" id="telefone" value={telefone} setValue={setTelefone} />
-                    <Input label="email" type="email" id="email" value={email} setValue={setEmail} />
+                    <Input label="email" type="email" id="email" value={userDetails.email} setValue={setEmail} />
                     <Input label="senha" type="password" id="password" value={password} setValue={setPassword} />
 
                     <button className="btn btn-primary" onClick={handleLogout}>
