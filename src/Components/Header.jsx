@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
 import logoo from '../assets/logoo.svg';
+import DropDown from './Dropdown';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,8 +27,26 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const DropDown = () => {
+    return (
+<div className={styles.ffc}>
+
+<ul className={styles.ffcgap}>
+    <li>Criar / Entrar</li>
+</ul>
+
+</div>
+
+
+
+
+        
+    )
+}
   return (
-    <header>
+  
+<header>
+
       <nav className={styles.navh}>
         <div className={styles.imgContainer}>
           <Link to='/'><img src={logoo} alt='logo' /></Link>
@@ -46,12 +65,17 @@ const Header = () => {
           <div className={styles.btn_line}></div>
         </div>
 
-        {/* Links de navegação dentro do menu hambúrguer (incluindo "Quem somos" e "Doação" para telas pequenas) */}
+        
         <ul className={`${styles.navlinksMobile} ${isMenuOpen ? styles.show : ''}`}>
           <li><Link to='login'>Criar / Entrar</Link></li> {/* Sempre dentro do menu */}
         </ul>
       </nav>
+      {/*<DropDown /> */}
     </header>
+
+
+
+
   );
 };
 

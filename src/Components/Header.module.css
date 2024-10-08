@@ -46,9 +46,9 @@ li {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px; /* Voltando o padding para o valor anterior */
   border-radius: 8px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
   transform: translateX(100%);
-  opacity: 0;
+  opacity: 1;
   font-size: 1rem; /* Voltando o tamanho da fonte para o valor original */
 }
 
@@ -87,6 +87,23 @@ a {
   margin-left: 3vw;
 }
 
+.ffc {
+  position: absolute;
+  top: 4.5rem;
+  right: 4rem;
+  width: 180px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: white;
+  border: 1px solid gray;
+  
+}
+
+.ffcgap {
+  color: black;
+}
+
+
 img {
   max-width: 100%;
   min-width: 50px;
@@ -97,6 +114,7 @@ img {
   display: flex;
   transform: translateX(0);
   opacity: 1;
+  color: black;
 }
 
 /* Esconde links "Quem somos" e "Doação" no menu em telas grandes */
