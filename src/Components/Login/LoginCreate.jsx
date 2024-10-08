@@ -18,15 +18,32 @@ const LoginCreate = () => {
     const [cadUnico, setCadUnico] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [passwordError, setPasswordError] = React.useState('');
     const [termos, setTermos] = React.useState('');
 
     const[capVal,setcapVal] = useState(null)
 
     const [ desabilitado, setDesabilitado] = useState(true)
 
-    useEffect(()=>{
-        (capVal && termos) ? setDesabilitado(false) : setDesabilitado(true)
-    }, [capVal, termos])
+    useEffect(() => {
+       
+        if (capVal && termos && !passwordError && password) {
+            setDesabilitado(false);
+        } else {
+            setDesabilitado(true);
+        }
+    }, [capVal, termos, passwordError, password]);
+
+    const validatePassword = (value) => {
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+        if (!regex.test(value)) {
+            setPasswordError(
+                'A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma minúscula, um número e um caractere especial.'
+            );
+        } else {
+            setPasswordError(''); // Limpa o erro quando a senha é válida
+        }
+    };
 
     const [tipoPessoa, setTipoPessoa] = useState('');
 
@@ -41,6 +58,11 @@ const LoginCreate = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         console.log(nome, email, identificador, username, password );
+
+        if (passwordError) {
+            alert('A senha não é válida. Por favor, corrija os erros antes de continuar.');
+            return; // Impede o envio
+        }
       
       try {
 
@@ -49,8 +71,17 @@ const LoginCreate = () => {
         window.location.href = '/login/'
         console.log(user)
         
-        if(user){
+        if(tipoPessoa === 'Doador' || tipoPessoa === 'Solicitante'){
             await setDoc(doc(firestore, "Usuários" , user.uid), {
+                nome: nome,
+                email: user.email,
+                username: username,
+                senha: password,
+                Tipo_de_identificador: tipoPessoa,
+                Identificador: identificador,
+            })
+        } else if(tipoPessoa === 'ONG') {
+            await setDoc(doc(firestore, "Ongs" , user.uid), {
                 nome: nome,
                 email: user.email,
                 username: username,
@@ -116,13 +147,12 @@ const LoginCreate = () => {
         <p></p>
     <Input label="Username" type="username" id="usename" value={username} setValue={setUsername}/>
         <p></p>
-    <Input label="Senha" type="password" id="password" value={password} setValue={setPassword}/><br/>
-            <p>Sua senha deve ter pelo menos:</p>
-            <p></p>
-            <p>7 Caracteres</p>
-            <p>Letras maiúsculas</p>
-            <p>Letras minúsculas</p>
-            <p>Caracteres especiais</p>
+    <Input label="Senha" type="password" id="password" value={password} setValue={(value) => 
+        {
+            setPassword(value);
+            validatePassword(value);
+        }}/><br/>
+        {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
             
 
         <p></p> 
