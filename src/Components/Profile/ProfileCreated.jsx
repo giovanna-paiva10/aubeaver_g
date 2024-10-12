@@ -24,6 +24,7 @@ const ProfileCreated = () => {
                     setNome(docSnap.data().nome || '');
                     setEmail(docSnap.data().email || '');
                     setTelefone(docSnap.data().telefone || '');
+                    setPreviewURL(docSnap.data().fotoPerfil || '');
                 } else {
                     console.log("Usuário não logado");
                 }
@@ -107,9 +108,7 @@ const ProfileCreated = () => {
     };
 
     const handleShowProfile = () => {
-
-        window.location.href = '/profile/meuperfil'
-    
+        window.location.href = '/profile/meuperfil';
     }
 
     return (
@@ -122,8 +121,7 @@ const ProfileCreated = () => {
 
                     <button type="button" onClick={uploadProfileImage} disabled={upload}>
                         {upload ? "Enviando..." : "Enviar Foto de Perfil"}
-                    </button><br/>
-
+                    </button><br />
 
                     <Input label="Nome" type="text" id="nome" value={nome} setValue={setNome} />
                     <Input label="Telefone" type="text" id="telefone" value={telefone} setValue={setTelefone} />
