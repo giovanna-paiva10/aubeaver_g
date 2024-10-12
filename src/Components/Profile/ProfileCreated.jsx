@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { auth, firestore } from '../../firebase'; // Certifique-se de que esses estão corretos
+import { auth, firestore } from '../../firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { sendPasswordResetEmail } from 'firebase/auth';
-import { getDoc, doc } from 'firebase/firestore';
+import { getDoc, doc, setDoc } from 'firebase/firestore';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import Input from '../Forms/Input';
 
 const ProfileCreated = () => {
     const [previewURL, setPreviewURL] = useState('');
     const [fotoPerfil, setFotoPerfil] = useState(null);
-    const [imageURL, setImageURL] = useState('');
     const [upload, setUpload] = useState(false);
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [telefone, setTelefone] = useState('');
-    const [password, setPassword] = useState('');
-    const [newPassword, setNewPassword] = useState('');
     const [userDetails, setUserDetails] = useState(null);
 
     const fetchUserData = async () => {
@@ -24,6 +21,9 @@ const ProfileCreated = () => {
                 const docSnap = await getDoc(docRef);
                 if (docSnap.exists()) {
                     setUserDetails(docSnap.data());
+                    setNome(docSnap.data().nome || '');
+                    setEmail(docSnap.data().email || '');
+                    setTelefone(docSnap.data().telefone || '');
                 } else {
                     console.log("Usuário não logado");
                 }
@@ -36,42 +36,66 @@ const ProfileCreated = () => {
     }, []);
 
     const handleImageChange = (event) => {
-        const file = event.target.files[0]; //
+        const file = event.target.files[0];
         if (file) {
-          setFotoPerfil(file);
-          setPreviewURL(URL.createObjectURL(file));
+            setFotoPerfil(file);
+            setPreviewURL(URL.createObjectURL(file));
         }
-      };
+    };
 
     const handleSaveChanges = async () => {
-        if (fotoPerfil) {
-          try {
+        try {
+            const user = auth.currentUser;
+            const userRef = doc(firestore, "Usuários", user.uid);
+            await setDoc(userRef, {
+                nome,
+                email,
+                telefone,
+            }, { merge: true });
+
+            console.log('Informações salvas com sucesso!');
+        } catch (error) {
+            console.error("Erro ao salvar alterações:", error);
+        }
+    };
+
+    const uploadProfileImage = async () => {
+        if (!fotoPerfil) {
+            console.log('Nenhuma imagem selecionada.');
+            return;
+        }
+
+        try {
             setUpload(true);
-            const storage = getStorage(); 
+            const storage = getStorage();
             const storageRef = ref(storage, `fotosdeperfil/${fotoPerfil.name}`);
             await uploadBytes(storageRef, fotoPerfil);
             const downloadURL = await getDownloadURL(storageRef);
-            setImageURL(downloadURL);
             console.log('Imagem enviada com sucesso:', downloadURL);
-          } catch (error) {
-            console.error("Erro ao fazer upload:", error);
-          } finally {
-            setUpload(false);
-          }
-        } else {
-          console.log('Nenhuma imagem selecionada.');
-        }
-      };
 
-      const handleTrocarSenha = async () => {
-        const emailVeri = e.target.email.value;
-        await sendPasswordResetEmail(auth, emailVeri).then(data =>{
-            alert("Confira sua caixa de entrada do email")
-            window.location.href = './profile/'
-        }).catch(error =>{
-            console.log(error)
-        })
-      };
+            const user = auth.currentUser;
+            const userRef = doc(firestore, "Usuários", user.uid);
+            await setDoc(userRef, { fotoPerfil: downloadURL }, { merge: true });
+            setPreviewURL(downloadURL);
+        } catch (error) {
+            console.error("Erro ao fazer upload:", error);
+        } finally {
+            setUpload(false);
+        }
+    };
+
+    const handlePasswordReset = async (e) => {
+        e.preventDefault();
+        const authInstance = getAuth();
+        try {
+            await sendPasswordResetEmail(authInstance, email);
+            console.log('E-mail de redefinição de senha enviado para:', email);
+            alert('Um e-mail foi enviado para redefinir sua senha.');
+        } catch (error) {
+            console.error("Erro ao enviar e-mail de redefinição de senha:", error);
+            alert('Erro ao enviar e-mail de redefinição de senha.');
+        }
+    };
 
     const handleLogout = async () => {
         try {
@@ -82,27 +106,45 @@ const ProfileCreated = () => {
         }
     };
 
+    const handleShowProfile = () => {
+
+        window.location.href = '/profile/meuperfil'
+    
+    }
 
     return (
         <form>
             {userDetails ? (
                 <>
                     <label>Foto de perfil</label>
-                    <input type="file" accept='image/*' onChange={handleImageChange} /><br/>
-        
-                    <center>{previewURL && <img src={previewURL} alt="Preview da foto" style={{ maxWidth: 150 }} />}<br/></center>
+                    <input type="file" accept='image/*' onChange={handleImageChange} /><br />
+                    <center>{previewURL && <img src={previewURL} alt="Preview da foto" style={{ maxWidth: 150 }} />}<br /></center>
+
+                    <button type="button" onClick={uploadProfileImage} disabled={upload}>
+                        {upload ? "Enviando..." : "Enviar Foto de Perfil"}
+                    </button><br/>
+
+
+                    <Input label="Nome" type="text" id="nome" value={nome} setValue={setNome} />
+                    <Input label="Telefone" type="text" id="telefone" value={telefone} setValue={setTelefone} />
+                    <Input label="Email" type="email" id="email" value={email} setValue={setEmail} />
+
+                    <button type="button" onClick={handleSaveChanges}>
+                        Salvar Alterações
+                    </button>
                     
+                    <h3>Redefinir Senha</h3>
+                    <p>Um e-mail será enviado para redefinir sua senha em: {email}</p>
+                    <button type="button" onClick={handlePasswordReset}>
+                        Enviar E-mail de Redefinição
+                    </button>
 
-                    <Input label="nome" type="nome" id="nome" value={userDetails.nome} />
-                    <Input label="telefone" type="text" id="telefone" value={userDetails.telefone} setValue={setTelefone} />
-                    <Input label="email" type="email" id="email" value={userDetails.email} setValue={setEmail} />
-                    <button type="button" onClick={handleTrocarSenha}>Trocar Senha</button>
-
+                    <button type="button" onClick={handleShowProfile}>
+                        Retornar ao perfil
+                    </button>
+                    
                     <button className="btn btn-primary" onClick={handleLogout}>
                         Logout
-                    </button>
-                    <button type="button" onClick={handleSaveChanges} disabled={upload}>
-                        {upload ? "Enviando..." : "Salvar Alteração"}
                     </button>
                 </>
             ) : (
