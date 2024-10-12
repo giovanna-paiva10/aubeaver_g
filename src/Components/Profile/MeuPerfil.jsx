@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { auth, firestore } from '../../firebase'; // Certifique-se de que esses estão corretos
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { sendPasswordResetEmail } from 'firebase/auth';
-import { getDoc, doc } from 'firebase/firestore';
+import { getDoc, doc, collection } from 'firebase/firestore';
 import Input from '../Forms/Input';
 
-const ProfileCreated = () => {
+const MeuPerfil = () => {
     const [previewURL, setPreviewURL] = useState('');
-    const [fotoPerfil, setFotoPerfil] = useState(null);
+    const [fotoPerfil, setFotoPerfil] = useState('');
     const [imageURL, setImageURL] = useState('');
     const [upload, setUpload] = useState(false);
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [telefone, setTelefone] = useState('');
     const [password, setPassword] = useState('');
-    const [newPassword, setNewPassword] = useState('');
     const [userDetails, setUserDetails] = useState(null);
 
     const fetchUserData = async () => {
@@ -43,6 +41,25 @@ const ProfileCreated = () => {
         }
       };
 
+    // const handleClick = async (fotoPerfil) => {
+    //     const file = fotoPerfil.target.files[0]; 
+    //     if (file) {
+    //         try {
+    //             setUpload(true);
+    //             const storage = getStorage(); 
+    //             const storageRef = ref(storage, `fotosdeperfil/${file.name}`); 
+    //             await uploadBytes(storageRef, file); 
+    //             const downloadURL = await getDownloadURL(storageRef); 
+    //             setImageURL(downloadURL);
+    //             console.log(downloadURL);
+    //         } catch (error) {
+    //             console.error("Erro ao fazer upload:", error);
+    //         } finally {
+    //             setUpload(false);
+    //         }
+    //     }
+    // };
+
     const handleSaveChanges = async () => {
         if (fotoPerfil) {
           try {
@@ -63,16 +80,6 @@ const ProfileCreated = () => {
         }
       };
 
-      const handleTrocarSenha = async () => {
-        const emailVeri = e.target.email.value;
-        await sendPasswordResetEmail(auth, emailVeri).then(data =>{
-            alert("Confira sua caixa de entrada do email")
-            window.location.href = './profile/'
-        }).catch(error =>{
-            console.log(error)
-        })
-      };
-
     const handleLogout = async () => {
         try {
             await auth.signOut();
@@ -82,28 +89,18 @@ const ProfileCreated = () => {
         }
     };
 
+    const handleEditProfile = () => {
+
+        window.location.href = '/profile/perfilcriado'
+    
+    }
 
     return (
         <form>
             {userDetails ? (
                 <>
-                    <label>Foto de perfil</label>
-                    <input type="file" accept='image/*' onChange={handleImageChange} /><br/>
-        
-                    <center>{previewURL && <img src={previewURL} alt="Preview da foto" style={{ maxWidth: 150 }} />}<br/></center>
-                    
-
-                    <Input label="nome" type="nome" id="nome" value={userDetails.nome} />
-                    <Input label="telefone" type="text" id="telefone" value={userDetails.telefone} setValue={setTelefone} />
-                    <Input label="email" type="email" id="email" value={userDetails.email} setValue={setEmail} />
-                    <button type="button" onClick={handleTrocarSenha}>Trocar Senha</button>
-
-                    <button className="btn btn-primary" onClick={handleLogout}>
-                        Logout
-                    </button>
-                    <button type="button" onClick={handleSaveChanges} disabled={upload}>
-                        {upload ? "Enviando..." : "Salvar Alteração"}
-                    </button>
+                    <p><h1>Olá, {userDetails.nome} </h1></p>
+                <button type="button" onClick={handleEditProfile}>Editar informações</button>
                 </>
             ) : (
                 <p>Carregando</p>
@@ -112,4 +109,4 @@ const ProfileCreated = () => {
     );
 };
 
-export default ProfileCreated;
+export default MeuPerfil;
