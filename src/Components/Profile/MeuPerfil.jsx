@@ -41,24 +41,6 @@ const MeuPerfil = () => {
         }
       };
 
-    // const handleClick = async (fotoPerfil) => {
-    //     const file = fotoPerfil.target.files[0]; 
-    //     if (file) {
-    //         try {
-    //             setUpload(true);
-    //             const storage = getStorage(); 
-    //             const storageRef = ref(storage, `fotosdeperfil/${file.name}`); 
-    //             await uploadBytes(storageRef, file); 
-    //             const downloadURL = await getDownloadURL(storageRef); 
-    //             setImageURL(downloadURL);
-    //             console.log(downloadURL);
-    //         } catch (error) {
-    //             console.error("Erro ao fazer upload:", error);
-    //         } finally {
-    //             setUpload(false);
-    //         }
-    //     }
-    // };
 
     const handleSaveChanges = async () => {
         if (fotoPerfil) {

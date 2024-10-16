@@ -83,7 +83,7 @@ const Home = () =>{
 
                 <div className={styles.content1}>
                     <div> 
-                    <Link to='/profile/perfilpesquisar'>   
+                    <Link to='/search'>   
                     <img className={styles.imgg} src={garf} alt="garfield" /> 
                     <div> 
                     <h3 className={styles.contenttitle}>Doação de alimentos</h3>
@@ -93,7 +93,7 @@ const Home = () =>{
 
                 <div className={styles.content1}>
                     <div>
-                    <Link to='/profile/perfilpesquisar'>   <img className={styles.imgg} src={garf} alt="garfield" /> 
+                    <Link to='/search'>   <img className={styles.imgg} src={garf} alt="garfield" /> 
                     <div> 
                     <h3 className={styles.contenttitle}>Doação de mão de obra</h3>
                     <h4 className={styles.contenttext}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h4>
@@ -102,7 +102,7 @@ const Home = () =>{
 
                 <div className={styles.content1}>
                     <div> 
-                    <Link to='/profile/perfilpesquisar'>  <img className={styles.imgg}src={garf} alt="garfield" /> 
+                    <Link to='/search'>  <img className={styles.imgg}src={garf} alt="garfield" /> 
                     <div> 
                     <h3 className={styles.contenttitle}>Doação de dinheiro</h3>
                     <h4 className={styles.contenttext}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh. </h4>
@@ -111,7 +111,7 @@ const Home = () =>{
 
                 <div className={styles.content1}>
                     <div> 
-                    <Link to='/profile/perfilpesquisar'>   <img className={styles.imgg} src={garf} alt="garfield" /> 
+                    <Link to='/search'>   <img className={styles.imgg} src={garf} alt="garfield" /> 
                     <div> 
                     <h3 className={styles.contenttitle}>Itens de higiene</h3>
                     <h4 className={styles.contenttext}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, </h4>
