@@ -1,7 +1,7 @@
 /* Estilos para o header */
 header {
   background-color: #7CA377;
-  position: relative;
+  z-index: 1;
   color: #ffffff;
   height: 11vh;
   padding: 1vh;
@@ -39,6 +39,7 @@ li {
   display: none; /* Escondido até o hambúrguer ser clicado */
   flex-direction: column;
   position: absolute;
+  z-index: 1;
   top: 60px;
   right: 20px;
   background-color: #ffffff;
