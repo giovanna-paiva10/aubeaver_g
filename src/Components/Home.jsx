@@ -25,13 +25,15 @@ const Home = () => {
         slidesToShow: 1, 
         slidesToScroll: 1, 
         draggable: true, 
-        autoplay: true,
-        autoplaySpeed: 2000, 
+        autoplay: false,
+        autoplaySpeed: 3000, 
         arrows: false,
-    };
+        
+    };   
 
     return (
         <div id={styles.borda}>
+        
             <div className={styles.contslider}>
                 <Slider {...settings}>
                     {data.map((image, index) => (
@@ -43,7 +45,7 @@ const Home = () => {
             </div>
 
             <p className={styles.espaco}></p>
-
+            <a href="/perfil">perfil</a>
             <h3 className={styles.estiloh3}>O QUE DOAR</h3>
             <h4 className={styles.estiloh4}>Escolha o item com qual você deseja ajudar ou receber ajuda</h4>
 
@@ -67,8 +69,9 @@ const Home = () => {
 
             <p className={styles.espaco}></p>
 
+            
             <h3 className={styles.estiloh3}>QUEM SOMOS</h3>
-            <img className={styles.banner} src={cc} alt="cc" />
+           <Link to="qs"><img className={styles.banner} src={cc} alt="cc" /></Link>
 
             <p className={styles.espaco}></p>
 
