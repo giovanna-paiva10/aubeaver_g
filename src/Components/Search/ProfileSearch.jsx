@@ -29,7 +29,7 @@ const ProfileSearch = () => {
                 </div>
             </div>
 
-                <p className={styles.espaco}></p>
+                <p></p>
 
                 <div className={styles.content}>
 
