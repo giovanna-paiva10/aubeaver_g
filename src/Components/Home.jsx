@@ -78,7 +78,10 @@ const Home = () => {
             <div className={styles.container2}>
                 <div className={styles.content2}>
                     <div className={styles.contentt}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel malesuada tellus. Mauris ornare maximus libero, ut tempor odio tempus eu...
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec dolor vulputate, blandit ex sit amet, hendrerit lectus. Nunc ac mauris commodo, elementum nisi consequat, facilisis augue. Phasellus quis elit erat. Nulla rhoncus elementum leo ut mattis. Proin eleifend, elit sit amet interdum tempus, nulla sem pellentesque est, a pharetra diam enim at risus.
+                            <br />
+                            <br />
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec dolor vulputate, blandit ex sit amet, hendrerit lectus. Nunc ac mauris commodo, elementum nisi consequat, facilisis augue. Phasellus quis elit erat. Nulla rhoncus elementum leo ut mattis.
                     </div>
                     <div className={styles.contentImg}>
                         <img className={styles.imggg} src={fotoo} alt="foto" />

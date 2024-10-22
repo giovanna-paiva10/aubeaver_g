@@ -12,7 +12,7 @@ const ProfileSearch = () => {
   // Busca perfis de ONGs e Usuários
   useEffect(() => {
       const fetchOngs = async () => {
-          const querySnapshot = await getDocs(collection(firestore, 'Ongs'));
+          const querySnapshot = await getDocs(collection(firestore, 'Usuários'));
           setOngs(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
       };
 
@@ -23,6 +23,10 @@ const ProfileSearch = () => {
     <>
       <body id={styles.borda}>
         <h3 className={styles.estiloh3}>ONGs</h3>
+        <h4 className={styles.estiloh4}>Escolha o item com qual você deseja ajudar ou receber ajuda</h4>
+
+              <p></p>
+
         {ongs.map(ong => (
                 <div key={ong.id} className={styles.content}>
                     <div className={styles.content1}>
@@ -31,8 +35,8 @@ const ProfileSearch = () => {
                             <img className={styles.img} src={garf} alt="ong" />
                         </div>
                         <div className={styles.contentText}>
-                            <h3>{ong.nome}</h3>
-                            <h4>{ong.email}</h4>
+                            <h3 className={styles.eh3}>{ong.nome}</h3>
+                            <h5 className={styles.eh5}>{ong.email}</h5>
                             <p>{ong.descricao}</p>
                             <Link to={`/search/${ong.id}`}>Ver mais</Link>
                         </div>
