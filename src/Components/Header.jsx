@@ -33,6 +33,7 @@ const Header = () => {
 
 <ul className={styles.ffcgap}>
     <li>Criar / Entrar</li>
+
 </ul>
 
 </div>
@@ -54,8 +55,8 @@ const Header = () => {
 
         {/* Links de navegação para "Quem somos" e "Doação" sempre visíveis em telas grandes */}
         <ul className={styles.navlinksLarge}>
-          <li><Link to='qs'>Quem somos</Link></li>
-          <li><Link to='doacao'>Doação</Link></li>
+          <li><a href="#qs">Quem somos</a></li>
+          <a href="#dc">Doação</a>
         </ul>
 
         {/* Menu hambúrguer sempre visível */}
@@ -68,6 +69,7 @@ const Header = () => {
         
         <ul className={`${styles.navlinksMobile} ${isMenuOpen ? styles.show : ''}`}>
           <li><Link to='login'>Criar / Entrar</Link></li> {/* Sempre dentro do menu */}
+         
         </ul>
       </nav>
       {/*<DropDown /> */}

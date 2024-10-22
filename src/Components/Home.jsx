@@ -45,8 +45,9 @@ const Home = () => {
             </div>
 
             <p className={styles.espaco}></p>
-            <a href="/perfil">perfil</a>
+             <div id="dc">
             <h3 className={styles.estiloh3}>O QUE DOAR</h3>
+            </div>
             <h4 className={styles.estiloh4}>Escolha o item com qual você deseja ajudar ou receber ajuda</h4>
 
             <div className={styles.container}>
@@ -69,10 +70,10 @@ const Home = () => {
 
             <p className={styles.espaco}></p>
 
-            
+            <div id="qs">
             <h3 className={styles.estiloh3}>QUEM SOMOS</h3>
-           <Link to="qs"><img className={styles.banner} src={cc} alt="cc" /></Link>
-
+           <img className={styles.banner} src={cc} alt="cc" />
+           </div>
             <p className={styles.espaco}></p>
 
             <div className={styles.container2}>
