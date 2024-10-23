@@ -72,19 +72,16 @@ margin-top: 20px;
 .logoContainer {
     display: flex;
     flex-direction: column;
-    align-items: right;
+    
     text-align: center;
     padding-bottom: 1%;
     justify-content: right;
-    padding-right: 6%;
+    padding-right: 12%;
 }
 
-.redesContainer {
+.secredes {
     display: flex;
-    width: 500px;
-    height: 200px;
-    align-items: right;
-    justify-content: right;
+    flex-direction: line;
 }
 
 .redes {
@@ -108,11 +105,34 @@ margin-top: 20px;
 }
 /* Footer bottom section */
 .footerBottom {
-    background-color: #2B2B2B; /* Darker gray background for the copyright area */
+    background-color: #20212B; /* Darker gray background for the copyright area */
     padding: 1rem 0;
     margin-top: 1rem;
     text-align: center;
     width: 100%;
     color: #E7E3E0;
     font-size: 0.775rem;
+}
+
+
+@media (max-width: 800px) {
+  /* Esconder os links fora do menu em telas pequenas */
+  .ulft {
+    display: none;
+  }
+
+ .fttitulo {
+    display: none;
+ }
+  
+.textoredes {
+    display: none;
+}
+
+  /* Ajuste adicional para telas muito pequenas (como 320px) */
+  @media (max-width: 400px) {
+    .ulft {
+      width: 220px; /* Ajusta a largura do menu em telas muito pequenas */
+    }
+  }
 }

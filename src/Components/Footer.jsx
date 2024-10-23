@@ -40,17 +40,18 @@ const Footer = () => {
                 
                
              
-                <div className={styles.redesContainer}>
-                    <img src={iconTik} alt="Icon Tiktok" className={styles.redes} />
-                    <img src={iconFace2} alt="Icon Facebook" className={styles.redes} />
-                    <img src={iconInsta} alt="Icon Tiktok" className={styles.redes} />
-                </div>
                 <div className={styles.logoContainer}>
                     <ul>
                     <img src={logo} alt="Beaver logo" className={styles.logo} />
                     <li className={styles.textoredes}>Fique por dentro nas nossas redes sociais</li>
                     </ul>
-                </div>
+          
+                <section className={styles.secredes}>   
+                   <div > <img src={iconTik} alt="Icon Tiktok" className={styles.redes} /> </div> 
+                   <div>   <img src={iconFace2} alt="Icon Facebook" className={styles.redes} /> </div> 
+                   <div> <img src={iconInsta} alt="Icon Tiktok" className={styles.redes} /> </div> 
+                </section>
+            </div>
             </div>
             <div className={styles.footerBottom}>
                 <p>&copy; Copyright 2023 | Aubeaver | Todos os direitos reservados</p>

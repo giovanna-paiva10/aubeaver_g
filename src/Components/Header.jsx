@@ -55,8 +55,8 @@ const Header = () => {
 
         {/* Links de navegação para "Quem somos" e "Doação" sempre visíveis em telas grandes */}
         <ul className={styles.navlinksLarge}>
-          <li><a href="#qs">Quem somos</a></li>
-          <a href="#dc">Doação</a>
+          <li><a href="./#qs">Quem somos</a></li>
+          <a href="./#dc">Doação</a>
         </ul>
 
         {/* Menu hambúrguer sempre visível */}
