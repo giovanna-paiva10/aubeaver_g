@@ -10,20 +10,37 @@
    position: relative;
 }
 
+.copyz {
+    color: #DDDDDD;
+}
+
 .container {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
     padding: 1rem 0;
-    padding-left: 3%;
+    padding-left: 12%;
 }
+/* Linhas do menu hamburger */
+.btn_line {
+    display: relative;
+    flex-direction: line;
+    width: 200px;
+    height: 1px;
+    background-color: #517655;
 
+    margin-top: 5px;
+    margin-left: -8rem;
+    margin-right: -5rem;
+  }
+  
 .fttitulo {
     color: #ffffff;
     /* font-weight: bold; */
     font-size: max(12px, 1vw);
     font-size: min(12px, 1vw);
+
 }
 
 .ftcamp {
@@ -38,6 +55,7 @@
 }
 .ulft {
 margin-top: 20px;
+white-space: nowrap;
 }
 .navSections {
     display: flex;
@@ -95,6 +113,10 @@ margin-top: 20px;
     height: 190px;
     
 }
+
+.espt {
+    padding-left: 15%;
+}
 .textoredes {
     color: #bebebe;
     /* font-weight: bold; */
@@ -112,10 +134,11 @@ margin-top: 20px;
     width: 100%;
     color: #E7E3E0;
     font-size: 0.775rem;
+    
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 913px) {
   /* Esconder os links fora do menu em telas pequenas */
   .ulft {
     display: none;
@@ -127,6 +150,16 @@ margin-top: 20px;
   
 .textoredes {
     display: none;
+}
+.btn_line {
+    display: none;
+  }
+
+.logoContainer {
+    align-items: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }
 
   /* Ajuste adicional para telas muito pequenas (como 320px) */

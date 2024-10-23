@@ -11,6 +11,7 @@ const Footer = () => {
             <div className={styles.container}>
                 <nav className={styles.navSections}>
                     <div className={styles.section}>
+                    
                         <h4 className={styles.fttitulo}>AUBEAVER</h4>
                         <ul className={styles.ulft}>
                             <li><a href="#">Sobre a Ong</a></li>
@@ -22,7 +23,9 @@ const Footer = () => {
                             <li><a href="#">Termos de uso</a></li>
                         </ul>
                     </div>
+                    <div className={styles.btn_line}></div>
                     <div className={styles.section}>
+                        <div className={styles.espt}>
                     <h4 className={styles.fttitulo}>CAUSAS</h4>
                         <ul className={styles.ulft}>
                             <li><a href="#">Combate à fome</a></li>
@@ -34,6 +37,7 @@ const Footer = () => {
                             <li><a href="#">Auxílio de mão de obra</a></li>
                             <div className={styles.espaco2}></div>
                         </ul>
+   </div>
                     </div>
                 </nav>
 
@@ -54,7 +58,9 @@ const Footer = () => {
             </div>
             </div>
             <div className={styles.footerBottom}>
-                <p>&copy; Copyright 2023 | Aubeaver | Todos os direitos reservados</p>
+                <ul>
+            <li className={styles.copyz}><p>&copy; Copyright 2023 | Aubeaver | Todos os direitos reservados</p></li>  
+                </ul>
             </div>
         </footer>
     );
