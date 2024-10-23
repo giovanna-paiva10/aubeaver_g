@@ -32,7 +32,7 @@ const ProfileSearch = () => {
                     <div className={styles.content1}>
                         <div className={styles.contentImg}>
                             {/* Substitua a imagem padrão conforme necessário */}
-                            <img className={styles.img} src={garf} alt="ong" />
+                            <img className={styles.img} src={ong.fotoPerfil || garf} alt="ong" />
                         </div>
                         <div className={styles.contentText}>
                             <h3 className={styles.eh3}>{ong.nome}</h3>

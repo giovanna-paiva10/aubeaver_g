@@ -115,17 +115,19 @@ const ProfileCreated = () => {
         <form>
             {userDetails ? (
                 <>
+                    <label>ADICIONAAIMAGEMDOPERFILCOMACANETA Meu Perfil</label>
+                    <p> </p>
                     <label>Foto de perfil</label>
                     <input type="file" accept='image/*' onChange={handleImageChange} /><br />
                     <center>{previewURL && <img src={previewURL} alt="Preview da foto" style={{ maxWidth: 150 }} />}<br /></center>
 
                     <button type="button" onClick={uploadProfileImage} disabled={upload}>
-                        {upload ? "Enviando..." : "Enviar Foto de Perfil"}
+                        {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                     </button><br />
 
                     <Input label="Nome" type="text" id="nome" value={nome} setValue={setNome} />
                     <Input label="Telefone" type="text" id="telefone" value={telefone} setValue={setTelefone} />
-                    <Input label="Email" type="email" id="email" value={email} setValue={setEmail} />
+                    <Input label="E-mail" type="email" id="email" value={email} setValue={setEmail} />
 
                     <button type="button" onClick={handleSaveChanges}>
                         Salvar Alterações
