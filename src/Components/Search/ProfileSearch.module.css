@@ -30,10 +30,9 @@
 
 .contentImg{
     width: 25%;
-    min-width: 50px;
+    min-width: 100px;
     justify-content: center;
     align-items: center;
-    
 }
 
 .container{
@@ -72,6 +71,7 @@
 
 .eh3{
     font-size: max(16px, 2.5vw);
+    color: #85A188;
 }
 
 .eh5{

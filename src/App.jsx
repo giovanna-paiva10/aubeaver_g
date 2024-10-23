@@ -30,8 +30,6 @@ const App = () => {
         <Route path='/search/*' element={<Search/>}/>
       </Routes>
 
-<Footer />
-
     </BrowserRouter>
 
   </> 
