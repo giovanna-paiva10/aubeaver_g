@@ -38,7 +38,8 @@ const ProfileSearch = () => {
                             <h3 className={styles.eh3}>{ong.nome}</h3>
                             <h5 className={styles.eh5}>{ong.email}</h5>
                             <p>{ong.descricao}</p>
-                            <Link to={`/search/${ong.id}`}>Ver mais</Link>
+                          <p className={styles.espaco}></p>
+                            <h4 className={styles.linkk}><Link to={`/search/${ong.id}`}>Ver mais</Link></h4>
                         </div>
                     </div>
                 </div>
