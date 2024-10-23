@@ -29,18 +29,23 @@ const ProfileSearch = () => {
 
         {ongs.map(ong => (
                 <div key={ong.id} className={styles.content}>
+
+                    <Link to={`/search/${ong.id}`}>
                     <div className={styles.content1}>
+                    
                         <div className={styles.contentImg}>
                             {/* Substitua a imagem padrão conforme necessário */}
                             <img className={styles.img} src={ong.fotoPerfil || garf} alt="ong" />
                         </div>
                         <div className={styles.contentText}>
                             <h3 className={styles.eh3}>{ong.nome}</h3>
-                            <h5 className={styles.eh5}>{ong.email}</h5>
-                            <p>{ong.descricao}</p>
-                            <Link to={`/search/${ong.id}`}>Ver mais</Link>
+                            <br />
+                            <h5 className={styles.eh5}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus ut elit quis commodo. Proin ultrices scelerisque mi laoreet ornare, massa tortor pharetra erat, eget ultricies urna lectus id neque. Cras imperdiet sed nibh nec pretium. Mauris efficitur quam sit amet purus consequat, eu placerat ipsum condimentum.</h5>
+                            <p>{ong.descricao}</p>    
                         </div>
+                        
                     </div>
+                    </Link>
                 </div>
             ))}
       </body>

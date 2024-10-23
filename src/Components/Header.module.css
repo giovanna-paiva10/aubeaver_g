@@ -45,12 +45,9 @@ li {
   background-color: #ffffff;
   width: 200px; /* Voltando ao tamanho maior para o menu */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px; /* Voltando o padding para o valor anterior */
-  border-radius: 8px;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  transform: translateX(100%);
-  opacity: 1;
-  font-size: 1rem; /* Voltando o tamanho da fonte para o valor original */
+  padding: 20px; 
+   border-radius: 8px;
+  font-size: 1rem; 
 }
 
 /* Ajuste para evitar quebra de linha no "Quem somos" */
@@ -114,8 +111,9 @@ img {
 .navlinksMobile.show {
   display: flex;
   transform: translateX(0);
-  opacity: 1;
+
   color: black;
+
 }
 
 /* Esconde links "Quem somos" e "Doação" no menu em telas grandes */
@@ -130,10 +128,7 @@ img {
     display: none;
   }
 
-  /* Mostrar os links dentro do menu hambúrguer em telas pequenas */
-  .navlinksMobile {
-    display: inline-block;
-  }
+
   
   /* Ajuste adicional para telas muito pequenas (como 320px) */
   @media (max-width: 400px) {
