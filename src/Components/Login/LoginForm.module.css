@@ -1,9 +1,9 @@
 
   #borda{
     background: linear-gradient(to right, #517655, #B2CEB5);
-    height: max-content;
+    height: 100vh;
+    padding-block: 16%;
   }
-
 
 section{
   align-items: center;
@@ -26,7 +26,7 @@ section{
 .content1{
   background-color: #FFFFFF;
   min-width: 15vw;
-  height: 28vw;
+  height: 350px;
   padding: 6px;
   border-radius: 16px;
 }

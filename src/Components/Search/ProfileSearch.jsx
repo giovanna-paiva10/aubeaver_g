@@ -23,7 +23,7 @@ const ProfileSearch = () => {
     <>
       <body id={styles.borda}>
         <h3 className={styles.estiloh3}>ONGs</h3>
-        <h4 className={styles.estiloh4}>Escolha o item com qual você deseja ajudar ou receber ajuda</h4>
+        <h4 className={styles.estiloh4}>Encontre a ONG que você deseja</h4>
 
               <p></p>
 
