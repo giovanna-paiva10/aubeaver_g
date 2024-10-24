@@ -40,7 +40,7 @@ const ProfileSearch = () => {
                         <div className={styles.contentText}>
                             <h3 className={styles.eh3}>{ong.nome}</h3>
                             <br />
-                            <h5 className={styles.eh5}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus ut elit quis commodo. Proin ultrices scelerisque mi laoreet ornare, massa tortor pharetra erat, eget ultricies urna lectus id neque. Cras imperdiet sed nibh nec pretium. Mauris efficitur quam sit amet purus consequat, eu placerat ipsum condimentum.</h5>
+                            <h4 className={styles.eh5}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus ut elit quis commodo. Proin ultrices scelerisque mi laoreet ornare, massa tortor pharetra erat, eget ultricies urna lectus id neque. Cras imperdiet sed nibh nec pretium. Mauris efficitur quam sit amet purus consequat, eu placerat ipsum condimentum.</h4>
                             <p>{ong.descricao}</p>    
                         </div>
                         

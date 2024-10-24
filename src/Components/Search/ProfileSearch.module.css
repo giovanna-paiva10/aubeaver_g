@@ -70,17 +70,10 @@
 }
 
 .eh3{
-    font-size: max(16px, 2.5vw);
+    font-size: max(20px, 2vw);
     color: #85A188;
 }
 
-.eh5{
-    font-size: max(10px, 1.5vw);
-}
-
-.linkk{
-    font-size: max(14px, 1.5vw);
-}
 
 .espaco{
     margin: 3.5vw;
