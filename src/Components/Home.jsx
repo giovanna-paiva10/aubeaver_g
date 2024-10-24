@@ -15,7 +15,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
-    const data = [row1, conect,]; // Adicione mais imagens se desejar
+    const data = [row1, row2,]; // Adicione mais imagens se desejar
 
     // Configurações do slider
     const settings = {

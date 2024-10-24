@@ -4,6 +4,7 @@ import logo from '../assets/rosto.svg'; // Assuming rosto.svg is the logo image
 import iconTik from '../assets/iconTik.svg';
 import iconInsta from '../assets/iconInsta.svg';
 import iconFace2 from '../assets/iconFace2.svg';
+import iconeeditar from '../assets/iconeeditar.png';
 
 const Footer = () => {
     return (
@@ -51,15 +52,17 @@ const Footer = () => {
                     </ul>
           
                 <section className={styles.secredes}>   
-                   <div > <img src={iconTik} alt="Icon Tiktok" className={styles.redes} /> </div> 
-                   <div>   <img src={iconFace2} alt="Icon Facebook" className={styles.redes} /> </div> 
+                   <div> <a href="#tiktok"><img src={iconTik} alt="Icon Tiktok" className={styles.redes} /> </a></div> 
+                   <div> <a href='#facebook'> <img src={iconFace2} alt="Icon Facebook" className={styles.redes} /></a> </div> 
                    <div> <img src={iconInsta} alt="Icon Tiktok" className={styles.redes} /> </div> 
+                  
                 </section>
             </div>
             </div>
             <div className={styles.footerBottom}>
                 <ul>
-            <li className={styles.copyz}><p>&copy; Copyright 2023 | Aubeaver | Todos os direitos reservados</p></li>  
+            <li className={styles.copyz}><p>&copy; Copyright 2024 | Aubeaver | Todos os direitos reservados</p></li>  
+            <li className={styles.copys}><p>&copy; Copyright 2024</p></li>
                 </ul>
             </div>
         </footer>
