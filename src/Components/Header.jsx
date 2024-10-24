@@ -1,83 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
 import logoo from '../assets/logoo.svg';
-import DropDown from './Dropdown';
+import { auth } from '../firebase'; // Certifique-se de que o caminho está correto
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
-  // Função para alternar o estado do menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Função para verificar o tamanho da tela e fechar o menu se necessário
   const handleResize = () => {
     if (window.innerWidth > 768) {
-      setIsMenuOpen(false); // Fecha o menu se a tela for maior que 768px
+      setIsMenuOpen(false);
     }
   };
 
-  // Adiciona o listener de redimensionamento ao montar o componente
   useEffect(() => {
-    window.addEventListener('resize', handleResize);
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+    });
 
-    // Remove o listener ao desmontar o componente
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      unsubscribe();
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
-  const DropDown = () => {
-    return (
-<div className={styles.ffc}>
-
-<ul className={styles.ffcgap}>
-    <li>Criar / Entrar</li>
-
-</ul>
-
-</div>
-
-
-
-
-        
-    )
-}
   return (
-  
-<header>
-
+    <header>
       <nav className={styles.navh}>
         <div className={styles.imgContainer}>
           <Link to='/'><img src={logoo} alt='logo' /></Link>
         </div>
-
-        {/* Links de navegação para "Quem somos" e "Doação" sempre visíveis em telas grandes */}
+        
         <ul className={styles.navlinksLarge}>
           <li><a href="./#qs">Quem somos</a></li>
           <a href="./#dc">Doação</a>
         </ul>
 
-        {/* Menu hambúrguer sempre visível */}
         <div className={`${styles.hamburguer} ${isMenuOpen ? styles.open : ''}`} onClick={toggleMenu}>
           <div className={styles.btn_line}></div>
           <div className={styles.btn_line}></div>
           <div className={styles.btn_line}></div>
         </div>
 
-        
         <ul className={`${styles.navlinksMobile} ${isMenuOpen ? styles.show : ''}`}>
-          <li><Link to='login'>Criar / Entrar</Link></li> {/* Sempre dentro do menu */}
-         
+          {user ? (
+            <li><Link to='/profile'>Meu Perfil</Link></li>
+          ) : (
+            <li><Link to='login'>Criar / Entrar</Link></li>
+          )}
         </ul>
       </nav>
-      {/*<DropDown /> */}
     </header>
-
-
-
-
   );
 };
 
