@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { firestore } from '../../firebase'; // Certifique-se de que isso está correto
+import { firestore } from '../../firebase'; 
 import { doc, getDoc } from 'firebase/firestore';
 
 const ProfileDetails = () => {
-    const { id } = useParams(); // Capturando o ID da URL
+    const { id } = useParams(); 
     const [profileData, setProfileData] = useState(null);
 
     useEffect(() => {
         const fetchProfileData = async () => {
-            if (!id) return; // Verifica se o ID está definido
+            if (!id) return;
 
             try {
-                const docRef = doc(firestore, 'Ongs', id); // Substitua 'Ongs' pelo nome correto da coleção
+                const docRef = doc(firestore, 'Ongs', id);
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
@@ -26,15 +26,13 @@ const ProfileDetails = () => {
         };
 
         fetchProfileData();
-    }, [id]); // O ID é uma dependência, se mudar, a busca será reexecutada
-
+    }, [id]); 
     return (
         <div>
             {profileData ? (
                 <div>
                     <h1>{profileData.nome}</h1>
                     <p>Email: {profileData.email}</p>
-                    {/* Adicione mais campos conforme necessário */}
                 </div>
             ) : (
                 <p>Carregando...</p>
