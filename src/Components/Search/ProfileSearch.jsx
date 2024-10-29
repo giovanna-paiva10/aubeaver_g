@@ -12,7 +12,7 @@ const ProfileSearch = () => {
   // Busca perfis de ONGs e Usuários
   useEffect(() => {
       const fetchOngs = async () => {
-          const querySnapshot = await getDocs(collection(firestore, 'Usuários'));
+          const querySnapshot = await getDocs(collection(firestore, 'Ongs'));
           setOngs(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
       };
 
