@@ -62,7 +62,7 @@ const MeuPerfil = () => {
         }
       };
 
-    const handleLogout = async () => {
+      const handleLogout = async () => {
         try {
             await auth.signOut();
             window.location.href = "/login";
@@ -73,7 +73,7 @@ const MeuPerfil = () => {
 
     const handleEditProfile = () => {
 
-        window.location.href = '/profile/perfilcriado'
+        window.location.href = '/profile/editarperfil'
     
     }
 
@@ -81,8 +81,13 @@ const MeuPerfil = () => {
         <form>
             {userDetails ? (
                 <>
-                    <p><h1>Olá, {userDetails.nome} </h1></p>
-                <button type="button" onClick={handleEditProfile}>Editar informações</button>
+                    <p>Olá, {userDetails.nome}</p>
+                    <p>Sua historia: {userDetails.minhaHistoria}</p>
+                    <button type="button" onClick={handleEditProfile}>Editar informações</button>
+
+                    <button className="btn btn-primary" onClick={handleLogout}>
+                        Logout
+                    </button>
                 </>
             ) : (
                 <p>Carregando</p>

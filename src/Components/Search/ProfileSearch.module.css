@@ -62,16 +62,26 @@
     margin-block: 24px;
 }
 
-.contentText{
+.contentText {
     width: 100%;
     color: #797979;
-    padding: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box; /* Usado para aplicar o layout de caixa flexível */
+    -webkit-box-orient: vertical; /* Define a orientação das caixas como vertical */
+    -webkit-line-clamp: 2; /* Limita o texto a duas linhas */
+    height: 3em; /* Ajuste a altura conforme necessário */
+    white-space: normal; /* Permite que o texto ocupe múltiplas linhas */
 }
 
-.eh3{
-    font-size: max(20px, 2vw);
+
+
+
+.eh3 {
+    font-size: max(18px, 1.2vw); /* Ajuste da fonte para caber melhor no layout */
     color: #85A188;
 }
+
 
 
 .espaco{
