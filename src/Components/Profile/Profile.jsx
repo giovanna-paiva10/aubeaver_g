@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MeuPerfil from './MeuPerfil';
-import ProfileCreated from './ProfileCreated';
+import EditProfile from './EditProfile';
 import ProtectedRoute from '../Login/ProtectedRoute'; // Importe a rota protegida
 
 const Profile = () => {
@@ -24,10 +24,10 @@ const Profile = () => {
                 } 
             />
             <Route 
-                path="perfilcriado" 
+                path="editarperfil" 
                 element={
                     <ProtectedRoute>
-                        <ProfileCreated />
+                        <EditProfile />
                     </ProtectedRoute>
                 } 
             />

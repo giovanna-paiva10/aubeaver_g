@@ -5,13 +5,14 @@ import { getDoc, doc, setDoc } from 'firebase/firestore';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import Input from '../Forms/Input';
 
-const ProfileCreated = () => {
+const EditProfile = () => {
     const [previewURL, setPreviewURL] = useState('');
     const [fotoPerfil, setFotoPerfil] = useState(null);
     const [upload, setUpload] = useState(false);
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [telefone, setTelefone] = useState('');
+    const [minhaHistoria, setminhaHistoria] = useState('');
     const [userDetails, setUserDetails] = useState(null);
 
     const fetchUserData = async () => {
@@ -24,6 +25,7 @@ const ProfileCreated = () => {
                     setNome(docSnap.data().nome || '');
                     setEmail(docSnap.data().email || '');
                     setTelefone(docSnap.data().telefone || '');
+                    setminhaHistoria(docSnap.data().minhaHistoria || '');
                     setPreviewURL(docSnap.data().fotoPerfil || '');
                 } else {
                     console.log("Usuário não logado");
@@ -52,6 +54,7 @@ const ProfileCreated = () => {
                 nome,
                 email,
                 telefone,
+                minhaHistoria,
             }, { merge: true });
 
             console.log('Informações salvas com sucesso!');
@@ -98,15 +101,6 @@ const ProfileCreated = () => {
         }
     };
 
-    const handleLogout = async () => {
-        try {
-            await auth.signOut();
-            window.location.href = "/login";
-        } catch (error) {
-            console.error("Erro ao fazer logout", error.message);
-        }
-    };
-
     const handleShowProfile = () => {
         window.location.href = '/profile/meuperfil';
     }
@@ -128,6 +122,22 @@ const ProfileCreated = () => {
                     <Input label="Nome" type="text" id="nome" value={nome} setValue={setNome} />
                     <Input label="Telefone" type="text" id="telefone" value={telefone} setValue={setTelefone} />
                     <Input label="E-mail" type="email" id="email" value={email} setValue={setEmail} />
+                    <label>Sua história 
+                        <p> </p>
+                        <textarea 
+                            id="minhaHistoria" 
+                            value={minhaHistoria} 
+                            onChange={(e) => setminhaHistoria(e.target.value)} // Atualize o valor usando onChange
+                            name="minhahistoria"
+                            maxLength={750}
+                            rows={10}
+                            cols={70}
+                        />
+                    </label>
+                    <p> </p>
+                    
+                    <p> </p>
+
 
                     <button type="button" onClick={handleSaveChanges}>
                         Salvar Alterações
@@ -142,10 +152,6 @@ const ProfileCreated = () => {
                     <button type="button" onClick={handleShowProfile}>
                         Retornar ao perfil
                     </button>
-                    
-                    <button className="btn btn-primary" onClick={handleLogout}>
-                        Logout
-                    </button>
                 </>
             ) : (
                 <p>Carregando</p>
@@ -154,4 +160,4 @@ const ProfileCreated = () => {
     );
 };
 
-export default ProfileCreated;
+export default EditProfile;
