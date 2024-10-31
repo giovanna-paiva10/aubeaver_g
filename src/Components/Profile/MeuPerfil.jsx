@@ -24,6 +24,8 @@ const MeuPerfil = () => {
                     setUserDetails(docSnap.data());
                 } else {
                     console.log("Usuário não logado");
+                    await auth.signOut();
+                    window.location.href = "/login";
                 }
             }
         });

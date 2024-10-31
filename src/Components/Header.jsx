@@ -18,6 +18,15 @@ const Header = () => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+        await auth.signOut();
+        window.location.href = "/";
+    } catch (error) {
+        console.error("Erro ao fazer logout", error.message);
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
@@ -50,7 +59,11 @@ const Header = () => {
 
         <ul className={`${styles.navlinksMobile} ${isMenuOpen ? styles.show : ''}`}>
           {user ? (
+            <>
             <li><Link to='/profile'>Meu Perfil</Link></li>
+            <li onClick={handleLogout}>Sair do perfil</li>
+            </>
+            
           ) : (
             <li><Link to='login'>Criar / Entrar</Link></li>
           )}
