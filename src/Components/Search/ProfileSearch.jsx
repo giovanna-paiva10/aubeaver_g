@@ -16,11 +16,6 @@ const ProfileSearch = () => {
           setOngs(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
       };
 
-    const fetchOngs = async () => {
-      const querySnapshot = await getDocs(collection(firestore, 'Usuários'));
-      setOngs(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-    };
-
 
     fetchOngs();
 
