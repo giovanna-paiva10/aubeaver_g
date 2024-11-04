@@ -70,15 +70,24 @@ const ProfileDetails = () => {
             </div>
 
             <div className={styles.container}>
-                <div className={styles.content}>
-                    <div className={styles.contentText2}>
-                    <h4>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula, vitae finibus purus vulputate. Aliquam erat volutpat. Proin ultricies, neque ut vehicula lacinia, mi erat vestibulum dolor, non consequat nibh augue eget libero.
-                    </h4>
-                    </div>
-                    <div className={styles.contentText3}>
+                <div className={styles.content2}>
+                <div className={styles.contentText2}>
+                <h2> Sobre a organização</h2>
+                <br />
+                <h4> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula, vitae finibus purus vulputate. Aliquam erat volutpat. Proin ultricies, neque ut vehicula lacinia, mi erat vestibulum dolor, non consequat nibh augue eget libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula, vitae finibus purus vulputate. </h4>
+            </div>  
+            <div className={styles.contentText3}>
+                <h3>Contato</h3>
+                <br />
+                    <ul>
+                        <li>localização</li>
+                        <li>website</li>
+                        <li>facebook</li>
+                        <li>instagram</li>
+                    </ul>
                 </div>
             </div>
+                
 
             </div>
 

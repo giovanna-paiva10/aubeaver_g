@@ -17,9 +17,9 @@
 }
 
 .contentImg{
-    width: 50%;
-    min-width: 90px;
-    height: 60%;
+    width: 25%;
+    min-width: 125px;
+    height: 70%;
     justify-content: center;
     align-items: center;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
@@ -29,9 +29,9 @@
 .container{
     display: flex;
     width: 100%;
-    min-width: 50vw;
-    
-    padding: 2%;
+   
+    min-height: 20vh;
+    padding: 1%;
     background-color: aliceblue;
 }
 
@@ -39,8 +39,11 @@
     display: flex;
     color: #797979;
     width: 100%;
-    height: 40vh;
+    height: 36vh;
     gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1%;
 }
 
 .content1{
@@ -61,31 +64,72 @@
 
 .botao1{
     width: 14vw;
-    height: 3vw;
+    height: 2.5vw;
     border-radius: 20px;
     background-color: #B296AD;
-    font-size: max(10px, 1vh);
+    font-size: max(10px, 1.5vh);
     margin: 0%;
     margin-right: 7%;
 }
 
 .botao{
     width: 10vw;
-    height: 3vw;
+    height: 2.5vw;
     border-radius: 4px;
     background-color: #B296AD;
-    font-size: max(10px, 1vh);
+    font-size: max(10px, 1.5vh);
     align-items: center;
     justify-content: center;
 }
 
 .botao2{
     width: 10vw;
-    height: 3vw;
+    height: 2.5vw;
     border-radius: 4px;
     color: #B296AD;
     background-color: white;
     border: solid 1px #B296AD;
-    font-size: max(10px, 1vh);
+    font-size: max(10px, 1.5vh);
     align-items: center;
+}
+
+.content2{
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+    padding: 8px;
+    border-radius: 12px;
+    margin-block: 24px;
+   
+    justify-content: center;
+}
+
+.contentText2{
+    width: 55%;
+    height: 50%;
+    color: #797979;
+    padding: 12px;
+    font-size: max(8px, 2vh);
+    border: 4%;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentText3{
+    width: 35%;
+    min-height: 32vh;
+    color: #797979;
+    padding: 16px;
+    font-size: max(8px, 2vh);
+    background-color: rgb(44, 85, 121);
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+@media(max-width:  1000px) {
+    .content2 {
+        flex-direction: column;
+    }
 }
