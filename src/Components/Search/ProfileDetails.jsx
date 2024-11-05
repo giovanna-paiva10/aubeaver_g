@@ -72,22 +72,38 @@ const ProfileDetails = () => {
             <div className={styles.container}>
                 <div className={styles.content2}>
                 <div className={styles.contentText2}>
-                <h2> Sobre a organização</h2>
+                <h2 className={styles.estiloh2}> Sobre a organização</h2>
                 <br />
-                <h4> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula, vitae finibus purus vulputate. Aliquam erat volutpat. Proin ultricies, neque ut vehicula lacinia, mi erat vestibulum dolor, non consequat nibh augue eget libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula, vitae finibus purus vulputate. </h4>
-            </div>  
+                <h4 > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula, vitae finibus purus vulputate. Aliquam erat volutpat. Proin ultricies, neque ut vehicula lacinia, mi erat vestibulum dolor, non consequat nibh augue eget libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula, vitae finibus purus vulputate. </h4>
+                    <br />
+                <h2 className={styles.estiloh2}> Palavras de apoio</h2>
+                <br />
+                <h4 className={styles.estiloh4}> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula,  </h4>
+            </div> 
+
             <div className={styles.contentText3}>
-                <h3>Contato</h3>
+                <h2 className={styles.estiloh2}>Contato</h2>
                 <br />
+                <h5 className={styles.estiloh5}>
                     <ul>
-                        <li>localização</li>
-                        <li>website</li>
-                        <li>facebook</li>
-                        <li>instagram</li>
+                        <li className={styles.espacolista}> LOCALICÇÃO 
+                        <br /> Lorem ipsum dolor sit amet, consectetur</li>
+
+                        <li className={styles.espacolista}>WEBSITE 
+                        <br /> Lorem ipsum dolor sit amet, consectetur</li>
+
+                        <li className={styles.espacolista}>FACEBOOK
+                        <br /> Lorem ipsum dolor sit</li>
+
+                        <li className={styles.espacolista}>INSTAGRAM
+                        <br /> Lorem ipsum dolor sit</li>
+
                     </ul>
-                </div>
+                </h5>
             </div>
-                
+
+
+            </div>
 
             </div>
 
