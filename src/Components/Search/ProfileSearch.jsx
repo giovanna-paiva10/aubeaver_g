@@ -17,7 +17,7 @@ const ProfileSearch = () => {
   useEffect(() => {
     const fetchOngs = async () => {
       try {
-        const querySnapshot = await getDocs(collection(firestore, 'Usuários'));
+        const querySnapshot = await getDocs(collection(firestore, 'Ongs'));
         const ongData = querySnapshot.docs
           .map(doc => ({ id: doc.id, ...doc.data() }))
           .filter(ong => ong.nome);
