@@ -85,7 +85,7 @@ const ProfileSearch = () => {
           <Link to={`/search/${ong.id}`}>
             <div className={styles.content1}>
               <div className={styles.contentImg}>
-                <img className={styles.img} src={ong.fotoPerfil || garf} alt="ong" />
+                <img className={styles.img} src={ong.fotoPerfil || garf} alt="Ong" />
               </div>
               <div className={styles.contentText}>
                 <h3 className={styles.eh3}>{ong.nome}</h3>
