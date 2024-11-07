@@ -17,7 +17,7 @@ const ProfileSearch = () => {
   useEffect(() => {
     const fetchOngs = async () => {
       try {
-        const querySnapshot = await getDocs(collection(firestore, 'Usuários'));
+        const querySnapshot = await getDocs(collection(firestore, 'Ongs'));
         const ongData = querySnapshot.docs
           .map(doc => ({ id: doc.id, ...doc.data() }))
           .filter(ong => ong.nome);
@@ -47,7 +47,7 @@ const ProfileSearch = () => {
 
   const truncateText = (text) => {
     if (!text) return "";
-    const maxChars = windowWidth > 1024 ? 200 : windowWidth > 768 ? 150 : 100;
+    const maxChars = windowWidth > 1024 ? 500 : windowWidth > 768 ? 350 : 200;
     return text.length > maxChars ? `${text.substring(0, maxChars)}...` : text;
   };
 
@@ -85,7 +85,7 @@ const ProfileSearch = () => {
           <Link to={`/search/${ong.id}`}>
             <div className={styles.content1}>
               <div className={styles.contentImg}>
-                <img className={styles.img} src={ong.fotoPerfil || garf} alt="ong" />
+                <img className={styles.img} src={ong.fotoPerfil || garf} alt="Ong" />
               </div>
               <div className={styles.contentText}>
                 <h3 className={styles.eh3}>{ong.nome}</h3>

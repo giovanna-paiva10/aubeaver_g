@@ -31,6 +31,7 @@
     width: 100%;
     min-height: 20vh;
     padding: 1%;
+    flex-wrap: wrap;
     
 }
 
@@ -106,15 +107,16 @@
     width: 100%;
     height: fit-content;
     color: #797979;
-    padding: 3%;
+    padding-right: 10%;
     font-size: max(8px, 2vh);
     border: 4%;
     justify-content: center;
     align-items: center;
+    
 }
 
 .contentText3{
-    width: 60%;
+    width: 100%;
     height: fit-content;
     min-height: 32vh;
     color: #797979;
@@ -123,15 +125,14 @@
     box-shadow: 3px 3px 4px 3px rgba(0, 0, 0, 0.3);
     border-radius: 16px;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;  
 }
 
 .espacolista{
     margin-block: 8px;
 }
 
-@media(max-width:  700px) {
+@media(max-width:  950px) {
     .content2 {
         flex-direction: column;
         align-items: center;
@@ -141,4 +142,42 @@
     .contentText3{
         margin: 4%;
     }
+    .contentText4{
+        margin: 4%;
+    }
+}
+
+.caixa{
+    width: 40%;
+}
+
+.caixa1{
+    width: 60%;
+}
+
+.contentText4{
+    width: 100%;
+    height: 40%;
+    color: #797979;
+    font-size: max(8px, 2vh);
+    box-shadow: 3px 3px 4px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center; 
+}
+
+.espaco{
+    margin: 2vh;
+}
+
+.imgg{
+    width: 100%;
+    height: 100%;
+    min-height: 40px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.estilouser{
+    color: #B296AD;
 }
