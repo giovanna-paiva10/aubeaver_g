@@ -4,7 +4,7 @@ import styles from './Home.module.css';
 import garf from '../assets/garfield.png';
 import fotoo from '../assets/fotoo.png';
 import conect from '../assets/conect.png';
-import cc from '../assets/conectandoc.png';
+import cc from '../assets/conectandoco.svg';
 import row1 from '../assets/row1.png';
 import row2 from '../assets/row2.png'; // Caso queira adicionar mais imagens
 
