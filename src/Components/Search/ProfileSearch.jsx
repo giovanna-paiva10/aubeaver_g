@@ -47,7 +47,7 @@ const ProfileSearch = () => {
 
   const truncateText = (text) => {
     if (!text) return "";
-    const maxChars = windowWidth > 1024 ? 200 : windowWidth > 768 ? 150 : 100;
+    const maxChars = windowWidth > 1024 ? 500 : windowWidth > 768 ? 350 : 200;
     return text.length > maxChars ? `${text.substring(0, maxChars)}...` : text;
   };
 
