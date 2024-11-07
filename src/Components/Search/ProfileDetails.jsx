@@ -4,7 +4,10 @@ import { firestore } from '../../firebase';
 import garf from '../../assets/garfield.png'; //
 import fotoo from '../../assets/fotoo.png'; //
 import styles from './ProfileDetails.module.css';
-
+import localizacao from '../../assets/locationicon.svg';
+import website from '../../assets/webicon.svg';
+import facebook from '../../assets/facebookicon.svg';
+import instagram from '../../assets/instaicon.svg';
 import { doc, getDoc } from 'firebase/firestore';
 
 const ProfileDetails = () => {
@@ -90,25 +93,42 @@ const ProfileDetails = () => {
             </div>
             </div>
 
+            
 
-                <div className={styles.caixa}>
+            <div className={styles.caixa}>
 
-                    <div className={styles.contentText3}>
+            <div className={styles.contentText3}>
                         <h2 className={styles.estiloh2}>Contato</h2>
                         <br />
                         <h5 className={styles.estiloh5}>
                             <ul>
-                                <li className={styles.espacolista}> LOCALICÇÃO 
-                                <br /> Lorem ipsum dolor sit amet, consectetur</li>
+                                <li className={styles.espacolista}>
+                                    <div className={styles.icon}> <img src={localizacao} alt='local'/> </div>
+                                    <div className={styles.lista}> 
+                                    <h4 className={styles.titulo} >LOCALIZAÇÃO</h4>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    </div>
+                                </li>
 
-                                <li className={styles.espacolista}>WEBSITE 
-                                <br /> Lorem ipsum dolor sit amet, consectetur</li>
+                                <li className={styles.espacolista}> 
+                                <div className={styles.listaa}>
+                                <img src={website} alt='web'/>WEBSITE 
+                                <br /> Lorem ipsum dolor sit amet, consectetur
+                                </div>
+                                </li>
 
-                                <li className={styles.espacolista}>FACEBOOK
-                                <br /> Lorem ipsum dolor sit</li>
+                                <li className={styles.espacolista}> 
+                                <div>
+                                <img src={facebook} alt='face'/> FACEBOOK
+                                <br /> Lorem ipsum dolor sit</div>
+                                </li>
 
-                                <li className={styles.espacolista}>INSTAGRAM
-                                <br /> Lorem ipsum dolor sit</li>
+                                <li className={styles.espacolista}> 
+                                <div>
+                                <img src={instagram} alt='insta'/> INSTAGRAM
+                                Lorem ipsum dolor sit
+                                </div>
+                                </li>
 
                             </ul>
                         </h5>
@@ -118,10 +138,11 @@ const ProfileDetails = () => {
                         <img src={fotoo} alt="foto"  className={styles.imgg}/>
                     </div>
 
-              </div>
+                    </div>
 
             </div>
-
+            
+    
 
         </body>
     );

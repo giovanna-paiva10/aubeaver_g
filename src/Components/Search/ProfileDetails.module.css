@@ -32,7 +32,6 @@
     min-height: 20vh;
     padding: 1%;
     flex-wrap: wrap;
-    
 }
 
 .content{
@@ -128,16 +127,13 @@
     align-items: center;  
 }
 
-.espacolista{
-    margin-block: 8px;
-}
-
-@media(max-width:  950px) {
-    .content2 {
+@media(max-width: 900px) {
+    .caixa {
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
+
     }
     .contentText3{
         margin: 4%;
@@ -145,10 +141,12 @@
     .contentText4{
         margin: 4%;
     }
+    
 }
 
 .caixa{
     width: 40%;
+    flex-wrap: wrap;
 }
 
 .caixa1{
@@ -180,4 +178,22 @@
 
 .estilouser{
     color: #B296AD;
+}
+
+.icon{
+   
+}
+
+.espacolista{
+    margin-block: 8px;
+    
+}
+
+.titulo{
+    color: #517655;
+    font-weight: bolder;
+}
+
+.lista{
+
 }

@@ -43,7 +43,7 @@ const Header = () => {
     <header>
       <nav className={styles.navh}>
         <div className={styles.imgContainer}>
-          <Link to='/'><img src={logoo} alt='logo' /></Link>
+          <Link to='/'><img className={styles.img} src={logoo} alt='logo' /></Link>
         </div>
         
         <ul className={styles.navlinksLarge}>
