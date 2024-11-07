@@ -112,11 +112,15 @@ const LoginCreate = () => {
 
 <div className={styles.content1}>
     <div className={styles.content2}>
+        <Link to='/login'>Retornar</Link>
 
+        <p></p>
+        
         <h2>Cadastre-se</h2>
  <p></p>
  <p></p>
-<form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit}>  
+                                    
 
 
     <select label="Entrar como" onChange={handleChange}>

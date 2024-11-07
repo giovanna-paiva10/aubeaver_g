@@ -63,6 +63,11 @@ const MeuPerfil = () => {
         <form>
             {userDetails ? (
                 <>
+                    <p></p>
+                    {userDetails.fotoPerfil && (
+                        <img src={userDetails.fotoPerfil} alt="Foto de Perfil" style={{ maxWidth: 150}} />
+                    )}
+                    <p></p>
                     {userType === "Usuário" ? (
                         <>
                             <p>Olá, {userDetails.nome}</p>

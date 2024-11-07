@@ -37,6 +37,11 @@ const LoginLostPassword = () => {
 
         <div className={styles.content1}>
         <div className={styles.content2}>
+        <Link to='/login'>Retornar</Link>
+
+        <p></p>
+        
+        
 
         <h2>Recuperar senha</h2>
  <p></p>
