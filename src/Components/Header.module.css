@@ -102,7 +102,7 @@ a {
 }
 
 
-img {
+.img {
   max-width: 100%;
   min-width: 50px;
 }

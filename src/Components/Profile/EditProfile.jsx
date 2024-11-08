@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './EditProfile.module.css';
 import { auth, firestore } from '../../firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDoc, doc, setDoc } from 'firebase/firestore';
@@ -154,8 +155,9 @@ const EditProfile = () => {
         <form>
             {userDetails ? (
                 <>
-                    <label>Meu Perfil</label>
-                    <label>Foto de perfil</label>
+                    <label>ADICIONAAIMAGEMDOPERFILCOMACANETA Meu Perfil</label>
+                    <p> </p>
+                    <label><h3 className={styles.tit1}>Foto de perfil</h3></label>
                     <input type="file" accept='image/*' onChange={handleImageChange} /><br />
                     {previewURL && <img src={previewURL} alt="Preview da foto" style={{ maxWidth: 150 }} />}<br />
 
