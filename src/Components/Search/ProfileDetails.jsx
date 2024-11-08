@@ -73,26 +73,26 @@ const ProfileDetails = () => {
             )}
             </div>
 
-            <div className={styles.container}>
+            <div className={styles.container1}>
 
             <div className={styles.caixa1}>
-                    <div className={styles.content2}>
-                    <div className={styles.contentText2}>
-                    <h2 className={styles.estiloh2}> Sobre a organização</h2>
-                    <br />
-                    <h4 >  A Cáritas São Paulo é uma organização humanitária que atua há mais de 60 anos, buscando promover a dignidade humana e garantir os direitos de pessoas em situação de rua, migrantes, refugiados e outras populações vulneráveis. Nossos programas oferecem alimentos, roupas, kits de higiene, apoio psicossocial e ações de reintegração social. Trabalhamos para garantir que as pessoas tenham acesso a serviços essenciais como saúde, educação e documentação. Sua contribuição financeira é fundamental para manter nossas atividades e expandir nosso alcance. Com sua doação, conseguimos fornecer suporte a mais pessoas, oferecendo a elas as condições mínimas para uma vida digna. Junte-se a nós e ajude a transformar a realidade de quem mais precisa, promovendo a inclusão social e o fortalecimento de nossa rede de apoio.
-                    </h4>
-                        <br className={styles.espaco}/>
+                <div className={styles.content2}>
+                        <div className={styles.contentText2}>
+                        <h2 className={styles.estiloh2}> Sobre a organização</h2>
                         <br />
-                    <h2 className={styles.estiloh2}> Palavras de apoio</h2>
-                    <br />
-                    <h3 className={styles.estilouser }>user.name</h3>
-                    <br />
-                    <h4 className={styles.estiloh4}> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula,  </h4>
-                </div> 
+                        <h4 >  A Cáritas São Paulo é uma organização humanitária que atua há mais de 60 anos, buscando promover a dignidade humana e garantir os direitos de pessoas em situação de rua, migrantes, refugiados e outras populações vulneráveis. Nossos programas oferecem alimentos, roupas, kits de higiene, apoio psicossocial e ações de reintegração social. Trabalhamos para garantir que as pessoas tenham acesso a serviços essenciais como saúde, educação e documentação. Sua contribuição financeira é fundamental para manter nossas atividades e expandir nosso alcance. Com sua doação, conseguimos fornecer suporte a mais pessoas, oferecendo a elas as condições mínimas para uma vida digna. Junte-se a nós e ajude a transformar a realidade de quem mais precisa, promovendo a inclusão social e o fortalecimento de nossa rede de apoio.
+                        </h4>
+                            <br className={styles.espaco}/>
+                            <br />
+                        <h2 className={styles.estiloh2}> Palavras de apoio</h2>
+                        <br />
+                        <h3 className={styles.estilouser }>user.name</h3>
+                        <br />
+                        <h4 className={styles.estiloh4}> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula,  </h4>
+                    </div> 
+                </div>
+            
             </div>
-            </div>
-
             
 
             <div className={styles.caixa}>
@@ -132,12 +132,13 @@ const ProfileDetails = () => {
 
                             </ul>
                         </h5>
-                    </div>
+                        </div>
                         <p className={styles.espaco}/>
                     <div className={styles.contentText4}>
                         <img src={fotoo} alt="foto"  className={styles.imgg}/>
                     </div>
 
+                    
                     </div>
 
             </div>
