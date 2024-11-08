@@ -12,6 +12,9 @@ import btdentro from '../../assets/bteditar.png';
 const EditProfile = () => {
     const [previewURL, setPreviewURL] = useState('');
     const [fotoPerfil, setFotoPerfil] = useState(null);
+    const [fotoSituacao1, setFotoSituacao1] = useState(null);
+    const [fotoSituacao2, setFotoSituacao2] = useState(null);
+    const [fotoSituacao3, setFotoSituacao3] = useState(null);
     const [upload, setUpload] = useState(false);
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
@@ -50,6 +53,13 @@ const EditProfile = () => {
         }
     };
 
+    const handleSituationImageChange = (event, setImage) => {
+        const file = event.target.files[0];
+        if (file) {
+            setImage(file);
+        }
+    };
+
     const handleSaveChanges = async () => {
         try {
             const user = auth.currentUser;
@@ -62,6 +72,7 @@ const EditProfile = () => {
             }, { merge: true });
 
             console.log('Informações salvas com sucesso!');
+            window.location.href = '/profile';
         } catch (error) {
             console.error("Erro ao salvar alterações:", error);
         }
@@ -87,6 +98,40 @@ const EditProfile = () => {
             setPreviewURL(downloadURL);
         } catch (error) {
             console.error("Erro ao fazer upload:", error);
+        } finally {
+            setUpload(false);
+        }
+    };
+
+    const uploadSituationImages = async () => {
+        const storage = getStorage();
+        const user = auth.currentUser;
+        const userRef = doc(firestore, "Usuários", user.uid);
+        const uploadedImages = {};
+
+        const uploadImage = async (file, name) => {
+            const storageRef = ref(storage, `imagensperfil/${file.name}`);
+            await uploadBytes(storageRef, file);
+            return await getDownloadURL(storageRef);
+        };
+
+        try {
+            setUpload(true);
+
+            if (fotoSituacao1) {
+                uploadedImages.fotoSituacao1 = await uploadImage(fotoSituacao1, 'fotoSituacao1');
+            }
+            if (fotoSituacao2) {
+                uploadedImages.fotoSituacao2 = await uploadImage(fotoSituacao2, 'fotoSituacao2');
+            }
+            if (fotoSituacao3) {
+                uploadedImages.fotoSituacao3 = await uploadImage(fotoSituacao3, 'fotoSituacao3');
+            }
+
+            await setDoc(userRef, uploadedImages, { merge: true });
+            console.log('Imagens de situação enviadas com sucesso!');
+        } catch (error) {
+            console.error("Erro ao fazer upload das imagens de situação:", error);
         } finally {
             setUpload(false);
         }
@@ -134,7 +179,7 @@ const EditProfile = () => {
                     <p> </p>
                     <label><h3 className={styles.tit1}>Foto de perfil</h3></label>
                     <input type="file" accept='image/*' onChange={handleImageChange} /><br />
-                    <center>{previewURL && <img src={previewURL} alt="Preview da foto" style={{ maxWidth: 150 }} />}<br /></center>
+                    {previewURL && <img src={previewURL} alt="Preview da foto" style={{ maxWidth: 150 }} />}<br />
 
                     <button type="button" onClick={uploadProfileImage} disabled={upload}>
                         {upload ? "Enviando..." : "Salvar Foto de Perfil"}
@@ -143,29 +188,32 @@ const EditProfile = () => {
                     <Input label="Nome" type="text" id="nome" value={nome} setValue={setNome} />
                     <Input label="Telefone" type="text" id="telefone" value={telefone} setValue={setTelefone} />
                     <Input label="E-mail" type="email" id="email" value={email} setValue={setEmail} />
-                    <label>Sua história 
-                        <p> </p>
-                        <textarea 
-                            id="minhaHistoria" 
-                            value={minhaHistoria} 
-                            onChange={(e) => setminhaHistoria(e.target.value)} // Atualize o valor usando onChange
-                            name="minhahistoria"
-                            maxLength={750}
-                            rows={10}
-                            cols={70}
-                        />
-                    </label>
+                    <label>Sua história</label>
+                    <p> </p>
+                    <textarea 
+                        id="minhaHistoria" 
+                        value={minhaHistoria} 
+                        onChange={(e) => setminhaHistoria(e.target.value)} 
+                        maxLength={750}
+                        rows={10}
+                        cols={70}
+                    />
                     <p> </p>
                     
-                    <p> </p>
+                    <label>Fotos de Situação</label>
+                    <input type="file" accept='image/*' onChange={(e) => handleSituationImageChange(e, setFotoSituacao1)} /><br />
+                    <input type="file" accept='image/*' onChange={(e) => handleSituationImageChange(e, setFotoSituacao2)} /><br />
+                    <input type="file" accept='image/*' onChange={(e) => handleSituationImageChange(e, setFotoSituacao3)} /><br />
 
-
+                    <button type="button" onClick={uploadSituationImages} disabled={upload}>
+                        {upload ? "Enviando..." : "Salvar Fotos de Situação"}
+                    </button><br />
+                    
                     <button type="button" onClick={handleSaveChanges}>
                         Salvar Alterações
                     </button>
-                    
+
                     <h3>Redefinir Senha</h3>
-                    <p>Um e-mail será enviado para redefinir sua senha em: {email}</p>
                     <button type="button" onClick={handlePasswordReset}>
                         Enviar E-mail de Redefinição
                     </button>
