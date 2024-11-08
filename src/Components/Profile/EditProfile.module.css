@@ -2,8 +2,50 @@
     color: #755071;
     font-weight: bolder;
     font-size: 17px;
-
+  
     margin-bottom: 18px;
-
+    flex-direction: line;
     padding-left: 1%;
+}
+
+.iconpe {
+ width: 55x;
+ height: 35px;
+ flex-direction: line;
+ margin-right: 10px;
+}
+
+.titp  {
+    color: #755071;
+    font-weight: bolder;
+    font-size: 17px;
+    margin: 3%;
+    white-space: nowrap;
+}
+
+.espaco {
+    margin: 28px;
+}
+
+.seup {
+    display: flex;
+   justify-content: space-between;
+    flex-direction: line;
+}
+
+.bte {
+    width: 224;
+    height: 224;
+}
+
+.btcont {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.dencont {
+    display: flex;
+align-items: center;
+justify-content: center;
 }

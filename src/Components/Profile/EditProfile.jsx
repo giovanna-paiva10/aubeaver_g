@@ -5,6 +5,9 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDoc, doc, setDoc } from 'firebase/firestore';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import Input from '../Forms/Input';
+import iconpe from '../../assets/iconeeditar.png';
+import bted from '../../assets/borda.png';
+import btdentro from '../../assets/bteditar.png';
 
 const EditProfile = () => {
     const [previewURL, setPreviewURL] = useState('');
@@ -110,7 +113,24 @@ const EditProfile = () => {
         <form>
             {userDetails ? (
                 <>
-                    <label>ADICIONAAIMAGEMDOPERFILCOMACANETA Meu Perfil</label>
+                    <div className={styles.espaco}></div>
+
+                    <div className={styles.seup}>
+                    <section className={styles.texto}>
+                    <img src={iconpe} alt="Icon Usuario" className={styles.iconpe} />
+                   
+                    <label className={styles.titp}>Meu Perfil</label>
+                    </section>
+                    </div>
+
+                    <div className={styles.espaco}></div>
+                    <div className={styles.btcont}>
+                    <img src={bted} alt="BORDA DE ADICIONAR" className={styles.bte} />
+                    </div>
+                    <div className={styles.dencont}>
+                    <img src={btdentro} alt="PARDE DE DENTRO" className={styles.bte} />
+                    </div>
+
                     <p> </p>
                     <label><h3 className={styles.tit1}>Foto de perfil</h3></label>
                     <input type="file" accept='image/*' onChange={handleImageChange} /><br />
