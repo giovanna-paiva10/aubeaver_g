@@ -56,7 +56,6 @@ const LoginCreate = () => {
             const CredenciaisUsuario = await createUserWithEmailAndPassword(auth, email, password);
             const user = CredenciaisUsuario.user;
             
-            // Verifica se o uid está disponível antes de continuar
             if (user && user.uid) {
                 const userData = {
                     nome,
@@ -67,11 +66,9 @@ const LoginCreate = () => {
                     Identificador: identificador,
                 };
 
-                // Define a coleção de acordo com o tipo de pessoa
                 const collection = tipoPessoa === 'ONG' ? "Ongs" : "Usuários";
                 await setDoc(doc(firestore, collection, user.uid), userData);
 
-                // Redireciona após o cadastro ser confirmado no Firestore
                 window.location.href = '/login/';
                 console.log("Cadastro realizado com sucesso!", userData);
             } else {
