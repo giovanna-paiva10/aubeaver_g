@@ -45,12 +45,30 @@ const EditProfile = () => {
         fetchUserData();
     }, []);
 
-    const handleImageChange = (event) => {
+    const handleImageChange = async (event) => {
         const file = event.target.files[0];
         if (file) {
-            setFotoPerfil(file);
-            setPreviewURL(URL.createObjectURL(file));
+            const resizedImage = await resizeImage(file, 150, 150);
+            setFotoPerfil(resizedImage);
+            setPreviewURL(URL.createObjectURL(resizedImage));
         }
+    };
+
+    const resizeImage = (file, width, height) => {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.src = URL.createObjectURL(file);
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                canvas.toBlob((blob) => {
+                    resolve(new File([blob], file.name, { type: file.type }));
+                }, file.type);
+            };
+        });
     };
 
     const handleSituationImageChange = (event, setImage) => {
@@ -161,11 +179,10 @@ const EditProfile = () => {
                     <div className={styles.espaco}></div>
 
                     <div className={styles.seup}>
-                    <section className={styles.texto}>
-                    <img src={iconpe} alt="Icon Usuario" className={styles.iconpe} />
-                   
-                    <label className={styles.titp}>Meu Perfil</label>
-                    </section>
+                        <section className={styles.texto}>
+                            <img src={iconpe} alt="Icon Usuario" className={styles.iconpe} />
+                            <label className={styles.titp}>Meu Perfil</label>
+                        </section>
                     </div>
 
                     <div className={styles.espaco}></div>
