@@ -75,7 +75,7 @@ const ProfileDetails = () => {
 
             <div className={styles.container1}>
 
-            <div className={styles.caixa1}>
+        
                 <div className={styles.content2}>
                         <div className={styles.contentText2}>
                         <h2 className={styles.estiloh2}> Sobre a organização</h2>
@@ -92,7 +92,7 @@ const ProfileDetails = () => {
                     </div> 
                 </div>
             
-            </div>
+          
             
 
             <div className={styles.caixa}>
@@ -137,10 +137,17 @@ const ProfileDetails = () => {
                     <div className={styles.contentText4}>
                         <img src={fotoo} alt="foto"  className={styles.imgg}/>
                     </div>
-
-                    
                     </div>
+            </div>
 
+
+            <div className={styles.container3}>
+                <div className={styles.content3}>
+                <div><img className={styles.imggg} src={fotoo} alt="foto" /></div>
+                <div><img className={styles.imggg} src={fotoo} alt="foto" /></div>
+                <div><img className={styles.imggg} src={fotoo} alt="foto" /></div>
+               
+                </div>
             </div>
             
     

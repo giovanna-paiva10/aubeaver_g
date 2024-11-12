@@ -1,5 +1,5 @@
 #borda{
-    width: 100%;
+    width: 100vw;
     align-items: center;
     justify-content: center;
     padding: 4%;
@@ -94,21 +94,20 @@
 
 .content2{
     display: flex;
-    width: 100%;
+    width: 70%;
     gap: 2rem;
-    padding: 4px;
+    padding: 3%;
     border-radius: 12px;
     margin-block: 8px;
     justify-content: center;
+    
 }
 
 
 .container1{
     display: flex;
-    width: 92vw;
-    flex-wrap: wrap;
+    width: 90vw;
     gap: 5vw;
-    justify-content: center;
     justify-content: center;
 }
 
@@ -145,29 +144,24 @@
         align-items: center;
         gap: 6rem;
     }
-    .caixa1{
-        width: 100%;
+    .content2{
+        width: 80%;
     }
-    .caixa{
+    .contentText3{
         width: 100%;
-    }
-    .contentText2{
-        width: auto;
     }
 }
 
-@media(max-width: 200px) {
+@media(max-width: 400px) {
+    .content1{
+        flex-wrap: wrap;
+    }
     
 }
 
 .caixa{
-    width: 38%;
-    min-width: 500px;
-}
-
-.caixa1{
-    width: 55%;
-    min-width: 800px;
+    width: 65%;
+    min-width: 300px;
 }
 
 .contentText4{
@@ -198,10 +192,6 @@
     color: #B296AD;
 }
 
-.icon{
-   
-}
-
 .espacolista{
     margin-block: 8px;
     
@@ -212,6 +202,26 @@
     font-weight: bolder;
 }
 
-.lista{
+.container3{
+    width: 100%;
+    height: fit-content;
+    padding: 1%;
+}
 
+.content3{
+    background-color: #B296AD;
+    width: 95%;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    height: 50vw;
+}
+
+.imggg{
+    width: 24vw;
+}
+
+
+.contentImg{
+    
 }
