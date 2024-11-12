@@ -8,6 +8,44 @@
     padding-left: 1%;
 }
 
+.headerSection {
+    display: flex;
+    align-items: center;
+}
+
+.imageContainer {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.imageOverlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.profileImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profileBorder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .iconpe {
  width: 55x;
  height: 35px;

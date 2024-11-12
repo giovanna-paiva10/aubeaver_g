@@ -65,7 +65,7 @@ const MeuPerfil = () => {
                 <>
                     <p></p>
                     {userDetails.fotoPerfil && (
-                        <img src={userDetails.fotoPerfil} alt="Foto de Perfil" style={{ maxWidth: 150}} />
+                        <img src={userDetails.fotoPerfil} alt="Foto de Perfil" />
                     )}
                     <p></p>
                     {userType === "Usuário" ? (
