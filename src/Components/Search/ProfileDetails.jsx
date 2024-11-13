@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { firestore } from '../../firebase'; 
-import garf from '../../assets/garfield.png'; //
-import fotoo from '../../assets/fotoo.png'; //
+import garf from '../../assets/garfield.png'; 
+import fotoo from '../../assets/fotoo.png'; 
 import styles from './ProfileDetails.module.css';
 import localizacao from '../../assets/locationicon.svg';
 import website from '../../assets/webicon.svg';
@@ -42,36 +42,32 @@ const ProfileDetails = () => {
 
             <div className={styles.container}> 
 
-            <div className={styles.content}> 
+                <div className={styles.content}> 
 
-                <div className={styles.content1}>
-                    <div className={styles.contentImg}>
-                    <img className={styles.img} src={garf} alt="ong" />
+                    <div className={styles.content1}>
+                        <div className={styles.contentImg}>
+                            <img className={styles.img} src={garf} alt="ong" />
+                        </div>
+
+                        <div className={styles.contentText}>
+                            <h1 className={styles.estiloh2}>{profileData.nome}</h1>
+                            <br />
+                            <h4> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus ut elit quis commodo. Proin ultrices scelerisque mi. </h4>
+                            <br />
+                            <button className={styles.botao1}>Preciso de ajuda</button>
+                            <button className={styles.botao1}>Quero ajudar</button>
+                        </div>
                     </div>
-                <div className={styles.contentText}>
-                <h1 className={styles.estiloh2}>{profileData.nome}</h1>
-                <br />
-                    <h4> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus ut elit quis commodo. Proin ultrices scelerisque mi. </h4>
-                    <br />
-                    <button className={styles.botao1}>Preciso de ajuda</button>
-                    <button className={styles.botao1}>Quero ajudar</button>
+                    
                 </div>
-                <div>
-                <button className={styles.botao}> Editar perfil</button>
 
-                <button className={styles.botao2}> Sair</button>
-                </div>
-                </div>
-                
             </div>
 
-                </div>
-
                 
-            ) : (
-                <p>Carregando...</p>
-            )}
-            </div>
+                ) : (
+                    <p>Carregando...</p>
+                )}
+        </div>
 
             <div className={styles.container1}>
 

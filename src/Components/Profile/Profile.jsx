@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MeuPerfil from './MeuPerfil';
 import EditProfile from './EditProfile';
+import EditProfileONG from './EditProfileOng';
 import ProtectedRoute from '../Login/ProtectedRoute'; // Importe a rota protegida
 
 const Profile = () => {
@@ -28,6 +29,14 @@ const Profile = () => {
                 element={
                     <ProtectedRoute>
                         <EditProfile />
+                    </ProtectedRoute>
+                } 
+            />
+            <Route 
+                path="editarperfilong" 
+                element={
+                    <ProtectedRoute>
+                        <EditProfileONG />
                     </ProtectedRoute>
                 } 
             />
