@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { firestore } from '../../firebase';
-import { collection, getDocs } from 'firebase/firestore';
-import styles from './ProfileSearch.module.css';
-import garf from '../../assets/garfield.png';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { firestore } from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
+import styles from "./ProfileSearch.module.css";
+import garf from "../../assets/garfield.png";
 
 const ProfileSearch = () => {
   const [ongs, setOngs] = useState([]);
   const [filteredOngs, setFilteredOngs] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -17,11 +17,11 @@ const ProfileSearch = () => {
   useEffect(() => {
     const fetchOngs = async () => {
       try {
-        const querySnapshot = await getDocs(collection(firestore, 'Ongs'));
+        const querySnapshot = await getDocs(collection(firestore, "Ongs"));
         const ongData = querySnapshot.docs
-          .map(doc => ({ id: doc.id, ...doc.data() }))
-          .filter(ong => ong.nome);
-        
+          .map((doc) => ({ id: doc.id, ...doc.data() }))
+          .filter((ong) => ong.nome);
+
         setOngs(ongData);
         setFilteredOngs(ongData);
       } catch (error) {
@@ -32,14 +32,15 @@ const ProfileSearch = () => {
     fetchOngs();
 
     const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    const filtered = ongs.filter(ong =>
-      ong.nome && ong.nome.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = ongs.filter(
+      (ong) =>
+        ong.nome && ong.nome.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredOngs(filtered);
     setCurrentPage(1);
@@ -80,16 +81,22 @@ const ProfileSearch = () => {
         onChange={handleSearchChange}
         className={styles.searchInput}
       />
-      {currentOngs.map(ong => (
+      {currentOngs.map((ong) => (
         <div key={ong.id} className={styles.content}>
           <Link to={`/search/${ong.id}`}>
             <div className={styles.content1}>
               <div className={styles.contentImg}>
-                <img className={styles.img} src={ong.fotoPerfil || garf} alt="Ong" />
+                <img
+                  className={styles.img}
+                  src={ong.fotoPerfil || garf}
+                  alt="Ong"
+                />
               </div>
               <div className={styles.contentText}>
                 <h3 className={styles.eh3}>{ong.nome}</h3>
-                <p>{truncateText(ong.minhaHistoria)}</p>
+                <p></p>
+                <p></p>
+                <p>{truncateText(ong.organizacao)}</p>
               </div>
             </div>
           </Link>
@@ -100,7 +107,9 @@ const ProfileSearch = () => {
         <button onClick={prevPage} disabled={currentPage === 1}>
           Anterior
         </button>
-        <span>Página {currentPage} de {totalPages}</span>
+        <span>
+          Página {currentPage} de {totalPages}
+        </span>
         <button onClick={nextPage} disabled={currentPage === totalPages}>
           Próxima
         </button>
