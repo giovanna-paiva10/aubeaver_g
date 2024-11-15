@@ -93,7 +93,8 @@ const ProfileSearch = () => {
                 />
               </div>
               <div className={styles.contentText}>
-                <h3 className={styles.eh3}>{ong.nome}</h3>
+                <h3 className={styles.eh3}>{ong.nome}</h3><br/>
+                <h4>Limite de {ong.limitePessoas} pessoas</h4>
                 <p></p>
                 <p></p>
                 <p>{truncateText(ong.organizacao)}</p>

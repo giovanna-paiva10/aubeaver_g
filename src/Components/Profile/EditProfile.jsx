@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from './EditProfile.module.css';
 import { auth, firestore } from '../../firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getDoc, doc, setDoc } from 'firebase/firestore';
-import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+import { getDoc, doc, setDoc, deleteDoc } from 'firebase/firestore';
+import { getAuth, sendPasswordResetEmail, reauthenticateWithCredential, deleteUser, reauthenticateWithPopup, GoogleAuthProvider, EmailAuthProvider } from 'firebase/auth';
 import Input from '../Forms/Input';
 import iconpe from '../../assets/iconeeditar.png';
 import bted from '../../assets/borda.png';
@@ -150,6 +150,56 @@ const EditProfile = () => {
         }
     };
 
+    const handleDeleteAccount = async () => {
+        const user = auth.currentUser;
+        if (!user) {
+            alert('Nenhum usuário autenticado.');
+            return;
+        }
+    
+        const confirmation = window.confirm(
+            'Tem certeza de que deseja excluir sua conta? Esta ação não pode ser desfeita.'
+        );
+    
+        if (!confirmation) return;
+    
+        try {
+            const providerId = user.providerData[0]?.providerId;
+    
+            if (providerId === 'google.com') {
+                const provider = new GoogleAuthProvider();
+                await reauthenticateWithPopup(user, provider);
+            } else if (providerId === 'password') {
+                const password = prompt('Digite sua senha para confirmar:');
+                if (!password) {
+                    alert('Senha é necessária para reautenticação.');
+                    return;
+                }
+                const credential = EmailAuthProvider.credential(user.email, password);
+                await reauthenticateWithCredential(user, credential);
+            } else {
+                throw new Error('Método de autenticação não suportado para exclusão.');
+            }
+    
+            await deleteUser(user);
+    
+            const userDocRef = doc(firestore, "Usuários", user.uid);
+            await deleteDoc(userDocRef);
+    
+            alert('Sua conta foi excluída com sucesso.');
+            window.location.href = '/';
+        } catch (error) {
+            console.error("Erro ao excluir conta:", error);
+            if (error.code === 'auth/requires-recent-login') {
+                alert(
+                    'Você precisa fazer login novamente para excluir sua conta. Por favor, saia e entre novamente.'
+                );
+            } else {
+                alert(`Erro ao excluir conta: ${error.message}`);
+            }
+        }
+    };
+
     const handleShowProfile = () => {
         window.location.href = '/profile/meuperfil';
     }
@@ -231,6 +281,10 @@ const EditProfile = () => {
                         <h3>Redefinir Senha</h3>
                         <button type="button" onClick={handlePasswordReset}>
                             Enviar E-mail de Redefinição
+                        </button>
+
+                        <button type="button" onClick={handleDeleteAccount} className={styles.botaoperigo}>
+                            Excluir Conta
                         </button>
 
                         <button type="button" onClick={handleShowProfile}>

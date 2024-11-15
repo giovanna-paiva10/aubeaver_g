@@ -11,6 +11,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 const LoginCreate = () => {
     const [identificador, setIdentificador] = useState('');
+    const [cadunico, setCadunico] = useState('');
     const [username, setUsername] = useState('');
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
@@ -64,6 +65,7 @@ const LoginCreate = () => {
                     senha: password,
                     Tipo_de_identificador: tipoPessoa,
                     Identificador: identificador,
+                    cadunico: cadunico,
                 };
 
                 const collection = tipoPessoa === 'ONG' ? "Ongs" : "Usuários";
@@ -101,8 +103,15 @@ const LoginCreate = () => {
                                 </select>
                                 <p></p>
                                 <div id="results">
-                                    {(tipoPessoa === 'Doador' || tipoPessoa === 'Solicitante') && (
+                                    {tipoPessoa === 'Doador' && (
                                         <Input label="CPF" type="CPF" id="identunic" value={identificador} setValue={setIdentificador}/>
+                                    )}
+                                    {tipoPessoa === 'Solicitante' && (
+                                        <>
+                                            <Input label="CPF" type="CPF" id="identunic" value={identificador} setValue={setIdentificador}/>
+                                            <p> </p>
+                                            <Input label="Cadunico" type="cadunico" id="cadunico" value={cadunico} setValue={setCadunico}/>
+                                        </>
                                     )}
                                     {tipoPessoa === 'ONG' && (
                                         <Input label="CNPJ" type="CNPJ" id="identunic" value={identificador} setValue={setIdentificador}/>
