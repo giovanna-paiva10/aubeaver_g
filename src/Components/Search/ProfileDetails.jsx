@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { firestore, auth } from '../../firebase'; 
+import foto from '../../assets/rosto.svg';
 import garf from '../../assets/garfield.png'; 
 import fotoo from '../../assets/fotoo.png'; 
 import styles from './ProfileDetails.module.css';
@@ -14,6 +15,13 @@ const ProfileDetails = () => {
     const { id } = useParams(); 
     const [profileData, setProfileData] = useState(null);
     const [userType, setUserType] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const [email, setEmail] = useState('');
+    const [nome, setNome] = useState('');
+    const [telefone, setTelefone] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [tipoAjuda, setTipoAjuda] = useState('');
 
     useEffect(() => {
         const fetchProfileData = async () => {
@@ -62,6 +70,15 @@ const ProfileDetails = () => {
         fetchUserType();
         fetchProfileData();
     }, [id]); 
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <body id={styles.borda}>
         <div>
@@ -84,7 +101,7 @@ const ProfileDetails = () => {
                                 <button className={styles.botao1}>Quero ajudar</button>
                             )}
                             {userType === 'Solicitante' && (
-                                <button className={styles.botao1}>Preciso de ajuda</button>
+                                <button className={styles.botao1} onClick={openModal}>Preciso de ajuda</button>
                             )}
                         </div>
 
@@ -93,6 +110,70 @@ const ProfileDetails = () => {
                 </div>
 
             </div>
+
+            {isModalOpen && (
+                <div className={styles.modalOverlay} onClick={closeModal}>
+                    <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                        <div className={styles.modalHeader}>
+                            <span className={styles.close} onClick={closeModal}>×</span>
+                        </div>
+                        <div className={styles.modalBody}>
+                            <div className={styles.modalLeft}>
+                                <div className={styles.modalImage}>
+                                    <img src={foto} alt="Mascote" />
+                                </div>
+                                <div className={styles.modalInputs}>
+                                    <label>E-mail</label>
+                                    <input
+                                        type="email"
+                                        placeholder="E-mail"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                    <label>Nome completo</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Nome completo"
+                                        value={nome}
+                                        onChange={(e) => setNome(e.target.value)}
+                                    />
+                                    <label>Telefone</label>
+                                    <input
+                                        type="tel"
+                                        placeholder="Telefone"
+                                        value={telefone}
+                                        onChange={(e) => setTelefone(e.target.value)}
+                                    />
+                                    <label>Endereço</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Endereço"
+                                        value={endereco}
+                                        onChange={(e) => setEndereco(e.target.value)}
+                                    />
+                                    <label>Tipo de ajuda necessária</label>
+                                    <select
+                                        value={tipoAjuda}
+                                        onChange={(e) => setTipoAjuda(e.target.value)}
+                                    >
+                                        <option value="">Selecione o tipo de ajuda</option>
+                                        <option value="Alimentos">Alimentos</option>
+                                        <option value="Higiene">Higiene</option>
+                                        <option value="Ajuda voluntária">Ajuda voluntária</option>
+                                    </select>
+                                    <button className={styles.botao2} onClick={console.log('clicou')}>Avançar</button>
+                                </div>
+                            </div>
+                            <div className={styles.modalRight}>
+                                <p>
+                                    Estamos aqui para apoiar você a alcançar um futuro melhor. 
+                                    Preencha o formulário ao lado para que possamos ajudar!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <div className={styles.container1}>
         

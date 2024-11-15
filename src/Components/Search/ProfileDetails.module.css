@@ -225,3 +225,144 @@
 .contentImg{
     
 }
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1001;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.close {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ff0000;
+}
+
+.modalBody {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Uma coluna menor para a imagem e outra maior para o conteúdo */
+    gap: 20px;
+    align-items: flex-start;
+   
+}
+
+.modalInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modalInputs img {
+    width: 50px;
+    margin: 0 auto;
+    display: block;
+}
+
+.modalInputs label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.modalInputs input,
+.modalInputs select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.modalInputs input:focus,
+.modalInputs select:focus {
+    outline: none;
+    border-color: #009688;
+}
+
+.modalText {
+    margin-top: 20px;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.modalInputs select {
+    cursor: pointer;
+}
+
+.modalImage {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.modalImage img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.modalContentSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modalInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modalText {
+    margin-top: 20px;
+    text-align: justify;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.modalLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modalRight {
+    text-align: justify;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-top: 10px;
+}
