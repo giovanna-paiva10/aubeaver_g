@@ -16,12 +16,134 @@ const ProfileDetails = () => {
     const [profileData, setProfileData] = useState(null);
     const [userType, setUserType] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [formData, setFormData] = useState({
+        email: '',
+        nome: '',
+        telefone: '',
+        endereco: '',
+        tipoAjuda: '',
+        alimentosDetails: [{ quantidade: '', tipo: '' }],
+        higieneDetails: [{ produto: '', marca: '' }],
+        voluntariaDetails: [{ horas: '', habilidades: '' }],
+    });
+    const [currentStep, setCurrentStep] = useState(1);
+    const [error, setError] = useState(''); 
+    
+    const handleNextStep = () => {
+        // Verifique se todos os campos essenciais foram preenchidos
+    if (
+        !formData.email ||
+        !formData.nome ||
+        !formData.telefone ||
+        !formData.endereco ||
+        !formData.tipoAjuda
+    ) {
+        setError("Por favor, preencha todos os campos antes de avançar.");
+        return;
+    }
 
-    const [email, setEmail] = useState('');
-    const [nome, setNome] = useState('');
-    const [telefone, setTelefone] = useState('');
-    const [endereco, setEndereco] = useState('');
-    const [tipoAjuda, setTipoAjuda] = useState('');
+    // Verifique se o tipo de ajuda requer campos adicionais
+    if (formData.tipoAjuda === "Alimentos" || formData.tipoAjuda === "Higiene") {
+        if (!formData.quantidadeProdutos || 
+            (formData.quantidadeProdutos === "Personalizado" && 
+             !formData.alimentosDetails[0].quantidade && 
+             !formData.higieneDetails[0].quantidade)) {
+            setError("Por favor, preencha a quantidade de produtos.");
+            return;
+        }
+    }
+
+    // Limpar mensagens de erro se todos os campos estiverem preenchidos corretamente
+    setError("");
+    setCurrentStep((prev) => prev + 1);
+    };
+    const handlePreviousStep = () => setCurrentStep((prev) => prev - 1);
+    
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+    
+    const handleSubmit = () => {
+        // Verificar qual tipo de ajuda foi escolhido e modificar o tipo de requisição
+        const tipoDeAjuda = userType === 'Doador' ? 'doação' : 'requisição';
+    
+        // Criar uma cópia do formData para evitar mutação direta
+        const filteredFormData = { ...formData, tipoAjuda: tipoDeAjuda };
+    
+        // Remover campos vazios ou nulos
+        Object.keys(filteredFormData).forEach((key) => {
+            if (filteredFormData[key] === null || filteredFormData[key] === "") {
+                delete filteredFormData[key];
+            } else if (typeof filteredFormData[key] === 'object') {
+                // Caso seja um objeto (como alimentosDetails, higieneDetails), removemos campos internos vazios
+                Object.keys(filteredFormData[key]).forEach((subKey) => {
+                    if (filteredFormData[key][subKey] === null || filteredFormData[key][subKey] === "") {
+                        delete filteredFormData[key][subKey];
+                    }
+                });
+                // Se o objeto ficar vazio após a limpeza, podemos removê-lo também
+                if (Object.keys(filteredFormData[key]).length === 0) {
+                    delete filteredFormData[key];
+                }
+            }
+        });
+    
+        // Exibir os dados filtrados no console
+        console.log("Dados enviados:", filteredFormData);
+    
+        // Atualizar o step para 3
+        setCurrentStep(3);
+    };
+    
+
+    const handleDynamicFieldChange = (e, type, index) => {
+        const { name, value } = e.target;
+        const updatedFormData = { ...formData }; // Cria uma cópia do formData
+    
+        if (type === 'alimentos') {
+            updatedFormData.alimentosDetails[index][name] = value; // Atualiza o campo específico no array
+        } else if (type === 'higiene') {
+            updatedFormData.higieneDetails[index][name] = value;
+        } else if (type === 'voluntariado') {
+            updatedFormData.voluntariaDetails[index][name] = value;
+        }
+    
+        setFormData(updatedFormData); // Atualiza o estado com os novos dados
+    };
+
+    const addField = (type) => {
+        const updatedFormData = { ...formData };
+    
+        if (type === 'alimentos') {
+            updatedFormData.alimentosDetails.push({ quantidade: '', tipo: '' });
+        } else if (type === 'higiene') {
+            updatedFormData.higieneDetails.push({ produto: '', marca: '' });
+        } else if (type === 'voluntariado') {
+            updatedFormData.voluntariaDetails.push({ horas: '', habilidades: '' });
+        }
+    
+        setFormData(updatedFormData); // Atualiza o estado com o novo campo
+    };
+
+    const removeField = (type, index) => {
+        const updatedFormData = { ...formData };
+    
+        if (type === 'alimentos') {
+            updatedFormData.alimentosDetails.splice(index, 1);
+        } else if (type === 'higiene') {
+            updatedFormData.higieneDetails.splice(index, 1);
+        } else if (type === 'voluntariado') {
+            updatedFormData.voluntariaDetails.splice(index, 1);
+        }
+    
+        setFormData(updatedFormData); // Atualiza o estado com o campo removido
+    };
+    
+
 
     useEffect(() => {
         const fetchProfileData = async () => {
@@ -98,7 +220,7 @@ const ProfileDetails = () => {
                             <h1 className={styles.estiloh2}>{profileData.nome}</h1><br />
                             <h4>{profileData.bio}</h4><br />
                             {userType === 'Doador' && (
-                                <button className={styles.botao1}>Quero ajudar</button>
+                                <button className={styles.botao1} onClick={openModal}>Quero ajudar</button>
                             )}
                             {userType === 'Solicitante' && (
                                 <button className={styles.botao1} onClick={openModal}>Preciso de ajuda</button>
@@ -112,68 +234,260 @@ const ProfileDetails = () => {
             </div>
 
             {isModalOpen && (
-                <div className={styles.modalOverlay} onClick={closeModal}>
-                    <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-                        <div className={styles.modalHeader}>
-                            <span className={styles.close} onClick={closeModal}>×</span>
-                        </div>
-                        <div className={styles.modalBody}>
-                            <div className={styles.modalLeft}>
-                                <div className={styles.modalImage}>
-                                    <img src={foto} alt="Mascote" />
-                                </div>
-                                <div className={styles.modalInputs}>
-                                    <label>E-mail</label>
-                                    <input
-                                        type="email"
-                                        placeholder="E-mail"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                    <label>Nome completo</label>
-                                    <input
-                                        type="text"
-                                        placeholder="Nome completo"
-                                        value={nome}
-                                        onChange={(e) => setNome(e.target.value)}
-                                    />
-                                    <label>Telefone</label>
-                                    <input
-                                        type="tel"
-                                        placeholder="Telefone"
-                                        value={telefone}
-                                        onChange={(e) => setTelefone(e.target.value)}
-                                    />
-                                    <label>Endereço</label>
-                                    <input
-                                        type="text"
-                                        placeholder="Endereço"
-                                        value={endereco}
-                                        onChange={(e) => setEndereco(e.target.value)}
-                                    />
-                                    <label>Tipo de ajuda necessária</label>
-                                    <select
-                                        value={tipoAjuda}
-                                        onChange={(e) => setTipoAjuda(e.target.value)}
-                                    >
-                                        <option value="">Selecione o tipo de ajuda</option>
-                                        <option value="Alimentos">Alimentos</option>
-                                        <option value="Higiene">Higiene</option>
-                                        <option value="Ajuda voluntária">Ajuda voluntária</option>
-                                    </select>
-                                    <button className={styles.botao2} onClick={console.log('clicou')}>Avançar</button>
-                                </div>
+    <div className={styles.modalOverlay} onClick={closeModal}>
+        <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.modalHeader}>
+                <span className={styles.close} onClick={closeModal}>×</span>
+            </div>
+            <div className={styles.modalBody}>
+                <div className={styles.modalLeft}>
+                    <div className={styles.modalImage}>
+                        <img src={foto} alt="Mascote" />
+                    </div>
+                    <div className={styles.modalInputs}>
+                        {currentStep === 1 && (
+                            <>
+                                <label>E-mail</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="E-mail"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                />
+                                <label>Nome completo</label>
+                                <input
+                                    type="text"
+                                    name="nome"
+                                    placeholder="Nome completo"
+                                    value={formData.nome}
+                                    onChange={handleChange}
+                                />
+                                <label>Telefone</label>
+                                <input
+                                    type="tel"
+                                    name="telefone"
+                                    placeholder="Telefone"
+                                    value={formData.telefone}
+                                    onChange={handleChange}
+                                />
+                                <label>Endereço</label>
+                                <input
+                                    type="text"
+                                    name="endereco"
+                                    placeholder="Endereço"
+                                    value={formData.endereco}
+                                    onChange={handleChange}
+                                />
+                                <label>Tipo de ajuda necessária</label>
+                                <select
+                                    name="tipoAjuda"
+                                    value={formData.tipoAjuda}
+                                    onChange={handleChange}
+                                >
+                                    <option value="" disabled selected>Selecione o tipo de ajuda</option>
+                                    <option value="Alimentos">Alimentos</option>
+                                    <option value="Higiene">Higiene</option>
+                                    <option value="Ajuda voluntária">Ajuda voluntária</option>
+                                </select>
+                                {formData.tipoAjuda === 'Alimentos' && userType === 'Doador' && (
+    <>
+        <label>Quantidade de produtos</label>
+        <select
+            name="quantidadeProdutos"
+            value={formData.quantidadeProdutos}
+            onChange={handleChange}
+            required
+        >
+            <option value="" disabled selected>Selecione a quantidade</option>
+            <option value="Pequeno">Até 5</option>
+            <option value="Médio">Até 10</option>
+            <option value="Grande">Até 20</option>
+            <option value="Personalizado">Personalizado</option>
+        </select>
+        {formData.quantidadeProdutos === 'Personalizado' && (
+            <input
+                type="number"
+                name="quantidade"
+                placeholder="Quantidade personalizada"
+                value={formData.alimentosDetails[0].quantidade || ''}
+                onChange={(e) => handleDynamicFieldChange(e, 'alimentos', 0)} // Passando index 0
+                required
+            />
+        )}
+    </>
+)}
+
+{formData.tipoAjuda === 'Higiene' && userType === 'Doador' && (
+    <>
+        <label>Quantidade de produtos</label>
+        <select
+            name="quantidadeProdutos"
+            value={formData.quantidadeProdutos}
+            onChange={handleChange}
+            required
+        >
+            <option value="" disabled selected>Selecione a quantidade</option>
+            <option value="Pequeno">Até 5</option>
+            <option value="Médio">Até 10</option>
+            <option value="Grande">Até 20</option>
+            <option value="Personalizado">Personalizado</option>
+        </select>
+        {formData.quantidadeProdutos === 'Personalizado' && (
+            <input
+                type="number"
+                name="quantidade"
+                placeholder="Quantidade personalizada"
+                value={formData.higieneDetails[0].quantidade || ''}
+                onChange={(e) => handleDynamicFieldChange(e, 'higiene', 0)} // Passando index 0
+                required
+            />
+        )}
+    </>
+)}
+
+                                
+                                {error && <p className={styles.error}>{error}</p>} {/* Exibe a mensagem de erro */}
+                                <button className={styles.botao2} onClick={handleNextStep}>
+                                    Avançar
+                                </button>
+                            </>
+                        )}
+                        {currentStep === 2 && (
+    <>
+        <h3>Confirme suas informações:</h3>
+        <p><strong>E-mail:</strong> {formData.email}</p>
+        <p><strong>Nome completo:</strong> {formData.nome}</p>
+        <p><strong>Telefone:</strong> {formData.telefone}</p>
+        <p><strong>Endereço:</strong> {formData.endereco}</p>
+        <p><strong>Tipo de ajuda:</strong> {formData.tipoAjuda}</p>
+
+        {/* Alimentos */}
+        {formData.tipoAjuda === 'Alimentos' && Array.isArray(formData.alimentosDetails) && formData.alimentosDetails.map((alimento, index) => (
+            <div key={index}>
+                <label>Tipo de alimento</label>
+                <input
+                    type="text"
+                    name="tipo"
+                    placeholder="Ex: Arroz, Feijão"
+                    value={alimento.tipo}
+                    onChange={(e) => handleDynamicFieldChange(e, 'alimentos', index)}
+                />
+                <label>Quantidade de alimento</label>
+                <input
+                    type="number"
+                    name="quantidade"
+                    placeholder="Quantidade"
+                    value={alimento.quantidade}
+                    onChange={(e) => handleDynamicFieldChange(e, 'alimentos', index)}
+                />
+                <button type="button" onClick={() => removeField('alimentos', index)}>Remover</button>
+            </div>
+        ))}
+        {formData.tipoAjuda === 'Alimentos' && (
+            <button type="button" onClick={() => addField('alimentos')}>Adicionar mais alimentos</button>
+        )}
+
+        {/* Higiene */}
+        {formData.tipoAjuda === 'Higiene' && (
+            <>
+                {Array.isArray(formData.higieneDetails) && formData.higieneDetails.map((higiene, index) => (
+                    <div key={index}>
+                        <label>Produto de higiene</label>
+                        <input
+                            type="text"
+                            name="produto"
+                            placeholder="Produto"
+                            value={higiene.produto}
+                            onChange={(e) => handleDynamicFieldChange(e, 'higiene', index)}
+                        />
+                        <label>Marca</label>
+                        <input
+                            type="text"
+                            name="marca"
+                            placeholder="Marca"
+                            value={higiene.marca}
+                            onChange={(e) => handleDynamicFieldChange(e, 'higiene', index)}
+                        />
+                        <button type="button" onClick={() => removeField('higiene', index)}>Remover</button>
+                    </div>
+                ))}
+                <button type="button" onClick={() => addField('higiene')}>Adicionar mais produtos de higiene</button>
+            </>
+        )}
+
+        {/* Voluntariado */}
+        {formData.tipoAjuda === 'Ajuda voluntária' && (
+            <>
+                {Array.isArray(formData.voluntariaDetails) && formData.voluntariaDetails.map((voluntario, index) => (
+                    <div key={index}>
+                        <label>Horas de voluntariado</label>
+                        <input
+                            type="number"
+                            name="horas"
+                            placeholder="Horas"
+                            value={voluntario.horas}
+                            onChange={(e) => handleDynamicFieldChange(e, 'voluntaria', index)}
+                        />
+                        <label>Habilidades</label>
+                        <input
+                            type="text"
+                            name="habilidades"
+                            placeholder="Habilidades"
+                            value={voluntario.habilidades}
+                            onChange={(e) => handleDynamicFieldChange(e, 'voluntaria', index)}
+                        />
+                        <button type="button" onClick={() => removeField('voluntaria', index)}>Remover</button>
+                    </div>
+                ))}
+                <button type="button" onClick={() => addField('voluntaria')}>Adicionar mais voluntários</button>
+            </>
+        )}
+
+        <button className={styles.botao2} onClick={handleSubmit}>
+            Confirmar e Enviar
+        </button>
+        <button className={styles.botao2} onClick={handlePreviousStep}>
+            Voltar
+        </button>
+    </>
+)}
+
+                        {currentStep === 3 && (
+                            <div className={styles.confirmationMessage}>
+                                <h3>Obrigado por sua solicitação!</h3>
+                                <p>Entraremos em contato em breve.</p>
+                                <button className={styles.botao2} onClick={closeModal}>
+                                    Fechar
+                                </button>
                             </div>
-                            <div className={styles.modalRight}>
-                                <p>
-                                    Estamos aqui para apoiar você a alcançar um futuro melhor. 
-                                    Preencha o formulário ao lado para que possamos ajudar!
-                                </p>
-                            </div>
-                        </div>
+                        )}
                     </div>
                 </div>
-            )}
+                <div className={styles.modalRight}>
+                    {currentStep === 1 && (
+                        <p>
+                            Estamos aqui para apoiar você a alcançar um futuro melhor. 
+                            Preencha o formulário ao lado para que possamos ajudar!
+                        </p>
+                    )}
+                    {currentStep === 2 && (
+                        <p>
+                            Por favor, confirme se as informações fornecidas estão corretas antes de enviar.
+                        </p>
+                    )}
+                    {currentStep === 3 && (
+                        <p>
+                            Agradecemos por confiar em nossa plataforma para ajudá-lo. 
+                            Nossa equipe está analisando sua solicitação.
+                        </p>
+                    )}
+                </div>
+            </div>
+        </div>
+    </div>
+)}
+
 
             <div className={styles.container1}>
         
