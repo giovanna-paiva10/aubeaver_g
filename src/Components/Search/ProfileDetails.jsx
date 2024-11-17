@@ -9,7 +9,7 @@ import localizacao from "../../assets/locationicon.svg"
 import website from "../../assets/webicon.svg"
 import facebook from "../../assets/facebookicon.svg"
 import instagram from "../../assets/instaicon.svg"
-import { doc, getDoc } from "firebase/firestore"
+import { doc, setDoc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 
 const ProfileDetails = () => {
     const { id } = useParams()
@@ -37,39 +37,53 @@ const ProfileDetails = () => {
             !formData.endereco ||
             !formData.tipoAjuda
         ) {
-            setError("Por favor, preencha todos os campos antes de avançar.")
-            return
+            setError("Por favor, preencha todos os campos antes de avançar.");
+            return;
         }
-
-        if (
-            formData.tipoAjuda === "Alimentos" ||
-            formData.tipoAjuda === "Higiene"
-        ) {
-            if (
-                !formData.quantidadeProdutos ||
-                (formData.quantidadeProdutos === "Personalizado" &&
-                    !formData.alimentosDetails[0].quantidade &&
-                    !formData.higieneDetails[0].quantidade)
-            ) {
-                setError("Por favor, preencha a quantidade de produtos.")
-                return
+    
+        if (formData.tipoAjuda === "Alimentos" || formData.tipoAjuda === "Higiene") {
+            if (userType === "Doador") {
+                if (
+                    !formData.quantidadeProdutos ||
+                    (formData.quantidadeProdutos === "Personalizado" &&
+                        !formData.alimentosDetails[0].quantidade &&
+                        !formData.higieneDetails[0].quantidade)
+                ) {
+                    setError("Por favor, preencha a quantidade de produtos.");
+                    return;
+                }
             }
         }
+    
+        setError("");
+        setCurrentStep((prev) => prev + 1);
+    };
 
-        setError("")
-        setCurrentStep((prev) => prev + 1)
-    }
     const handlePreviousStep = () => setCurrentStep((prev) => prev - 1)
 
     const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }))
-    }
+        const { name, value } = e.target;
+    
+        setFormData((prevData) => {
+            if (name === "tipoAjuda") {
+                return {
+                    ...prevData,
+                    [name]: value,
+                    alimentosDetails: value === "Alimentos" ? [{ tipo: "", quantidade: "" }] : prevData.alimentosDetails,
+                    higieneDetails: value === "Higiene" ? [{ produto: "", marca: "" }] : prevData.higieneDetails,
+                    voluntariaDetails: value === "Ajuda voluntária" ? [{ horas: "", habilidades: "" }] : prevData.voluntariaDetails
+                };
+            }
+    
+            return {
+                ...prevData,
+                [name]: value
+            };
+        });
+    };
+    
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const tipoDeAjuda = userType === "Doador" ? "doação" : "requisição"
 
         const filteredFormData = { ...formData, tipoAjuda: tipoDeAjuda }
@@ -77,34 +91,70 @@ const ProfileDetails = () => {
         Object.keys(filteredFormData).forEach((key) => {
             if (
                 filteredFormData[key] === null ||
-                filteredFormData[key] === ""
+                filteredFormData[key] === "" ||
+                filteredFormData[key] === undefined
             ) {
-                delete filteredFormData[key]
+                delete filteredFormData[key];
             } else if (typeof filteredFormData[key] === "object") {
                 Object.keys(filteredFormData[key]).forEach((subKey) => {
                     if (
                         filteredFormData[key][subKey] === null ||
-                        filteredFormData[key][subKey] === ""
+                        filteredFormData[key][subKey] === "" ||
+                        filteredFormData[key][subKey] === undefined
                     ) {
-                        delete filteredFormData[key][subKey]
+                        delete filteredFormData[key][subKey];
                     }
-                })
-
+                });
+        
                 if (Object.keys(filteredFormData[key]).length === 0) {
-                    delete filteredFormData[key]
+                    delete filteredFormData[key];
                 }
             }
-        })
+        });
 
-        console.log("Dados enviados:", filteredFormData)
+    const notificationData = {
+        title: "Nova Solicitação de Ajuda",
+        description: `Detalhes sobre o pedido de ajuda ou doação para ${formData.tipoAjuda}`,
+        timestamp: new Date(),
+        isRead: false,
+        type: formData.tipoAjuda, 
+        userId: formData.nome, 
+        email: formData.email, 
+        telefone: formData.telefone, 
+        endereco: formData.endereco, 
+        alimentosDetails: formData.alimentosDetails, 
+        higieneDetails: formData.higieneDetails, 
+        voluntariaDetails: formData.voluntariaDetails,
+    };
 
-        setCurrentStep(3)
+    try {
+        const ongId = id;
+
+        const notificationRef = doc(firestore, "notifications", ongId);
+
+        await setDoc(
+            notificationRef,
+            {
+                notifications: arrayUnion(notificationData), 
+            },
+            { merge: true }
+        );
+
+        console.log("Notificação criada com sucesso!");
+    } catch (error) {
+        console.error("Erro ao criar notificação:", error);
     }
 
-    const handleDynamicFieldChange = (e, type, index) => {
-        const { name, value } = e.target
-        const updatedFormData = { ...formData }
+    setCurrentStep(3);
+};
 
+const handleDynamicFieldChange = (e, type, index) => {
+    const { name, value } = e.target
+    const updatedFormData = { ...formData }
+
+    if (name === "tipoAjuda") {
+        updatedFormData.tipoAjuda = value;
+    } else {
         if (type === "alimentos") {
             updatedFormData.alimentosDetails[index][name] = value
         } else if (type === "higiene") {
@@ -112,9 +162,11 @@ const ProfileDetails = () => {
         } else if (type === "voluntariado") {
             updatedFormData.voluntariaDetails[index][name] = value
         }
-
-        setFormData(updatedFormData)
     }
+
+    setFormData(updatedFormData)
+}
+
 
     const addField = (type) => {
         const updatedFormData = { ...formData }

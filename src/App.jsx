@@ -6,6 +6,7 @@ import Footer from './Components/Footer';
 import Home from './Components/Home';
 import Login from './Components/Login/Login';
 import Profile from './Components/Profile/Profile';
+import Notificacoes from './Components/Notificacoes.jsx';
 import { auth } from './firebase.js';
 import Search from './Components/Search/Search.jsx';
 
@@ -25,6 +26,7 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={<Home/>}/>
+        <Route path='/notificacoes' element={<Notificacoes/>}/>
         <Route path='/login/*' element={<Login/>}/>
         <Route path='/profile/*' element={<Profile/>}/>
         <Route path='/search/*' element={<Search/>}/>

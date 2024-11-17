@@ -61,6 +61,7 @@ const Header = () => {
           {user ? (
             <>
             <li><Link to='/profile'>Meu Perfil</Link></li>
+            <li><Link to='/notificacoes'>Notificações</Link></li>
             <li onClick={handleLogout}>Sair do perfil</li>
             </>
             
