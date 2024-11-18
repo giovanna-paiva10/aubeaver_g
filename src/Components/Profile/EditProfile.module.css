@@ -61,6 +61,14 @@
     white-space: nowrap;
 }
 
+.titp2  {
+    color: #755071;
+    font-weight: bolder;
+    font-size: 17px;
+
+    white-space: nowrap;
+}
+
 .espaco {
     margin: 28px;
 }
@@ -90,4 +98,10 @@ justify-content: center;
 
 .botaoperigo {
     background-color: rgb(192, 37, 37);
+}
+
+.comps {
+    align-items: center;
+    display: flex;
+   flex-direction: column;
 }

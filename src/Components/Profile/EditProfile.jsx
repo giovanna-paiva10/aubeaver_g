@@ -240,9 +240,14 @@ const EditProfile = () => {
                             {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                         </button></center><br />
 
-                        <Input label="Nome" type="text" id="nome" value={nome} setValue={setNome} />
-                        <Input label="Telefone" type="text" id="telefone" value={telefone} setValue={setTelefone} />
-                        <Input label="E-mail" type="email" id="email" value={email} setValue={setEmail} />
+<div className={styles.comps}>
+
+                        <label className={styles.titp2}>Nome</label> <Input  type="text" id="nome" value={nome} setValue={setNome} />
+                        <div className={styles.espaco}></div>
+                        <label className={styles.titp2}>Telefone</label><Input  type="text" id="telefone" value={telefone} setValue={setTelefone} />
+                        <div className={styles.espaco}></div>
+                        <label className={styles.titp2}>E-mail</label><Input type="email" id="email" value={email} setValue={setEmail} />
+                        <div className={styles.espaco}></div>
                         <label>Sua história</label>
                         <p> </p>
                         <textarea
@@ -254,7 +259,7 @@ const EditProfile = () => {
                             cols={70}
                         />
                         <p> </p>
-
+                        </div>
                         <div>
                             <label>Foto de Situação 1</label>
                             <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao1')} />
