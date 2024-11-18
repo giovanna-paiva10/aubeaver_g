@@ -45,7 +45,7 @@ const Notificacoes = () => {
 
   const fetchNotifications = async (userId) => {
     try {
-      const notificationRef = doc(firestore, "notifications", userId);
+      const notificationRef = doc(firestore, "Notificações", userId);
       const notificationDoc = await getDoc(notificationRef);
 
       if (notificationDoc.exists()) {
@@ -95,7 +95,6 @@ const Notificacoes = () => {
         return `${item.tipo} - ${item.quantidade}`;
       }
   
-      
       return details.map((item, index) => {
         return `Item ${index + 1}: ${item.tipo} - ${item.quantidade}`;
       }).join(", ");
@@ -108,7 +107,6 @@ const Notificacoes = () => {
     }
     
     if (type === "Voluntariado" && Array.isArray(details)) {
-      
       if (details.length === 1) {
         const item = details[0];
         return `Habilidades: ${item.habilidades}, Horas: ${item.horas}`;

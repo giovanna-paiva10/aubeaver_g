@@ -130,7 +130,7 @@ const ProfileDetails = () => {
     try {
         const ongId = id;
 
-        const notificationRef = doc(firestore, "notifications", ongId);
+        const notificationRef = doc(firestore, "Notificações", ongId);
 
         await setDoc(
             notificationRef,
