@@ -105,3 +105,41 @@ justify-content: center;
     display: flex;
    flex-direction: column;
 }
+
+input {
+    border-color: #755071;
+    border-radius: 12px;
+    width: 800px;
+}
+
+textarea {
+  border-color: #517655;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.iconst {
+    width: 238x;
+    height: 164px;
+    flex-direction: line;
+    margin-right: 10px;
+   }
+
+   .comps2 {
+   display: flex;
+    flex-direction: row;
+    justify-content: center;
+   }
+
+   .th {
+    color: #517655;
+    font-weight: bolder;
+    font-size: 17px;
+  
+    white-space: nowrap;
+   }
+
+   .suahist {
+    display: flex;
+    flex-direction: column;
+   }

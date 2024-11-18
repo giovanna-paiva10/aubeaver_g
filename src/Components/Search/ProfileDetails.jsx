@@ -403,7 +403,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                             <option value="Higiene">
                                                                 Higiene
                                                             </option>
-                                                            <option value="Ajuda voluntária">
+                                                            <option value="Voluntariado">
                                                                 Ajuda voluntária
                                                             </option>
                                                         </select>
@@ -786,7 +786,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                         )}
 
                                                         {formData.tipoAjuda ===
-                                                            "Ajuda voluntária" && (
+                                                            "Voluntariado" && (
                                                             <>
                                                                 {Array.isArray(
                                                                     formData.voluntariaDetails
@@ -818,7 +818,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                                     ) =>
                                                                                         handleDynamicFieldChange(
                                                                                             e,
-                                                                                            "voluntaria",
+                                                                                            "voluntariado",
                                                                                             index
                                                                                         )
                                                                                     }
@@ -838,7 +838,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                                     ) =>
                                                                                         handleDynamicFieldChange(
                                                                                             e,
-                                                                                            "voluntaria",
+                                                                                            "voluntariado",
                                                                                             index
                                                                                         )
                                                                                     }
@@ -847,7 +847,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                                     type="button"
                                                                                     onClick={() =>
                                                                                         removeField(
-                                                                                            "voluntaria",
+                                                                                            "voluntariado",
                                                                                             index
                                                                                         )
                                                                                     }
@@ -861,7 +861,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                     type="button"
                                                                     onClick={() =>
                                                                         addField(
-                                                                            "voluntaria"
+                                                                            "voluntariado"
                                                                         )
                                                                     }
                                                                 >

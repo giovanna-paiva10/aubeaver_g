@@ -8,6 +8,7 @@ import Input from '../Forms/Input';
 import iconpe from '../../assets/iconeeditar.png';
 import bted from '../../assets/borda.png';
 import btdentro from '../../assets/bteditar.png';
+import fotosituacao from '../../assets/fotosituacao.svg';
 
 const EditProfile = () => {
     const [previewURL, setPreviewURL] = useState('');
@@ -236,7 +237,7 @@ const EditProfile = () => {
                             />
                         </div></center>
 
-                        <center><button type="button" onClick={uploadProfileImage} disabled={upload}>
+                        <center><button className={styles.but2} type="button" onClick={uploadProfileImage} disabled={upload}>
                             {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                         </button></center><br />
 
@@ -248,8 +249,13 @@ const EditProfile = () => {
                         <div className={styles.espaco}></div>
                         <label className={styles.titp2}>E-mail</label><Input type="email" id="email" value={email} setValue={setEmail} />
                         <div className={styles.espaco}></div>
-                        <label>Sua história</label>
+                        </div>
+                        <div className={styles.espaco}></div>
+                        <div className={styles.comps2}>
+                     <section className={styles.suahist}>
+                        <label className={styles.th}>Sua história</label>
                         <p> </p>
+                        
                         <textarea
                             id="minhaHistoria"
                             value={minhaHistoria}
@@ -258,8 +264,14 @@ const EditProfile = () => {
                             rows={10}
                             cols={70}
                         />
+                        </section>
                         <p> </p>
+                        
+                        <img src={fotosituacao} alt="Foto situacao1" className={styles.iconst} />
+                        <img src={fotosituacao} alt="Foto situacao2" className={styles.iconst} />
+                        <img src={fotosituacao} alt="Foto situacao3" className={styles.iconst} />
                         </div>
+                        <div className={styles.espaco}></div>
                         <div>
                             <label>Foto de Situação 1</label>
                             <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao1')} />
@@ -279,6 +291,7 @@ const EditProfile = () => {
                             <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao3')} />
                             {fotoSituacao3 && <img src={fotoSituacao3} alt="Foto de Situação 3" />}
                         </div>
+                      
                         <p> </p>
 
                         <button type="button" onClick={handleSaveChanges}>Salvar Alterações</button>

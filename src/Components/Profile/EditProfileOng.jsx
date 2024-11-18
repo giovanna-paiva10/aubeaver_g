@@ -258,7 +258,7 @@ const EditProfileOng = () => {
                         {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                     </button></center><br />
 
-                    <Input label="Nome" type="text" id="nome" value={nome} setValue={setNome} />
+                    <Input label="Nome" type="text" id="nome" value={nome} setValue={setNome}></Input>
                     <Input label="Telefone" type="text" id="telefone" value={telefone} setValue={setTelefone} />
                     <Input label="Limites de pessoas para ajudar" type="number" id="limitePessoas" value={limitePessoas} setValue={setLimitePessoas} />
                     <Input label="E-mail" type="email" id="email" value={email} setValue={setEmail} />
