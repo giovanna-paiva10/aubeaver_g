@@ -1048,11 +1048,8 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                 alt="web"
                                                             />
                                                         </div>
-                                                        <div
-                                                            className={
-                                                                styles.listaa
-                                                            }
-                                                        >
+                                                        <div className={
+                                                                styles.listaa}>
                                                             <h4
                                                                 className={
                                                                     styles.titulo
@@ -1162,7 +1159,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                             </div>
                         </div>
 
-                        <div className={styles.container3}>
+                        <div className={styles.container2}>
                             <div className={styles.content3}>
                                 {profileData.fotoSituacao1 && (
                                     <div>
