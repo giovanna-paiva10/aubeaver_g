@@ -178,14 +178,15 @@ textarea:focus{
     font-size: 17px;
     display: flex;
     justify-content: flex-start;
- 
+  
     white-space: nowrap;
    }
 
    .asfotos {
+    
     display: flex;
     flex-direction: column;
-    max-width: 40vw
+    max-width: 46%
 
 
    }
@@ -194,4 +195,30 @@ textarea:focus{
     display: flex;
     justify-content: flex-start;
     
+   }
+
+   .secth2 {
+   justify-content: right;
+   }
+
+   .btroxo {
+    width: 11vw;
+    height: 3vw;
+    border-radius: 8px;
+    background-color: #B296AD;
+    font-size: max(12px, 1.5vh);
+    align-items: center;
+    justify-content: center;
+   }
+
+   .btbranco {
+    width: 13vw;
+    height: 2.5vw;
+    border-radius: 4px;
+    color: #B296AD;
+    background-color: white;
+    border: solid 1px #B296AD;
+    font-size: max(10px, 1.5vh);
+    align-items: center;
+
    }

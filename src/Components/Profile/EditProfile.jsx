@@ -251,6 +251,7 @@ const EditProfile = () => {
                         <div className={styles.espaco}></div>
                         </div>
                         <div className={styles.espaco}></div>
+                        
                         <div className={styles.comps2}>
                      <section className={styles.suahist}>
                         <label className={styles.th}>Sua história</label>
@@ -268,13 +269,14 @@ const EditProfile = () => {
                         />
                         </section>
                         <p> </p>
+                        
                         <div className={styles.asfotos}>
                         <div className={styles.tfts}>
-                        <section>
+                        <section className={styles.secth2}>
                             <label className={styles.th2}>Suas fotos</label>
                             </section>
                             </div>
-                            <div className={styles.espaco}></div>
+                          
                             
                         <div className={styles.stf}>
                            
@@ -320,10 +322,10 @@ const EditProfile = () => {
                       
                         <p> </p>
 
-                        <button type="button" onClick={handleSaveChanges}>Salvar Alterações</button>
+                        <button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button>
 
                         <h3>Redefinir Senha</h3>
-                        <button type="button" onClick={handlePasswordReset}>
+                        <button type="button" onClick={handlePasswordReset} className={styles.btbranco}>
                             Enviar E-mail de Redefinição
                         </button>
 
