@@ -209,6 +209,7 @@ textarea:focus{
     font-size: max(12px, 1.5vh);
     align-items: center;
     justify-content: center;
+    align-items: center;
    }
 
    .btbranco {
