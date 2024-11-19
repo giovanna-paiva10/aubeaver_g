@@ -75,7 +75,7 @@
 }
 
 .eh2 {
-    font: max(14px, 3rem); /* Ajuste da fonte para caber melhor no layout */
+    font-size: max(1.2em, 1.3em); /* Ajuste da fonte para caber melhor no layout */
     color: #85A188;
 }
 
