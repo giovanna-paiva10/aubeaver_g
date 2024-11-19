@@ -67,8 +67,8 @@ h4 {
 
 .sditem{
 
-    width: 1530px;
-    height: 781px;
+    width: 100%;
+    height: auto;
     z-index: 3;
 
 

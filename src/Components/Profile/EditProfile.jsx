@@ -258,24 +258,47 @@ const EditProfile = () => {
                         
                         <textarea
                             id="minhaHistoria"
+                            className={styles.input}
                             value={minhaHistoria}
                             onChange={(e) => setminhaHistoria(e.target.value)}
                             maxLength={750}
-                            rows={10}
+                            rows={19}
                             cols={70}
+                            placeholder="Digite aqui..."
                         />
                         </section>
                         <p> </p>
-                        
+                        <div className={styles.asfotos}>
+                        <div className={styles.tfts}>
+                        <section>
+                            <label className={styles.th2}>Suas fotos</label>
+                            </section>
+                            </div>
+                            <div className={styles.espaco}></div>
+                            
+                        <div className={styles.stf}>
+                           
+
+
                         <img src={fotosituacao} alt="Foto situacao1" className={styles.iconst} />
-                        <div className={styles.espaco}></div>
+                       
+                      
                         <img src={fotosituacao} alt="Foto situacao2" className={styles.iconst} /> 
-                        </div>
-                        <section className={styles.stf}>
+                        
+                       
+                      
                         <img src={fotosituacao} alt="Foto situacao3" className={styles.iconst} />
-                        </section>
+                      
+                      
+                        </div>
+                       
+                        </div>
+
+                        </div>
+                        <div className={styles.espaco}></div>
                         <div className={styles.espaco}></div>
                         <div>
+                            
                             <label>Foto de Situação 1</label>
                             <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao1')} />
                             {fotoSituacao1 && <img src={fotoSituacao1} alt="Foto de Situação 1" />}
