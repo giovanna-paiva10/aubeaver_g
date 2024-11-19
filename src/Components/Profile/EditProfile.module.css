@@ -143,3 +143,11 @@ textarea {
     display: flex;
     flex-direction: column;
    }
+
+   .stf {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    
+
+   }

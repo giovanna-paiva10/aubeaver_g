@@ -88,7 +88,6 @@ const MeuPerfil = () => {
                         </>
                     ) : userType === "Ong" ? (
                         <>
-                            <h1>Página de Perfil da ONG</h1>
                             <div className={styles.container}> 
 
                                 <div className={styles.content}> 

@@ -268,9 +268,12 @@ const EditProfile = () => {
                         <p> </p>
                         
                         <img src={fotosituacao} alt="Foto situacao1" className={styles.iconst} />
-                        <img src={fotosituacao} alt="Foto situacao2" className={styles.iconst} />
-                        <img src={fotosituacao} alt="Foto situacao3" className={styles.iconst} />
+                        <div className={styles.espaco}></div>
+                        <img src={fotosituacao} alt="Foto situacao2" className={styles.iconst} /> 
                         </div>
+                        <section className={styles.stf}>
+                        <img src={fotosituacao} alt="Foto situacao3" className={styles.iconst} />
+                        </section>
                         <div className={styles.espaco}></div>
                         <div>
                             <label>Foto de Situação 1</label>
