@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
 import logoo from '../assets/logoo.svg';

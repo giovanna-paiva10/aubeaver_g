@@ -282,14 +282,17 @@ const handleDynamicFieldChange = (e, type, index) => {
         setIsModalOpen(false)
     }
 
+    
+
     return (
         <body id={styles.borda}>
             <div className={styles.mainContainer}>
                 {profileData ? (
                     <>
                         <div className={styles.container}>
+
                             <div className={styles.content}>
-                                <div className={styles.content1}>
+                                {/* <div className={styles.content1}> */}
                                     <div className={styles.contentImg}>
                                         <img
                                             className={styles.img}
@@ -322,7 +325,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                             </button>
                                         )}
                                     </div>
-                                </div>
+                                {/* </div> */}
                             </div>
                         </div>
 
@@ -978,6 +981,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                         )}
 
                         <div className={styles.container1}>
+                        
                             <div className={styles.content2}>
                                 <div className={styles.contentText2}>
                                     <h2 className={styles.estiloh2}>
@@ -1172,7 +1176,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                     </div>
                                 )}
 
-                                <p className={styles.espaco} />
+                                
 
                                 <div className={styles.contentText4}>
                                     <img
