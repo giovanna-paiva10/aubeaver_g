@@ -9,7 +9,8 @@ import localizacao from "../../assets/locationicon.svg"
 import website from "../../assets/webicon.svg"
 import facebook from "../../assets/facebookicon.svg"
 import instagram from "../../assets/instaicon.svg"
-import { doc, setDoc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { increment, doc, setDoc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { v4 as uuidv4 } from 'uuid';
 
 const ProfileDetails = () => {
     const { id } = useParams()
@@ -84,10 +85,15 @@ const ProfileDetails = () => {
     
 
     const handleSubmit = async () => {
+        if (profileData.pedidosAtuais >= profileData.limitePessoas) {
+            alert("O limite de pedidos foi atingido para esta ONG.");
+            return;
+        }
+    
         const tipoDeAjuda = userType === "Doador" ? "doação" : "requisição"
-
+    
         const filteredFormData = { ...formData, tipoAjuda: tipoDeAjuda }
-
+    
         Object.keys(filteredFormData).forEach((key) => {
             if (
                 filteredFormData[key] === null ||
@@ -105,48 +111,63 @@ const ProfileDetails = () => {
                         delete filteredFormData[key][subKey];
                     }
                 });
-        
+    
                 if (Object.keys(filteredFormData[key]).length === 0) {
                     delete filteredFormData[key];
                 }
             }
         });
-
-    const notificationData = {
-        title: "Nova Solicitação de Ajuda",
-        description: `Detalhes sobre o pedido de ajuda ou doação para ${formData.tipoAjuda}`,
-        timestamp: new Date(),
-        isRead: false,
-        type: formData.tipoAjuda, 
-        userId: formData.nome, 
-        email: formData.email, 
-        telefone: formData.telefone, 
-        endereco: formData.endereco, 
-        alimentosDetails: formData.alimentosDetails, 
-        higieneDetails: formData.higieneDetails, 
-        voluntariaDetails: formData.voluntariaDetails,
+    
+        const notificationData = {
+            uid: uuidv4(),  
+            title: "Nova Solicitação de Ajuda",
+            description: `Detalhes sobre o pedido de ajuda ou doação para ${formData.tipoAjuda}`,
+            timestamp: new Date(),
+            isRead: false,
+            type: formData.tipoAjuda,
+            nomeUser: formData.nome,
+            email: formData.email,
+            telefone: formData.telefone,
+            endereco: formData.endereco,
+            alimentosDetails: formData.alimentosDetails,
+            higieneDetails: formData.higieneDetails,
+            voluntariaDetails: formData.voluntariaDetails,
+        };
+    
+        try {
+            const ongId = id;
+    
+            const notificationRef = doc(firestore, "Notificações", ongId);
+            await setDoc(
+                notificationRef,
+                {
+                    notifications: arrayUnion(notificationData),
+                },
+                { merge: true }
+            );
+    
+            const ongRef = doc(firestore, "Ongs", ongId);
+            const ongDocSnap = await getDoc(ongRef);
+    
+            if (ongDocSnap.exists()) {
+                const ongData = ongDocSnap.data();
+                const currentPedidosAtuais = ongData.pedidosAtuais || 0;
+    
+                await updateDoc(ongRef, {
+                    pedidosAtuais: increment(1),
+                });
+    
+                console.log("Notificação criada com sucesso!");
+            } else {
+                console.error("Documento da ONG não encontrado");
+            }
+        } catch (error) {
+            console.error("Erro ao criar notificação:", error);
+        }
+    
+        setCurrentStep(3);
     };
-
-    try {
-        const ongId = id;
-
-        const notificationRef = doc(firestore, "Notificações", ongId);
-
-        await setDoc(
-            notificationRef,
-            {
-                notifications: arrayUnion(notificationData), 
-            },
-            { merge: true }
-        );
-
-        console.log("Notificação criada com sucesso!");
-    } catch (error) {
-        console.error("Erro ao criar notificação:", error);
-    }
-
-    setCurrentStep(3);
-};
+    
 
 const handleDynamicFieldChange = (e, type, index) => {
     const { name, value } = e.target
@@ -250,8 +271,12 @@ const handleDynamicFieldChange = (e, type, index) => {
     }, [id])
 
     const openModal = () => {
-        setIsModalOpen(true)
-    }
+        if (profileData.pedidosAtuais >= profileData.limitePessoas) {
+            alert("O limite de pedidos foi atingido para esta ONG.");
+            return;
+        }
+        setIsModalOpen(true);
+    };
 
     const closeModal = () => {
         setIsModalOpen(false)
