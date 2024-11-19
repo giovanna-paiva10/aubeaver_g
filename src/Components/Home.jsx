@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import garf from '../assets/garfield.png';
 import fotoo from '../assets/fotoo.png';
+import bradesco from '../assets/bradesco.png'
+import cea from '../assets/cea.png'
+import drogasil from '../assets/drogasil.png'
+import natura from '../assets/natura.png'
+import nestle from '../assets/nestle.png'
 import conect from '../assets/conect.png';
 import cc from '../assets/conectandoco.svg';
 import row1 from '../assets/row1.png';
@@ -79,14 +84,35 @@ const Home = () => {
             <div className={styles.container2}>
                 <div className={styles.content2}>
                     <div className={styles.contentt}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec dolor vulputate, blandit ex sit amet, hendrerit lectus. Nunc ac mauris commodo, elementum nisi consequat, facilisis augue. Phasellus quis elit erat. Nulla rhoncus elementum leo ut mattis. Proin eleifend, elit sit amet interdum tempus, nulla sem pellentesque est, a pharetra diam enim at risus.
+                    A Aubeaver é uma plataforma digital lançada em 2024, criada para conectar doadores a ONGs e pessoas em situação de vulnerabilidade social. Com foco nas regiões de São Paulo e Itaquaquecetuba, o objetivo do Aubeaver é ajudar as ONGs a captar recursos e facilitar para os doadores encontrarem causas confiáveis, com transparência e segurança nas transações.
                             <br />
                             <br />
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec dolor vulputate, blandit ex sit amet, hendrerit lectus. Nunc ac mauris commodo, elementum nisi consequat, facilisis augue. Phasellus quis elit erat. Nulla rhoncus elementum leo ut mattis.
+                    O site foi desenvolvido pela GAK, uma empresa que utiliza a tecnologia para promover o bem-estar social e buscar um impacto positivo nas comunidades. Nossa plataforma foi projetada para tornar o processo de doação mais simples, seguro e eficaz, garantindo que cada contribuição chegue de forma direta às causas que realmente precisam de apoio. Com nossa interface intuitiva, o Aubeaver visa aumentar a confiança nas doações e fortalecer a solidariedade social.
                     </div>
                     <div className={styles.contentImg}>
                         <img className={styles.imggg} src={fotoo} alt="foto" />
                     </div>
+                </div>
+            </div>
+
+            <p className={styles.espaco}></p>
+            
+            <h3 className={styles.estiloh3}>SEJA UM PARCEIRO</h3>
+           
+            <p className={styles.espaco}></p>
+
+            <div className={styles.container3}>
+                <div className={styles.content3}>
+                        <div className={styles.imgparc}><img className={styles.img4} src={bradesco} alt="garfield" /></div>
+
+                        <div className={styles.imgparc} ><img className={styles.img4} src={natura} alt="garfield" /></div>
+
+                        <div className={styles.imgparc}><img className={styles.img4} src={garf} alt="garfield" /></div>
+
+                        <div className={styles.imgparc}><img className={styles.img4} src={garf} alt="garfield" /></div>
+
+                        <div className={styles.imgparc} ><img className={styles.img4} src={garf} alt="garfield" /></div>
+
                 </div>
             </div>
         </div>

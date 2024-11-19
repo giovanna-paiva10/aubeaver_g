@@ -29,8 +29,6 @@
     width: 25%;
     min-width: 125px;
     height: auto;
-    justify-content: center;
-    align-items: center;
     box-shadow: 0 0 8px 1px #c5c5c5;
     border-radius: 24px;
 }
