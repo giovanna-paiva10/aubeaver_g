@@ -47,8 +47,8 @@
 }
 
 .iconpe {
- width: 55x;
- height: 35px;
+ width: auto;
+ height: auto;
  flex-direction: line;
  margin-right: 10px;
 }
@@ -56,7 +56,7 @@
 .titp  {
     color: #755071;
     font-weight: bolder;
-    font-size: 17px;
+    font-size: 19px;
     margin: 3%;
     white-space: nowrap;
 }
@@ -111,12 +111,25 @@ input {
     border-radius: 12px;
     width: 800px;
 }
+input:focus { 
+    outline: none;
+    border-color: #755071;
+    box-shadow: 0 0 3px #755071;
+ }
 
 textarea {
-  border-color: #517655;
+  
   border-radius: 8px;
   padding: 5px;
+  border:solid 2px #517655;
 }
+
+textarea:focus{
+    outline: none;
+    border-color: #517655;
+    box-shadow: 0 0 5px #517655;
+ }
+
 
 .iconst {
     width: 238x;
@@ -129,6 +142,8 @@ textarea {
    display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+   
    }
 
    .th {
@@ -142,12 +157,41 @@ textarea {
    .suahist {
     display: flex;
     flex-direction: column;
+    justify-content: left;
    }
 
    .stf {
     display: flex;
-    flex-direction: row;
-    justify-content: right;
-    
+   
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 3rem;
 
+
+   }
+
+
+
+   .th2 {
+    color: #517655;
+    font-weight: bolder;
+    font-size: 17px;
+    display: flex;
+    justify-content: flex-start;
+ 
+    white-space: nowrap;
+   }
+
+   .asfotos {
+    display: flex;
+    flex-direction: column;
+    max-width: 40vw
+
+
+   }
+
+   .tfts{
+    display: flex;
+    justify-content: flex-start;
+    
    }
