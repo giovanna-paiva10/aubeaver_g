@@ -53,7 +53,7 @@ const EditProfile = () => {
     const handleImageChange = async (event) => {
         const file = event.target.files[0];
         if (file) {
-            const resizedImage = await resizeImage(file, 150, 150);
+            const resizedImage = await resizeImage(file, 400, 400);
             setFotoPerfil(resizedImage);
             setPreviewURL(URL.createObjectURL(resizedImage));
         }
@@ -271,71 +271,85 @@ const EditProfile = () => {
                         <p> </p>
                         
                         <div className={styles.asfotos}>
-                        <div className={styles.tfts}>
-                        <section className={styles.secth2}>
-                            <label className={styles.th2}>Suas fotos</label>
-                            </section>
+                            <div className={styles.tfts}>
+                                <section className={styles.secth2}>
+                                    <label className={styles.th2}>Suas fotos</label>
+                                </section>
                             </div>
                           
                             
-                        <div className={styles.stf}>
-                           
+                            <div className={styles.stf}>
 
+                                <label htmlFor="situacao1Upload" >
+                                    {fotoSituacao1 ? (
+                                        <img src={fotoSituacao1} alt="Foto de Situação 1" className={styles.iconst} />
+                                    ) : (
+                                        <img src={fotosituacao} alt="Clique para adicionar Foto de Situação 1" className={styles.iconst} />
+                                    )}
+                                </label>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    id="situacao1Upload"
+                                    onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao1')}
+                                    style={{ display: 'none' }}
+                                />
 
-                        <img src={fotosituacao} alt="Foto situacao1" className={styles.iconst} />
-                       
+                                <label htmlFor="situacao2Upload" >
+                                    {fotoSituacao2 ? (
+                                        <img src={fotoSituacao2} alt="Foto de Situação 2" className={styles.iconst} />
+                                    ) : (
+                                        <img src={fotosituacao} alt="Clique para adicionar Foto de Situação 2" className={styles.iconst} />
+                                    )}
+                                </label>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    id="situacao2Upload"
+                                    onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao2')}
+                                    style={{ display: 'none' }}
+                                />
+
+                                <label htmlFor="situacao3Upload">
+                                    {fotoSituacao3 ? (
+                                        <img src={fotoSituacao3} alt="Foto de Situação 3" className={styles.iconst} />
+                                    ) : (
+                                        <img src={fotosituacao} alt="Clique para adicionar Foto de Situação 3" className={styles.iconst} />
+                                    )}
+                                </label>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    id="situacao3Upload"
+                                    onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao3')}
+                                    style={{ display: 'none' }}
+                                />
+                                </div>
+                            </div>
+                        </div>
                       
-                        <img src={fotosituacao} alt="Foto situacao2" className={styles.iconst} /> 
+                        <p> </p>
+
+                        <center><button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button></center>
                         
-                       
-                      
-                        <img src={fotosituacao} alt="Foto situacao3" className={styles.iconst} />
-                      
-                      
-                        </div>
-                       
-                        </div>
-
-                        </div>
-                        <div className={styles.espaco}></div>
-                        <div className={styles.espaco}></div>
-                        <div>
+                        <div className={styles.comps}>
+                            <label className={styles.titp2}>Redefinir Senha</label>
                             
-                            <label>Foto de Situação 1</label>
-                            <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao1')} />
-                            {fotoSituacao1 && <img src={fotoSituacao1} alt="Foto de Situação 1" />}
+                            <button type="button" onClick={handlePasswordReset} className={styles.btbranco}>
+                                Enviar para o e-mail
+                            </button>
+
+                            <p> </p> 
+
+                            <button type="button" onClick={handleShowProfile}>
+                                Retornar ao perfil
+                            </button>
+
+                            <button type="button" onClick={handleDeleteAccount} className={styles.botaoperigo}>
+                                Excluir Conta
+                            </button>
+                            
                         </div>
-                        <p> </p>
-
-                        <div>
-                            <label>Foto de Situação 2</label>
-                            <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao2')} />
-                            {fotoSituacao2 && <img src={fotoSituacao2} alt="Foto de Situação 2" />}
-                        </div>
-                        <p> </p>
-
-                        <div>
-                            <label>Foto de Situação 3</label>
-                            <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao3')} />
-                            {fotoSituacao3 && <img src={fotoSituacao3} alt="Foto de Situação 3" />}
-                        </div>
-                      
-                        <p> </p>
-
-                        <button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button>
-
-                        <h3>Redefinir Senha</h3>
-                        <button type="button" onClick={handlePasswordReset} className={styles.btbranco}>
-                            Enviar E-mail de Redefinição
-                        </button>
-
-                        <button type="button" onClick={handleDeleteAccount} className={styles.botaoperigo}>
-                            Excluir Conta
-                        </button>
-
-                        <button type="button" onClick={handleShowProfile}>
-                            Retornar ao perfil
-                        </button>
                     
                 </>
             ) : (

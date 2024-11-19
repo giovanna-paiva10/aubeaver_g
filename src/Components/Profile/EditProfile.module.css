@@ -122,6 +122,7 @@ textarea {
   border-radius: 8px;
   padding: 5px;
   border:solid 2px #517655;
+  resize: none;
 }
 
 textarea:focus{
@@ -136,6 +137,7 @@ textarea:focus{
     height: 164px;
     flex-direction: line;
     margin-right: 10px;
+    cursor: pointer;
    }
 
    .comps2 {
@@ -214,7 +216,7 @@ textarea:focus{
 
    .btbranco {
     width: 13vw;
-    height: 2.5vw;
+    height: 3.4vw;
     border-radius: 4px;
     color: #B296AD;
     background-color: white;

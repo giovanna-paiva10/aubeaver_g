@@ -64,7 +64,7 @@ const EditProfileOng = () => {
     const handleImageChange = async (event) => {
         const file = event.target.files[0];
         if (file) {
-            const resizedImage = await resizeImage(file, 150, 150);
+            const resizedImage = await resizeImage(file, 400, 400);
             setFotoPerfil(resizedImage);
             setPreviewURL(URL.createObjectURL(resizedImage));
         }
