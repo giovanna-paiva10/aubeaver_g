@@ -259,7 +259,7 @@ const handleDynamicFieldChange = (e, type, index) => {
 
     return (
         <body id={styles.borda}>
-            <div>
+            <div className={styles.mainContainer}>
                 {profileData ? (
                     <>
                         <div className={styles.container}>

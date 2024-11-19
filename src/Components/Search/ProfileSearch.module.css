@@ -5,17 +5,20 @@
     padding: 5%;
 }
 
+.container{
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+}
+
 .estiloh3{
     color: #517655;
-    font-weight: bolder;
-    font-size: max(18px, 2rem);
-    margin-bottom: 18px;
+    font-size: max(16px, 1.7rem);
  }
  
  .estiloh4{
      color: #b6b5b5;
-     font-size: max(10px, 1.5rem);
-     margin-bottom: 24px;
+     font-size: max(10px, 1.2rem);
  }
 
  .img{
@@ -24,12 +27,12 @@
     height: 100%;
     justify-content: center;
     align-items: center;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .contentImg{
-    width: 25%;
-    min-width: 100px;
+    width: 20%;
+    min-width: 170px;
     height: 90%;
     justify-content: center;
     align-items: center;
@@ -55,13 +58,13 @@
 .content1{
     display: flex;
     justify-content: center;
-    min-width: 155vh;
-    height: 25%;
+    width: 86vw;
+    height: 32%;
     gap: 1rem;
     padding: 8px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    margin-block: 4%;
+    box-shadow: 0 0 8px 1px #c5c5c5;
+    border-radius: 16px;
+    margin-bottom: 1%;
 }
 
 .contentText {
@@ -71,16 +74,67 @@
     padding-right: 5%;
 }
 
-
-
-
-.eh3 {
-    font-size: max(18px, 1.2vw); /* Ajuste da fonte para caber melhor no layout */
+.eh2 {
+    font: max(14px, 3rem); /* Ajuste da fonte para caber melhor no layout */
     color: #85A188;
 }
 
-
-
 .espaco{
-    margin: 3.5vw;
+    margin: 1.5vw;
+}
+
+.botao1{
+    width: 22%;
+    min-width: 40px;
+    height: 24%;
+    min-width: 45px;
+    border-radius: 4px;
+    background-color: #B296AD;
+    align-items: center;
+    justify-content: center;
+    font-size: max(10px, 1rem);
+    padding: 6px;
+}
+
+.searchInput{
+    width: 100%;
+    border-radius: 22px;
+    border: #517655 solid 1px;
+    color: #517655;
+}
+
+.pagination{
+    width: 85vw;
+
+}
+
+.linha{
+    display: flex;
+    width: 100%;
+    gap: 7rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: 2%;
+}
+
+.linha2{
+    width: 50%;
+}
+
+@media(max-width: 1100px) {
+    .linha{
+        flex-direction: column;
+        justify-content: left;
+        align-items: start;
+        gap: 1rem;
+        width: 100%;
+    }
+    .linha2{
+        width: 100%;
+    }
+    .botao{
+        width: 30%;
+    }
+
 }

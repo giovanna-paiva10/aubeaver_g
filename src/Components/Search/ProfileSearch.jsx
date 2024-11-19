@@ -72,15 +72,26 @@ const ProfileSearch = () => {
 
   return (
     <div id={styles.borda}>
+
+<div className={styles.container}>
+
+    <div className={styles.linha}>
+      <div>
       <h3 className={styles.estiloh3}>ONGs</h3>
       <h4 className={styles.estiloh4}>Encontre a ONG que você deseja</h4>
-      <input
-        type="text"
-        placeholder="Buscar ONG"
-        value={searchTerm}
-        onChange={handleSearchChange}
-        className={styles.searchInput}
-      />
+      </div>
+        <div className={styles.linha2}>
+          <input
+            type="text"
+            placeholder="Pesquisar"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className={styles.searchInput}
+          />
+        </div>
+      </div>
+    
+      
       {currentOngs.map((ong) => (
         <div key={ong.id} className={styles.content}>
           <Link to={`/search/${ong.id}`}>
@@ -93,8 +104,12 @@ const ProfileSearch = () => {
                 />
               </div>
               <div className={styles.contentText}>
-                <h3 className={styles.eh3}>{ong.nome}</h3><br/>
+
+                
+                <h2 className={styles.eh2}> {ong.nome}</h2> <br />
                 <h4>Limite de {ong.limitePessoas} pessoas</h4>
+               
+              
                 <p></p>
                 <p></p>
                 <p>{truncateText(ong.organizacao)}</p>
@@ -104,17 +119,22 @@ const ProfileSearch = () => {
         </div>
       ))}
 
+      <center>
       <div className={styles.pagination}>
-        <button onClick={prevPage} disabled={currentPage === 1}>
-          Anterior
-        </button>
-        <span>
-          Página {currentPage} de {totalPages}
-        </span>
-        <button onClick={nextPage} disabled={currentPage === totalPages}>
-          Próxima
-        </button>
+                <button className={styles.botao1} onClick={prevPage} disabled={currentPage === 1}>
+                  Anterior
+                </button>
+            <span>
+                Página {currentPage} de {totalPages}
+            </span>
+                <button className={styles.botao1} onClick={nextPage} disabled={currentPage === totalPages}>
+                  Próxima
+                </button>
+            </div>
+      </center>
+
       </div>
+      
     </div>
   );
 };
