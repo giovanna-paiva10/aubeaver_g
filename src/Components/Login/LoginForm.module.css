@@ -1,15 +1,19 @@
-
+body {
+  height: 100vh;
+}
+  
   #borda{
     background: linear-gradient(to right, #517655, #B2CEB5);
-    height: 100vh;
-    padding-block: 16%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
   }
 
 section{
   align-items: center;
   justify-content: center;
   display: flex;
-  margin-inline: 5%;
 }
 
 .conteiner{
@@ -20,13 +24,12 @@ section{
 
 .content{
   display: flex;
-  gap: 12vw;
+  gap: 12rem;
 }
 
 .content1{
   background-color: #FFFFFF;
-  min-width: 15vw;
-  height: 350px;
+  height: 65vh;
   padding: 6px;
   border-radius: 16px;
 }
@@ -37,9 +40,7 @@ section{
   overflow-y: scroll;
   margin: 8px;
   padding: 4px;
-  padding-bottom: 2rem;
 }
-
 
 @media(max-width: 600px) {
   .imgg {
@@ -52,7 +53,6 @@ section{
   width: 20vw;
   min-width: 150px; 
 }
-
 
 .content2::-webkit-scrollbar{
   width: 6px;   

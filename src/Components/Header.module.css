@@ -1,9 +1,9 @@
 /* Estilos para o header */
 header {
-  background-color: #7CA377;
+  background-color: #7ca377;
   z-index: 1;
   color: #ffffff;
-  height: 9vh;
+  height: 10vh;
   padding: 2vh;
   padding-bottom: 1%;
 }
@@ -45,9 +45,9 @@ li {
   background-color: #ffffff;
   width: 200px; /* Voltando ao tamanho maior para o menu */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px; 
-   border-radius: 8px;
-  font-size: 1rem; 
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 
 /* Ajuste para evitar quebra de linha no "Quem somos" */
@@ -94,13 +94,11 @@ a {
   border-radius: 15px;
   background-color: white;
   border: 1px solid gray;
-  
 }
 
 .ffcgap {
   color: black;
 }
-
 
 .img {
   max-width: 100%;
@@ -113,7 +111,6 @@ a {
   transform: translateX(0);
 
   color: black;
-
 }
 
 /* Esconde links "Quem somos" e "Doação" no menu em telas grandes */
@@ -128,8 +125,6 @@ a {
     display: none;
   }
 
-
-  
   /* Ajuste adicional para telas muito pequenas (como 320px) */
   @media (max-width: 400px) {
     .navlinksMobile {
