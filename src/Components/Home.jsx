@@ -64,7 +64,7 @@ const Home = () => {
                                 <div>
                                     <h3 className={styles.contenttitle}>{title}</h3>
                                     <h4 className={styles.contenttext}>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam sem, tristique vel interdum sit amet, porta vel nibh.
+                                    A doação de alimentos é crucial para combater a fome e a insegurança alimentar, proporcionando acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
                                     </h4>
                                 </div>
                             </Link>
@@ -97,23 +97,36 @@ const Home = () => {
 
             <p className={styles.espaco}></p>
             
-            <h3 className={styles.estiloh3}>SEJA UM PARCEIRO</h3>
+            <h3 className={styles.estiloh3}>O QUE DOAR</h3>
+            <h4 className={styles.estiloh4}>Conheça nossos parceiros e saiba mais sobre quem apoia nossa causa</h4>
            
             <p className={styles.espaco}></p>
 
             <div className={styles.container3}>
                 <div className={styles.content3}>
+                        <div className={styles.imgparc}><img className={styles.img4} src={natura} alt="garfield" /></div>
+
+                        <div className={styles.imgparc} ><img className={styles.img4} src={drogasil} alt="garfield" /></div>
+
+                        <div className={styles.imgparc}><img className={styles.img4} src={cea} alt="garfield" /></div>
+
                         <div className={styles.imgparc}><img className={styles.img4} src={bradesco} alt="garfield" /></div>
 
-                        <div className={styles.imgparc} ><img className={styles.img4} src={natura} alt="garfield" /></div>
-
-                        <div className={styles.imgparc}><img className={styles.img4} src={garf} alt="garfield" /></div>
-
-                        <div className={styles.imgparc}><img className={styles.img4} src={garf} alt="garfield" /></div>
-
-                        <div className={styles.imgparc} ><img className={styles.img4} src={garf} alt="garfield" /></div>
-
+                        <div className={styles.imgparc} ><img className={styles.img4} src={nestle} alt="garfield" /></div>
                 </div>
+                <p></p>
+                <div className={styles.content4}>
+                    <div className={styles.forms}>
+                        <input className={styles.inputt} placeholder="Dgite seu nome" type="text" />
+                        <input className={styles.inputt} placeholder="Dgite seu E-mail" type="text" />
+                    </div>
+
+                    <div className={styles.contentText}>
+                        <h3>Torne-se um parceiro e ajude a transformar vidas! Sua empresa pode fazer a diferença ao se unir a nós em ações que impactam positivamente a comunidade.
+                        Juntos, podemos criar um futuro melhor e mais solidário, construindo pontes e conectando corações.</h3>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
