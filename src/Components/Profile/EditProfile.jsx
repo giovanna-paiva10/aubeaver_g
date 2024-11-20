@@ -9,6 +9,7 @@ import iconpe from '../../assets/iconeeditar.png';
 import bted from '../../assets/borda.png';
 import btdentro from '../../assets/bteditar.png';
 import fotosituacao from '../../assets/fotosituacao.svg';
+import lixeira from '../../assets/lixeira.png';
 
 const EditProfile = () => {
     const [previewURL, setPreviewURL] = useState('');
@@ -237,7 +238,7 @@ const EditProfile = () => {
                             />
                         </div></center>
 
-                        <center><button className={styles.but2} type="button" onClick={uploadProfileImage} disabled={upload}>
+                        <center><button className={styles.butsalv} type="button" onClick={uploadProfileImage} disabled={upload}>
                             {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                         </button></center><br />
 
@@ -316,6 +317,8 @@ const EditProfile = () => {
                                     ) : (
                                         <img src={fotosituacao} alt="Clique para adicionar Foto de Situação 3" className={styles.iconst} />
                                     )}
+                              
+                              <img src={lixeira} alt="Apagar foto 1" className={styles.lixeira1} />
                                 </label>
                                 <input
                                     type="file"
@@ -330,18 +333,18 @@ const EditProfile = () => {
                       
                         <p> </p>
 
-                        <center><button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button></center>
+                        <div className={styles.botoestrans}>
+                      <button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button>
                         
-                        <div className={styles.comps}>
-                            <label className={styles.titp2}>Redefinir Senha</label>
+                      
+                        
                             
                             <button type="button" onClick={handlePasswordReset} className={styles.btbranco}>
                                 Enviar para o e-mail
                             </button>
 
-                            <p> </p> 
 
-                            <button type="button" onClick={handleShowProfile}>
+                            <button type="button" onClick={handleShowProfile} className={styles.btroxo} >
                                 Retornar ao perfil
                             </button>
 
