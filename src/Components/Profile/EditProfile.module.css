@@ -149,6 +149,7 @@ textarea:focus{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 4vw;
    
    }
 
@@ -258,5 +259,5 @@ textarea:focus{
         height: auto;
         display: flex;
         justify-content: center;
-        
+       
     }

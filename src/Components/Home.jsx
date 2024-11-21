@@ -10,8 +10,10 @@ import natura from '../assets/natura.png'
 import nestle from '../assets/nestle.png'
 import conect from '../assets/conect.png';
 import cc from '../assets/conectandoco.svg';
-import row1 from '../assets/row1.png';
-import row2 from '../assets/row2.png'; // Caso queira adicionar mais imagens
+import row1 from '../assets/facaparte.png';
+import row2 from '../assets/apoiohis.png'; 
+import row3 from '../assets/juntese.png'; 
+import row4 from '../assets/apoienossa.png'; 
 
 // Importando Slider do react-slick
 import Slider from 'react-slick';
@@ -20,7 +22,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
-    const data = [row1, row2,]; // Adicione mais imagens se desejar
+    const data = [row1, row2, row3, row4]; // Adicione mais imagens se desejar
 
     // Configurações do slider
     const settings = {

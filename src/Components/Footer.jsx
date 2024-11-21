@@ -54,7 +54,7 @@ const Footer = () => {
                 <section className={styles.secredes}>   
                    <div> <a href="#tiktok"><img src={iconTik} alt="Icon Tiktok" className={styles.redes} /> </a></div> 
                    <div> <a href='#facebook'> <img src={iconFace2} alt="Icon Facebook" className={styles.redes} /></a> </div> 
-                   <div> <img src={iconInsta} alt="Icon Tiktok" className={styles.redes} /> </div> 
+                   <div> <a href='#instagram'><img src={iconInsta} alt="Icon Instagram" className={styles.redes} /></a> </div> 
                   
                 </section>
             </div>
