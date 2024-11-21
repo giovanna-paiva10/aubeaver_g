@@ -43,28 +43,41 @@ const ProfileDetails = () => {
             return;
         }
     
-        if (formData.tipoAjuda === "Alimentos" || formData.tipoAjuda === "Higiene") {
-            if (userType === "Doador") {
-                if (
-                    !formData.quantidadeProdutos ||
-                    (formData.quantidadeProdutos === "Personalizado" &&
-                        !formData.alimentosDetails[0].quantidade &&
-                        !formData.higieneDetails[0].quantidade)
-                ) {
-                    setError("Por favor, preencha a quantidade de produtos.");
-                    return;
+        if (currentStep === 2) {
+            // Verificar a soma das quantidades dos alimentos (só faz sentido no Step 2)
+            if (formData.tipoAjuda === "Alimentos" && userType === "Doador") {
+                if (formData.quantidadeProdutos === "Personalizado") {
+                    const totalQuantidade = formData.alimentosDetails.reduce((sum, alimento) => {
+                        return sum + (parseInt(alimento.quantidade) || 0); // Soma as quantidades
+                    }, 0);
+    
+                    if (totalQuantidade > parseInt(formData.quantidadePersonalizada)) {
+                        setError("A soma das quantidades dos alimentos não pode ser maior que a quantidade personalizada.");
+                        return;
+                    }
                 }
             }
         }
     
-        setError("");
-        setCurrentStep((prev) => prev + 1);
+        setError("");  // Limpar o erro antes de avançar
+        setCurrentStep((prev) => prev + 1);  // Avançar para o próximo passo
+    
+        c;
     };
+    
+    
+    
+    
 
     const handlePreviousStep = () => setCurrentStep((prev) => prev - 1)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+    
+        // Se o campo for numérico (quantidadePersonalizada ou quantidade), converta para número
+        const newValue = (name === "quantidadePersonalizada" || name === "quantidade")
+            ? value === "" ? "" : parseInt(value)  // Garante que o valor seja um número ou vazio
+            : value;
     
         setFormData((prevData) => {
             if (name === "tipoAjuda") {
@@ -79,10 +92,12 @@ const ProfileDetails = () => {
     
             return {
                 ...prevData,
-                [name]: value
+                [name]: newValue
             };
         });
     };
+    
+    
     
 
     const handleSubmit = async () => {
@@ -159,6 +174,11 @@ const ProfileDetails = () => {
                 });
     
                 console.log("Notificação criada com sucesso!");
+                
+                console.log(formData.quantidadeProdutos, formData.quantidadePersonalizada ,formData.alimentosDetails[0].quantidade)
+                console.log("Total Quantidade:", totalQuantidade);
+console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
+
             } else {
                 console.error("Documento da ONG não encontrado");
             }
@@ -170,24 +190,30 @@ const ProfileDetails = () => {
     };
     
 
-const handleDynamicFieldChange = (e, type, index) => {
-    const { name, value } = e.target
-    const updatedFormData = { ...formData }
-
-    if (name === "tipoAjuda") {
-        updatedFormData.tipoAjuda = value;
-    } else {
-        if (type === "alimentos") {
-            updatedFormData.alimentosDetails[index][name] = value
-        } else if (type === "higiene") {
-            updatedFormData.higieneDetails[index][name] = value
-        } else if (type === "Trabalho Voluntário") {
-            updatedFormData.voluntariaDetails[index][name] = value
+    const handleDynamicFieldChange = (e, type, index) => {
+        const { name, value } = e.target;
+    
+        // Verifica se o valor é numérico, para os campos de quantidade
+        const newValue = (name === "quantidade" || name === "quantidadePersonalizada")
+            ? value === "" ? "" : parseInt(value)
+            : value;
+    
+        const updatedFormData = { ...formData };
+    
+        if (name === "tipoAjuda") {
+            updatedFormData.tipoAjuda = value;
+        } else {
+            if (type === "alimentos") {
+                updatedFormData.alimentosDetails[index][name] = newValue;
+            } else if (type === "higiene") {
+                updatedFormData.higieneDetails[index][name] = newValue;
+            } else if (type === "Trabalho Voluntário") {
+                updatedFormData.voluntariaDetails[index][name] = newValue;
+            }
         }
-    }
-
-    setFormData(updatedFormData)
-}
+    
+        setFormData(updatedFormData);
+    };    
 
 
     const addField = (type) => {
@@ -485,15 +511,15 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                             a
                                                                             quantidade
                                                                         </option>
-                                                                        <option value="Pequeno">
+                                                                        <option value={5}>
                                                                             Até
                                                                             5
                                                                         </option>
-                                                                        <option value="Médio">
+                                                                        <option value={10}>
                                                                             Até
                                                                             10
                                                                         </option>
-                                                                        <option value="Grande">
+                                                                        <option value={20}>
                                                                             Até
                                                                             20
                                                                         </option>
@@ -505,22 +531,13 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                         "Personalizado" && (
                                                                         <input
                                                                             type="number"
-                                                                            name="quantidade"
+                                                                            name="quantidadePersonalizada"
                                                                             placeholder="Quantidade personalizada"
                                                                             value={
-                                                                                formData
-                                                                                    .alimentosDetails[0]
-                                                                                    .quantidade ||
+                                                                                formData.quantidadePersonalizada ||
                                                                                 ""
                                                                             }
-                                                                            onChange={(
-                                                                                e
-                                                                            ) =>
-                                                                                handleDynamicFieldChange(
-                                                                                    e,
-                                                                                    "alimentos",
-                                                                                    0
-                                                                                )
+                                                                            onChange={handleChange
                                                                             }
                                                                             required
                                                                         />
@@ -557,15 +574,15 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                             a
                                                                             quantidade
                                                                         </option>
-                                                                        <option value="Pequeno">
+                                                                        <option value={5}>
                                                                             Até
                                                                             5
                                                                         </option>
-                                                                        <option value="Médio">
+                                                                        <option value={10}>
                                                                             Até
                                                                             10
                                                                         </option>
-                                                                        <option value="Grande">
+                                                                        <option value={20}>
                                                                             Até
                                                                             20
                                                                         </option>
@@ -580,9 +597,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                             name="quantidade"
                                                                             placeholder="Quantidade personalizada"
                                                                             value={
-                                                                                formData
-                                                                                    .higieneDetails[0]
-                                                                                    .quantidade ||
+                                                                                formData.quantidadePersonalizada ||
                                                                                 ""
                                                                             }
                                                                             onChange={(
