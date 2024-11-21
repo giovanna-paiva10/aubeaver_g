@@ -58,11 +58,11 @@ const Home = () => {
             <h4 className={styles.estiloh4}>Escolha o item com qual você deseja ajudar ou receber ajuda</h4>
 
             <div className={styles.container}>
-                <div className={styles.content}>
-                    <div className={styles.content1}>
+                
+                    <div className={styles.content}>
                         <Link to={`/search?tag=Alimentos`}>
-                        <img className={styles.imgg} src={garf} alt="garfield" />
-                        <div>
+                        <div className={styles.caixa}><img className={styles.imgg} src={garf} alt="garfield" /></div>
+                        <div className={styles.caixa2}>
                             <h3 className={styles.contenttitle}>Doação de alimentos</h3>
                             <h4 className={styles.contenttext}>
                             A doação de alimentos é crucial para combater a fome e a insegurança alimentar, proporcionando acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
@@ -70,29 +70,30 @@ const Home = () => {
                         </div>
                         </Link>
                     </div>
-                    <div className={styles.content1}>
+                   <div className={styles.content}>
                         <Link to={`/search?tag=Higiene`}>
                         <img className={styles.imgg} src={garf} alt="garfield" />
                         <div>
                             <h3 className={styles.contenttitle}>Doação de produtos de higiene</h3>
                             <h4 className={styles.contenttext}>
-                            A doação de alimentos é crucial para combater a fome e a insegurança alimentar, proporcionando acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
+                            A doação de itens de higiene é essencial para garantir a saúde e dignidade de indivíduos em vulnerabilidade, prevenindo doenças e promovendo bem-estar.
                             </h4>
                         </div>
                         </Link>
                     </div>
-                    <div className={styles.content1}>
+                    <div className={styles.content}>
                         <Link to={`/search?tag=Trabalho%20Voluntário`}>
                         <img className={styles.imgg} src={garf} alt="garfield" />
                         <div>
                             <h3 className={styles.contenttitle}>ONGs de Trabalho voluntário</h3>
                             <h4 className={styles.contenttext}>
-                            A doação de alimentos é crucial para combater a fome e a insegurança alimentar, proporcionando acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
+                            A doação de mão de obra fortalece comunidades, resolve necessidades imediatas, capacita indivíduos e promove uma sociedade mais solidária e colaborativa
                             </h4>
                         </div>
                         </Link>
                     </div>
-                </div>
+                    
+                
             </div>
 
             <p className={styles.espaco}></p>
