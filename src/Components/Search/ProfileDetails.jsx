@@ -9,6 +9,7 @@ import localizacao from "../../assets/locationicon.svg"
 import website from "../../assets/webicon.svg"
 import facebook from "../../assets/facebookicon.svg"
 import instagram from "../../assets/instaicon.svg"
+import ModalPopUp from "../Modal/ModalPopUp"
 import { increment, doc, setDoc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -287,6 +288,11 @@ const handleDynamicFieldChange = (e, type, index) => {
     return (
         <body id={styles.borda}>
             <div className={styles.mainContainer}>
+
+            
+        {/* <ModalPopUp /> */}
+
+
                 {profileData ? (
                     <>
                         <div className={styles.container}>
@@ -324,6 +330,15 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                 Preciso de ajuda
                                             </button>
                                         )}
+                                    
+
+
+
+
+
+
+                                   
+                                        <button> teste </button>
                                     </div>
                                 {/* </div> */}
                             </div>

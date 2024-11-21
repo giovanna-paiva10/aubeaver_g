@@ -1,0 +1,114 @@
+#borda{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.container{
+    width: 105vw;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+}
+
+.content{
+    display: flex;
+    width: 65vw;
+    height: 38vw;
+    border-radius: 20px;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    background-color: rgba(255, 255, 250, 0.897);
+    min-height: 400px;
+}
+
+.forms{
+    width: 40vw;
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #7CA377;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+    padding: 4% 3% 2% 3%;
+    justify-content: center;
+    font-weight: lighter;
+}
+
+.contentText{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1% 3% 1% 0%;
+}
+
+.estiloh2{
+    text-align: center;
+    color: #517655
+}
+
+.estiloh3{
+    color: #517655;
+    font-weight: lighter;
+}
+
+.label{
+    color: rgb(255, 255, 255);
+    font-size: max(12px, 14px);
+}
+
+.input{
+    display: flex;
+    width: 27vw;
+    height: 1vw;
+    border-radius: 8px;
+    border: none;
+    margin: 0% 0% 2% 0%;
+}
+
+.select{
+    display: flex;
+    width: 27vw;
+    height: 2vw;
+    border-radius: 8px;
+    border: none;
+    margin: 0% 0% 2% 0%;
+}
+
+.espaco{
+    margin: 8px;
+}
+
+@media (max-width: 750px) {
+    .contentText{
+        display: none;
+    }
+    .forms{
+        width: 100%;
+        border-radius: 16px;
+        padding: 1% 2% 0% 3%;
+    }
+    .input{
+        width: 97%;
+    }
+    .select{
+        width: 97%;
+        height: 7vw;
+    }
+    .btn{
+        height: 10vw;
+        width: 20vw;
+    }
+}
+
+.btn{
+    width: 8vw;
+    height: 2.5vw;
+    margin: 2.5%;
+    background-color: #B296AD;
+}

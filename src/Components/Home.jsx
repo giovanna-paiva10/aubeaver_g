@@ -97,7 +97,7 @@ const Home = () => {
 
             <p className={styles.espaco}></p>
             
-            <h3 className={styles.estiloh3}>O QUE DOAR</h3>
+            <h3 className={styles.estiloh3}>SEJA UM PARCEIRO</h3>
             <h4 className={styles.estiloh4}>Conheça nossos parceiros e saiba mais sobre quem apoia nossa causa</h4>
            
             <p className={styles.espaco}></p>
