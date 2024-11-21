@@ -32,38 +32,36 @@ const ProfileDetails = () => {
     const [error, setError] = useState("")
 
     const handleNextStep = () => {
-        if (
-            !formData.email ||
-            !formData.nome ||
-            !formData.telefone ||
-            !formData.endereco ||
-            !formData.tipoAjuda
-        ) {
-            setError("Por favor, preencha todos os campos antes de avançar.");
-            return;
+        
+      if (
+        !formData.email ||
+        !formData.nome ||
+        !formData.telefone ||
+        !formData.endereco ||
+        !formData.tipoAjuda
+      ) {
+        setError("Por favor, preencha todos os campos antes de avançar.");
+        return;
         }
     
-        if (currentStep === 2) {
-            // Verificar a soma das quantidades dos alimentos (só faz sentido no Step 2)
-            if (formData.tipoAjuda === "Alimentos" && userType === "Doador") {
-                if (formData.quantidadeProdutos === "Personalizado") {
-                    const totalQuantidade = formData.alimentosDetails.reduce((sum, alimento) => {
-                        return sum + (parseInt(alimento.quantidade) || 0); // Soma as quantidades
-                    }, 0);
-    
-                    if (totalQuantidade > parseInt(formData.quantidadePersonalizada)) {
-                        setError("A soma das quantidades dos alimentos não pode ser maior que a quantidade personalizada.");
-                        return;
-                    }
+        if (formData.tipoAjuda === "Alimentos" || formData.tipoAjuda === "Higiene") {
+            if (userType === "Doador") {
+                if (
+                    !formData.quantidadeProdutos ||
+                    (formData.quantidadeProdutos === "Personalizado" &&
+                        !formData.quantidadePersonalizada)
+                ) {
+                    setError("Por favor, preencha a quantidade de produtos.");
+                    return;
                 }
             }
         }
     
-        setError("");  // Limpar o erro antes de avançar
-        setCurrentStep((prev) => prev + 1);  // Avançar para o próximo passo
-    
-        c;
+        setError("");
+        setCurrentStep((prev) => prev + 1);
     };
+    
+      
     
     
     
@@ -74,9 +72,8 @@ const ProfileDetails = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
     
-        // Se o campo for numérico (quantidadePersonalizada ou quantidade), converta para número
         const newValue = (name === "quantidadePersonalizada" || name === "quantidade")
-            ? value === "" ? "" : parseInt(value)  // Garante que o valor seja um número ou vazio
+            ? value === "" ? "" : parseInt(value)
             : value;
     
         setFormData((prevData) => {
@@ -101,99 +98,140 @@ const ProfileDetails = () => {
     
 
     const handleSubmit = async () => {
-        if (profileData.pedidosAtuais >= profileData.limitePessoas) {
-            alert("O limite de pedidos foi atingido para esta ONG.");
-            return;
-        }
-    
-        const tipoDeAjuda = userType === "Doador" ? "Doação" : "Requisição"
-    
-        const filteredFormData = { ...formData, tipoAjuda: tipoDeAjuda }
-    
-        Object.keys(filteredFormData).forEach((key) => {
-            if (
-                filteredFormData[key] === null ||
-                filteredFormData[key] === "" ||
-                filteredFormData[key] === undefined
-            ) {
-                delete filteredFormData[key];
-            } else if (typeof filteredFormData[key] === "object") {
-                Object.keys(filteredFormData[key]).forEach((subKey) => {
-                    if (
-                        filteredFormData[key][subKey] === null ||
-                        filteredFormData[key][subKey] === "" ||
-                        filteredFormData[key][subKey] === undefined
-                    ) {
-                        delete filteredFormData[key][subKey];
-                    }
-                });
-    
-                if (Object.keys(filteredFormData[key]).length === 0) {
-                    delete filteredFormData[key];
-                }
-            }
-        });
-    
-        const notificationData = {
-            uid: uuidv4(),  
-            title: `${tipoDeAjuda}`,
-            description: `Relacionado a ${formData.tipoAjuda}`,
-            timestamp: new Date(),
-            isRead: false,
-            type: formData.tipoAjuda,
-            nomeUser: formData.nome,
-            email: formData.email,
-            telefone: formData.telefone,
-            endereco: formData.endereco,
-            alimentosDetails: formData.alimentosDetails,
-            higieneDetails: formData.higieneDetails,
-            voluntariaDetails: formData.voluntariaDetails,
-        };
-    
-        try {
-            const ongId = id;
-    
-            const notificationRef = doc(firestore, "Notificações", ongId);
-            await setDoc(
-                notificationRef,
-                {
-                    notifications: arrayUnion(notificationData),
-                },
-                { merge: true }
-            );
-    
-            const ongRef = doc(firestore, "Ongs", ongId);
-            const ongDocSnap = await getDoc(ongRef);
-    
-            if (ongDocSnap.exists()) {
-                const ongData = ongDocSnap.data();
-                const currentPedidosAtuais = ongData.pedidosAtuais || 0;
-    
-                await updateDoc(ongRef, {
-                    pedidosAtuais: increment(1),
-                });
-    
-                console.log("Notificação criada com sucesso!");
-                
-                console.log(formData.quantidadeProdutos, formData.quantidadePersonalizada ,formData.alimentosDetails[0].quantidade)
-                console.log("Total Quantidade:", totalQuantidade);
-console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
 
-            } else {
-                console.error("Documento da ONG não encontrado");
-            }
-        } catch (error) {
-            console.error("Erro ao criar notificação:", error);
+        if (profileData.pedidosAtuais >= profileData.limitePessoas) {
+          alert("O limite de pedidos foi atingido para esta ONG.");
+          return;
         }
-    
+      
+        const tipoDeAjuda = userType === "Doador" ? "Doação" : "Requisição";
+        
+        const filteredFormData = { ...formData, tipoAjuda: tipoDeAjuda };
+      
+        Object.keys(filteredFormData).forEach((key) => {
+          if (
+            filteredFormData[key] === null ||
+            filteredFormData[key] === "" ||
+            filteredFormData[key] === undefined
+          ) {
+            delete filteredFormData[key];
+          } else if (typeof filteredFormData[key] === "object") {
+            Object.keys(filteredFormData[key]).forEach((subKey) => {
+              if (
+                filteredFormData[key][subKey] === null ||
+                filteredFormData[key][subKey] === "" ||
+                filteredFormData[key][subKey] === undefined
+              ) {
+                delete filteredFormData[key][subKey];
+              }
+            });
+      
+            if (Object.keys(filteredFormData[key]).length === 0) {
+              delete filteredFormData[key];
+            }
+          }
+        });
+      
+        let totalQuantidade = 0;
+      
+        if (formData.tipoAjuda === "Alimentos" && userType === "Doador") {
+          if (formData.alimentosDetails && formData.alimentosDetails.length > 0) {
+            totalQuantidade = formData.alimentosDetails.reduce(
+              (sum, alimento) => sum + (parseInt(alimento.quantidade) || 0),
+              0
+            );
+          }
+          const limite =
+            formData.quantidadeProdutos === "Personalizado"
+              ? parseInt(formData.quantidadePersonalizada)
+              : parseInt(formData.quantidadeProdutos);
+      
+          if (totalQuantidade > limite) {
+            setError(
+              `O total de alimentos (${totalQuantidade}) excede o limite de ${limite}.`
+            );
+            return; 
+          }
+        }
+      
+        if (formData.tipoAjuda === "Higiene" && userType === "Doador") {
+          if (formData.higieneDetails && formData.higieneDetails.length > 0) {
+            totalQuantidade = formData.higieneDetails.reduce(
+              (sum, produto) => sum + (parseInt(produto.quantidade) || 0),
+              0
+            );
+          }
+          const limite =
+            formData.quantidadeProdutos === "Personalizado"
+              ? parseInt(formData.quantidadePersonalizada)
+              : parseInt(formData.quantidadeProdutos);
+      
+          if (totalQuantidade > limite) {
+            setError(
+              `O total de itens de higiene (${totalQuantidade}) excede o limite de ${limite}.`
+            );
+            return;
+          }
+        }
+      
+        const notificationData = {
+          uid: uuidv4(),  
+          title: `${tipoDeAjuda}`,
+          description: `Relacionado a ${formData.tipoAjuda}`,
+          timestamp: new Date(),
+          isRead: false,
+          type: formData.tipoAjuda,
+          nomeUser: formData.nome,
+          email: formData.email,
+          telefone: formData.telefone,
+          endereco: formData.endereco,
+          alimentosDetails: formData.alimentosDetails,
+          higieneDetails: formData.higieneDetails,
+          voluntariaDetails: formData.voluntariaDetails,
+        };
+      
+        try {
+          const ongId = id;
+          const notificationRef = doc(firestore, "Notificações", ongId);
+          await setDoc(
+            notificationRef,
+            {
+              notifications: arrayUnion(notificationData),
+            },
+            { merge: true }
+          );
+      
+          const ongRef = doc(firestore, "Ongs", ongId);
+          const ongDocSnap = await getDoc(ongRef);
+      
+          if (ongDocSnap.exists()) {
+            const ongData = ongDocSnap.data();
+            const currentPedidosAtuais = ongData.pedidosAtuais || 0;
+      
+            await updateDoc(ongRef, {
+              pedidosAtuais: increment(1),
+            });
+      
+            console.log("Notificação criada com sucesso!");
+      
+            console.log(formData.quantidadeProdutos, formData.quantidadePersonalizada ,formData.alimentosDetails[0].quantidade)
+            console.log("Total Quantidade:", totalQuantidade);
+            console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
+          } else {
+            console.error("Documento da ONG não encontrado");
+          }
+        } catch (error) {
+          console.error("Erro ao criar notificação:", error);
+        }
+      
         setCurrentStep(3);
-    };
+      };
+      
     
 
     const handleDynamicFieldChange = (e, type, index) => {
         const { name, value } = e.target;
-    
-        // Verifica se o valor é numérico, para os campos de quantidade
+
         const newValue = (name === "quantidade" || name === "quantidadePersonalizada")
             ? value === "" ? "" : parseInt(value)
             : value;
@@ -676,6 +714,13 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                             </strong>{" "}
                                                             {formData.tipoAjuda}
                                                         </p>
+                                                        <p>
+                                                            Limite total permitido:{" "}
+                                                            {formData.quantidadeProdutos === "Personalizado"
+                                                                ? formData.quantidadePersonalizada
+                                                                : formData.quantidadeProdutos}
+                                                        </p>
+
 
                                                         {formData.tipoAjuda ===
                                                             "Alimentos" &&
@@ -938,6 +983,15 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                                     voluntários
                                                                 </button>
                                                             </>
+                                                        )}
+                                                        {error && (
+                                                            <p
+                                                                className={
+                                                                    styles.error
+                                                                }
+                                                            >
+                                                                {error}
+                                                            </p>
                                                         )}
 
                                                         <button
