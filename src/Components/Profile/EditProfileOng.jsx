@@ -27,6 +27,7 @@ const EditProfileOng = () => {
     const [instagram, setInstagram] = useState('');
     const [bio, setBio] = useState('');
     const [limitePessoas, setLimitePessoas] = useState(null);
+    const [tags, setTags] = useState('');
 
     const fetchOngData = async () => {
         auth.onAuthStateChanged(async (user) => {
@@ -50,6 +51,7 @@ const EditProfileOng = () => {
                     setFotoSituacao1(ongData.fotoSituacao1 || null);
                     setFotoSituacao2(ongData.fotoSituacao2 || null);
                     setFotoSituacao3(ongData.fotoSituacao3 || null);
+                    setTags(ongData.tags || '');
                 } else {
                     console.log("ONG não encontrada");
                 }
@@ -102,6 +104,7 @@ const EditProfileOng = () => {
                 organizacao,
                 bio,
                 limitePessoas,
+                tags,
             }, { merge: true });
             window.location.href = '/profile';
         } catch (error) {
@@ -266,6 +269,14 @@ const EditProfileOng = () => {
                     <Input label="Instagram" type="text" id="instagram" value={instagram} setValue={setInstagram} />
                     <Input label="Website" type="text" id="website" value={website} setValue={setWebsite} />
                     <Input label="Localização" type="text" id="localizacao" value={localizacao} setValue={setLocalizacao} />
+                    <p> </p>
+                    <select label="Selecione uma tag" id="tag" value={tags} onChange={(e) => setTags(e.target.value)}>
+                        <option value="" disabled selected>Classifique a sua ONG</option>
+                        <option value="Alimentos">Alimentos</option>
+                        <option value="Higiene">Higiene</option>
+                        <option value="Trabalho Voluntário">Trabalho Voluntário</option>
+                    </select>
+                    <p> </p>
                     <label>Sobre a organização</label>
                     <p> </p> 
                     <textarea

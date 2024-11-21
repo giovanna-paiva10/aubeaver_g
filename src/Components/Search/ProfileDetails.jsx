@@ -91,7 +91,7 @@ const ProfileDetails = () => {
             return;
         }
     
-        const tipoDeAjuda = userType === "Doador" ? "doação" : "requisição"
+        const tipoDeAjuda = userType === "Doador" ? "Doação" : "Requisição"
     
         const filteredFormData = { ...formData, tipoAjuda: tipoDeAjuda }
     
@@ -121,8 +121,8 @@ const ProfileDetails = () => {
     
         const notificationData = {
             uid: uuidv4(),  
-            title: "Nova Solicitação de Ajuda",
-            description: `Detalhes sobre o pedido de ajuda ou doação para ${formData.tipoAjuda}`,
+            title: `${tipoDeAjuda}`,
+            description: `Relacionado a ${formData.tipoAjuda}`,
             timestamp: new Date(),
             isRead: false,
             type: formData.tipoAjuda,
@@ -181,7 +181,7 @@ const handleDynamicFieldChange = (e, type, index) => {
             updatedFormData.alimentosDetails[index][name] = value
         } else if (type === "higiene") {
             updatedFormData.higieneDetails[index][name] = value
-        } else if (type === "voluntariado") {
+        } else if (type === "Trabalho Voluntário") {
             updatedFormData.voluntariaDetails[index][name] = value
         }
     }
@@ -197,7 +197,7 @@ const handleDynamicFieldChange = (e, type, index) => {
             updatedFormData.alimentosDetails.push({ quantidade: "", tipo: "" })
         } else if (type === "higiene") {
             updatedFormData.higieneDetails.push({ produto: "", marca: "" })
-        } else if (type === "voluntariado") {
+        } else if (type === "Trabalho Voluntário") {
             updatedFormData.voluntariaDetails.push({
                 horas: "",
                 habilidades: "",
@@ -214,7 +214,7 @@ const handleDynamicFieldChange = (e, type, index) => {
             updatedFormData.alimentosDetails.splice(index, 1)
         } else if (type === "higiene") {
             updatedFormData.higieneDetails.splice(index, 1)
-        } else if (type === "voluntariado") {
+        } else if (type === "Trabalho Voluntário") {
             updatedFormData.voluntariaDetails.splice(index, 1)
         }
 
@@ -271,6 +271,15 @@ const handleDynamicFieldChange = (e, type, index) => {
         fetchProfileData()
     }, [id])
 
+    useEffect(() => {
+        if (profileData && profileData.tags) {
+            setFormData((prevData) => ({
+                ...prevData,
+                tipoAjuda: profileData.tags,
+            }));
+        }
+    }, [profileData]);
+
     const openModal = () => {
         if (profileData.pedidosAtuais >= profileData.limitePessoas) {
             alert("O limite de pedidos foi atingido para esta ONG.");
@@ -310,6 +319,9 @@ const handleDynamicFieldChange = (e, type, index) => {
                                     <div className={styles.contentText}>
                                         <h1 className={styles.estiloh2}>
                                             {profileData.nome}
+                                            {profileData.tags && (
+                                                <span className={styles.tag}>{profileData.tags}</span>
+                                            )}
                                         </h1>
                                         <br />
                                         <h4>{profileData.bio}</h4>
@@ -419,37 +431,31 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                 handleChange
                                                             }
                                                         />
-                                                        <label>
-                                                            Tipo de ajuda
-                                                            necessária
-                                                        </label>
-                                                        <select
-                                                            name="tipoAjuda"
-                                                            value={
-                                                                formData.tipoAjuda
-                                                            }
-                                                            onChange={
-                                                                handleChange
-                                                            }
-                                                        >
-                                                            <option
-                                                                value=""
+                                                        <label> Tipo de ajuda necessária</label>
+                                                        {profileData && profileData.tags ? (
+                                                            <select
+                                                                name="tipoAjuda"
+                                                                value={profileData.tags}
                                                                 disabled
-                                                                selected
                                                             >
-                                                                Selecione o tipo
-                                                                de ajuda
-                                                            </option>
-                                                            <option value="Alimentos">
-                                                                Alimentos
-                                                            </option>
-                                                            <option value="Higiene">
-                                                                Higiene
-                                                            </option>
-                                                            <option value="Voluntariado">
-                                                                Ajuda voluntária
-                                                            </option>
-                                                        </select>
+                                                                <option value="Alimentos">Alimentos</option>
+                                                                <option value="Higiene">Higiene</option>
+                                                                <option value="Trabalho Voluntário">Ajuda voluntária</option>
+                                                            </select>
+                                                        ) : (
+                                                            <select
+                                                                name="tipoAjuda"
+                                                                value={formData.tipoAjuda}
+                                                                onChange={handleChange}
+                                                            >
+                                                                <option value="" disabled>
+                                                                    Selecione o tipo de ajuda
+                                                                </option>
+                                                                <option value="Alimentos">Alimentos</option>
+                                                                <option value="Higiene">Higiene</option>
+                                                                <option value="Trabalho Voluntário">Ajuda voluntária</option>
+                                                            </select>
+                                                        )}
                                                         {formData.tipoAjuda ===
                                                             "Alimentos" &&
                                                             userType ===
@@ -829,7 +835,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                         )}
 
                                                         {formData.tipoAjuda ===
-                                                            "Voluntariado" && (
+                                                            "Trabalho Voluntário" && (
                                                             <>
                                                                 {Array.isArray(
                                                                     formData.voluntariaDetails
@@ -847,7 +853,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                                 <label>
                                                                                     Horas
                                                                                     de
-                                                                                    voluntariado
+                                                                                    Trabalho Voluntário
                                                                                 </label>
                                                                                 <input
                                                                                     type="number"
@@ -861,7 +867,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                                     ) =>
                                                                                         handleDynamicFieldChange(
                                                                                             e,
-                                                                                            "voluntariado",
+                                                                                            "Trabalho Voluntário",
                                                                                             index
                                                                                         )
                                                                                     }
@@ -881,7 +887,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                                     ) =>
                                                                                         handleDynamicFieldChange(
                                                                                             e,
-                                                                                            "voluntariado",
+                                                                                            "Trabalho Voluntário",
                                                                                             index
                                                                                         )
                                                                                     }
@@ -890,7 +896,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                                     type="button"
                                                                                     onClick={() =>
                                                                                         removeField(
-                                                                                            "voluntariado",
+                                                                                            "Trabalho Voluntário",
                                                                                             index
                                                                                         )
                                                                                     }
@@ -904,7 +910,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                                     type="button"
                                                                     onClick={() =>
                                                                         addField(
-                                                                            "voluntariado"
+                                                                            "Trabalho Voluntário"
                                                                         )
                                                                     }
                                                                 >

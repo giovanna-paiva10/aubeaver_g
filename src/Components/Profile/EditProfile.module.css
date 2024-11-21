@@ -77,6 +77,7 @@
     display: flex;
    justify-content: space-between;
     flex-direction: line;
+    padding-left: 5vw;
 }
 
 .bte {
@@ -98,6 +99,9 @@ justify-content: center;
 
 .botaoperigo {
     background-color: rgb(192, 37, 37);
+    width: 13vw;
+    height: 3vw;
+    border-radius: 8px;
 }
 
 .comps {
@@ -200,28 +204,59 @@ textarea:focus{
    }
 
    .secth2 {
-   justify-content: right;
-   }
-
-   .btroxo {
-    width: 11vw;
-    height: 3vw;
-    border-radius: 8px;
-    background-color: #B296AD;
-    font-size: max(12px, 1.5vh);
-    align-items: center;
     justify-content: center;
-    align-items: center;
-   }
+    padding-top: 8vh;
+    padding-bottom: 2vh;
+    }
+ 
+    .btroxo {
+     width: 11vw;
+     height: 3vw;
+     border-radius: 8px;
+     background-color: #B296AD;
+     font-size: max(13px, 1.5vh);
+     align-items: center;
+     justify-content: center;
+     align-items: center;
+    }
+ 
+    .btbranco {
+ 
+     width: 13vw;
+     height: 3vw;
+     border-radius: 8px;
+ 
+    
+     color: #B296AD;
+     background-color: white;
+     border: solid 1px #B296AD;
+     font-size: max(13px, 1.5vh);
+     align-items: center;
+ 
+    }
+ 
+    .butsalv {
+     width: 14vw;
+     height: 3vw;
+     border-radius: 8px;
+     background-color: #517655;
+     font-size: max(13px, 1.5vh);
+     align-items: center;
+     justify-content: center;
+     align-items: center;
+    }
 
-   .btbranco {
-    width: 13vw;
-    height: 3.4vw;
-    border-radius: 4px;
-    color: #B296AD;
-    background-color: white;
-    border: solid 1px #B296AD;
-    font-size: max(10px, 1.5vh);
-    align-items: center;
+    .botoestras {
+        justify-content: center;
+        display: flex;
+        flex-direction: line;
+        flex-wrap: wrap;
+    }
 
-   }
+    .lixeira1 {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        
+    }

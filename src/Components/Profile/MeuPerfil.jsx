@@ -98,7 +98,11 @@ const MeuPerfil = () => {
                                         </div>
 
                                         <div className={styles.contentText}>
-                                            <h1 className={styles.estiloh2}>{userDetails.nome}</h1>
+                                            <h1 className={styles.estiloh2}>{userDetails.nome} 
+                                            {userDetails.tags && (
+                                                <span className={styles.tag}>{userDetails.tags}</span>
+                                            )}
+                                            </h1>
                                             <br />
                                             <h4> {userDetails.bio}</h4>
                                             <br />

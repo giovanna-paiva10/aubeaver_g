@@ -11,6 +11,7 @@ const ProfileSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [selectedTag, setSelectedTag] = useState("");
 
   const ongsPerPage = 10;
 
@@ -38,17 +39,29 @@ const ProfileSearch = () => {
   }, []);
 
   useEffect(() => {
-    const filtered = ongs.filter(
-      (ong) =>
-        ong.nome && ong.nome.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const params = new URLSearchParams(location.search);
+    const tag = params.get("tag");
+    if (tag) {
+      setSelectedTag(tag); 
+    }
+  }, [location]); 
+
+  useEffect(() => {
+    const filtered = ongs.filter((ong) => {
+      const matchesSearchTerm =
+        ong.nome && ong.nome.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesTag =
+        selectedTag === "" || ong.tags === selectedTag;  
+      return matchesSearchTerm && matchesTag;
+    });
     setFilteredOngs(filtered);
     setCurrentPage(1);
-  }, [searchTerm, ongs]);
+  }, [searchTerm, selectedTag, ongs]);
 
   const truncateText = (text) => {
     if (!text) return "";
-    const maxChars = windowWidth > 1024 ? 500 : windowWidth > 768 ? 350 : 200;
+    const maxChars = windowWidth > 1024 ? 500 : windowWidth > 768 ? 350 : windowWidth > 585 ? 200 
+    : windowWidth > 450 ? 100 : 20;
     return text.length > maxChars ? `${text.substring(0, maxChars)}...` : text;
   };
 
@@ -86,6 +99,15 @@ const ProfileSearch = () => {
               onChange={handleSearchChange}
               className={styles.searchInput}
             />
+            <select
+              onChange={(e) => setSelectedTag(e.target.value)}
+              value={selectedTag}
+            >
+              <option value="">Todas as Tags</option>
+              <option value="Alimentos">Alimentos</option>
+              <option value="Higiene">Higiene</option>
+              <option value="Trabalho Voluntário">Trabalho Voluntário</option>
+            </select>
           </div>
         </div>
 
@@ -101,10 +123,7 @@ const ProfileSearch = () => {
                   />
                 </div>
                 <div className={styles.contentText}>
-                  <h2 className={styles.eh2}> {ong.nome}</h2> <br />
-                  <h4>Limite de {ong.limitePessoas} pessoas</h4>
-                  <p></p>
-                  <p></p>
+                  <h2 className={styles.eh2}> {ong.nome} <span>Limite de {ong.limitePessoas} solicitações</span> <span>adicionaoiconezinho{ong.pedidosAtuais}</span></h2> <br/>
                   <p>{truncateText(ong.organizacao)}</p>
                 </div>
               </div>

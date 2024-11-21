@@ -221,6 +221,17 @@
     margin-block: 8px;
     align-items: center;
 }
+.tag{
+    display: inline-block;
+    padding: 0.5vw 1vw;
+    border-radius: 20px;
+    background-color: #B296AD; 
+    font-size: max(10px, 1.5vh); 
+    margin-left: 1vw; 
+    color: white; 
+    text-align: center; 
+    font-weight: bold; 
+}
 
 .titulo{
     color: #517655;
