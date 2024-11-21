@@ -72,9 +72,11 @@ const MeuPerfil = () => {
     };
 
     return (
+      
         <form>
             {userDetails ? (
                 <>
+   
                     <p></p>
                     {userType === "Usuário" ? (
                         <>
@@ -229,6 +231,7 @@ const MeuPerfil = () => {
                 <p>Carregando...</p>
             )}
         </form>
+     
     );
 };
 

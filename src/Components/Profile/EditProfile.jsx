@@ -209,7 +209,7 @@ const EditProfile = () => {
     return (
        
         <body id={styles.borda}>
-        <div className={styles.mainContainer}></div>
+        <div className={styles.mainContainer}>
        
        <form>
         
@@ -220,7 +220,7 @@ const EditProfile = () => {
 
 
                     <div className={styles.espaco}></div>
-                    
+                    <div className={styles.topo}>
                     <div className={styles.seup}>
                         <section className={styles.texto}>
                             <img src={iconpe} alt="Icon Usuario" className={styles.iconpe} />
@@ -250,6 +250,7 @@ const EditProfile = () => {
                         <center><button className={styles.butsalv} type="button" onClick={uploadProfileImage} disabled={upload}>
                             {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                         </button></center><br />
+                        </div>
 
 <div className={styles.comps}>
 
@@ -368,6 +369,7 @@ const EditProfile = () => {
                 <p>Carregando dados do usuário...</p>
             )}
         </form>
+        </div>
         </body>
     );
 };

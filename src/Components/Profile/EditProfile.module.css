@@ -1,19 +1,19 @@
 #borda{
-    width: fit-content;
+    width: 96vw;
     height: fit-content;
     justify-content: center;
     display: flex;
-    flex-wrap: wrap;
+  
 }
 
 .mainContainer{
-    width: 100%;
-    gap: 5rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 8%;
+   
+}
+
+.topo {
+    margin-top: 9%;
+
 }
 .tit1  {
     color: #755071;
@@ -95,7 +95,7 @@
    justify-content: space-between;
     flex-direction: line;
     padding-left: -16vw;
-    margin-top: 6vw;
+   
 }
 
 .bte {
@@ -131,7 +131,8 @@ justify-content: center;
 input {
     border-color: #755071;
     border-radius: 12px;
-    width: 800px;
+    width: 40%;
+    min-width: 15%;
 }
 input:focus { 
     outline: none;
@@ -187,7 +188,7 @@ textarea:focus{
 
    .stf {
     display: flex;
-   
+   flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 3rem;
@@ -211,7 +212,7 @@ textarea:focus{
     
     display: flex;
     flex-direction: column;
-    max-width: 36%;
+    max-width: 46%;
    }
 
    .tfts{
@@ -267,7 +268,8 @@ textarea:focus{
         justify-content: center;
         display: flex;
         flex-direction: line;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        max-width: 50%;
     }
 
     .lixeira1 {
@@ -276,4 +278,34 @@ textarea:focus{
         display: flex;
         justify-content: center;
        
+    }
+    .comps {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 5vw;
+        
+    }
+    .comps2 {
+        display: flex;
+        justify-content: right;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 5vw;
+    }
+
+
+    @media (max-width: 1320px) {
+
+        .topo {
+            margin-top: 11%;
+        }
+
+    }
+
+    @media (max-width: 1154px) {
+        .topo {
+            margin-top: 12%;
+        }
     }

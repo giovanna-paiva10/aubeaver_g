@@ -226,6 +226,8 @@ const EditProfileOng = () => {
     };
 
     return (
+        <body id={styles.borda}>
+        <div className={styles.mainContainer}>
         <form>
             {ongDetails ? (
                 <>
@@ -260,15 +262,18 @@ const EditProfileOng = () => {
                     <center><button type="button" onClick={uploadProfileImage} disabled={upload}>
                         {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                     </button></center><br />
-
-                    <Input label="Nome" type="text" id="nome" value={nome} setValue={setNome}></Input>
-                    <Input label="Telefone" type="text" id="telefone" value={telefone} setValue={setTelefone} />
-                    <Input label="Limites de pessoas para ajudar" type="number" id="limitePessoas" value={limitePessoas} setValue={setLimitePessoas} />
-                    <Input label="E-mail" type="email" id="email" value={email} setValue={setEmail} />
-                    <Input label="Facebook" type="text" id="facebook" value={facebook} setValue={setFacebook} />
-                    <Input label="Instagram" type="text" id="instagram" value={instagram} setValue={setInstagram} />
-                    <Input label="Website" type="text" id="website" value={website} setValue={setWebsite} />
-                    <Input label="Localização" type="text" id="localizacao" value={localizacao} setValue={setLocalizacao} />
+                    <div className={styles.comp1}>
+                    <label className={styles.titp2}>Nome</label> <input type="text" id="nome" value={nome} setValue={setNome}></input>
+                    <label className={styles.titp2}>Telefone</label><input type="text" id="telefone" value={telefone} setValue={setTelefone} ></input>
+                    <label className={styles.titp2}>Limites de pessoas para ajudar</label><input type="number" id="limitePessoas" value={limitePessoas} setValue={setLimitePessoas} ></input>
+                    <label className={styles.titp2}>E-mail</label><input type="email" id="email" value={email} setValue={setEmail}></input>
+                    </div>
+                    <div className={styles.comp2}>
+                    <label className={styles.titp2}>Facebook</label><input type="text" id="facebook" value={facebook} setValue={setFacebook}></input>
+                    <label className={styles.titp2}>Instagram</label><input type="text" id="instagram" value={instagram} setValue={setInstagram}></input>
+                    <label className={styles.titp2}>Website</label><input type="text" id="website" value={website} setValue={setWebsite}></input>
+                    <label className={styles.titp2}>Localização</label><input type="text" id="localizacao" value={localizacao} setValue={setLocalizacao}></input>
+                    </div>
                     <p> </p>
                     <select label="Selecione uma tag" id="tag" value={tags} onChange={(e) => setTags(e.target.value)}>
                         <option value="" disabled selected>Classifique a sua ONG</option>
@@ -277,7 +282,7 @@ const EditProfileOng = () => {
                         <option value="Trabalho Voluntário">Trabalho Voluntário</option>
                     </select>
                     <p> </p>
-                    <label>Sobre a organização</label>
+                    <label className={styles.th2}>Sobre a organização</label>
                     <p> </p> 
                     <textarea
                         id="organizacao"
@@ -288,7 +293,7 @@ const EditProfileOng = () => {
                         cols={70}
                     />
                     <p> </p>
-                    <label>Bio</label>
+                    <label className={styles.th2}>Bio</label>
                     <p> </p> 
                     <textarea
                         id="bio"
@@ -340,7 +345,10 @@ const EditProfileOng = () => {
             ) : (
                 <div>Carregando dados...</div>
             )}
+            
         </form>
+        </div>
+        </body>
     );
 };
 
