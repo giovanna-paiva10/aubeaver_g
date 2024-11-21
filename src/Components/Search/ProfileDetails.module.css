@@ -1,16 +1,18 @@
 #borda{
     width: 96vw;
-    display: flex;
+    height: fit-content;
     justify-content: center;
-    margin: auto;
+    display: flex;
 }
 
 .mainContainer{
-    width: 90%;
+    width: 100%;
     gap: 5rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin: 5%;
 }
 
 .estiloh2{
@@ -26,8 +28,8 @@
 }
 
 .contentImg{
-    width: 25%;
-    min-width: 125px;
+    width: 22%;
+    min-width: 116px;
     height: auto;
     box-shadow: 0 0 8px 1px #c5c5c5;
     border-radius: 24px;
@@ -43,7 +45,7 @@
     color: #797979;
     width: 100%;
     height: auto;
-    margin: 3% auto 1%;
+    margin: 4% auto 1%;
     justify-content: center;
     align-items: center;
 }
@@ -58,6 +60,7 @@
 
 .contentText{
     width: 96%;
+    height: 28vh;
     color: #797979;
     padding: 8px 8px 8px 32px;
     font-size: max(10px, 2vh);
@@ -120,7 +123,7 @@
     color: #797979;
     min-width: min-content;
     font-size: max(8px, 2vh);
-    border: 4%;
+    border: 2%;
     justify-content: center;
     align-items: center;
     
@@ -140,6 +143,9 @@
 }
 
 @media(max-width: 900px) {
+    .mainContainer{
+        margin: 12vh auto;
+    }
     .contentImg {
         width: 20%;
     }
@@ -165,7 +171,7 @@
     }
     .content{
         flex-direction: column;
-        gap: 0px;
+        gap: 2rem;
     }
     .container2{
         flex-direction: column;
