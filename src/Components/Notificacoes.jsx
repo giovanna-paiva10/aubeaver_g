@@ -162,7 +162,7 @@ const Notificacoes = () => {
       }).join(", ");
     }
 
-    if (type === "Voluntariado" && Array.isArray(details)) {
+    if (type === "Trabalho Voluntário" && Array.isArray(details)) {
       if (details.length === 1) {
         const item = details[0];
         return `Habilidades: ${item.habilidades}, Horas: ${item.horas}`;
@@ -206,10 +206,10 @@ const Notificacoes = () => {
                 <p>{formatDetails(notification.higieneDetails, "Higiene")}</p>
               </div>
             )}
-            {notification.type === "Voluntariado" && notification.voluntariaDetails && (
+            {notification.type === "Trabalho Voluntário" && notification.voluntariaDetails && (
               <div>
-                <h4>Detalhes de Voluntariado</h4>
-                <p>{formatDetails(notification.voluntariaDetails, "Voluntariado")}</p>
+                <h4>Detalhes do Trabalho Voluntário</h4>
+                <p>{formatDetails(notification.voluntariaDetails, "Trabalho Voluntário")}</p>
               </div>
             )}
           </div>

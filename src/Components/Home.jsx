@@ -57,19 +57,39 @@ const Home = () => {
 
             <div className={styles.container}>
                 <div className={styles.content}>
-                    {['Doação de alimentos', 'Doação de mão de obra', 'Doação de dinheiro', 'Itens de higiene'].map((title, index) => (
-                        <div key={index} className={styles.content1}>
-                            <Link to='/search'>
-                                <img className={styles.imgg} src={garf} alt="garfield" />
-                                <div>
-                                    <h3 className={styles.contenttitle}>{title}</h3>
-                                    <h4 className={styles.contenttext}>
-                                    A doação de alimentos é crucial para combater a fome e a insegurança alimentar, proporcionando acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
-                                    </h4>
-                                </div>
-                            </Link>
+                    <div className={styles.content1}>
+                        <Link to={`/search?tag=Alimentos`}>
+                        <img className={styles.imgg} src={garf} alt="garfield" />
+                        <div>
+                            <h3 className={styles.contenttitle}>Doação de alimentos</h3>
+                            <h4 className={styles.contenttext}>
+                            A doação de alimentos é crucial para combater a fome e a insegurança alimentar, proporcionando acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
+                            </h4>
                         </div>
-                    ))}
+                        </Link>
+                    </div>
+                    <div className={styles.content1}>
+                        <Link to={`/search?tag=Higiene`}>
+                        <img className={styles.imgg} src={garf} alt="garfield" />
+                        <div>
+                            <h3 className={styles.contenttitle}>Doação de produtos de higiene</h3>
+                            <h4 className={styles.contenttext}>
+                            A doação de alimentos é crucial para combater a fome e a insegurança alimentar, proporcionando acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
+                            </h4>
+                        </div>
+                        </Link>
+                    </div>
+                    <div className={styles.content1}>
+                        <Link to={`/search?tag=Trabalho%20Voluntário`}>
+                        <img className={styles.imgg} src={garf} alt="garfield" />
+                        <div>
+                            <h3 className={styles.contenttitle}>ONGs de Trabalho voluntário</h3>
+                            <h4 className={styles.contenttext}>
+                            A doação de alimentos é crucial para combater a fome e a insegurança alimentar, proporcionando acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
+                            </h4>
+                        </div>
+                        </Link>
+                    </div>
                 </div>
             </div>
 
