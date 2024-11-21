@@ -207,11 +207,20 @@ const EditProfile = () => {
     }
 
     return (
-        <form>
+       
+        <body id={styles.borda}>
+        <div className={styles.mainContainer}></div>
+       
+       <form>
+        
+    
             {userDetails ? (
                 <>
-                    <div className={styles.espaco}></div>
 
+
+
+                    <div className={styles.espaco}></div>
+                    
                     <div className={styles.seup}>
                         <section className={styles.texto}>
                             <img src={iconpe} alt="Icon Usuario" className={styles.iconpe} />
@@ -359,6 +368,7 @@ const EditProfile = () => {
                 <p>Carregando dados do usuário...</p>
             )}
         </form>
+        </body>
     );
 };
 

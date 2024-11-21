@@ -10,10 +10,14 @@ import natura from '../assets/natura.png'
 import nestle from '../assets/nestle.png'
 import conect from '../assets/conect.png';
 import cc from '../assets/conectandoco.svg';
-import row1 from '../assets/facaparte.png';
-import row2 from '../assets/apoiohis.png'; 
-import row3 from '../assets/juntese.png'; 
-import row4 from '../assets/apoienossa.png'; 
+import row11 from '../assets/facaparte.png';
+import row21 from '../assets/apoiohis.png'; 
+import row31 from '../assets/juntese.png'; 
+import row41 from '../assets/apoienossa.png'; 
+import row1 from '../assets/row1.webp';
+import row2 from '../assets/row2.webp'; 
+import row3 from '../assets/row3.webp'; 
+import row4 from '../assets/row4.webp'; 
 
 // Importando Slider do react-slick
 import Slider from 'react-slick';
