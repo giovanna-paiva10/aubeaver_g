@@ -4,6 +4,17 @@
     display: flex;
 }
 
+.contentLogo{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
+
+.logo{
+    display: flex;
+    width: 20%;
+}
+
 .container{
     width: 105vw;
     height: 90%;
@@ -16,7 +27,7 @@
 
 .content{
     display: flex;
-    width: 65vw;
+    width: 60vw;
     height: 38vw;
     border-radius: 20px;
     flex-direction: row;
@@ -27,17 +38,17 @@
 }
 
 .forms{
-    width: 40vw;
+    width: 35vw;
     height: 100%;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     background-color: #7CA377;
     display: flex;
     flex-direction: column;
-    gap: 0.5vh;
+    gap: auto;
     padding: 4% 3% 2% 3%;
-    justify-content: center;
     font-weight: lighter;
+    justify-content: space-around;
 }
 
 .contentText{
@@ -64,7 +75,7 @@
 
 .input{
     display: flex;
-    width: 27vw;
+    width: 96%;
     height: 1vw;
     border-radius: 8px;
     border: none;
@@ -73,7 +84,7 @@
 
 .select{
     display: flex;
-    width: 27vw;
+    width: 96%;
     height: 2vw;
     border-radius: 8px;
     border: none;
@@ -110,5 +121,5 @@
     width: 8vw;
     height: 2.5vw;
     margin: 2.5%;
-    background-color: #B296AD;
+    background-color: #755071;
 }

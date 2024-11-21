@@ -299,7 +299,7 @@ const handleDynamicFieldChange = (e, type, index) => {
             <div className={styles.mainContainer}>
 
             
-        {/* <ModalPopUp /> */}
+      {/*< ModalPopUp />*/}  
 
 
                 {profileData ? (
@@ -373,8 +373,12 @@ const handleDynamicFieldChange = (e, type, index) => {
                                             ×
                                         </span>
                                     </div>
-                                    <div className={styles.modalBody}>
-                                        <div className={styles.modalLeft}>
+
+
+
+
+                <div className={styles.modalLeft}>
+                                        
                                             <div className={styles.modalImage}>
                                                 <img src={foto} alt="Mascote" />
                                             </div>
@@ -969,15 +973,16 @@ const handleDynamicFieldChange = (e, type, index) => {
                                                     </div>
                                                 )}
                                             </div>
-                                        </div>
+                                        
+
+              </div>                          
+
                                         <div className={styles.modalRight}>
                                             {currentStep === 1 && (
                                                 <p>
-                                                    Estamos aqui para apoiar
-                                                    você a alcançar um futuro
-                                                    melhor. Preencha o
-                                                    formulário ao lado para que
-                                                    possamos ajudar!
+                                                    Nosso compromisso é caminhar ao seu lado, oferecendo apoio e novas oportunidades para que você possa alcançar um futuro mais seguro e cheio de possibilidades.
+                                                    <p></p>
+                                                    Estamos aqui para apoiar você e ajudar a construir um futuro mais seguro e promissor.
                                                 </p>
                                             )}
                                             {currentStep === 2 && (
@@ -998,7 +1003,7 @@ const handleDynamicFieldChange = (e, type, index) => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                        
                         )}
 
                         <div className={styles.container1}>

@@ -55,11 +55,13 @@ const Home = () => {
                 </Slider>
             </div>
 
-            <p className={styles.espaco}></p>
+
+            <div className={styles.titulo}>
              <div id="dc">
             <h3 className={styles.estiloh3}>O QUE DOAR</h3>
             </div>
             <h4 className={styles.estiloh4}>Escolha o item com qual você deseja ajudar ou receber ajuda</h4>
+            </div>
 
             <div className={styles.container}>
                 
@@ -69,15 +71,15 @@ const Home = () => {
                         <div className={styles.caixa2}>
                             <h3 className={styles.contenttitle}>Doação de alimentos</h3>
                             <h4 className={styles.contenttext}>
-                            A doação de alimentos é crucial para combater a fome e a insegurança alimentar, proporcionando acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
+                            A doação de alimentos é crucial para combater a insegurança alimentar, possibilitando o acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
                             </h4>
                         </div>
                         </Link>
                     </div>
                    <div className={styles.content}>
                         <Link to={`/search?tag=Higiene`}>
-                        <img className={styles.imgg} src={garf} alt="garfield" />
-                        <div>
+                        <div className={styles.caixa}><img className={styles.imgg} src={garf} alt="garfield" /></div>
+                        <div className={styles.caixa2}>
                             <h3 className={styles.contenttitle}>Doação de produtos de higiene</h3>
                             <h4 className={styles.contenttext}>
                             A doação de itens de higiene é essencial para garantir a saúde e dignidade de indivíduos em vulnerabilidade, prevenindo doenças e promovendo bem-estar.
@@ -87,8 +89,8 @@ const Home = () => {
                     </div>
                     <div className={styles.content}>
                         <Link to={`/search?tag=Trabalho%20Voluntário`}>
-                        <img className={styles.imgg} src={garf} alt="garfield" />
-                        <div>
+                        <div className={styles.caixa}><img className={styles.imgg} src={garf} alt="garfield" /></div>
+                        <div className={styles.caixa2}>
                             <h3 className={styles.contenttitle}>ONGs de Trabalho voluntário</h3>
                             <h4 className={styles.contenttext}>
                             A doação de mão de obra fortalece comunidades, resolve necessidades imediatas, capacita indivíduos e promove uma sociedade mais solidária e colaborativa
@@ -100,13 +102,15 @@ const Home = () => {
                 
             </div>
 
-            <p className={styles.espaco}></p>
-
+            
+            
+            <div className={styles.titulo}> 
             <div id="qs">
             <h3 className={styles.estiloh3}>QUEM SOMOS</h3>
            <img className={styles.banner} src={cc} alt="cc" />
            </div>
-            <p className={styles.espaco}></p>
+           </div>
+           
 
             <div className={styles.container2}>
                 <div className={styles.content2}>
@@ -122,12 +126,12 @@ const Home = () => {
                 </div>
             </div>
 
-            <p className={styles.espaco}></p>
+        
             
+            <div className={styles.titulo}> 
             <h3 className={styles.estiloh3}>SEJA UM PARCEIRO</h3>
             <h4 className={styles.estiloh4}>Conheça nossos parceiros e saiba mais sobre quem apoia nossa causa</h4>
-           
-            <p className={styles.espaco}></p>
+            </div>
 
             <div className={styles.container3}>
                 <div className={styles.content3}>

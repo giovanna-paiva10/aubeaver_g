@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ModalPopUp.module.css';
-import logo from '../../assets/logo.svg';
+import logoo from '../../assets/rosto.svg';
 import Input from '../Forms/Input';
 
 
@@ -19,9 +19,13 @@ const ModalPopUp = () => {
     <div id={styles.borda}> 
 
         <div className={styles.container}>
-                    <div className={styles.content}>
+                    <div className={styles.content}> 
 
                         <div className={styles.forms}>
+                        
+                        <div className={styles.contentLogo}>
+                            <img className={styles.logo} src={logoo} alt="logo" />    
+                        </div>
 
                         <label className={styles.label}>Nome Sobrenome</label>
                         <input className={styles.input} type="text" value={nome} setValue={setNome} />
@@ -30,7 +34,7 @@ const ModalPopUp = () => {
                         <input className={styles.input} type="email" value={email} setValue={setEmail}/>
 
                         <label className={styles.label}>Telefone</label>
-                        <input className={styles.input} type="text" value={telefone} setValue={setTelefone}/>
+                        <input className={styles.input} type="text" value={telefone} setValue={setTelefone} />
 
                         <label className={styles.label}>Forma de ajuda:</label>
                         <select className={styles.select} name="" id="" onChange={handleChange}>
