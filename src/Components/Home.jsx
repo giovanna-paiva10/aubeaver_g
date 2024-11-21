@@ -14,10 +14,10 @@ import row11 from '../assets/facaparte.png';
 import row21 from '../assets/apoiohis.png'; 
 import row31 from '../assets/juntese.png'; 
 import row41 from '../assets/apoienossa.png'; 
-import row1 from '../assets/row1.webp';
-import row2 from '../assets/row2.webp'; 
-import row3 from '../assets/row3.webp'; 
-import row4 from '../assets/row4.webp'; 
+import row1 from '../assets/row1.png';
+import row2 from '../assets/row2.png'; 
+import row3 from '../assets/row3.png'; 
+import row4 from '../assets/row4.png'; 
 
 // Importando Slider do react-slick
 import Slider from 'react-slick';
@@ -44,7 +44,7 @@ const Home = () => {
 
     return (
         <div id={styles.borda}>
-        
+        <div className={styles.topo}></div>
             <div className={styles.contslider}>
                 <Slider {...settings}>
                     {data.map((image, index) => (
@@ -54,7 +54,7 @@ const Home = () => {
                     ))}
                 </Slider>
             </div>
-
+        
             <p className={styles.espaco}></p>
              <div id="dc">
             <h3 className={styles.estiloh3}>O QUE DOAR</h3>
