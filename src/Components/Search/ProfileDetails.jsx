@@ -369,14 +369,6 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                             </button>
                                         )}
                                     
-
-
-
-
-
-
-                                   
-                                        <button> teste </button>
                                     </div>
                                 {/* </div> */}
                             </div>
@@ -387,32 +379,23 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                 className={styles.modalOverlay}
                                 onClick={closeModal}
                             >
-                                <div
+                    <div
                                     className={styles.modalContent}
                                     onClick={(e) => e.stopPropagation()}
                                 >
-                                    <div className={styles.modalHeader}>
-                                        <span
-                                            className={styles.close}
-                                            onClick={closeModal}
-                                        >
-                                            ×
-                                        </span>
-                                    </div>
-
-
-
-
+    
                 <div className={styles.modalLeft}>
                                         
-                                            <div className={styles.modalImage}>
-                                                <img src={foto} alt="Mascote" />
+                                            <div className={styles.contentLogo}>
+                                                <img className={styles.logo} src={foto} alt="Mascote" />
                                             </div>
-                                            <div className={styles.modalInputs}>
+
+                                          
                                                 {currentStep === 1 && (
                                                     <>
                                                         <label>E-mail</label>
                                                         <input
+                                                            className={styles.input}
                                                             type="email"
                                                             name="email"
                                                             placeholder="E-mail"
@@ -427,6 +410,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                             Nome completo
                                                         </label>
                                                         <input
+                                                        className={styles.input}
                                                             type="text"
                                                             name="nome"
                                                             placeholder="Nome completo"
@@ -439,6 +423,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                         />
                                                         <label>Telefone</label>
                                                         <input
+                                                        className={styles.input}
                                                             type="tel"
                                                             name="telefone"
                                                             placeholder="Telefone"
@@ -451,6 +436,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                         />
                                                         <label>Endereço</label>
                                                         <input
+                                                        className={styles.input}
                                                             type="text"
                                                             name="endereco"
                                                             placeholder="Endereço"
@@ -464,6 +450,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                         <label> Tipo de ajuda necessária</label>
                                                         {profileData && profileData.tags ? (
                                                             <select
+                                                            className={styles.select}
                                                                 name="tipoAjuda"
                                                                 value={profileData.tags}
                                                                 disabled
@@ -628,9 +615,10 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                                 {error}
                                                             </p>
                                                         )}
-                                                        <button
+                                                    <center>
+                                                    <button
                                                             className={
-                                                                styles.botao2
+                                                                styles.btn
                                                             }
                                                             onClick={
                                                                 handleNextStep
@@ -638,6 +626,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                         >
                                                             Avançar
                                                         </button>
+                                                        </center> 
                                                     </>
                                                 )}
                                                 {currentStep === 2 && (
@@ -824,6 +813,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                                                     }
                                                                                 />
                                                                                 <button
+                                                                                className={styles.btn}
                                                                                     type="button"
                                                                                     onClick={() =>
                                                                                         removeField(
@@ -875,6 +865,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                                                     Trabalho Voluntário
                                                                                 </label>
                                                                                 <input
+                                                                                className={styles.input}
                                                                                     type="number"
                                                                                     name="horas"
                                                                                     placeholder="Horas"
@@ -894,7 +885,8 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                                                 <label>
                                                                                     Habilidades
                                                                                 </label>
-                                                                                <input
+                                                                                <input 
+                                                                                className={styles.input}
                                                                                     type="text"
                                                                                     name="habilidades"
                                                                                     placeholder="Habilidades"
@@ -926,6 +918,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                                         )
                                                                     )}
                                                                 <button
+                                                                
                                                                     type="button"
                                                                     onClick={() =>
                                                                         addField(
@@ -952,7 +945,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                         </button>
                                                         <button
                                                             className={
-                                                                styles.botao2
+                                                                styles.btn
                                                             }
                                                             onClick={
                                                                 handlePreviousStep
@@ -979,7 +972,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                         </p>
                                                         <button
                                                             className={
-                                                                styles.botao2
+                                                                styles.bnt
                                                             }
                                                             onClick={closeModal}
                                                         >
@@ -987,25 +980,40 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                         </button>
                                                     </div>
                                                 )}
-                                            </div>
+                                         
                                         
 
               </div>                          
 
                                         <div className={styles.modalRight}>
+                                        
                                             {currentStep === 1 && (
-                                                <p>
+
+                        
+                                                <p  className={styles.texto}>
+                                                <h1 className={styles.estiloh1}>Vamos construir um futuro 
+                                                melhor juntos</h1>
+                                                <p className={styles.espaco}></p>
+                                                <div className={styles.texto2}>
+                                                
                                                     Nosso compromisso é caminhar ao seu lado, oferecendo apoio e novas oportunidades para que você possa alcançar um futuro mais seguro e cheio de possibilidades.
                                                     <p></p>
                                                     Estamos aqui para apoiar você e ajudar a construir um futuro mais seguro e promissor.
+
+                                                </div>
                                                 </p>
+
                                             )}
                                             {currentStep === 2 && (
+                                            
+                                        
                                                 <p>
                                                     Por favor, confirme se as
                                                     informações fornecidas estão
                                                     corretas antes de enviar.
                                                 </p>
+                                            
+                                                
                                             )}
                                             {currentStep === 3 && (
                                                 <p>
@@ -1015,7 +1023,19 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada)
                                                     analisando sua solicitação.
                                                 </p>
                                             )}
+                                            
+                                    <div className={styles.modalHeader}>
+                                            <span
+                                                className={styles.close}
+                                                onClick={closeModal}>
+                                                ×
+                                            </span>
+                                    </div>
+
                                         </div>
+
+
+                                        
                                     </div>
                                 </div>
                         
