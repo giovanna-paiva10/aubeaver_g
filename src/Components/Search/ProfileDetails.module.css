@@ -369,7 +369,7 @@
     }
     .modalOverlay{
         width: 100%;
-        height: 80%;
+        height: 100%;
     }
 }
 
@@ -413,6 +413,21 @@
     padding-block: 1.5vh;
     height: auto;
     background-color: #755071;
+}
+
+.btn1{
+    padding-block: 1.5vh;
+    height: 40px;
+    background-color: #755071;
+}
+
+.caixaBotoes{
+        
+}
+
+.caixaa{
+    overflow: hidden;
+  overflow-y: scroll;
 }
 
 .modalInputs {
