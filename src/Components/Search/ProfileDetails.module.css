@@ -64,12 +64,14 @@
     color: #797979;
     padding: 8px 8px 8px 32px;
     font-size: max(10px, 2vh);
+    gap: 1rem;
 }
 
 .botao1{
-    width: 14vw;
-    height: 2.5vw;
-    border-radius: 20px;
+    width: 100px;
+    height: 30px;
+    padding-block: 4px;
+    border-radius: 6px;
     background-color: #B296AD;
     font-size: max(10px, 1.5vh);
     margin: 0%;
@@ -77,9 +79,10 @@
 }
 
 .botao{
-    width: 10vw;
-    height: 2.5vw;
-    border-radius: 4px;
+    width: 100px;
+    height: 30px;
+    padding-block: 4px;
+    border-radius: 6px;
     background-color: #B296AD;
     font-size: max(10px, 1.5vh);
     align-items: center;
@@ -273,22 +276,101 @@
 }
 
 .modalContent {
-    position: relative;
-    width: 60vw;
-    height: 35vw;
-    min-height: 720px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1001;
     display: flex;
     flex-direction: row;
+    width: 75%;
+    height: 46vw;
+    min-height: 480px;
+    border-radius: 20px;
+    z-index: 1001; 
+    
+}
+
+.modalLeft {
+    width: 540px;
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #7CA377;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 1.5%;
+    font-weight: lighter;
+    justify-content: space-around;
+    color: #ffffff;
+    font-size: max(12px, 14px);
+}
+
+.textoPequeno{
+    font-size: 8px;
+}
+
+.contentLogo{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
+
+.modalRight {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: auto;
+    font-weight: lighter;
+    color: #517655;
+    background-color: rgba(255, 255, 250, 0.897);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.logo{
+    display: flex;
+    width: 15%;
+    padding: 1% 1% ;
 }
 
 .modalHeader {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
+    width: 10%;
+    height: 5%;
+    margin: 4%;
+    position: relative;
+}
+
+.estiloh1{
+    font-size: max(22px, 5.5vh);
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0% 0% 0% 7%;
+    
+}
+
+.texto2 {
+    font-size: max(16px, 3vh);   
+}
+
+@media (max-width: 700px) {
+    .modalRight{
+        display: none;
+    }
+    .modalLeft{
+        width: 100%;
+        border-radius: 20px;
+        height: 100%;
+    }
+    .modalOverlay{
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .close {
@@ -308,10 +390,82 @@
    
 }
 
+.input{
+    display: flex;
+    width: 96%;
+    height: 1vw;
+    border-radius: 8px;
+    border: none;
+    margin: 0% 0% 2% 0%;
+}
+
+.select{
+    display: flex;
+    width: 96%;
+    height: auto;
+    padding: 1.5%;
+    border-radius: 8px;
+    border: none;
+    margin: 0% 0% 2% 0%;
+}
+
+.btn{
+    padding-block: 1.5vh;
+    height: auto;
+    background-color: #755071;
+}
+
+.btn1{
+    padding-block: 1.5vh;
+    height: 40px;
+    background-color: #755071;
+    width: 40%;
+    margin: 0%
+}
+
+
+
+.caixaBotoes{
+        display: flex;
+        width: 90%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2%;
+}
+
+.caixaa{
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.botoes{
+    width: 100%;
+}
+
+.caixaa::-webkit-scrollbar{
+    width: 6px;   
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #adadad;
+  }
+  
+  .caixaa::-webkit-scrollbar-track {
+    background: white; 
+    border-radius: 16px;
+  }
+  
+  .caixaa::-webkit-scrollbar-thumb {
+    background-color: rgb(221, 221, 221);
+    border-radius: 16px 
+  }
+
 .modalInputs {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
 }
 
 .modalInputs img {
@@ -383,25 +537,4 @@
     color: #555;
     font-size: 14px;
     line-height: 1.5;
-}
-
-.modalLeft {
-    width: 42vw;
-    height: 100%;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    background-color: #7CA377;
-    display: flex;
-    flex-direction: column;
-    gap: auto;
-    padding: 4% 3% 2% 3%;
-    font-weight: lighter;
-    justify-content: space-around;
-}
-
-.modalRight {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 1% 3% 1% 0%;
 }

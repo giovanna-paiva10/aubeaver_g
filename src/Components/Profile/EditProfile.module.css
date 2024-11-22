@@ -1,5 +1,5 @@
 #borda{
-    width: 96vw;
+    width: 100%;
     height: fit-content;
     justify-content: center;
     display: flex;
@@ -9,6 +9,10 @@
 .mainContainer{
     display: flex;
    
+}
+
+.texto {
+    gap: 1vw;
 }
 
 .topo {
@@ -67,7 +71,7 @@
  width: auto;
  height: auto;
  flex-direction: line;
- margin-right: 10px;
+ margin-left: 5vw;
 }
 
 .titp  {
@@ -82,7 +86,7 @@
     color: #755071;
     font-weight: bolder;
     font-size: 17px;
-
+    
     white-space: nowrap;
 }
 
@@ -90,11 +94,15 @@
     margin: 28px;
 }
 
+.espaco2 {
+    margin: 1px;
+}
+
 .seup {
     display: flex;
-   justify-content: space-between;
+   justify-content: left;
     flex-direction: line;
-    padding-left: -16vw;
+   gap: 3vw;
    
 }
 
@@ -123,15 +131,17 @@ justify-content: center;
 }
 
 .comps {
-    align-items: center;
+  align-items: center;
     display: flex;
    flex-direction: column;
+   text-align: left;
+
 }
 
 input {
     border-color: #755071;
     border-radius: 12px;
-    width: 40%;
+    width: 25vw;
     min-width: 15%;
 }
 input:focus { 
@@ -142,8 +152,9 @@ input:focus {
 
 textarea {
   
+  width: 35vw;
   border-radius: 8px;
-  padding: 5px;
+  padding: 0.7vw;
   border:solid 2px #517655;
   resize: none;
 }
@@ -279,21 +290,47 @@ textarea:focus{
         justify-content: center;
        
     }
-    .comps {
+    .comp1 {
         display: flex;
-        justify-content: space-around;
+        justify-content: left;
         flex-direction: column;
-        flex-wrap: wrap;
-        gap: 5vw;
+       flex-wrap: wrap;
+        gap: 1vw;
+      
         
     }
-    .comps2 {
+    .comp2 {
         display: flex;
         justify-content: right;
         flex-direction: column;
-        flex-wrap: wrap;
-        gap: 5vw;
+       
+        gap: 1vw;
     }
+
+    .todos {
+        justify-content: center;
+        
+        display: flex;
+        gap: 10vw;
+    }
+
+ .slct {
+    border-radius: 8px;
+    
+  padding: 5px;
+  border:solid 1px #755071;
+  resize: none;
+ }
+ .slct:focus {
+    outline: none;
+    border-color: #B296AD;
+    box-shadow: 0 0 5px #B296AD;
+ }
+
+ .continfos{
+    justify-content: left;
+    flex-direction: column;
+ }
 
 
     @media (max-width: 1320px) {

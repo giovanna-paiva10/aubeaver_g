@@ -8,6 +8,7 @@ import Input from '../Forms/Input';
 import iconpe from '../../assets/iconeeditar.png';
 import bted from '../../assets/borda.png';
 import btdentro from '../../assets/bteditar.png';
+import fotosituacao from '../../assets/fotosituacao.svg';
 
 const EditProfileOng = () => {
     const [previewURL, setPreviewURL] = useState('');
@@ -232,7 +233,7 @@ const EditProfileOng = () => {
             {ongDetails ? (
                 <>
                     <div className={styles.espaco}></div>
-
+<div className={styles.topo}>
                     <div className={styles.seup}>
                         <section className={styles.texto}>
                             <img src={iconpe} alt="Icon ONG" className={styles.iconpe} />
@@ -258,30 +259,50 @@ const EditProfileOng = () => {
                             style={{ display: 'none' }}
                         />
                     </div></center>
-
+                    </div>
                     <center><button type="button" onClick={uploadProfileImage} disabled={upload}>
                         {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                     </button></center><br />
+                    <div className={styles.todos}>
                     <div className={styles.comp1}>
+                 
                     <label className={styles.titp2}>Nome</label> <input type="text" id="nome" value={nome} setValue={setNome}></input>
+                    <div className={styles.espaco2}></div>
                     <label className={styles.titp2}>Telefone</label><input type="text" id="telefone" value={telefone} setValue={setTelefone} ></input>
+                    <div className={styles.espaco2}></div>
                     <label className={styles.titp2}>Limites de pessoas para ajudar</label><input type="number" id="limitePessoas" value={limitePessoas} setValue={setLimitePessoas} ></input>
+                    <div className={styles.espaco2}></div>
                     <label className={styles.titp2}>E-mail</label><input type="email" id="email" value={email} setValue={setEmail}></input>
+                    <div className={styles.espaco2}></div>
+                    <label className={styles.titp2}>Facebook</label><input type="text" id="facebook" value={facebook} setValue={setFacebook}></input>
                     </div>
                     <div className={styles.comp2}>
-                    <label className={styles.titp2}>Facebook</label><input type="text" id="facebook" value={facebook} setValue={setFacebook}></input>
                     <label className={styles.titp2}>Instagram</label><input type="text" id="instagram" value={instagram} setValue={setInstagram}></input>
+                    <div className={styles.espaco2}></div>
+                  
                     <label className={styles.titp2}>Website</label><input type="text" id="website" value={website} setValue={setWebsite}></input>
+                    <div className={styles.espaco2}></div>
                     <label className={styles.titp2}>Localização</label><input type="text" id="localizacao" value={localizacao} setValue={setLocalizacao}></input>
+                    <div className={styles.espaco2}></div>
+                    <div>
+                    <label className={styles.titp2}>Classifique a sua ONG</label>
                     </div>
-                    <p> </p>
-                    <select label="Selecione uma tag" id="tag" value={tags} onChange={(e) => setTags(e.target.value)}>
+                    <div>
+                    <select className={styles.slct}label="Selecione uma tag" id="tag" value={tags} onChange={(e) => setTags(e.target.value)}>
                         <option value="" disabled selected>Classifique a sua ONG</option>
                         <option value="Alimentos">Alimentos</option>
                         <option value="Higiene">Higiene</option>
                         <option value="Trabalho Voluntário">Trabalho Voluntário</option>
                     </select>
+                    </div>
+                    </div>
+                    </div>
                     <p> </p>
+                    
+                  
+                    <p> </p>
+                    <div className={styles.comps2}>
+                    <div className={styles.continfos}>
                     <label className={styles.th2}>Sobre a organização</label>
                     <p> </p> 
                     <textarea
@@ -303,8 +324,39 @@ const EditProfileOng = () => {
                         rows={10}
                         cols={70}
                     />
+                  </div>
                     <p> </p>
+                   
+                    <div className={styles.asfotos}>
+                        <div className={styles.tfts}>
+                        <section>
+                            <label className={styles.th2}>Suas fotos</label>
+                            </section>
+                            </div>
+                            <div className={styles.espaco}></div>
 
+                        <div className={styles.stf}>
+
+
+
+                        <img src={fotosituacao} alt="Foto situacao1" className={styles.iconst} />
+                        
+
+
+                        <img src={fotosituacao} alt="Foto situacao2" className={styles.iconst} /> 
+                       
+
+
+
+                        <img src={fotosituacao} alt="Foto situacao3" className={styles.iconst} />
+                        
+
+
+                        </div>
+
+                        </div>
+
+                        </div>
                     <div>
                         <label>Foto de Situação 1</label>
                         <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao1')} />

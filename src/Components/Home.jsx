@@ -69,10 +69,12 @@ const Home = () => {
                         <Link to={`/search?tag=Alimentos`}>
                         <div className={styles.caixa}><img className={styles.imgg} src={garf} alt="garfield" /></div>
                         <div className={styles.caixa2}>
+                        <div className={styles.textos}>
                             <h3 className={styles.contenttitle}>Doação de alimentos</h3>
                             <h4 className={styles.contenttext}>
                             A doação de alimentos é crucial para combater a insegurança alimentar, possibilitando o acesso a uma alimentação digna para aqueles em situação de vulnerabilidade.
                             </h4>
+                        </div>
                         </div>
                         </Link>
                     </div>
@@ -80,10 +82,12 @@ const Home = () => {
                         <Link to={`/search?tag=Higiene`}>
                         <div className={styles.caixa}><img className={styles.imgg} src={garf} alt="garfield" /></div>
                         <div className={styles.caixa2}>
+                        <div className={styles.textos}>
                             <h3 className={styles.contenttitle}>Doação de produtos de higiene</h3>
                             <h4 className={styles.contenttext}>
                             A doação de itens de higiene é essencial para garantir a saúde e dignidade de indivíduos em vulnerabilidade, prevenindo doenças e promovendo bem-estar.
                             </h4>
+                        </div>
                         </div>
                         </Link>
                     </div>
@@ -91,10 +95,12 @@ const Home = () => {
                         <Link to={`/search?tag=Trabalho%20Voluntário`}>
                         <div className={styles.caixa}><img className={styles.imgg} src={garf} alt="garfield" /></div>
                         <div className={styles.caixa2}>
+                        <div className={styles.textos}>
                             <h3 className={styles.contenttitle}>ONGs de Trabalho voluntário</h3>
                             <h4 className={styles.contenttext}>
                             A doação de mão de obra fortalece comunidades, resolve necessidades imediatas, capacita indivíduos e promove uma sociedade mais solidária e colaborativa
                             </h4>
+                            </div>
                         </div>
                         </Link>
                     </div>
