@@ -419,16 +419,47 @@
     padding-block: 1.5vh;
     height: 40px;
     background-color: #755071;
+    width: 40%;
+    margin: 0%
 }
 
+
+
 .caixaBotoes{
-        
+        display: flex;
+        width: 90%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2%;
 }
 
 .caixaa{
+    height: 100%;
     overflow: hidden;
-  overflow-y: scroll;
+    overflow-y: scroll;
 }
+
+.botoes{
+    width: 100%;
+}
+
+.caixaa::-webkit-scrollbar{
+    width: 6px;   
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #adadad;
+  }
+  
+  .caixaa::-webkit-scrollbar-track {
+    background: white; 
+    border-radius: 16px;
+  }
+  
+  .caixaa::-webkit-scrollbar-thumb {
+    background-color: rgb(221, 221, 221);
+    border-radius: 16px 
+  }
 
 .modalInputs {
     display: flex;

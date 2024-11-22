@@ -635,7 +635,8 @@ const ProfileDetails = () => {
                                     }
                                   />
                                   <button
-                                    className={styles.btn1}
+                                  
+                                    className={styles.btn}
                                     type="button"
                                     onClick={() =>
                                       removeField("higiene", index)
@@ -692,6 +693,7 @@ const ProfileDetails = () => {
                                       }
                                     />
                                     <button
+                                    className={styles.btn}
                                       type="button"
                                       onClick={() =>
                                         removeField(
@@ -706,6 +708,7 @@ const ProfileDetails = () => {
                                 )
                               )}
                             <button
+                            className={styles.btn}
                               type="button"
                               onClick={() => addField("Trabalho Voluntário")}
                             >
@@ -713,16 +716,18 @@ const ProfileDetails = () => {
                             </button>
                           </>
                         )}
-
-                        <button className={styles.btn} onClick={handleSubmit}>
+                <div className={styles.botoes}>
+                    <button className={styles.btn1} onClick={handleSubmit}>
                           Confirmar e Enviar
                         </button>
                         <button
-                          className={styles.btn}
+                          className={styles.btn1}
                           onClick={handlePreviousStep}
                         >
                           Voltar
                         </button>
+                </div>
+                        
                       </>
                     )}
             </div>
