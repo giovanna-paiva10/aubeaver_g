@@ -83,7 +83,7 @@ const ProfileDetails = () => {
                     ...prevData,
                     [name]: value,
                     alimentosDetails: value === "Alimentos" ? [{ tipo: "", quantidade: "" }] : prevData.alimentosDetails,
-                    higieneDetails: value === "Higiene" ? [{ produto: "", marca: "" }] : prevData.higieneDetails,
+                    higieneDetails: value === "Higiene" ? [{ produto: "", quantidade: "" }] : prevData.higieneDetails,
                     voluntariaDetails: value === "Ajuda voluntária" ? [{ horas: "", habilidades: "" }] : prevData.voluntariaDetails
                 };
             }
@@ -134,44 +134,95 @@ const ProfileDetails = () => {
         let totalQuantidade = 0;
       
         if (formData.tipoAjuda === "Alimentos" && userType === "Doador") {
-          if (formData.alimentosDetails && formData.alimentosDetails.length > 0) {
-            totalQuantidade = formData.alimentosDetails.reduce(
-              (sum, alimento) => sum + (parseInt(alimento.quantidade) || 0),
-              0
-            );
+            if (formData.alimentosDetails && formData.alimentosDetails.length > 0) {
+              totalQuantidade = formData.alimentosDetails.reduce((sum, alimento) => {
+                const quantidade = parseInt(alimento.quantidade) || 0;
+                if (quantidade <= 0) {
+                  setError("A quantidade deve ser maior que zero.");
+                  throw new Error("Quantidade inválida detectada.");
+                }
+
+                if (!alimento.tipo || alimento.tipo.trim() === "") {
+                    setError("O tipo de alimento não pode estar vazio.");
+                    throw new Error("Campo 'tipo' vazio detectado.");
+                  }
+            
+
+                return sum + quantidade;
+              }, 0);
+            }
+          
+            const limite =
+              formData.quantidadeProdutos === "Personalizado"
+                ? parseInt(formData.quantidadePersonalizada)
+                : parseInt(formData.quantidadeProdutos);
+          
+            if (totalQuantidade > limite) {
+              setError(
+                `O total de alimentos (${totalQuantidade}) excede o limite de ${limite}.`
+              );
+              return;
+            }
           }
-          const limite =
-            formData.quantidadeProdutos === "Personalizado"
-              ? parseInt(formData.quantidadePersonalizada)
-              : parseInt(formData.quantidadeProdutos);
+          
       
-          if (totalQuantidade > limite) {
-            setError(
-              `O total de alimentos (${totalQuantidade}) excede o limite de ${limite}.`
-            );
-            return; 
+          if (formData.tipoAjuda === "Higiene" && userType === "Doador") {
+            if (formData.higieneDetails && formData.higieneDetails.length > 0) {
+              totalQuantidade = formData.higieneDetails.reduce((sum, higiene) => {
+                const quantidade = parseInt(higiene.quantidade) || 0;
+                if (quantidade <= 0) {
+                  setError("A quantidade de itens de higiene deve ser maior que zero.");
+                  throw new Error("Quantidade inválida detectada."); 
+                }
+
+                if (!higiene.produto || higiene.produto.trim() === "") {
+                    setError("O produto de higiene não pode estar vazio.");
+                    throw new Error("Campo 'produto' vazio detectado."); 
+                }
+
+                return sum + quantidade;
+              }, 0);
+            }
+          
+            const limite =
+              formData.quantidadeProdutos === "Personalizado"
+                ? parseInt(formData.quantidadePersonalizada)
+                : parseInt(formData.quantidadeProdutos);
+          
+            if (totalQuantidade > limite) {
+              setError(
+                `O total de itens de higiene (${totalQuantidade}) excede o limite de ${limite}.`
+              );
+              return;
+            }
           }
-        }
-      
-        if (formData.tipoAjuda === "Higiene" && userType === "Doador") {
-          if (formData.higieneDetails && formData.higieneDetails.length > 0) {
-            totalQuantidade = formData.higieneDetails.reduce(
-              (sum, produto) => sum + (parseInt(produto.quantidade) || 0),
-              0
-            );
+
+          if (formData.tipoAjuda === "Trabalho Voluntário" && userType === "Doador") {
+            if (formData.voluntariaDetails && formData.voluntariaDetails.length > 0) {
+              totalQuantidade = formData.voluntariaDetails.reduce((sum, voluntario) => {
+                const horas = parseInt(voluntario.horas);
+          
+                if (isNaN(horas) || horas === null || horas === undefined || horas === "") {
+                  setError("Por favor, preencha todas as horas de trabalho voluntário.");
+                  throw new Error("Campo de horas vazio ou inválido."); 
+                }
+          
+                if (horas < 0) {
+                  setError("O número de horas de trabalho voluntário não pode ser negativo.");
+                  throw new Error("Horas negativas detectadas."); 
+                }
+
+                if (!voluntario.habilidades || voluntario.habilidades.trim() === "") {
+                    setError("O campo de habilidades não pode estar vazio.");
+                    throw new Error("Campo de habilidades vazio detectado."); 
+                }
+            
+          
+                return sum + horas; 
+              }, 0);
+            }
           }
-          const limite =
-            formData.quantidadeProdutos === "Personalizado"
-              ? parseInt(formData.quantidadePersonalizada)
-              : parseInt(formData.quantidadeProdutos);
-      
-          if (totalQuantidade > limite) {
-            setError(
-              `O total de itens de higiene (${totalQuantidade}) excede o limite de ${limite}.`
-            );
-            return;
-          }
-        }
+                   
       
         const notificationData = {
           uid: uuidv4(),  
@@ -215,7 +266,7 @@ const ProfileDetails = () => {
       
             console.log(formData.quantidadeProdutos, formData.quantidadePersonalizada ,formData.alimentosDetails[0].quantidade)
             console.log("Total Quantidade:", totalQuantidade);
-console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
+            console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
           } else {
             console.error("Documento da ONG não encontrado");
           }
@@ -630,12 +681,12 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                                       )
                                     }
                                   />
-                                  <label>Marca</label>
+                                  <label>Quantidade</label>
                                   <input
-                                    type="text"
-                                    name="marca"
-                                    placeholder="Marca"
-                                    value={higiene.marca}
+                                    type="number"
+                                    name="quantidade"
+                                    placeholder="quantidade"
+                                    value={higiene.quantidade}
                                     onChange={(e) =>
                                       handleDynamicFieldChange(
                                         e,
@@ -675,21 +726,6 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                                     index
                                 ) => (
                                   <div key={index}>
-                                    <label>Horas de Trabalho Voluntário</label>
-                                    <input
-                                      className={styles.input}
-                                      type="number"
-                                      name="horas"
-                                      placeholder="Horas"
-                                      value={voluntario.horas}
-                                      onChange={(e) =>
-                                        handleDynamicFieldChange(
-                                          e,
-                                          "Trabalho Voluntário",
-                                          index
-                                        )
-                                      }
-                                    />
                                     <label>Habilidades</label>
                                     <input
                                       className={styles.input}
@@ -705,6 +741,23 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                                         )
                                       }
                                     />
+                                    
+                                    <label>Horas de Trabalho Voluntário</label>
+                                    <input
+                                      className={styles.input}
+                                      type="number"
+                                      name="horas"
+                                      placeholder="Horas"
+                                      value={voluntario.horas}
+                                      onChange={(e) =>
+                                        handleDynamicFieldChange(
+                                          e,
+                                          "Trabalho Voluntário",
+                                          index
+                                        )
+                                      }
+                                    />
+                                    
                                     <button
                                     className={styles.btn}
                                       type="button"
@@ -729,6 +782,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                             </button>
                           </>
                         )}
+                        {error && <p className={styles.error}>{error}</p>}
                 <div className={styles.botoes}>
                     <button className={styles.btn1} onClick={handleSubmit}>
                           Confirmar e Enviar

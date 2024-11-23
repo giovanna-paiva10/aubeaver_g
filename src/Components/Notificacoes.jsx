@@ -158,7 +158,7 @@ const Notificacoes = () => {
 
     if (type === "Higiene" && Array.isArray(details)) {
       return details.map((item, index) => {
-        return `${item.produto} - ${item.marca}`;
+        return `Item ${index + 1}: ${item.produto} - ${item.quantidade}`;
       }).join(", ");
     }
 
