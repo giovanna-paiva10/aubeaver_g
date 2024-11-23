@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { auth, firestore } from "../firebase";
-import { setDoc, doc, getDoc, deleteDoc } from "firebase/firestore";
+import { setDoc, doc, getDoc, deleteDoc, arrayUnion, collection } from "firebase/firestore";
 import styles from "./Notificacoes.module.css";
+import { v4 as uuidv4 } from "uuid";
 
 const Notificacoes = () => {
   const [notifications, setNotifications] = useState([]);
@@ -54,6 +55,8 @@ const Notificacoes = () => {
       if (notificationDoc.exists()) {
         const data = notificationDoc.data();
         console.log("Dados de notificação:", data);
+        console.log('userType:', userType);
+
         if (data && Array.isArray(data.notifications)) {
           setNotifications(data.notifications);
         } else {
@@ -94,6 +97,29 @@ const Notificacoes = () => {
           return; 
         }
   
+        const notificationIndex = notificationData.notifications.findIndex(
+          (notification) => notification.uid === notificationId
+        );
+        
+        const originalNotification = notificationData.notifications[notificationIndex];
+        const userUid = originalNotification.senderUid;
+        
+        const returnMessage = {
+          uid: uuidv4(),
+          title: "Sua solicitação foi negada",
+          description: `A sua solicitação relacionada a ${originalNotification.type} foi negada pela ONG.`,
+          timestamp: new Date(),
+          isRead: false,
+          type: "Resposta à solicitação",
+          senderUid: ongId,
+          receiverUid: userUid, 
+        };
+  
+        const userNotificationRef = doc(firestore, "Notificações", userUid);
+        await setDoc(userNotificationRef, {
+          notifications: arrayUnion(returnMessage),
+        }, { merge: true });
+  
         await setDoc(notificationRef, { notifications: updatedNotifications });
         console.log("Notificação excluída com sucesso!");
   
@@ -120,7 +146,111 @@ const Notificacoes = () => {
       console.error("Erro ao negar notificação:", error);
     }
   };
+
+  const handleAceitarNotificacao = async (notificationId, ongId) => {
+    try {
+      console.log("Tentando aceitar a notificação com ID:", notificationId, "para a ONG:", ongId);
   
+      if (!notificationId || !ongId) {
+        console.log("IDs inválidos. Não é possível aceitar a notificação.");
+        return;
+      }
+  
+      const notificationRef = doc(firestore, "Notificações", ongId);
+      const notificationDoc = await getDoc(notificationRef);
+  
+      if (notificationDoc.exists()) {
+        const notificationData = notificationDoc.data();
+        console.log("Documento de notificações encontrado:", notificationData);
+  
+        const updatedNotifications = notificationData.notifications.filter(
+          (notification) => notification.uid !== notificationId
+        );
+  
+        if (updatedNotifications.length === notificationData.notifications.length) {
+          console.log("A notificação com o ID fornecido não foi encontrada.");
+          return;
+        }
+  
+        const notificationIndex = notificationData.notifications.findIndex(
+          (notification) => notification.uid === notificationId
+        );
+        
+        const originalNotification = notificationData.notifications[notificationIndex];
+        const userUid = originalNotification.senderUid;
+        
+        const returnMessage = {
+          uid: uuidv4(),
+          title: "Sua solicitação foi aceita",
+          description: `A sua solicitação relacionada a ${originalNotification.type} foi aceita pela ONG.`,
+          timestamp: new Date(),
+          isRead: false,
+          type: "Resposta à solicitação",
+          senderUid: ongId,
+          receiverUid: userUid,  
+        };
+  
+        const userNotificationRef = doc(firestore, "Notificações", userUid); 
+        await setDoc(userNotificationRef, {
+          notifications: arrayUnion(returnMessage),
+        }, { merge: true });
+  
+        await setDoc(notificationRef, { notifications: updatedNotifications });
+        console.log("Notificação aceita e excluída com sucesso!");
+  
+        setNotifications(updatedNotifications);
+
+        if (userType === "Ong") {
+          const ongRef = doc(firestore, "Ongs", ongId);
+          const ongDoc = await getDoc(ongRef);
+  
+          if (ongDoc.exists()) {
+            const ongData = ongDoc.data();
+            const updatedPedidosAtuais = ongData.pedidosAtuais + 1;  
+            
+            await setDoc(ongRef, { pedidosAtuais: updatedPedidosAtuais }, { merge: true });
+            console.log("Campo 'pedidosAtuais' atualizado com sucesso!");
+          } else {
+            console.log("Documento da ONG não encontrado.");
+          }
+        }
+      } else {
+        console.log("Documento de notificações não encontrado para a ONG:", ongId);
+      }
+    } catch (error) {
+      console.error("Erro ao aceitar notificação:", error);
+    }
+  };  
+
+  const handleRemoverNotificacao = async (notificationId, userUid) => {
+    try {
+      const notificationRef = doc(firestore, "Notificações", userUid);
+      const notificationDoc = await getDoc(notificationRef);
+  
+      if (notificationDoc.exists()) {
+        const notificationData = notificationDoc.data();
+        console.log("Documento de notificações encontrado:", notificationData);
+  
+        const updatedNotifications = notificationData.notifications.filter(
+          (notification) => notification.uid !== notificationId
+        );
+  
+        if (updatedNotifications.length === notificationData.notifications.length) {
+          console.log("A notificação com o ID fornecido não foi encontrada.");
+          return; 
+        }
+  
+        await setDoc(notificationRef, { notifications: updatedNotifications });
+        console.log("Notificação excluída com sucesso!");
+  
+        setNotifications(updatedNotifications);
+      } else {
+        console.log("Documento de notificações não encontrado para o usuário:", userUid);
+      }
+    } catch (error) {
+      console.error("Erro ao remover notificação:", error);
+    }
+  };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -158,7 +288,7 @@ const Notificacoes = () => {
 
     if (type === "Higiene" && Array.isArray(details)) {
       return details.map((item, index) => {
-        return `${item.produto} - ${item.marca}`;
+        return `Item ${index + 1}: ${item.produto} - ${item.quantidade}`;
       }).join(", ");
     }
 
@@ -214,15 +344,29 @@ const Notificacoes = () => {
             )}
           </div>
 
-          <div className={styles.notificationFooter}>
-            <p>{notification.isRead ? "Lido" : "Não lido"}</p>
-            
+            <div className={styles.notificationFooter}>
+              <p>{notification.isRead ? "Lido" : "Não lido"}</p>
+          
+          {userType === "Ong" && (
+            <>
+              <button onClick={() => handleAceitarNotificacao(notification.uid, user.uid)}>
+              Aceitar Solicitação
+              </button>
+
+              <button onClick={() => handleNegarNotificacao(notification.uid, user.uid)}>
+                Negar
+              </button>
+            </>
+          )}
+
+          {userType === "Usuário" && (
             <button 
-              onClick={() => handleNegarNotificacao(notification.uid, user.uid)}
+              onClick={() => handleRemoverNotificacao(notification.uid, user.uid)}
             >
-              Negar
+              Compreendido
             </button>
-          </div>
+          )}
+        </div>
         </div>
       ))
     ) : (
