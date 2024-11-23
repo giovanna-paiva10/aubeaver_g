@@ -369,7 +369,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                 </div>
 
                 <div className={styles.contentText}>
-                  <h1 className={styles.estiloh2}>
+                  <h1 className={styles.estilooh2}>
                     {profileData.nome}
                     {profileData.tags && (
                       <span className={styles.tag}>{profileData.tags}</span>
@@ -400,6 +400,9 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className={styles.modalLeft}>
+
+                    <div className={styles.caixaa}>
+
                     <div className={styles.contentLogo}>
                       <img className={styles.logo} src={foto} alt="Mascote" />
                     </div>
@@ -545,7 +548,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                         {error && <p className={styles.error}>{error}</p>}
                         <center>
                           <button
-                            className={styles.btn}
+                            className={styles.btn2}
                             onClick={handleNextStep}
                           >
                             Avançar
@@ -554,7 +557,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                       </>
                     )}
 
-        <div className={styles.caixaa}>
+        
                     {currentStep === 2 && (
                       <>
                         {formData.tipoAjuda === "Alimentos" &&
@@ -592,6 +595,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                                 }
                               />
             
+                              
                               <button
                                 className={styles.btn}
                                 type="button"
@@ -705,6 +709,7 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                                         )
                                       }
                                     />
+                                <div className={styles.caixaBtn}>
                                     <button
                                     className={styles.btn}
                                       type="button"
@@ -718,15 +723,18 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                                       Remover
                                     </button>
                                   </div>
+                                  </div>
                                 )
                               )}
+                        <div className={styles.caixaBotoes}>
                             <button
-                            className={styles.btn}
+                            className={styles.btn3}
                               type="button"
                               onClick={() => addField("Trabalho Voluntário")}
                             >
                               Adicionar mais voluntários
                             </button>
+                        </div>
                           </>
                         )}
                 <div className={styles.botoes}>
@@ -743,17 +751,22 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                         
                       </>
                     )}
-            </div>
+            
 
-                    {currentStep === 3 && (
-                      <div className={styles.confirmationMessage}>
-                        <h3>Obrigado por sua solicitação!</h3>
-                        <p>Entraremos em contato em breve.</p>
-                        <button className={styles.bnt} onClick={closeModal}>
-                          Fechar
-                        </button>
-                      </div>
-                    )}
+                <div className={styles.confimationCaixa}> 
+                   {currentStep === 3 && (
+                    
+                    <div className={styles.confirmationMessage}>
+                      <h3>Obrigado por sua solicitação!</h3>
+                      <p>Entraremos em contato em breve.</p>
+                      <p></p>
+                      <button className={styles.btnFechar} onClick={closeModal}>
+                        Fechar
+                      </button>
+                    </div>
+                  )}
+                  </div>  
+                    </div>
                   </div>
 
                   <div className={styles.modalRight}>
@@ -775,16 +788,36 @@ console.log("Quantidade Personalizada:", formData.quantidadePersonalizada);
                       </p>
                     )}
                     {currentStep === 2 && (
-                      <p>
-                        Por favor, confirme se as informações fornecidas estão
-                        corretas antes de enviar.
-                      </p>
+                                            <p className={styles.texto}>
+                                            <h1 className={styles.estiloh1}>
+                                              Vamos construir um futuro melhor juntos
+                                            </h1>
+                                            <p className={styles.espaco}></p>
+                                            <div className={styles.texto2}>
+                                              Nosso compromisso é caminhar ao seu lado, oferecendo
+                                              apoio e novas oportunidades para que você possa
+                                              alcançar um futuro mais seguro e cheio de
+                                              possibilidades.
+                                              <p></p>
+                                              Estamos aqui para apoiar você e ajudar a construir um
+                                              futuro mais seguro e promissor.
+                                            </div>
+                                          </p>
                     )}
                     {currentStep === 3 && (
+                      <p className={styles.texto}>
+                      <h1 className={styles.estiloh2}>
+                        Obrigado por sua contribuição!
+                      </h1>
+                      <p className={styles.espaco}></p>
+                      <div className={styles.texto2}>
                       <p>
-                        Agradecemos por confiar em nossa plataforma para
-                        ajudá-lo. Nossa equipe está analisando sua solicitação.
+                        Agradecemos pela confiança em nossa plataforma. 
+                        Nossa equipe está analisando sua solicitação.
                       </p>
+                      </div>
+                    </p>
+                      
                     )}
 
                     <div className={styles.modalHeader}>

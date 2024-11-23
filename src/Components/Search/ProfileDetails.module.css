@@ -1,12 +1,12 @@
 #borda{
-    width: 96vw;
+    width: 98vw;
     height: fit-content;
     justify-content: center;
     display: flex;
 }
 
 .mainContainer{
-    width: 100%;
+    width: 98%;
     gap: 5rem;
     display: flex;
     flex-direction: column;
@@ -15,8 +15,28 @@
     margin: 5%;
 }
 
-.estiloh2{
+.estilooh2{
+    display: flex;
+    flex-direction: row;
+    font-size: 40px;
     color: #85A188;
+    gap: 2rem;
+    align-items: center;
+}
+
+.tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+    border-radius: 16px;
+    background-color: #7CA377; 
+    font-size: max(12px, 2vh); 
+    width: 180px;
+    height: 32px;
+    color: white; 
+    text-align: center; 
+    font-weight: bold; 
 }
 
 .img{
@@ -59,21 +79,23 @@
 }
 
 .contentText{
-    width: 96%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
     height: 28vh;
     color: #797979;
     padding: 8px 8px 8px 32px;
     font-size: max(10px, 2vh);
-    gap: 1rem;
+    gap: 5px;
 }
 
 .botao1{
-    width: 100px;
-    height: 30px;
-    padding-block: 4px;
+    width: 200px;
+    height: 36px;
+    
     border-radius: 6px;
     background-color: #B296AD;
-    font-size: max(10px, 1.5vh);
+    font-size: max(11px, 2vh);
     margin: 0%;
     margin-right: 7%;
 }
@@ -224,17 +246,6 @@
     margin-block: 8px;
     align-items: center;
 }
-.tag{
-    display: inline-block;
-    padding: 0.5vw 1vw;
-    border-radius: 20px;
-    background-color: #B296AD; 
-    font-size: max(10px, 1.5vh); 
-    margin-left: 1vw; 
-    color: white; 
-    text-align: center; 
-    font-weight: bold; 
-}
 
 .titulo{
     color: #517655;
@@ -278,23 +289,20 @@
 .modalContent {
     display: flex;
     flex-direction: row;
-    width: 75%;
-    height: 46vw;
+    width: 65%;
+    height: 40vw;
     min-height: 480px;
     border-radius: 20px;
     z-index: 1001; 
-    
 }
 
 .modalLeft {
-    width: 540px;
+    width: 500px;
     height: 100%;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     background-color: #7CA377;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
     padding: 1.5%;
     font-weight: lighter;
     justify-content: space-around;
@@ -308,8 +316,7 @@
 
 .contentLogo{
     display: flex;
-    width: 100%;
-    justify-content: right;
+    
 }
 
 .modalRight {
@@ -371,6 +378,9 @@
         width: 100%;
         height: 100%;
     }
+    .caixaa{
+        width: 98%;
+    }
 }
 
 .close {
@@ -410,24 +420,47 @@
 }
 
 .btn{
-    padding-block: 1.5vh;
-    height: auto;
+    width: 25%;
+    padding:auto;
+    height: 25px;
     background-color: #755071;
+    justify-content: center;
+    font-size: 10px;
 }
 
 .btn1{
     padding-block: 1.5vh;
     height: 40px;
     background-color: #755071;
-    width: 40%;
-    margin: 0%
+    width: 42%;
+    margin: 0%;font-size: 12px;
 }
 
+.btn2{
+    padding-block: 1.5vh;
+    height: 35px;
+    background-color: #755071;
+    width: 40%;
+    margin: 0%    
+}
 
+.btn3{
+    padding-block: 1.5vh;
+    height: 40px;
+    background-color: #755071;
+    width: 88%;
+    margin-block: 10px;
+}
+
+.caixaBtn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 .caixaBotoes{
         display: flex;
-        width: 90%;
+        width: 100%;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -438,10 +471,47 @@
     height: 100%;
     overflow: hidden;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .botoes{
     width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+    position: relative;
+}
+
+.confimationCaixa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.confirmationMessage{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnFechar{
+    padding-block: 1.5vh;
+    height: 34px;
+    background-color: #517655;
+    width: 42%;
+    margin: 0%;font-size: 12px;
+}
+
+.estiloh2{
+    width: 100%;
+    font-size: max(22px, 4.5vh);
+    color: #517655;
+    text-align: justify;
 }
 
 .caixaa::-webkit-scrollbar{
@@ -452,48 +522,14 @@
   }
   
   .caixaa::-webkit-scrollbar-track {
-    background: white; 
+    background-color: #7CA377; 
     border-radius: 16px;
   }
   
   .caixaa::-webkit-scrollbar-thumb {
     background-color: rgb(221, 221, 221);
-    border-radius: 16px 
+    border-radius: 16px;
   }
-
-.modalInputs {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    
-}
-
-.modalInputs img {
-    width: 50px;
-    margin: 0 auto;
-    display: block;
-}
-
-.modalInputs label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-.modalInputs input,
-.modalInputs select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 14px;
-}
-
-.modalInputs input:focus,
-.modalInputs select:focus {
-    outline: none;
-    border-color: #009688;
-}
 
 .modalText {
     margin-top: 20px;
@@ -523,12 +559,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.modalInputs {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    width: 100%;
 }
 
 .modalText {
