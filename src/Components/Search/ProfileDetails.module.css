@@ -6,8 +6,9 @@
 }
 
 .mainContainer{
-    width: 98%;
-    gap: 5rem;
+    display: flex;
+    width: 100%;
+    gap: 6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,19 +21,20 @@
     flex-direction: row;
     font-size: 40px;
     color: #85A188;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
+    
 }
 
 .tag{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: auto;
+    padding: 2px;
     border-radius: 16px;
     background-color: #7CA377; 
-    font-size: max(12px, 2vh); 
-    width: 180px;
+    font-size: max(10px, 1.5vh); 
+    width: 90px;
     height: 32px;
     color: white; 
     text-align: center; 
@@ -86,13 +88,12 @@
     color: #797979;
     padding: 8px 8px 8px 32px;
     font-size: max(10px, 2vh);
-    gap: 5px;
+    gap: 8px;
 }
 
 .botao1{
-    width: 200px;
-    height: 36px;
-    
+    width: 120px;
+    height: 44px;
     border-radius: 6px;
     background-color: #B296AD;
     font-size: max(11px, 2vh);
@@ -266,6 +267,7 @@
     height: 50vw;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .imggg{

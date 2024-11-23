@@ -519,6 +519,7 @@ const ProfileDetails = () => {
                           </select>
                         ) : (
                           <select
+                          className={styles.select}
                             name="tipoAjuda"
                             value={formData.tipoAjuda}
                             onChange={handleChange}
@@ -538,6 +539,7 @@ const ProfileDetails = () => {
                             <>
                               <label>Quantidade de produtos</label>
                               <select
+                              className={styles.select}
                                 name="quantidadeProdutos"
                                 value={formData.quantidadeProdutos}
                                 onChange={handleChange}
@@ -572,6 +574,7 @@ const ProfileDetails = () => {
                             <>
                               <label>Quantidade de produtos</label>
                               <select
+                              className={styles.select}
                                 name="quantidadeProdutos"
                                 value={formData.quantidadeProdutos}
                                 onChange={handleChange}
@@ -590,6 +593,7 @@ const ProfileDetails = () => {
                               {formData.quantidadeProdutos ===
                                 "Personalizado" && (
                                 <input
+                                className={styles.input}
                                   type="number"
                                   name="quantidade"
                                   placeholder="Quantidade personalizada"
@@ -653,7 +657,7 @@ const ProfileDetails = () => {
                                 }
                               />
             
-                              
+                    <div className={styles.caixaBtn}> 
                               <button
                                 className={styles.btn}
                                 type="button"
@@ -661,17 +665,19 @@ const ProfileDetails = () => {
                               >
                                 Remover
                               </button>
+                    </div>     
                             </div>
                           ))}
                         {formData.tipoAjuda === "Alimentos" && (
                           <button
-                            className={styles.btn}
+                            className={styles.btn3}
                             type="button"
                             onClick={() => addField("alimentos")}
                           >
                             Adicionar mais alimentos
                           </button>
                         )}
+                             
 
                         {formData.tipoAjuda === "Higiene" && (
                           <>
@@ -680,6 +686,7 @@ const ProfileDetails = () => {
                                 <div key={index}>
                                   <label>Produto de higiene</label>
                                   <input
+                                  className={styles.input}
                                     type="text"
                                     name="produto"
                                     placeholder="Produto"
@@ -694,6 +701,7 @@ const ProfileDetails = () => {
                                   />
                                   <label>Quantidade</label>
                                   <input
+                                  className={styles.input}
                                     type="number"
                                     name="quantidade"
                                     placeholder="quantidade"
@@ -706,6 +714,7 @@ const ProfileDetails = () => {
                                       )
                                     }
                                   />
+                        <div className={styles.caixaBtn}>
                                   <button
                                   
                                     className={styles.btn}
@@ -716,10 +725,11 @@ const ProfileDetails = () => {
                                   >
                                     Remover
                                   </button>
+                                  </div>
                                 </div>
                               ))}
                             <button
-                              className={styles.btn}
+                              className={styles.btn3}
                               type="button"
                               onClick={() => addField("higiene")}
                             >

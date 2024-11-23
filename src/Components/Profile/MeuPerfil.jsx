@@ -7,7 +7,7 @@ import localizacao from '../../assets/locationicon.svg';
 import website from '../../assets/webicon.svg';
 import facebook from '../../assets/facebookicon.svg';
 import instagram from '../../assets/instaicon.svg';
-import styles from '../Search/ProfileDetails.module.css';
+import styles from './MeuPerfil.module.css';
 
 
 const MeuPerfil = () => {
@@ -72,7 +72,9 @@ const MeuPerfil = () => {
     };
 
     return (
-      
+      <body id={styles.borda}>
+        
+     <div className={styles.mainContainer}> 
         <form>
             {userDetails ? (
                 <>
@@ -99,8 +101,10 @@ const MeuPerfil = () => {
                                             <img className={styles.img} src={userDetails.fotoPerfil || garf} alt="ong" />
                                         </div>
 
+
+                            <div className={styles.botoeswrap}>
                                         <div className={styles.contentText}>
-                                            <h1 className={styles.estiloh2}>{userDetails.nome} 
+                                            <h1 className={styles.estilooh2}>{userDetails.nome} 
                                             {userDetails.tags && (
                                                 <span className={styles.tag}>{userDetails.tags}</span>
                                             )}
@@ -110,11 +114,14 @@ const MeuPerfil = () => {
                                             <br />
                                         </div>
 
-                                        <div>
+                                        <div className={styles.btnedit}>
                                             <button type="button" onClick={handleEditProfileOng} className={styles.botao}> Editar perfil</button>
 
                                             <button type="button" onClick={handleLogout} className={styles.botao2}> Sair</button>
                                         </div>
+
+                            </div>
+
                                     </div>
                                     
                                 </div>
@@ -231,7 +238,9 @@ const MeuPerfil = () => {
                 <p>Carregando...</p>
             )}
         </form>
-     
+
+        </div>  
+        </body>
     );
 };
 

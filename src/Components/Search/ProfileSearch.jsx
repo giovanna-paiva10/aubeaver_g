@@ -99,11 +99,12 @@ const ProfileSearch = () => {
               onChange={handleSearchChange}
               className={styles.searchInput}
             />
-            <select
+            <select 
+            className={styles.select}
               onChange={(e) => setSelectedTag(e.target.value)}
               value={selectedTag}
             >
-              <option value="">Todas as Tags</option>
+              <option value="">Todas as ONGs</option>
               <option value="Alimentos">Alimentos</option>
               <option value="Higiene">Higiene</option>
               <option value="Trabalho Voluntário">Trabalho Voluntário</option>
@@ -123,7 +124,8 @@ const ProfileSearch = () => {
                   />
                 </div>
                 <div className={styles.contentText}>
-                  <h2 className={styles.eh2}> {ong.nome} <span>Limite de {ong.limitePessoas} solicitações</span> <span>adicionaoiconezinho{ong.pedidosAtuais}</span></h2> <br/>
+                  <h2 className={styles.eh2}> {ong.nome}</h2> 
+                  <h3><span>Limite de {ong.limitePessoas} solicitações</span> <span>adicionaoiconezinho{ong.pedidosAtuais}</span> </h3><br/>
                   <p>{truncateText(ong.organizacao)}</p>
                 </div>
               </div>
