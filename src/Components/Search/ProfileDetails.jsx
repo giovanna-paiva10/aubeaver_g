@@ -99,6 +99,12 @@ const ProfileDetails = () => {
     
 
     const handleSubmit = async () => {
+        const user = auth.currentUser;
+        if (!user) {
+            console.error("Usuário não autenticado.");
+            return; 
+        }
+        
         if (profileData.pedidosAtuais >= profileData.limitePessoas) {
             alert("O limite de pedidos foi atingido para esta ONG.");
             return;
@@ -223,7 +229,7 @@ const ProfileDetails = () => {
             }
           }
                    
-      
+        const userUid = user.uid;
         const notificationData = {
           uid: uuidv4(),  
           title: `${tipoDeAjuda}`,
@@ -238,6 +244,7 @@ const ProfileDetails = () => {
           alimentosDetails: formData.alimentosDetails,
           higieneDetails: formData.higieneDetails,
           voluntariaDetails: formData.voluntariaDetails,
+          senderUid: userUid,
         };
       
         try {
