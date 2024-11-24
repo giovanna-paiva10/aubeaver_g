@@ -41,38 +41,42 @@ const LoginForm = () => {
           <div className={styles.content1}>
             <div className={styles.content2}>
               <h2>Entrar</h2>
-              <form onSubmit={handleSubmit}>
+              <form className={styles.forms} onSubmit={handleSubmit}>
                 <Input
+                className={styles.input}
                   label="Email"
                   type="email"
                   id="email"
                   value={email}
                   setValue={setEmail}
                 />
-                <p></p>
+                
                 <Input
+                className={styles.input}
                   label="Senha"
                   type="password"
                   id="password"
                   value={password}
                   setValue={setPassword}
                 />
-                <p></p>
+                
                 <h5 className={styles.estiloh5}>
                   <Link to="/login/perdeu">Esqueci a senha</Link>
                 </h5>
-                <p></p>
+            <div className={styles.caixa}>
                 <ReCAPTCHA
                   sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
                   onChange={(val) => setCapVal(val)}
                 />
-                <p></p>
+            </div>
+                
                 <center>
-                  <button type="submit" disabled={!capVal}>
+                  <button className={styles.btn} type="submit" disabled={!capVal}>
                     Entrar
                   </button>
                 </center>
               </form>
+
               <h4 className={styles.estiloh4}>
                 <Link to="/login/criar">Cadastre-se</Link>
               </h4>

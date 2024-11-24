@@ -4,6 +4,7 @@ import { firestore } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import styles from "./ProfileSearch.module.css";
 import garf from "../../assets/garfield.png";
+import limite from "../../assets/limite.svg";
 
 const ProfileSearch = () => {
   const [ongs, setOngs] = useState([]);
@@ -124,16 +125,20 @@ const ProfileSearch = () => {
                   />
                 </div>
                 <div className={styles.contentText}>
+                <div className={styles.headerText}>
                   <h2 className={styles.eh2}> {ong.nome}</h2> 
-                  <h3><span>Limite de {ong.limitePessoas} solicitações</span> <span>adicionaoiconezinho{ong.pedidosAtuais}</span> </h3><br/>
-                  <p>{truncateText(ong.organizacao)}</p>
+                  <h3 className={styles.icon}><span className={styles.caixaIcone}>Limite de {ong.pedidosAtuais}/{ong.limitePessoas} solicitações</span> <span> <div className={styles.contentIcon}><img className={styles.imgg} src={limite} alt="icone" /></div> </span></h3>
+                </div>
+                  <br/>
+
+                  <h3 className={styles.eh3}><p>{truncateText(ong.organizacao)}</p></h3>
                 </div>
               </div>
             </Link>
           </div>
         ))}
 
-        <center>
+        
           <div className={styles.pagination}>
             <button
               className={styles.botao1}
@@ -142,7 +147,7 @@ const ProfileSearch = () => {
             >
               Anterior
             </button>
-            <span>
+            <span className={styles.pag}>
               Página {currentPage} de {totalPages}
             </span>
             <button
@@ -153,7 +158,7 @@ const ProfileSearch = () => {
               Próxima
             </button>
           </div>
-        </center>
+       
       </div>
     </div>
   );

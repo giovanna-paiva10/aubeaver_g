@@ -89,26 +89,26 @@ const LoginCreate = () => {
                 <div className={styles.content}>
                     <div className={styles.content1}>
                         <div className={styles.content2}>
+
                             <Link to='/login'>Retornar</Link>
-                            <p></p>
+                            
                             <h2>Cadastre-se</h2>
-                            <p></p>
-                            <p></p>
-                            <form onSubmit={handleSubmit}>  
-                                <select label="Entrar como" onChange={handleChange}>
+                            
+                            <form className={styles.forms} onSubmit={handleSubmit}>  
+                                <select className={styles.select} label="Entrar como" onChange={handleChange}>
                                     <option value="" disabled selected>Entrar como</option>
                                     <option value="Doador">Doador</option>
                                     <option value="Solicitante">Solicitante</option>
                                     <option value="ONG">ONG</option>
                                 </select>
-                                <p></p>
+                            
                                 <div id="results">
                                     {tipoPessoa === 'Doador' && (
                                         <Input label="CPF" type="CPF" id="identunic" value={identificador} setValue={setIdentificador}/>
                                     )}
                                     {tipoPessoa === 'Solicitante' && (
                                         <>
-                                            <Input label="CPF" type="CPF" id="identunic" value={identificador} setValue={setIdentificador}/>
+                                            <Input className={styles.input} label="CPF" type="CPF" id="identunic" value={identificador} setValue={setIdentificador}/>
                                             <p> </p>
                                             <Input label="Cadunico" type="cadunico" id="cadunico" value={cadunico} setValue={setCadunico}/>
                                         </>
@@ -117,32 +117,30 @@ const LoginCreate = () => {
                                         <Input label="CNPJ" type="CNPJ" id="identunic" value={identificador} setValue={setIdentificador}/>
                                     )}
                                 </div> 
-                                <p></p>
+                                
                                 <Input label="Nome" type="nome" id="nome" value={nome} setValue={setNome}/>
-                                <p></p>  
+                                
                                 <Input label="Email" type="email" id="email" value={email} setValue={setEmail}/>
-                                <p></p>
+                                
                                 <Input label="Username" type="username" id="usename" value={username} setValue={setUsername}/>
-                                <p></p>
+                                
                                 <Input label="Senha" type="password" id="password" value={password} setValue={(value) => {
                                     setPassword(value);
                                     validatePassword(value);
                                 }}/><br/>
                                 {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
-                                <p></p>
-                                <p></p>
+                                
                                 <label className={styles.checkbox}>
                                     <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={({ target }) => setTermos(target.checked)} />
                                     Li e aceito os termos.
                                 </label>
-                                <p></p>
-                                <p></p>
+                                
                                 <ReCAPTCHA
                                     sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
                                     onChange={(val) => setCapVal(val)}
                                 />
-                                <p></p>
-                                <center><button type="submit" disabled={desabilitado}>Cadastre-se</button></center>
+                               
+                                <center><button className={styles.btn} type="submit" disabled={desabilitado}>Cadastre-se</button></center>
                             </form>
                         </div>
                     </div>

@@ -46,16 +46,16 @@ const LoginLostPassword = () => {
         <h2>Recuperar senha</h2>
  <p></p>
  <p></p>
-            <form onSubmit={(e)=>handleSubmit(e)}>
+            <form className={styles.forms} onSubmit={(e)=>handleSubmit(e)}>
 
             <a><Input label="Email" type="email" id="email" value={email} setValue={setEmail}/></a>
-            <p></p>
+            
             <ReCAPTCHA
             sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
             onChange={(val) => setcapVal(val)}
             />
-            <p></p>
-               <center><button type='submit'>Enviar</button></center>
+            
+               <center><button className={styles.btn} type='submit'>Enviar</button></center>
             </form>
         </div>            
         </div>
