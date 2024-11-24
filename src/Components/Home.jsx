@@ -18,6 +18,9 @@ import row1 from '../assets/row1.webp';
 import row2 from '../assets/row2.webp'; 
 import row3 from '../assets/row3.webp'; 
 import row4 from '../assets/row4.webp'; 
+import comida from '../assets/alimentos.png';
+import maodeobra from '../assets/maodeobra.png';
+import higiene from '../assets/higiene.png';
 
 // Importando Slider do react-slick
 import Slider from 'react-slick';
@@ -67,7 +70,7 @@ const Home = () => {
                 
                     <div className={styles.content}>
                         <Link to={`/search?tag=Alimentos`}>
-                        <div className={styles.caixa}><img className={styles.imgg} src={garf} alt="garfield" /></div>
+                        <div className={styles.caixa}><img className={styles.imgg} src={comida} alt="garfield" /></div>
                         <div className={styles.caixa2}>
                         <div className={styles.textos}>
                             <h3 className={styles.contenttitle}>Doação de alimentos</h3>
@@ -80,7 +83,7 @@ const Home = () => {
                     </div>
                    <div className={styles.content}>
                         <Link to={`/search?tag=Higiene`}>
-                        <div className={styles.caixa}><img className={styles.imgg} src={garf} alt="garfield" /></div>
+                        <div className={styles.caixa}><img className={styles.imgg} src={higiene} alt="itens de higiene" /></div>
                         <div className={styles.caixa2}>
                         <div className={styles.textos}>
                             <h3 className={styles.contenttitle}>Doação de produtos de higiene</h3>
@@ -93,7 +96,7 @@ const Home = () => {
                     </div>
                     <div className={styles.content}>
                         <Link to={`/search?tag=Trabalho%20Voluntário`}>
-                        <div className={styles.caixa}><img className={styles.imgg} src={garf} alt="garfield" /></div>
+                        <div className={styles.caixa}><img className={styles.imgg} src={maodeobra} alt="trabalho voluntario" /></div>
                         <div className={styles.caixa2}>
                         <div className={styles.textos}>
                             <h3 className={styles.contenttitle}>ONGs de Trabalho voluntário</h3>
