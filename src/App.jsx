@@ -9,6 +9,7 @@ import Profile from './Components/Profile/Profile';
 import Notificacoes from './Components/Notificacoes.jsx';
 import { auth } from './firebase.js';
 import Search from './Components/Search/Search.jsx';
+import Mainbody from './Components/Mainbody.jsx';
 
 
 const App = () => {
@@ -23,7 +24,7 @@ const App = () => {
   <> 
    <BrowserRouter>
     <Header />
-
+    <Mainbody />
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/notificacoes' element={<Notificacoes/>}/>
@@ -31,9 +32,10 @@ const App = () => {
         <Route path='/profile/*' element={<Profile/>}/>
         <Route path='/search/*' element={<Search/>}/>
       </Routes>
-      
+     
     </BrowserRouter>
-    
+
+    <Footer />
 
   </> 
   )

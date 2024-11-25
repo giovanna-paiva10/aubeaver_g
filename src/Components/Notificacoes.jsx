@@ -307,6 +307,14 @@ const Notificacoes = () => {
   };
 
   return (
+    <div id={styles.borda}>
+      <div className={styles.topo}>
+
+      </div>
+<div      className={styles.notdiv}>
+            <h3 className={styles.estiloh3}>Notificacoes</h3>
+            <h4 className={styles.estiloh4}>Encontre a ONG que você deseja</h4>
+          </div>
     <div className={styles.notifications}>
       <h2>Notificações</h2>
       {notifications.length > 0 ? (
@@ -372,6 +380,7 @@ const Notificacoes = () => {
     ) : (
       <p>Sem notificações.</p>
     )}
+    </div>
     </div>
   );
 };

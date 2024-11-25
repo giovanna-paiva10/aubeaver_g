@@ -251,7 +251,7 @@ const EditProfile = () => {
                             {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                         </button></center><br />
                         </div>
-
+<div className={styles.todes}>
 <div className={styles.comps}>
 
                         <label className={styles.titp2}>Nome</label> <Input  type="text" id="nome" value={nome} setValue={setNome} />
@@ -260,6 +260,7 @@ const EditProfile = () => {
                         <div className={styles.espaco}></div>
                         <label className={styles.titp2}>E-mail</label><Input type="email" id="email" value={email} setValue={setEmail} />
                         <div className={styles.espaco}></div>
+                        </div>
                         </div>
                         <div className={styles.espaco}></div>
                         

@@ -1,3 +1,13 @@
+.topo {
+  margin-top: 9%;
+
+}
+.notdiv {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  margin-left: 3%;
+}
 .notifications {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -75,4 +85,21 @@
     font-size: 14px;
     color: #7f8c8d;
   }
-  
+  .estiloh3{
+    color: #517655;
+    font-size: max(16px, 1.7rem);
+ }
+ 
+ .estiloh4{
+     color: #b6b5b5;
+     font-size: max(10px, 1.2rem);
+ }
+  #borda{
+    width: 100%;
+    height: fit-content;
+    align-items: left;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}

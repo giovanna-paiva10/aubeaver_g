@@ -260,7 +260,7 @@ const EditProfileOng = () => {
                         />
                     </div></center>
                     </div>
-                    <center><button type="button" onClick={uploadProfileImage} disabled={upload}>
+                    <center><button type="button" onClick={uploadProfileImage} disabled={upload} className={styles.butsalv}>
                         {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                     </button></center><br />
                     <div className={styles.todos}>
@@ -378,10 +378,11 @@ const EditProfileOng = () => {
                     </div>
                     <p> </p>
 
-                    <center><button type="button" onClick={handleSaveChanges}>Salvar Alterações</button></center>
-                        <h3>Redefinir Senha</h3>
+                            <div className={styles.botoestrans}>
+                 <button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button>
+                       
 
-                        <button type="button" onClick={handlePasswordReset}>
+                        <button type="button" onClick={handlePasswordReset} className={styles.btbranco} >
                             Enviar E-mail de Redefinição
                         </button>
 
@@ -389,10 +390,10 @@ const EditProfileOng = () => {
                             Excluir Conta
                         </button>
 
-                        <button type="button" onClick={handleShowProfile}>
+                        <button type="button" onClick={handleShowProfile} className={styles.btroxo}>
                             Retornar ao perfil
                         </button>
-                        
+                        </div>
                 </>
             ) : (
                 <div>Carregando dados...</div>
