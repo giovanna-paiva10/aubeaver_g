@@ -174,7 +174,7 @@ textarea:focus{
     width: 238x;
     height: 164px;
     flex-direction: line;
-    margin-right: 10px;
+    margin-right: -6rem;
     cursor: pointer;
    }
 
@@ -292,7 +292,8 @@ textarea:focus{
         height: auto;
         display: flex;
         justify-content: center;
-       
+        width: 35px;
+        height: 35px;
     }
     .comp1 {
         display: flex;

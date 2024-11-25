@@ -8,7 +8,7 @@ import website from '../../assets/webicon.svg';
 import facebook from '../../assets/facebookicon.svg';
 import instagram from '../../assets/instaicon.svg';
 import styles from './MeuPerfil.module.css';
-
+import Anuncios from '../Anuncios.jsx';
 
 const MeuPerfil = () => {
     const [userDetails, setUserDetails] = useState(null);
@@ -271,7 +271,7 @@ const MeuPerfil = () => {
                                     <p className={styles.espaco}/>
 
                                     <div className={styles.contentText4}>
-                                        <img src={fotoo} alt="fotoplaceholderpraad"  className={styles.imgg}/>
+                                        <Anuncios dataAdSlot='5178352284' />
                                     </div>
 
                                 </div>

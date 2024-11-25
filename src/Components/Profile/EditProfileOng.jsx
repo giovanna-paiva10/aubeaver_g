@@ -8,6 +8,7 @@ import Input from '../Forms/Input';
 import iconpe from '../../assets/iconeeditar.png';
 import bted from '../../assets/borda.png';
 import btdentro from '../../assets/bteditar.png';
+import lixeira from '../../assets/lixeira.png';
 import fotosituacao from '../../assets/fotosituacao.svg';
 
 const EditProfileOng = () => {
@@ -269,23 +270,23 @@ const EditProfileOng = () => {
                     <div className={styles.todos}>
                     <div className={styles.comp1}>
                  
-                    <label className={styles.titp2}>Nome</label> <input type="text" id="nome" value={nome} setValue={setNome}></input>
+                    <label className={styles.titp2}>Nome</label> <input type="text" id="nome" value={nome} onChange={(e) => setNome(e.target.value)}></input>
                     <div className={styles.espaco2}></div>
-                    <label className={styles.titp2}>Telefone</label><input type="text" id="telefone" value={telefone} setValue={setTelefone} ></input>
+                    <label className={styles.titp2}>Telefone</label><input type="text" id="telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} ></input>
                     <div className={styles.espaco2}></div>
                     <label className={styles.titp2}>Limites de pessoas para ajudar</label><input type="number" id="limitePessoas" value={limitePessoas} onChange={(e) => setLimitePessoas(e.target.value)}></input>
                     <div className={styles.espaco2}></div>
-                    <label className={styles.titp2}>E-mail</label><input type="email" id="email" value={email} setValue={setEmail}></input>
+                    <label className={styles.titp2}>E-mail</label><input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                     <div className={styles.espaco2}></div>
-                    <label className={styles.titp2}>Facebook</label><input type="text" id="facebook" value={facebook} setValue={setFacebook}></input>
+                    <label className={styles.titp2}>Facebook</label><input type="text" id="facebook" value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
                     </div>
                     <div className={styles.comp2}>
-                    <label className={styles.titp2}>Instagram</label><input type="text" id="instagram" value={instagram} setValue={setInstagram}></input>
+                    <label className={styles.titp2}>Instagram</label><input type="text" id="instagram" value={instagram} onChange={(e) => setInstagram(e.target.value)}></input>
                     <div className={styles.espaco2}></div>
                   
-                    <label className={styles.titp2}>Website</label><input type="text" id="website" value={website} setValue={setWebsite}></input>
+                    <label className={styles.titp2}>Website</label><input type="text" id="website" value={website} onChange={(e) => setWebsite(e.target.value)}></input>
                     <div className={styles.espaco2}></div>
-                    <label className={styles.titp2}>Localização</label><input type="text" id="localizacao" value={localizacao} setValue={setLocalizacao}></input>
+                    <label className={styles.titp2}>Localização</label><input type="text" id="localizacao" value={localizacao} onChange={(e) => setLocalizacao(e.target.value)}></input>
                     <div className={styles.espaco2}></div>
                     <div>
                     <label className={styles.titp2}>Classifique a sua ONG</label>
@@ -337,48 +338,57 @@ const EditProfileOng = () => {
                             </section>
                             </div>
                             <div className={styles.espaco}></div>
+                                <div className={styles.stf}>
+                                    <label htmlFor="situacao1Upload">
+                                    {fotoSituacao1 ? (
+                                        <img src={fotoSituacao1} alt="Foto de Situação 1" className={styles.iconst} />
+                                    ) : (
+                                        <img src={fotosituacao} alt="Clique para adicionar Foto de Situação 1" className={styles.iconst} />
+                                    )}
+                                    </label>
+                                    <input
+                                    type="file"
+                                    accept="image/*"
+                                    id="situacao1Upload"
+                                    onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao1')}
+                                    style={{ display: 'none' }}
+                                    />
+                                    <img src={lixeira} alt="Apagar foto 1" className={styles.lixeira1} onClick={() => setFotoSituacao1(null)} style={{ cursor: 'pointer'}}/>
 
-                        <div className={styles.stf}>
+                                    <label htmlFor="situacao2Upload">
+                                    {fotoSituacao2 ? (
+                                        <img src={fotoSituacao2} alt="Foto de Situação 2" className={styles.iconst} />
+                                    ) : (
+                                        <img src={fotosituacao} alt="Clique para adicionar Foto de Situação 2" className={styles.iconst} />
+                                    )}
+                                    </label>
+                                    <input
+                                    type="file"
+                                    accept="image/*"
+                                    id="situacao2Upload"
+                                    onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao2')}
+                                    style={{ display: 'none' }}
+                                    />
+                                    <img src={lixeira} alt="Apagar foto 2" className={styles.lixeira1} onClick={() => setFotoSituacao2(null)} style={{ cursor: 'pointer'}}/>
 
-
-
-                        <img src={fotosituacao} alt="Foto situacao1" className={styles.iconst} />
-                        
-
-
-                        <img src={fotosituacao} alt="Foto situacao2" className={styles.iconst} /> 
-                       
-
-
-
-                        <img src={fotosituacao} alt="Foto situacao3" className={styles.iconst} />
-                        
-
-
+                                    <label htmlFor="situacao3Upload">
+                                    {fotoSituacao3 ? (
+                                        <img src={fotoSituacao3} alt="Foto de Situação 3" className={styles.iconst} />
+                                    ) : (
+                                        <img src={fotosituacao} alt="Clique para adicionar Foto de Situação 3" className={styles.iconst} />
+                                    )}
+                                    </label>
+                                    <input
+                                    type="file"
+                                    accept="image/*"
+                                    id="situacao3Upload"
+                                    onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao3')}
+                                    style={{ display: 'none' }}
+                                    />
+                                    <img src={lixeira} alt="Apagar foto 3" className={styles.lixeira1} onClick={() => setFotoSituacao3(null)} style={{ cursor: 'pointer'}}/>
+                                </div>
+                            </div>
                         </div>
-
-                        </div>
-
-                        </div>
-                    <div>
-                        <label>Foto de Situação 1</label>
-                        <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao1')} />
-                        {fotoSituacao1 && <img src={fotoSituacao1} alt="Foto de Situação 1" />}
-                    </div>
-                    <p> </p>
-
-                    <div>
-                        <label>Foto de Situação 2</label>
-                        <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao2')} />
-                        {fotoSituacao2 && <img src={fotoSituacao2} alt="Foto de Situação 2" />}
-                    </div>
-                    <p> </p>
-
-                    <div>
-                        <label>Foto de Situação 3</label>
-                        <input type="file" accept='image/*' onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao3')} />
-                        {fotoSituacao3 && <img src={fotoSituacao3} alt="Foto de Situação 3" />}
-                    </div>
                     <p> </p>
 
                             <div className={styles.botoestrans}>

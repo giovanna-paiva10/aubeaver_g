@@ -251,14 +251,14 @@ const EditProfile = () => {
                             {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                         </button></center><br />
                         </div>
-<div className={styles.todes}>
-<div className={styles.comps}>
+                        <div className={styles.todes}>
+                        <div className={styles.comps}>
 
-                        <label className={styles.titp2}>Nome</label> <Input  type="text" id="nome" value={nome} setValue={setNome} />
+                        <label className={styles.titp2}>Nome</label> <input  type="text" id="nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
                         <div className={styles.espaco}></div>
-                        <label className={styles.titp2}>Telefone</label><Input  type="text" id="telefone" value={telefone} setValue={setTelefone} />
+                        <label className={styles.titp2}>Telefone</label><input  type="text" id="telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)}/>
                         <div className={styles.espaco}></div>
-                        <label className={styles.titp2}>E-mail</label><Input type="email" id="email" value={email} setValue={setEmail} />
+                        <label className={styles.titp2}>E-mail</label><input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                         <div className={styles.espaco}></div>
                         </div>
                         </div>
@@ -298,6 +298,7 @@ const EditProfile = () => {
                                     ) : (
                                         <img src={fotosituacao} alt="Clique para adicionar Foto de Situação 1" className={styles.iconst} />
                                     )}
+                                  
                                 </label>
                                 <input
                                     type="file"
@@ -306,13 +307,14 @@ const EditProfile = () => {
                                     onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao1')}
                                     style={{ display: 'none' }}
                                 />
-
+                                <img src={lixeira} alt="Apagar foto 1" className={styles.lixeira1} onClick={() => setFotoSituacao1(null)} style={{ cursor: 'pointer'}}/>
                                 <label htmlFor="situacao2Upload" >
                                     {fotoSituacao2 ? (
                                         <img src={fotoSituacao2} alt="Foto de Situação 2" className={styles.iconst} />
                                     ) : (
                                         <img src={fotosituacao} alt="Clique para adicionar Foto de Situação 2" className={styles.iconst} />
                                     )}
+                                
                                 </label>
                                 <input
                                     type="file"
@@ -321,6 +323,7 @@ const EditProfile = () => {
                                     onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao2')}
                                     style={{ display: 'none' }}
                                 />
+                                <img src={lixeira} alt="Apagar foto 2" className={styles.lixeira1} onClick={() => setFotoSituacao2(null)} style={{ cursor: 'pointer'}}/>
 
                                 <label htmlFor="situacao3Upload">
                                     {fotoSituacao3 ? (
@@ -329,7 +332,6 @@ const EditProfile = () => {
                                         <img src={fotosituacao} alt="Clique para adicionar Foto de Situação 3" className={styles.iconst} />
                                     )}
                               
-                              <img src={lixeira} alt="Apagar foto 1" className={styles.lixeira1} />
                                 </label>
                                 <input
                                     type="file"
@@ -338,6 +340,7 @@ const EditProfile = () => {
                                     onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao3')}
                                     style={{ display: 'none' }}
                                 />
+                                <img src={lixeira} alt="Apagar foto 3" className={styles.lixeira1} onClick={() => setFotoSituacao3(null)} style={{ cursor: 'pointer'}}/>
                                 </div>
                             </div>
                         </div>
