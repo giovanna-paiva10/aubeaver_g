@@ -43,6 +43,7 @@ const Home = () => {
         autoplaySpeed: 3000, 
         arrows: false,
         
+        
     };   
 
     return (
