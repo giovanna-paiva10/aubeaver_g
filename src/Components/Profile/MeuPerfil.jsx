@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { auth, firestore } from '../../firebase'; 
-import { getDoc, doc, collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
+import { getDoc, deleteDoc, doc, collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
 import garf from '../../assets/garfield.png'; 
 import fotoo from '../../assets/fotoo.png'; 
 import localizacao from '../../assets/locationicon.svg';
@@ -81,6 +81,16 @@ const MeuPerfil = () => {
       useEffect(() => {
         fetchComments();
       }, [id]);
+
+      const deleteComment = async (commentId) => {
+        try {
+            await deleteDoc(doc(firestore, "Comentários", commentId));
+            setComentarios((prev) => prev.filter((comentario) => comentario.id !== commentId));
+            console.log("Comentário excluído com sucesso.");
+        } catch (error) {
+            console.error("Erro ao excluir comentário:", error);
+        }
+    };
 
     const handleLogout = async () => {
         try {
@@ -175,6 +185,13 @@ const MeuPerfil = () => {
                                                     <h3 className={styles.estilouser }>{comentario.userNome} ({comentario.tipoDeUsuario})</h3>
                                                     <h4 className={styles.estiloh4}>{comentario.texto}</h4>
                                                     <small>{new Date(comentario.timestamp.seconds * 1000).toLocaleString()}</small>
+                                                    <button
+                                                    type="button"
+                                                        onClick={() => deleteComment(comentario.id)}
+                                                        className={styles.deleteButton}
+                                                    >
+                                                        Exluir
+                                                    </button>
                                                     <p></p>
                                                     </div>
                                                 ))
