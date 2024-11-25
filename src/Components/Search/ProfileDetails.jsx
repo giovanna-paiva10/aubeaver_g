@@ -11,9 +11,17 @@ import facebook from "../../assets/facebookicon.svg";
 import instagram from "../../assets/instaicon.svg";
 import ModalPopUp from "../Modal/ModalPopUp";
 import {
+  query, 
+  onSnapshot,
+  where, 
+  orderBy, 
+  serverTimestamp,
   increment,
+  collection,
   doc,
+  deleteDoc,
   setDoc,
+  addDoc,
   getDoc,
   updateDoc,
   arrayUnion,
@@ -37,6 +45,9 @@ const ProfileDetails = () => {
   });
   const [currentStep, setCurrentStep] = useState(1);
   const [error, setError] = useState("");
+  const [comentarios, setComentarios] = useState([]);
+  const [novoComentario, setNovoComentario] = useState("");
+  const [usuarioPodeComentar, setUsuarioPodeComentar] = useState(false);
 
     const handleNextStep = () => {
         
@@ -95,9 +106,6 @@ const ProfileDetails = () => {
         });
     };
     
-    
-    
-
     const handleSubmit = async () => {
         const user = auth.currentUser;
         if (!user) {
@@ -366,6 +374,7 @@ const ProfileDetails = () => {
 
             if (userDocSnap.exists()) {
               setUserType(userDocSnap.data().Tipo_de_identificador);
+              setUsuarioPodeComentar(true)
               return;
             }
 
@@ -374,6 +383,7 @@ const ProfileDetails = () => {
 
             if (ongDocSnap.exists()) {
               setUserType(ongDocSnap.data().Tipo_de_identificador);
+              setUsuarioPodeComentar(false)
               return;
             }
           } catch (error) {
@@ -388,6 +398,38 @@ const ProfileDetails = () => {
   }, [id]);
 
   useEffect(() => {
+    const fetchComments = async () => {
+      if (!id) {
+        console.error("O ID da ONG não está definido!");
+        return;
+      }
+    
+      try {
+        const q = query(
+          collection(firestore, "Comentários"),
+          where("ongId", "==", id),
+          orderBy("timestamp", "desc")
+        );
+    
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+          const comments = querySnapshot.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+
+          setComentarios(comments);
+        });
+    
+        return () => unsubscribe();
+      } catch (error) {
+        console.error("Erro ao buscar comentários:", error);
+      }
+    };
+    
+    fetchComments();
+  }, []);
+
+  useEffect(() => {
     if (profileData && profileData.tags) {
       setFormData((prevData) => ({
         ...prevData,
@@ -395,6 +437,67 @@ const ProfileDetails = () => {
       }));
     }
   }, [profileData]);
+
+  const handleComentarioChange = (e) => {
+    setNovoComentario(e.target.value);
+  };
+
+  const handleComentarioSubmit = async (e) => {
+    e.preventDefault();
+  
+    if (!novoComentario.trim()) {
+      setError("O comentário não pode ser vazio.");
+      return;
+    }
+  
+    try {
+      const user = auth.currentUser;
+  
+      const userDocRef = doc(firestore, "Usuários", user.uid);
+      const userDocSnap = await getDoc(userDocRef);
+  
+      let userNome = user.email; 
+  
+      if (userDocSnap.exists()) {
+        const userData = userDocSnap.data();
+        userNome = userData.username || user.email; 
+      }
+  
+      const comentarioData = {
+        texto: novoComentario,
+        userId: user.uid,
+        userNome: userNome,
+        tipoDeUsuario: userType,
+        ongId: id, 
+        timestamp: new Date(),
+      };
+  
+      await addDoc(collection(firestore, "Comentários"), comentarioData);
+  
+      setNovoComentario("");
+      setError(""); 
+  
+    } catch (error) {
+      console.error("Erro ao enviar comentário:", error);
+      setError("Ocorreu um erro ao enviar o comentário.");
+    }
+  };
+
+  const handleDeleteComentario = async (comentarioId) => {
+    try {
+
+      const comentarioRef = doc(firestore, "Comentários", comentarioId);
+      await deleteDoc(comentarioRef);
+  
+      setComentarios((prevComentarios) =>
+        prevComentarios.filter((comentario) => comentario.id !== comentarioId)
+      );
+    } catch (error) {
+      console.error("Erro ao deletar o comentário:", error);
+      setError("Não foi possível excluir o comentário. Tente novamente.");
+    }
+  };
+  
 
   const openModal = () => {
     if (profileData.pedidosAtuais >= profileData.limitePessoas) {
@@ -909,17 +1012,43 @@ const ProfileDetails = () => {
                   <h4>{profileData.organizacao}</h4>
                   <br className={styles.espaco} />
                   <br />
-                  <h2 className={styles.estiloh2}> Palavras de apoio</h2>
-                  <br />
-                  <h3 className={styles.estilouser}>user.name</h3>
-                  <br />
-                  <h4 className={styles.estiloh4}>
-                    {" "}
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Praesent eu eleifend nisl. Phasellus libero justo, ultricies
-                    nec mauris a, congue iaculis eros. Aenean egestas nisl in
-                    quam vehicula,{" "}
-                  </h4>
+                  <div>
+                    <h2 className={styles.estiloh2}>Palavras de apoio</h2>
+                    <div>
+                      {comentarios.length > 0 ? (
+                        comentarios.map((comentario) => (
+                          <div key={comentario.id}>
+                            <h3 className={styles.estilouser }>{comentario.userNome} ({comentario.tipoDeUsuario})</h3>
+                            <p>{comentario.texto}</p>
+                            <small>{new Date(comentario.timestamp.seconds * 1000).toLocaleString()}</small>
+
+                            {comentario.userId === auth.currentUser?.uid && (
+                              <button onClick={() => handleDeleteComentario(comentario.id)}>
+                                Excluir Comentário
+                              </button>
+                            )}
+                            <p></p>
+                          </div>
+                        ))
+                      ) : (usuarioPodeComentar ? (
+                          <p>Apoie a Ong, a incentive com um belo comentário!</p>
+                        ) : (
+                          <p>Esta ONG ainda não recebeu comentários.</p>
+                        )
+                      )}
+                      {usuarioPodeComentar && (
+                        <form onSubmit={handleComentarioSubmit}>
+                          <textarea
+                            value={novoComentario}
+                            onChange={handleComentarioChange}
+                            placeholder="Escreva um comentário..."
+                          />
+                          {error && <p>{error}</p>}
+                          <button type="submit">Enviar</button>
+                        </form>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
 

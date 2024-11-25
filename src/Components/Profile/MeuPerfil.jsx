@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { auth, firestore } from '../../firebase'; 
-import { getDoc, doc } from 'firebase/firestore';
+import { getDoc, doc, collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
 import garf from '../../assets/garfield.png'; 
 import fotoo from '../../assets/fotoo.png'; 
 import localizacao from '../../assets/locationicon.svg';
@@ -13,6 +13,9 @@ import styles from './MeuPerfil.module.css';
 const MeuPerfil = () => {
     const [userDetails, setUserDetails] = useState(null);
     const [userType, setUserType] = useState(null);
+    const [comentarios, setComentarios] = useState([]); 
+
+    const [id, setId] = useState("id_da_ong");
 
     const fetchUserData = async () => {
         auth.onAuthStateChanged(async (user) => {
@@ -33,6 +36,7 @@ const MeuPerfil = () => {
                     if (ongDocSnap.exists()) {
                         setUserDetails(ongDocSnap.data());
                         setUserType("Ong");
+                        setId(user.uid);
                         return;
                     }
 
@@ -53,6 +57,30 @@ const MeuPerfil = () => {
     useEffect(() => {
         fetchUserData();
     }, []);
+
+    const fetchComments = async () => {
+        if (!id) return;
+
+        const q = query(
+          collection(firestore, "Comentários"),
+          where("ongId", "==", id),
+          orderBy("timestamp", "desc")
+        );
+    
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+          const comments = [];
+          querySnapshot.forEach((doc) => {
+            comments.push({ id: doc.id, ...doc.data() });
+          });
+          setComentarios(comments);
+        });
+    
+        return () => unsubscribe();
+      };
+    
+      useEffect(() => {
+        fetchComments();
+      }, [id]);
 
     const handleLogout = async () => {
         try {
@@ -136,12 +164,26 @@ const MeuPerfil = () => {
                                         <h4>{userDetails.organizacao}</h4>
                                             <br className={styles.espaco}/>
                                         <br />
-                                        <h2 className={styles.estiloh2}> Palavras de apoio</h2>
-                                        <br />
-                                        <h3 className={styles.estilouser }>user.name</h3>
-                                        <br />
-                                        <h4 className={styles.estiloh4}> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu eleifend nisl. Phasellus libero justo, ultricies nec mauris a, congue iaculis eros. Aenean egestas nisl in quam vehicula,  </h4>
-                                    </div> 
+                                        <div>
+                                            <h2 className={styles.estiloh2}> Palavras de apoio</h2>
+                                            <br />
+                                            <div>
+                                                
+                                                {comentarios.length > 0 ? (
+                                                comentarios.map((comentario) => (
+                                                    <div key={comentario.id}>
+                                                    <h3 className={styles.estilouser }>{comentario.userNome} ({comentario.tipoDeUsuario})</h3>
+                                                    <h4 className={styles.estiloh4}>{comentario.texto}</h4>
+                                                    <small>{new Date(comentario.timestamp.seconds * 1000).toLocaleString()}</small>
+                                                    <p></p>
+                                                    </div>
+                                                ))
+                                                ) : (
+                                                <p>Você não recebeu comentários por enquanto</p>
+                                                )}
+                                            </div>
+                                        </div>
+                                       </div> 
                                 </div>
 
                                 <div className={styles.caixa}>
