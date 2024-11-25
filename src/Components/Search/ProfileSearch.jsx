@@ -139,7 +139,7 @@ const ProfileSearch = () => {
           </div>
         ))}
 
-        <center>
+        <div className={styles.ctbt}>
           <div className={styles.pagination}>
             <button
               className={styles.botao1}
@@ -159,7 +159,7 @@ const ProfileSearch = () => {
               Próxima
             </button>
           </div>
-          </center>
+          </div>
       </div>
     </div>
     </body>
