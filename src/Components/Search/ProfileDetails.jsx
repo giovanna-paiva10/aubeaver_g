@@ -949,7 +949,7 @@ const ProfileDetails = () => {
                         <h1 className={styles.estiloh1}>
                           Vamos construir um futuro melhor juntos
                         </h1>
-                        <p className={styles.espaco}></p>
+                        <p></p>
                         <div className={styles.texto2}>
                           Nosso compromisso é caminhar ao seu lado, oferecendo
                           apoio e novas oportunidades para que você possa
@@ -966,7 +966,7 @@ const ProfileDetails = () => {
                                             <h1 className={styles.estiloh1}>
                                               Vamos construir um futuro melhor juntos
                                             </h1>
-                                            <p className={styles.espaco}></p>
+                                            
                                             <div className={styles.texto2}>
                                               Nosso compromisso é caminhar ao seu lado, oferecendo
                                               apoio e novas oportunidades para que você possa

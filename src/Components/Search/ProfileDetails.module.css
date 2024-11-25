@@ -96,9 +96,10 @@
     height: 44px;
     border-radius: 6px;
     background-color: #B296AD;
-    font-size: max(11px, 2vh);
+    font-size: max(10px, 1.5vh);
     margin: 0%;
-    margin-right: 7%;
+    margin-right: 7%; 
+    padding: 4px;
 }
 
 .botao{
@@ -292,7 +293,7 @@
     display: flex;
     flex-direction: row;
     width: 65%;
-    height: 40vw;
+    height: 36vw;
     min-height: 480px;
     border-radius: 20px;
     z-index: 1001; 
@@ -310,6 +311,8 @@
     justify-content: space-around;
     color: #ffffff;
     font-size: max(12px, 14px);
+    align-items: center;
+    padding: auto;
 }
 
 .textoPequeno{
@@ -349,7 +352,9 @@
 }
 
 .estiloh1{
-    font-size: max(22px, 5.5vh);
+    font-size: max(20px, 4vh);
+    text-align: justify;
+    width: 100%;
 }
 
 .texto {
@@ -360,14 +365,15 @@
     justify-content: center;
     height: 100%;
     padding: 0% 0% 0% 7%;
+    gap: 20px;
     
 }
 
 .texto2 {
-    font-size: max(16px, 3vh);   
+    font-size: max(14px, 1vw);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .modalRight{
         display: none;
     }
@@ -431,7 +437,7 @@
 }
 
 .btn1{
-    padding-block: 1.5vh;
+    padding-block: 0;
     height: 40px;
     background-color: #755071;
     width: 42%;
@@ -439,7 +445,7 @@
 }
 
 .btn2{
-    padding-block: 1.5vh;
+    padding: 0%;
     height: 35px;
     background-color: #755071;
     width: 40%;
@@ -447,7 +453,7 @@
 }
 
 .btn3{
-    padding-block: 1.5vh;
+    padding-block: 0;
     height: 40px;
     background-color: #755071;
     width: 88%;
