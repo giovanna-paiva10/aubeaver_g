@@ -45,7 +45,7 @@ li {
   z-index: 1;
   top: 60px;
   right: 20px;
-  background-color: #ffffff;
+  background-color: #ffffffe3;
   width: 200px; /* Voltando ao tamanho maior para o menu */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -114,7 +114,7 @@ a {
   display: flex;
   transform: translateX(0);
 
-  color: black;
+  color: #616462;
 }
 
 /* Esconde links "Quem somos" e "Doação" no menu em telas grandes */

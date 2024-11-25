@@ -16,7 +16,7 @@ const Footer = () => {
                     
                         <h4 className={styles.fttitulo}>AUBEAVER</h4>
                         <ul className={styles.ulft}>
-                            <li><a href="#">Sobre a Ong</a></li>
+                            <li><a href="/">Sobre a Ong</a></li>
                             <div className={styles.espaco2}></div>
                             <li><a href="#">Importância da doação</a></li>
                             <div className={styles.espaco2}></div>

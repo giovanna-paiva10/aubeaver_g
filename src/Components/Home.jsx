@@ -111,14 +111,13 @@ const Home = () => {
                     
                 
             </div>
-
-            
-            
+            <div id="qs"></div>
+               
             <div className={styles.titulo}> 
-            <div id="qs">
+            
             <h3 className={styles.estiloh3}>QUEM SOMOS</h3>
            <img className={styles.banner} src={cc} alt="cc" />
-           </div>
+           
            </div>
            
 

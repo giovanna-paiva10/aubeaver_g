@@ -158,6 +158,7 @@ const ProfileSearch = () => {
             >
               Próxima
             </button>
+          
           </div>
           </div>
       </div>
