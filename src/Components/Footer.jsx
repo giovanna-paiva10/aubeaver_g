@@ -8,6 +8,7 @@ import iconeeditar from '../assets/iconeeditar.png';
 
 const Footer = () => {
     return (
+      
         <footer className={styles.footer}>
             <div className={styles.container}>
                 <nav className={styles.navSections}>
@@ -33,8 +34,7 @@ const Footer = () => {
                             <div className={styles.espaco2}></div>
                             <li><a href="#">Auxílio de itens de higiene</a></li>
                             <div className={styles.espaco2}></div>
-                            <li><a href="#">Auxílio financeiro</a></li>
-                            <div className={styles.espaco2}></div>
+                         
                             <li><a href="#">Auxílio de mão de obra</a></li>
                             <div className={styles.espaco2}></div>
                         </ul>
@@ -66,6 +66,7 @@ const Footer = () => {
                 </ul>
             </div>
         </footer>
+        
     );
 };
 

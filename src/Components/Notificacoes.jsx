@@ -307,7 +307,7 @@ const Notificacoes = () => {
   };
 
   return (
-    <div id={styles.borda}>
+    <body id={styles.borda}>
       <div className={styles.topo}>
 
       </div>
@@ -381,7 +381,7 @@ const Notificacoes = () => {
       <p>Sem notificações.</p>
     )}
     </div>
-    </div>
+    </body>
   );
 };
 
