@@ -47,7 +47,7 @@ const EditProfileOng = () => {
                     setLocalizacao(ongData.localizacao || '');
                     setOrganizacao(ongData.organizacao || '');
                     setBio(ongData.bio || '');
-                    setLimitePessoas(ongData.limitePessoas || null);
+                    setLimitePessoas(ongData.limitePessoas?.toString() || ''); 
                     setPreviewURL(ongData.fotoPerfil || '');
                     setFotoSituacao1(ongData.fotoSituacao1 || null);
                     setFotoSituacao2(ongData.fotoSituacao2 || null);
@@ -94,6 +94,9 @@ const EditProfileOng = () => {
         try {
             const user = auth.currentUser;
             const ongRef = doc(firestore, "Ongs", user.uid);
+
+            const limitePessoasNumber = limitePessoas ? parseInt(limitePessoas, 10) : null;
+
             await setDoc(ongRef, {
                 nome,
                 email,
@@ -104,7 +107,7 @@ const EditProfileOng = () => {
                 telefone,
                 organizacao,
                 bio,
-                limitePessoas,
+                limitePessoas: limitePessoasNumber,
                 tags,
             }, { merge: true });
             window.location.href = '/profile';
@@ -270,7 +273,7 @@ const EditProfileOng = () => {
                     <div className={styles.espaco2}></div>
                     <label className={styles.titp2}>Telefone</label><input type="text" id="telefone" value={telefone} setValue={setTelefone} ></input>
                     <div className={styles.espaco2}></div>
-                    <label className={styles.titp2}>Limites de pessoas para ajudar</label><input type="number" id="limitePessoas" value={limitePessoas} setValue={setLimitePessoas} ></input>
+                    <label className={styles.titp2}>Limites de pessoas para ajudar</label><input type="number" id="limitePessoas" value={limitePessoas} onChange={(e) => setLimitePessoas(e.target.value)}></input>
                     <div className={styles.espaco2}></div>
                     <label className={styles.titp2}>E-mail</label><input type="email" id="email" value={email} setValue={setEmail}></input>
                     <div className={styles.espaco2}></div>

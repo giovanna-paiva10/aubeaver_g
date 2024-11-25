@@ -85,6 +85,7 @@ const ProfileSearch = () => {
   };
 
   return (
+    <body>
     <div id={styles.borda}>
       <div className={styles.container}>
         <div className={styles.linha}>
@@ -138,7 +139,7 @@ const ProfileSearch = () => {
           </div>
         ))}
 
-        
+        <div className={styles.ctbt}>
           <div className={styles.pagination}>
             <button
               className={styles.botao1}
@@ -158,9 +159,10 @@ const ProfileSearch = () => {
               Próxima
             </button>
           </div>
-       
+          </div>
       </div>
     </div>
+    </body>
   );
 };
 
