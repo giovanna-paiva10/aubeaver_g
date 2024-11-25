@@ -27,6 +27,7 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
+import Anuncios from '../Anuncios.jsx';
 
 const ProfileDetails = () => {
   const { id } = useParams();
@@ -1122,11 +1123,7 @@ const ProfileDetails = () => {
                 )}
 
                 <div className={styles.contentText4}>
-                  <img
-                    src={fotoo}
-                    alt="fotoplaceholderpraad"
-                    className={styles.imgg}
-                  />
+                <Anuncios dataAdSlot='5178352284' />
                 </div>
               </div>
             </div>
