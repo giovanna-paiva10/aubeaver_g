@@ -244,7 +244,6 @@ const ProfileDetails = () => {
           title: `${tipoDeAjuda}`,
           description: `Relacionado a ${formData.tipoAjuda}`,
           timestamp: new Date(),
-          isRead: false,
           type: formData.tipoAjuda,
           nomeUser: formData.nome,
           email: formData.email,
