@@ -3,6 +3,8 @@ import { auth, firestore } from "../firebase";
 import { setDoc, doc, getDoc, deleteDoc, arrayUnion, collection } from "firebase/firestore";
 import styles from "./Notificacoes.module.css";
 import { v4 as uuidv4 } from "uuid";
+import iconpe from '../assets/iconeeditar.png';
+import iconpe2 from '../assets/iconeeditar2.png.png';
 
 const Notificacoes = () => {
   const [notifications, setNotifications] = useState([]);
@@ -315,6 +317,58 @@ const Notificacoes = () => {
             <h3 className={styles.estiloh3}>Notificacoes</h3>
             <h4 className={styles.estiloh4}>Encontre a ONG que você deseja</h4>
           </div>
+          <div className={styles.cont}>
+            <div className={styles.cont1}>
+              <div className={styles.bloco}>
+             
+              <div className={styles.seup}>
+                        <div className={styles.texto}>
+                        <div className={styles.contimg}>
+                            <img src={iconpe2} alt="Icon Usuario" className={styles.iconpe} />
+                            <label className={styles.titp}>Nome_Usuario</label>
+                        </div>
+                        </div>
+                       
+                    </div>
+                    <div className={styles.itpt}>
+                    <div className={styles.itens}>
+                         <div className={styles.itens1}>
+                         <div>1 Arroz</div>
+                         <div>1 Feijão</div>
+                         <div className={styles.itlt}>1 Macarrão</div>
+                          </div>
+                       
+                          {/* 
+<div className={styles.itens2}>
+  1 Açúcar
+  1 Farinha de trigo
+  1 Sal
+</div>
+<div className={styles.itens3}>
+  1 Lentilha
+  1 Azeite
+  1 Molho de Tomate
+</div>
+<div className={styles.itens4}>
+  1 Farinha de Mandioca
+  1 Leite em pó
+  1 Leite líquido
+</div>
+*/}
+                        </div>
+                        </div>
+                        
+                    <div className={styles.tipo}>
+                          Personalizado (3 Itens)
+                        </div>
+                        <div className={styles.mais}>
+                          Ver mais...
+                        </div>
+                        
+                       
+              </div>
+            </div>
+          </div>
     <div className={styles.notifications}>
       <h2>Notificações</h2>
       {notifications.length > 0 ? (
@@ -373,6 +427,7 @@ const Notificacoes = () => {
             >
               Compreendido
             </button>
+            
           )}
         </div>
         </div>
@@ -381,6 +436,7 @@ const Notificacoes = () => {
       <p>Sem notificações.</p>
     )}
     </div>
+    <div></div>
     </body>
   );
 };
