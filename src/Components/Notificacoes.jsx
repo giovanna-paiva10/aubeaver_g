@@ -108,11 +108,11 @@ const Notificacoes = () => {
         
         const returnMessage = {
           uid: uuidv4(),
-          title: "Sua solicitação foi negada",
-          description: `A sua solicitação relacionada a ${originalNotification.type} foi negada pela ONG.`,
+          title: `Sua ${originalNotification.title} foi negada`,
+          description: `A ${originalNotification.title} relacionada a ${originalNotification.type} foi negada pela ONG.`,
           timestamp: new Date(),
           isRead: false,
-          type: "Resposta à solicitação",
+          type: `Resposta à ${originalNotification.title}`,
           senderUid: ongId,
           receiverUid: userUid, 
         };
@@ -183,11 +183,11 @@ const Notificacoes = () => {
         
         const returnMessage = {
           uid: uuidv4(),
-          title: "Sua solicitação foi aceita",
-          description: `A sua solicitação relacionada a ${originalNotification.type} foi aceita pela ONG.`,
+          title: `Sua ${originalNotification.title} foi foi aceita`,
+          description: `A ${originalNotification.title} relacionada a ${originalNotification.type} foi aceita pela ONG.`,
           timestamp: new Date(),
           isRead: false,
-          type: "Resposta à solicitação",
+          type: `Resposta à ${originalNotification.title}`,
           senderUid: ongId,
           receiverUid: userUid,  
         };
@@ -407,9 +407,19 @@ const Notificacoes = () => {
           </div>
 
             <div className={styles.notificationFooter}>
-              <p>{notification.isRead ? "Lido" : "Não lido"}</p>
+            {console.log('userType:', notification.title)}
           
-          {userType === "Ong" && (
+          {userType === "Ong"  && notification.title === "Doação" ? (
+            <>
+              <button onClick={() => handleAceitarNotificacao(notification.uid, user.uid, notification.title)}>
+              Aceitar Doação
+              </button>
+
+              <button onClick={() => handleNegarNotificacao(notification.uid, user.uid, notification.title)}>
+                Negar
+              </button>
+            </>
+          ) : userType === "Ong"  && notification.title === "Requisição" ? (
             <>
               <button onClick={() => handleAceitarNotificacao(notification.uid, user.uid)}>
               Aceitar Solicitação
@@ -419,7 +429,7 @@ const Notificacoes = () => {
                 Negar
               </button>
             </>
-          )}
+          ) : null}
 
           {userType === "Usuário" && (
             <button 
