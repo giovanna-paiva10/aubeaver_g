@@ -120,13 +120,75 @@ const MeuPerfil = () => {
                     <p></p>
                     {userType === "Usuário" ? (
                         <>
-                        <img src={userDetails.fotoPerfil} alt="Foto de Perfil" />
-                        <p> </p>
-                            <p>Olá, {userDetails.nome}</p>
-                            <p>Sua história: {userDetails.minhaHistoria}</p>
+                        <div className={styles.container}> 
 
-                            <button type="button" onClick={handleEditProfile}>Editar informações</button>
-                            <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
+                            <div className={styles.content}> 
+
+                                <div className={styles.content1}>
+                                    <div className={styles.contentImg}>
+                                        <img className={styles.img} src={userDetails.fotoPerfil || garf} alt="ong" />
+                                    </div>
+
+
+                            <div className={styles.botoeswrap}>
+                                    <div className={styles.contentText}>
+                                        <h1 className={styles.estilooh2}>{userDetails.nome}</h1>
+                                        <br />
+                                        {userDetails.telefone && (
+                                            <>
+                                                <h1>Telefone</h1>
+                                                <h2>{userDetails.telefone}</h2>
+                                            </>
+                                        )}
+                                        <br/>
+                                        <span className={styles.tag}>{userDetails.Tipo_de_identificador}</span>
+                                        <br />
+                                    </div>
+
+                                    <div className={styles.btnedit}>
+                                        <button type="button" onClick={handleEditProfile} className={styles.botao}> Editar perfil</button>
+
+                                        <button type="button" onClick={handleLogout} className={styles.botao2}> Sair</button>
+                                    </div>
+
+                            </div>
+
+                                </div>
+                                
+                            </div>
+
+                            </div>
+
+                            <div className={styles.container1}>
+
+                            <div className={styles.content2}>
+                                <div className={styles.contentText2}>
+                                    <h2 className={styles.estiloh2}>História</h2><br />
+                                    <h4>{userDetails.minhaHistoria}</h4>
+                                </div> 
+                            </div>
+
+                            <div className={styles.caixa}>
+                                <div className={styles.contentText4}>
+                                    <Anuncios dataAdSlot='5178352284' />
+                                </div>
+
+                            </div>
+                            </div>
+
+
+                            <div className={styles.container3}>
+                            <div className={styles.content3}>
+                                {userDetails.fotoSituacao1 && (<div>
+                                    <img className={styles.imggg} src={userDetails.fotoSituacao1 || fotoo} alt="foto" /></div>
+                                )}
+                                {userDetails.fotoSituacao2 && (<div>
+                                    <img className={styles.imggg} src={userDetails.fotoSituacao2 || fotoo} alt="foto" /></div>
+                                )}{userDetails.fotoSituacao3 && (<div>
+                                    <img className={styles.imggg} src={userDetails.fotoSituacao3 || fotoo} alt="foto" /></div>
+                                )}
+                            </div>
+                            </div>
                         </>
                     ) : userType === "Ong" ? (
                         <>
