@@ -313,10 +313,25 @@ const Notificacoes = () => {
       <div className={styles.topo}>
 
       </div>
-<div      className={styles.notdiv}>
-            <h3 className={styles.estiloh3}>Notificacoes</h3>
-            <h4 className={styles.estiloh4}>Encontre a ONG que você deseja</h4>
-          </div>
+      {userType === "Ong" && (
+            <>
+              <div className={styles.notdiv}>
+                <h3 className={styles.estiloh3}>Notificações</h3>
+                <h4 className={styles.estiloh4}>Seus pedidos, doações e voluntários</h4>
+              </div>
+            </>
+          )}
+
+          {userType === "Usuário" && (
+            <>
+              <div      className={styles.notdiv}>
+                <h3 className={styles.estiloh3}>Notificações</h3>
+                <h4 className={styles.estiloh4}>Suas solicitações correspondidas</h4>
+              </div>
+            </>
+          )}
+          
+          
           {/* 
           <div className={styles.cont}>
             <div className={styles.cont1}>
