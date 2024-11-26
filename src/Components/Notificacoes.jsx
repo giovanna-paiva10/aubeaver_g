@@ -109,7 +109,7 @@ const Notificacoes = () => {
         const returnMessage = {
           uid: uuidv4(),
           title: `Sua ${originalNotification.title} foi negada`,
-          description: `A ${originalNotification.title} relacionada a ${originalNotification.type} foi negada pela ONG.`,
+          description: `A ${originalNotification.title} relacionada a " ${originalNotification.type} " foi negada pela ONG.`,
           timestamp: new Date(),
           isRead: false,
           type: `Resposta à ${originalNotification.title}`,
@@ -184,7 +184,7 @@ const Notificacoes = () => {
         const returnMessage = {
           uid: uuidv4(),
           title: `Sua ${originalNotification.title} foi foi aceita`,
-          description: `A ${originalNotification.title} relacionada a ${originalNotification.type} foi aceita pela ONG.`,
+          description: `A ${originalNotification.title} relacionada a "${originalNotification.type}" foi aceita pela ONG.`,
           timestamp: new Date(),
           isRead: false,
           type: `Resposta à ${originalNotification.title}`,
@@ -313,10 +313,26 @@ const Notificacoes = () => {
       <div className={styles.topo}>
 
       </div>
-<div      className={styles.notdiv}>
-            <h3 className={styles.estiloh3}>Notificacoes</h3>
-            <h4 className={styles.estiloh4}>Encontre a ONG que você deseja</h4>
-          </div>
+      {userType === "Ong" && (
+            <>
+              <div className={styles.notdiv}>
+                <h3 className={styles.estiloh3}>Notificações</h3>
+                <h4 className={styles.estiloh4}>Seus pedidos, doações e voluntários</h4>
+              </div>
+            </>
+          )}
+
+          {userType === "Usuário" && (
+            <>
+              <div      className={styles.notdiv}>
+                <h3 className={styles.estiloh3}>Notificações</h3>
+                <h4 className={styles.estiloh4}>Suas solicitações correspondidas</h4>
+              </div>
+            </>
+          )}
+          
+          
+          {/* 
           <div className={styles.cont}>
             <div className={styles.cont1}>
               <div className={styles.bloco}>
@@ -338,7 +354,7 @@ const Notificacoes = () => {
                          <div className={styles.itlt}>1 Macarrão</div>
                           </div>
                        
-                          {/* 
+                          
 <div className={styles.itens2}>
   1 Açúcar
   1 Farinha de trigo
@@ -354,10 +370,10 @@ const Notificacoes = () => {
   1 Leite em pó
   1 Leite líquido
 </div>
-*/}
+
                         </div>
                         </div>
-                        
+                     
                     <div className={styles.tipo}>
                           Personalizado (3 Itens)
                         </div>
@@ -369,6 +385,7 @@ const Notificacoes = () => {
               </div>
             </div>
           </div>
+        */}
     <div className={styles.notifications}>
       <h2>Notificações</h2>
       {notifications.length > 0 ? (
@@ -378,7 +395,10 @@ const Notificacoes = () => {
           <p>{notification.description}</p>
           <p>{new Date(notification.timestamp.seconds * 1000).toLocaleString()}</p>
           
-          <div>
+          
+          {userType === "Ong"  && notification.title === "Doação" ? (
+            <>
+            <div>
             <h4>Detalhes do Tipo de Ajuda</h4>
             <p><strong>Tipo de Ajuda:</strong> {notification.type}</p>
             <p><strong>Nome:</strong> {notification.nomeUser}</p>
@@ -407,10 +427,7 @@ const Notificacoes = () => {
           </div>
 
             <div className={styles.notificationFooter}>
-            {console.log('userType:', notification.title)}
           
-          {userType === "Ong"  && notification.title === "Doação" ? (
-            <>
               <button onClick={() => handleAceitarNotificacao(notification.uid, user.uid, notification.title)}>
               Aceitar Doação
               </button>
@@ -418,9 +435,42 @@ const Notificacoes = () => {
               <button onClick={() => handleNegarNotificacao(notification.uid, user.uid, notification.title)}>
                 Negar
               </button>
+
+            </div>
             </>
           ) : userType === "Ong"  && notification.title === "Requisição" ? (
             <>
+            <div>
+            <h4>Detalhes do Tipo de Ajuda</h4>
+            <p><strong>Tipo de Ajuda:</strong> {notification.type}</p>
+            <p><strong>Nome:</strong> {notification.nomeUser}</p>
+            <p><strong>Email:</strong> {notification.email}</p>
+            <p><strong>Telefone:</strong> {notification.telefone}</p>
+            <p><strong>Endereço:</strong> {notification.endereco}</p>
+
+            {notification.type === "Alimentos" && notification.alimentosDetails && (
+              <div>
+                <h4>Detalhes de Alimentos</h4>
+                <p>{formatDetails(notification.alimentosDetails, "Alimentos")}</p>
+              </div>
+            )}
+            {notification.type === "Higiene" && notification.higieneDetails && (
+              <div>
+                <h4>Detalhes de Higiene</h4>
+                <p>{formatDetails(notification.higieneDetails, "Higiene")}</p>
+              </div>
+            )}
+            {notification.type === "Trabalho Voluntário" && notification.voluntariaDetails && (
+              <div>
+                <h4>Detalhes do Trabalho Voluntário</h4>
+                <p>{formatDetails(notification.voluntariaDetails, "Trabalho Voluntário")}</p>
+              </div>
+            )}
+          </div>
+
+            <div className={styles.notificationFooter}>
+              
+          
               <button onClick={() => handleAceitarNotificacao(notification.uid, user.uid)}>
               Aceitar Solicitação
               </button>
@@ -428,18 +478,30 @@ const Notificacoes = () => {
               <button onClick={() => handleNegarNotificacao(notification.uid, user.uid)}>
                 Negar
               </button>
+
+            </div>
             </>
           ) : null}
 
           {userType === "Usuário" && (
-            <button 
+            <>
+            <div>
+            <p><strong>Detalhes
+              :</strong> {notification.type}</p>
+            </div>
+
+            <div className={styles.notificationFooter}>
+
+          <div className={styles.btsolo}>
+          <button className={styles.okc}
               onClick={() => handleRemoverNotificacao(notification.uid, user.uid)}
             >
               Compreendido
             </button>
-            
+           </div>
+            </div>
+            </>
           )}
-        </div>
         </div>
       ))
     ) : (

@@ -346,7 +346,7 @@ const EditProfile = () => {
                         </div>
                       
                         <p> </p>
-
+<div></div>
                         <div className={styles.botoestrans}>
                       <button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button>
                         

@@ -282,9 +282,9 @@ textarea:focus{
     .botoestras {
         justify-content: center;
         display: flex;
-        flex-direction: line;
+        flex-direction: row;
         flex-wrap: nowrap;
-        max-width: 50%;
+        min-width: 100%;
     }
 
     .lixeira1 {
