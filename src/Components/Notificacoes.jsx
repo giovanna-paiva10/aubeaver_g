@@ -109,7 +109,7 @@ const Notificacoes = () => {
         const returnMessage = {
           uid: uuidv4(),
           title: `Sua ${originalNotification.title} foi negada`,
-          description: `A ${originalNotification.title} relacionada a ${originalNotification.type} foi negada pela ONG.`,
+          description: `A ${originalNotification.title} relacionada a " ${originalNotification.type} " foi negada pela ONG.`,
           timestamp: new Date(),
           isRead: false,
           type: `Resposta à ${originalNotification.title}`,
@@ -184,7 +184,7 @@ const Notificacoes = () => {
         const returnMessage = {
           uid: uuidv4(),
           title: `Sua ${originalNotification.title} foi foi aceita`,
-          description: `A ${originalNotification.title} relacionada a ${originalNotification.type} foi aceita pela ONG.`,
+          description: `A ${originalNotification.title} relacionada a "${originalNotification.type}" foi aceita pela ONG.`,
           timestamp: new Date(),
           isRead: false,
           type: `Resposta à ${originalNotification.title}`,
@@ -317,6 +317,7 @@ const Notificacoes = () => {
             <h3 className={styles.estiloh3}>Notificacoes</h3>
             <h4 className={styles.estiloh4}>Encontre a ONG que você deseja</h4>
           </div>
+          {/* 
           <div className={styles.cont}>
             <div className={styles.cont1}>
               <div className={styles.bloco}>
@@ -338,7 +339,7 @@ const Notificacoes = () => {
                          <div className={styles.itlt}>1 Macarrão</div>
                           </div>
                        
-                          {/* 
+                          
 <div className={styles.itens2}>
   1 Açúcar
   1 Farinha de trigo
@@ -354,10 +355,10 @@ const Notificacoes = () => {
   1 Leite em pó
   1 Leite líquido
 </div>
-*/}
+
                         </div>
                         </div>
-                        
+                     
                     <div className={styles.tipo}>
                           Personalizado (3 Itens)
                         </div>
@@ -369,6 +370,7 @@ const Notificacoes = () => {
               </div>
             </div>
           </div>
+        */}
     <div className={styles.notifications}>
       <h2>Notificações</h2>
       {notifications.length > 0 ? (
@@ -432,12 +434,13 @@ const Notificacoes = () => {
           ) : null}
 
           {userType === "Usuário" && (
-            <button 
+          <div className={styles.btsolo}>
+          <button className={styles.okc}
               onClick={() => handleRemoverNotificacao(notification.uid, user.uid)}
             >
               Compreendido
             </button>
-            
+           </div>
           )}
         </div>
         </div>

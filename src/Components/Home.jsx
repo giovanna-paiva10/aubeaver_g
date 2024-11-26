@@ -136,7 +136,7 @@ const Home = () => {
             </div>
 
         
-            
+            <div id="ps"></div>
             <div className={styles.titulo}> 
             <h3 className={styles.estiloh3}>SEJA UM PARCEIRO</h3>
             <h4 className={styles.estiloh4}>Conheça nossos parceiros e saiba mais sobre quem apoia nossa causa</h4>
