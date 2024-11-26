@@ -85,8 +85,8 @@ const ProfileSearch = () => {
   };
 
   return (
-    <body>
-    <div id={styles.borda}>
+    <body id={styles.borda}>
+    
       <div className={styles.container}>
         <div className={styles.linha}>
           <div>
@@ -162,7 +162,7 @@ const ProfileSearch = () => {
           </div>
           </div>
       </div>
-    </div>
+  
     </body>
   );
 };

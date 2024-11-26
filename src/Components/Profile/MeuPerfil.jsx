@@ -174,32 +174,41 @@ const MeuPerfil = () => {
                                         <h4>{userDetails.organizacao}</h4>
                                             <br className={styles.espaco}/>
                                         <br />
-                                        <div>
+                                    
+                                      <div className={styles.comentsCaixa}>
                                             <h2 className={styles.estiloh2}> Palavras de apoio</h2>
-                                            <br />
-                                            <div>
-                                                
+                                          
+                             
+                                            
                                                 {comentarios.length > 0 ? (
                                                 comentarios.map((comentario) => (
-                                                    <div key={comentario.id}>
+                                                   
+                                                    <div 
+                                                    className={styles.comentarios} key={comentario.id}>
                                                     <h3 className={styles.estilouser }>{comentario.userNome} ({comentario.tipoDeUsuario})</h3>
                                                     <h4 className={styles.estiloh4}>{comentario.texto}</h4>
-                                                    <small>{new Date(comentario.timestamp.seconds * 1000).toLocaleString()}</small>
+                                                    <div><small>{new Date(comentario.timestamp.seconds * 1000).toLocaleString()}</small>
                                                     <button
                                                     type="button"
                                                         onClick={() => deleteComment(comentario.id)}
                                                         className={styles.deleteButton}
                                                     >
                                                         Exluir
-                                                    </button>
+                                                    </button></div>
+                                                    
+
                                                     <p></p>
+                                                    
                                                     </div>
+                                                    
                                                 ))
                                                 ) : (
                                                 <p>Você não recebeu comentários por enquanto</p>
                                                 )}
-                                            </div>
-                                        </div>
+                                            
+                                        
+                            </div> 
+                                        
                                        </div> 
                                 </div>
 

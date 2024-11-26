@@ -33,10 +33,11 @@ const App = () => {
         <Route path='/profile/*' element={<Profile/>}/>
         <Route path='/search/*' element={<Search/>}/>
       </Routes>
-     
+  
+      <Footer />
     </BrowserRouter>
 
-    <Footer />
+  
 
   </> 
   )

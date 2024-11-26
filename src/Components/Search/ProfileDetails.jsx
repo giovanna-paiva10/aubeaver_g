@@ -771,7 +771,10 @@ const ProfileDetails = () => {
                     </div>     
                             </div>
                           ))}
+
+<div className={styles.caixaBtn}> 
                         {formData.tipoAjuda === "Alimentos" && (
+                  
                           <button
                             className={styles.btn3}
                             type="button"
@@ -779,7 +782,10 @@ const ProfileDetails = () => {
                           >
                             Adicionar mais alimentos
                           </button>
+
+                         
                         )}
+                        </div>
                              
 
                         {formData.tipoAjuda === "Higiene" && (
@@ -831,6 +837,7 @@ const ProfileDetails = () => {
                                   </div>
                                 </div>
                               ))}
+                        <div className={styles.caixaBotoes}>
                             <button
                               className={styles.btn3}
                               type="button"
@@ -838,6 +845,7 @@ const ProfileDetails = () => {
                             >
                               Adicionar mais produtos de higiene
                             </button>
+                        </div>
                           </>
                         )}
 

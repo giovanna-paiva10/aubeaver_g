@@ -10,9 +10,10 @@ body {
         font-style: normal;
         background-color: #ffffff;
         text-align: justify;
-        height: 100vw;
+        height: 100vh;
+        min-height: 100%;
 }
 
 #root {
-  height: 100vh;
+  height: 150vh;
 }

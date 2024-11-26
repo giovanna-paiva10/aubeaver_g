@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     padding: 5%;
+    height: min-content;
 }
 
 .container{
@@ -155,13 +156,14 @@
     font-size: max(10px, 2vh);
   justify-content: center;
     align-items: center;
-    margin-block: 20px;
+    margin-top: 16vh;
     gap: 1rem;
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     gap: 10%;
     white-space: nowrap;
+    
 }
 
 .pag{
@@ -180,6 +182,7 @@
     align-items: center;
     justify-content: space-between;
     margin-block: 2%;
+    margin-top: 10vh;
 }
 
 .linha2{
@@ -229,6 +232,7 @@
         align-items: start;
         gap: 1rem;
         width: 100%;
+       
     }
     .linha2{
         width: 100%;
@@ -250,4 +254,3 @@
     }
 
 }
-

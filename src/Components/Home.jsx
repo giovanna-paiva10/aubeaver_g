@@ -159,6 +159,8 @@ const Home = () => {
                     <div className={styles.forms}>
                         <input className={styles.inputt} placeholder="Dgite seu nome" type="text" />
                         <input className={styles.inputt} placeholder="Dgite seu E-mail" type="text" />
+                       <br></br>
+                        <button className={styles.btst}>Solicitar</button>
                     </div>
 
                     <div className={styles.contentText}>
