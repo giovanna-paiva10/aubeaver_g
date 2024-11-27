@@ -76,9 +76,11 @@ section{
   background-color: #FFFFFF;
   width: 30vw;
   min-width: 360px;
+  height: 82vh;
   padding: 6px;
   border-radius: 16px;
   gap: 8px;
+  
   
 }
 
@@ -96,6 +98,7 @@ section{
 .caixa{
   display: flex;
   margin: auto;
+  
 }
 
 .content2 {
