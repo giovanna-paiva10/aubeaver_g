@@ -22,6 +22,7 @@
   color: #85a188;
   gap: 1rem;
   align-items: center;
+  font-size: max(24px, 2vw);
 }
 
 .tag {
@@ -237,6 +238,9 @@
   position: relative;
   background-color: #8ac18e;
   overflow: hidden;
+  padding: 0%;
+  margin: 0%;
+  left: 0%;
 }
 
 .content3::before {
@@ -261,6 +265,21 @@
   height: 40vh;
 }
 
+.formulario{
+  display: flex;
+  margin-block: 40px;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.textarea{
+  display: flex;
+  width: 100%;
+}
+
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -278,7 +297,7 @@
   display: flex;
   flex-direction: row;
   width: 68%;
-  height: 68%;
+  height: 50%;
   min-height: 560px;
   border-radius: 20px;
   z-index: 1001;
@@ -441,6 +460,24 @@
   width: 88%;
   margin-block: 10px;
   font-size: max(12px, 1vh);
+}
+
+.btn4 {
+  padding-block: 0;
+  height: 40px;
+  background-color:#517655;
+  width: 80px;
+  margin-block: 10px;
+  font-size: max(12px, 1vh);
+}
+
+.btn5{
+  padding-block: 0;
+  height: 30px;
+  background-color:#517655;
+  width: auto;
+  margin-block: 10px;
+  font-size: max(12px, 1.5vh);
 }
 
 .caixaBtn {

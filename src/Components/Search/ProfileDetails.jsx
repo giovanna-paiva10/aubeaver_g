@@ -1062,6 +1062,7 @@ const ProfileDetails = () => {
                   <br />
                   <div>
                     <h2 className={styles.estiloh2}>Palavras de apoio</h2>
+                    <p></p>
                     <div>
                       {comentarios.length > 0 ? (
                         comentarios.map((comentario) => (
@@ -1069,15 +1070,15 @@ const ProfileDetails = () => {
                             <h3 className={styles.estilouser }>{comentario.userNome} ({comentario.tipoDeUsuario})</h3>
                             <p>{comentario.texto}</p>
                             <small>{new Date(comentario.timestamp.seconds * 1000).toLocaleString()}</small>
-
                             {comentario.userId === auth.currentUser?.uid && (
-                              <button onClick={() => handleDeleteComentario(comentario.id)}>
+                              <button className={styles.btn5} onClick={() => handleDeleteComentario(comentario.id)}>
                                 Excluir Comentário
                               </button>
                             )}
                             <p></p>
                           </div>
                         ))
+                        
                       ) : (usuarioPodeComentar ? (
                           <p>Apoie a Ong, a incentive com um belo comentário!</p>
                         ) : (
@@ -1085,14 +1086,17 @@ const ProfileDetails = () => {
                         )
                       )}
                       {usuarioPodeComentar && (
-                        <form onSubmit={handleComentarioSubmit}>
+                        <form 
+                        className={styles.formulario}
+                        onSubmit={handleComentarioSubmit}>
                           <textarea
+                          className={styles.textarea}
                             value={novoComentario}
                             onChange={handleComentarioChange}
                             placeholder="Escreva um comentário..."
                           />
                           {error && <p>{error}</p>}
-                          <button type="submit">Enviar</button>
+                          <button className={styles.btn4} type="submit">Enviar</button>
                         </form>
                       )}
                     </div>
