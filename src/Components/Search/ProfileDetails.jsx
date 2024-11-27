@@ -23,6 +23,7 @@ import {
   setDoc,
   addDoc,
   getDoc,
+  getDocs,
   updateDoc,
   arrayUnion,
 } from "firebase/firestore";
@@ -237,6 +238,31 @@ const ProfileDetails = () => {
               }, 0);
             }
           }
+          
+          try {
+            const ongId = id; // ID da ONG (assumindo que é recebido como prop ou estado)
+            const notificationsRef = doc(firestore, "Notificações", ongId);
+            const notificationsSnap = await getDoc(notificationsRef);
+    
+            if (notificationsSnap.exists()) {
+                const notifications = notificationsSnap.data().notifications || [];
+                const hasPendingNotification = notifications.some(
+                    (notif) =>
+                        notif.senderUid === user.uid &&
+                        notif.type === formData.tipoAjuda &&
+                        notif.status === "pendente"
+                );
+    
+                if (hasPendingNotification) {
+                    alert(
+                        "Você já enviou uma solicitação para esta ONG. Aguarde a resposta."
+                    );
+                    return;
+                }
+            }
+        } catch (error) {
+            console.error("Erro ao verificar notificações existentes:", error);
+        }
                    
         const userUid = user.uid;
         const notificationData = {
@@ -253,6 +279,7 @@ const ProfileDetails = () => {
           higieneDetails: formData.higieneDetails,
           voluntariaDetails: formData.voluntariaDetails,
           senderUid: userUid,
+          status: "pendente",
         };
       
         try {
@@ -452,6 +479,19 @@ const ProfileDetails = () => {
   
     try {
       const user = auth.currentUser;
+
+      const comentariosQuery = query(
+        collection(firestore, "Comentários"),
+        where("userId", "==", user.uid),
+        where("ongId", "==", id) // 'id' refere-se ao ID da ONG sendo visualizada
+      );
+
+      const comentariosSnapshot = await getDocs(comentariosQuery);
+  
+      if (!comentariosSnapshot.empty) {
+        setError("Você apenas pode comentar uma vez por ONG. Apague o seu comentário anterior para poder comentar novamente.");
+        return;
+      }
   
       const userDocRef = doc(firestore, "Usuários", user.uid);
       const userDocSnap = await getDoc(userDocRef);
