@@ -144,8 +144,12 @@ justify-content: center;
 
 input {
     border-color: #755071;
+    width: 100%;
+    margin: 0%;
+    border-radius: 4px;
+    height: 52px;
+    padding-inline: 4%;
     border-radius: 12px;
-    width: 25vw;
     min-width: 15%;
 }
 input:focus { 
@@ -177,6 +181,8 @@ textarea:focus{
     margin-right: -6rem;
     cursor: pointer;
    }
+
+  
 
    .comps2 {
    display: flex;

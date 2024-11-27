@@ -21,6 +21,7 @@ import row4 from '../assets/row4.webp';
 import comida from '../assets/alimentos.png';
 import maodeobra from '../assets/maodeobra.png';
 import higiene from '../assets/higiene.png';
+import imgab from '../assets/imgab.png'
 
 // Importando Slider do react-slick
 import Slider from 'react-slick';
@@ -141,7 +142,7 @@ const Home = () => {
                     O site foi desenvolvido pela GAK, uma empresa que utiliza a tecnologia para promover o bem-estar social e buscar um impacto positivo nas comunidades. Nossa plataforma foi projetada para tornar o processo de doação mais simples, seguro e eficaz, garantindo que cada contribuição chegue de forma direta às causas que realmente precisam de apoio. Com nossa interface intuitiva, o Aubeaver visa aumentar a confiança nas doações e fortalecer a solidariedade social.
                     </div>
                     <div className={styles.contentImg}>
-                        <img className={styles.imggg} src={fotoo} alt="foto" />
+                        <img className={styles.imggg} src={imgab} alt="foto" />
                     </div>
                 </div>
             </div>
