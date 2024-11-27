@@ -1,7 +1,7 @@
 /* Estilos para o header */
 header {
   background-color: #7ca377;
-  z-index: 1;
+  z-index: 2;
   color: #ffffff;
   height: 10vh;
   padding: 2vh;
