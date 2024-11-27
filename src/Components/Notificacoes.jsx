@@ -310,9 +310,9 @@ const Notificacoes = () => {
 
   return (
     <body id={styles.borda}>
-      <div className={styles.topo}>
-
-      </div>
+      
+<div className={styles.topo}></div>
+      
       {userType === "Ong" && (
             <>
               <div className={styles.notdiv}>
