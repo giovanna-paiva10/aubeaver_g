@@ -64,14 +64,13 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10rem;
+  gap: 20vw;
 }
 
 .content1{
   display: flex;
   background-color: #FFFFFF;
-  width: 50%;
-  height: 78vh;
+  width: 30vw;
   padding: 6px;
   border-radius: 16px;
   gap: 8px;
@@ -80,7 +79,7 @@ section{
 
 .caixa{
   display: flex;
-  width: 8%;
+  margin: auto;
 }
 
 .content2 {
@@ -112,7 +111,7 @@ section{
 
 .imgg {
   max-width: 100%;
-  width: 20vw;
+  width: 25vw;
   min-width: 150px; 
 }
 
