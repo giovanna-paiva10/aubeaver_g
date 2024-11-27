@@ -30,7 +30,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
-    const data = [cc, cc, cc]; // Adicione mais imagens se desejar
+    const data = [row1, row2, row3, row4]; // Adicione mais imagens se desejar
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
 
@@ -54,9 +54,22 @@ const Home = () => {
         autoplay: true,
         autoplaySpeed: 3000, 
         arrows: false,
-        
-        
-    };   
+        responsive: [
+            {
+                breakpoint: 768, // Para tablets
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+            {
+                breakpoint: 480, // Para celulares
+                settings: {
+                    slidesToShow: 1,
+                    dots: true, // Ative os pontos para melhorar a navegação em telas pequenas
+                },
+            },
+        ],
+    };  
 
     return (
         <div id={styles.borda}>

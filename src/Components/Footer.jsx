@@ -14,7 +14,8 @@ const Footer = () => {
             <div className={styles.container}>
                 <nav className={styles.navSections}>
                     <div className={styles.section}>
-                    
+                    <div className={styles.os2}>
+                            <div className={styles.o1}>
                         <h4 className={styles.fttitulo}>AUBEAVER</h4>
                         <ul className={styles.ulft}>
                             <li><a href="../#qs">Sobre a nós</a></li>
@@ -25,10 +26,15 @@ const Footer = () => {
                             <div className={styles.espaco2}></div>
                             <li><a href={termosecondicoes} download="TermosecondicoesAubeaver.docx">Termos de uso</a></li>
                         </ul>
-                    </div>
+                        </div>
+                    
+                <div className={styles.al}>
                     <div className={styles.btn_line}></div>
-                    <div className={styles.section}>
-                        <div className={styles.espt}>
+                    </div>
+                 <div></div>
+                      
+                            <div className={styles.o2}>
+                            
                     <h4 className={styles.fttitulo}>CAUSAS</h4>
                         <ul className={styles.ulft}>
                             <li><a href="/search?tag=Alimentos">Combate à fome</a></li>
@@ -40,6 +46,7 @@ const Footer = () => {
                             <div className={styles.espaco2}></div>
                         </ul>
    </div>
+                    </div>
                     </div>
                 </nav>
 
