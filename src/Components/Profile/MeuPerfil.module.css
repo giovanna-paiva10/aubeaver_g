@@ -8,12 +8,19 @@
 .mainContainer {
   display: flex;
   width: 100%;
-  gap: 5rem;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 3%;
+}
+
+.formu{
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .estilooh2 {
@@ -279,7 +286,7 @@
 .content3 {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 96vw;
   height: 76vh;
   justify-content: space-around;
   align-items: center;
@@ -288,6 +295,7 @@
   background-color: #8ac18e;
   overflow: hidden;
   padding-block: 20px;
+  
 }
 
 .content3::before {

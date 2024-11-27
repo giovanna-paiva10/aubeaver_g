@@ -113,7 +113,7 @@ const MeuPerfil = () => {
       <body id={styles.borda}>
         
      <div className={styles.mainContainer}> 
-        <form>
+        <form className={styles.formu}>
             {userDetails ? (
                 <>
    
