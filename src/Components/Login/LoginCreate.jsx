@@ -129,7 +129,7 @@ const LoginCreate = () => {
                                     setPassword(value);
                                     validatePassword(value);
                                 }}/>
-                                {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
+                                {passwordError && <p className={styles.esp3} style={{ color: 'red' }}>{passwordError}</p>} <p></p>
                                 
                                 <label className={styles.checkbox}>
                                     <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={({ target }) => setTermos(target.checked)} />

@@ -1,7 +1,10 @@
 body {
   height: 100vh;
 }
-  
+  .esp3 {
+    display: flex;
+    margin-block: 6px;
+  }
   #borda{
     background: linear-gradient(to right, #517655, #B2CEB5);
     display: flex;
@@ -121,7 +124,7 @@ section{
     margin-top: 10%;
   }
   .content1{
-    width: 100%;
+    width: 85%;
   }
   .forms{
     width: 100%;

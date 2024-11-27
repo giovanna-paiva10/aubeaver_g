@@ -1,5 +1,5 @@
 .topo {
-  margin-top: 7%;
+  margin-top: 8vh;
 
 }
 .notdiv {
@@ -42,7 +42,7 @@
   .notificationItem h3 usuario {
     color: #dd2222;
     font-size: 20px;
-    margin: 0;
+   
   }
   
   .notificationItem p {
@@ -104,7 +104,7 @@
     width: 100%;
     height: fit-content;
     align-items: left;
-    justify-content: center;
+   
     display: flex;
     flex-direction: column;
     gap: 3rem;
