@@ -132,19 +132,21 @@ const MeuPerfil = () => {
 
                             <div className={styles.botoeswrap}>
                                     <div className={styles.contentText}>
+
+                                <div className={styles.qualquer}>
                                         <h1 className={styles.estilooh2}>{userDetails.nome}</h1>
                                         <br />
                                         {userDetails.telefone && (
                                             <>
-                                                <h1>Telefone</h1>
-                                                <h2>{userDetails.telefone}</h2>
+                                                <h2>Telefone</h2>
+                                                <h3>{userDetails.telefone}</h3>
                                             </>
                                         )}
-                                        <br/>
+                                </div>
+                                       
                                         <span className={styles.tag}>{userDetails.Tipo_de_identificador}</span>
-                                        <br />
+                                      
                                     </div>
-
                                     <div className={styles.btnedit}>
                                         <button type="button" onClick={handleEditProfile} className={styles.botao}> Editar perfil</button>
 
