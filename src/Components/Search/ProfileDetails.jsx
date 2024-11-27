@@ -483,7 +483,7 @@ const ProfileDetails = () => {
       const comentariosQuery = query(
         collection(firestore, "Comentários"),
         where("userId", "==", user.uid),
-        where("ongId", "==", id) // 'id' refere-se ao ID da ONG sendo visualizada
+        where("ongId", "==", id)
       );
 
       const comentariosSnapshot = await getDocs(comentariosQuery);

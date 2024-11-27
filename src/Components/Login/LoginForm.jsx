@@ -10,6 +10,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [capVal, setCapVal] = useState(null);
   const navigate = useNavigate();
 
@@ -25,12 +26,22 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!capVal) {
+      setError("Por favor, complete o reCAPTCHA.");
+      return;
+    }
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Login feito com sucesso!");
       navigate("/profile/meuperfil");
     } catch (err) {
       console.log(err);
+      if (err.code === "auth/user-not-found" || err.code === "auth/wrong-password" || err.code === "auth/invalid-credential") {
+        setError("Email ou senha incorretos.");
+      } else {
+        setError("Ocorreu um erro. Tente novamente.");
+      }
     }
   };
 
@@ -43,33 +54,33 @@ const LoginForm = () => {
               <h2>Entrar</h2>
               <form className={styles.forms} onSubmit={handleSubmit}>
                 <Input
-                className={styles.input}
+                  className={styles.input}
                   label="Email"
                   type="email"
                   id="email"
                   value={email}
                   setValue={setEmail}
                 />
-                
+
                 <Input
-                className={styles.input}
+                  className={styles.input}
                   label="Senha"
                   type="password"
                   id="password"
                   value={password}
                   setValue={setPassword}
                 />
-                
+
                 <h5 className={styles.estiloh5}>
                   <Link to="/login/perdeu">Esqueci a senha</Link>
                 </h5>
-            <div className={styles.caixa}>
-                <ReCAPTCHA
-                  sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
-                  onChange={(val) => setCapVal(val)}
-                />
-            </div>
-                
+                <div className={styles.caixa}>
+                  <ReCAPTCHA
+                    sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
+                    onChange={(val) => setCapVal(val)}
+                  />
+                </div>
+                {error && <p className={styles.error}>{error}</p>}
                 <center>
                   <button className={styles.btn} type="submit" disabled={!capVal}>
                     Entrar

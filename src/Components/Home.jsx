@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import garf from '../assets/garfield.png';
@@ -30,6 +30,17 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
     const data = [row1, row2, row3, row4]; // Adicione mais imagens se desejar
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+
+    const handleSubmit = () => {
+        if (!nome || !email) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+        }
+        
+        alert("Dados enviados, futuramente retornaremos em sua caixa de e-mails");
+    };
 
     // Configurações do slider
     const settings = {
@@ -157,10 +168,33 @@ const Home = () => {
                 <p></p>
                 <div className={styles.content4}>
                     <div className={styles.forms}>
-                        <input className={styles.inputt} placeholder="Dgite seu nome" type="text" />
-                        <input className={styles.inputt} placeholder="Dgite seu E-mail" type="text" />
-                       <br></br>
-                        <button className={styles.btst}>Solicitar</button>
+                        <form>
+                            <input 
+                                className={styles.inputt} 
+                                placeholder="Digite seu nome" 
+                                type="text" 
+                                value={nome} 
+                                onChange={(e) => setNome(e.target.value)} 
+                            /><br />
+                            
+                            <input 
+                                className={styles.inputt} 
+                                placeholder="Digite seu E-mail" 
+                                type="text" 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)} 
+                            />
+                            
+                            <p></p>
+                            
+                            <button 
+                                type="button" 
+                                className={styles.btst} 
+                                onClick={handleSubmit}
+                            >
+                            Enviar
+                            </button>
+                        </form>
                     </div>
 
                     <div className={styles.contentText}>
