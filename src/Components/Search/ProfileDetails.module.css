@@ -594,11 +594,12 @@
     height: max-content;
     flex-direction: column;
     flex-wrap: nowrap;
+    gap: 20px;
   }
   
   .imggg {
     border-radius: 32px;
     padding: 24px;
-    width: 10px;
+    width: 70vw;
   }
 }
