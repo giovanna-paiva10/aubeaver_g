@@ -173,7 +173,7 @@ const MeuPerfil = () => {
 
                             <div className={styles.content2}>
                                 <div className={styles.contentText2}>
-                                    <h2 className={styles.estiloh2}>História</h2><br />
+                                    <h2 className={styles.estilooh2}>História</h2><br />
                                     <h4>{userDetails.minhaHistoria}</h4>
                                 </div> 
                             </div>
