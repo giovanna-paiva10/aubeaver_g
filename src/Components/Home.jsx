@@ -30,7 +30,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
-    const data = [row1, row2, row3, row4]; // Adicione mais imagens se desejar
+    const data = [cc, cc, cc]; // Adicione mais imagens se desejar
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
 
@@ -169,14 +169,14 @@ const Home = () => {
                 <p></p>
                 <div className={styles.content4}>
                     <div className={styles.forms}>
-                        <form>
+                        <form className={styles.formulario}>
                             <input 
                                 className={styles.inputt} 
                                 placeholder="Digite seu nome" 
                                 type="text" 
                                 value={nome} 
                                 onChange={(e) => setNome(e.target.value)} 
-                            /><br />
+                            />
                             
                             <input 
                                 className={styles.inputt} 

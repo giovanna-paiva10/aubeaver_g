@@ -54,7 +54,7 @@ const Footer = () => {
           
                 <section className={styles.secredes}>   
                    <div> <a href='https://www.tiktok.com/@aubeaverog?_t=8rjNHa8FOEi&_r=1'><img src={iconTik} alt="Icon Tiktok" className={styles.redes} /> </a></div> 
-                   <div> <a href='#facebook'> <img src={iconFace2} alt="Icon Facebook" className={styles.redes} /></a> </div> 
+                   <div> <a href='https://www.facebook.com/groups/aubeaver'> <img src={iconFace2} alt="Icon Facebook" className={styles.redes} /></a> </div> 
                    <div> <a href='https://www.instagram.com/aubeaver?igsh=cnEyNDVwNm90Y3J4'><img src={iconInsta} alt="Icon Instagram" className={styles.redes} /></a> </div> 
                   
                 </section>

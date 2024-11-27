@@ -1127,7 +1127,7 @@ const ProfileDetails = () => {
                             <div className={styles.icon}>
                               <img src={website} alt="web" />
                             </div>
-                            <div className={styles.listaa}>
+                            <div className={styles.lista}>
                               <h4 className={styles.titulo}>WEBSITE</h4>
                               {profileData.website}
                             </div>
@@ -1139,7 +1139,7 @@ const ProfileDetails = () => {
                             <div className={styles.icon}>
                               <img src={facebook} alt="face" />
                             </div>
-                            <div className={styles.listaa}>
+                            <div className={styles.lista}>
                               <h4 className={styles.titulo}>FACEBOOK</h4>
                               {profileData.facebook}
                             </div>
@@ -1151,7 +1151,7 @@ const ProfileDetails = () => {
                             <div className={styles.icon}>
                               <img src={instagram} alt="insta" />
                             </div>
-                            <div className={styles.listaa}>
+                            <div className={styles.lista}>
                               <h4 className={styles.titulo}>INSTAGRAM</h4>
                               {profileData.instagram}
                             </div>

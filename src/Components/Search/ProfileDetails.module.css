@@ -7,7 +7,7 @@
 
 .mainContainer {
   display: flex;
-  width: 100%;
+  width: 90%;
   gap: 6rem;
   flex-direction: column;
   justify-content: center;
@@ -66,7 +66,7 @@
   color: #797979;
   width: 100%;
   height: auto;
-  margin: 4% auto 1%;
+  margin: 4% auto auto auto;
   justify-content: center;
   align-items: center;
 }
@@ -83,7 +83,7 @@
 .contentText {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   height: 28vh;
   color: #797979;
   padding: 8px 8px 8px 32px;
@@ -209,6 +209,12 @@
   align-items: center;
 }
 
+.lista{
+    display: flex;
+    flex-direction: column;
+    font-size: max(10px, 1vw);
+}
+
 .titulo {
   color: #517655;
   font-weight: bolder;
@@ -254,6 +260,7 @@
   border-radius: 32px;
   height: 40vh;
 }
+
 .modalOverlay {
   position: fixed;
   top: 0;
