@@ -35,25 +35,26 @@ const LoginLostPassword = () => {
     
     <div className={styles.content}>
 
-        <div className={styles.content1}>
+        <div className={styles.contentLost}>
         <div className={styles.content2}>
-        <Link to='/login'>Retornar</Link>
+        <div className={styles.return}><Link to='/login'>Retornar</Link></div>
 
         <p></p>
         
         
 
         <h2>Recuperar senha</h2>
- <p></p>
- <p></p>
+        <br />
             <form className={styles.forms} onSubmit={(e)=>handleSubmit(e)}>
 
-            <a><Input label="Email" type="email" id="email" value={email} setValue={setEmail}/></a>
-            
+            <Input label="Email" type="email" id="email" value={email} setValue={setEmail}/>
+            <br />
+           <div className={styles.caixa}> 
             <ReCAPTCHA
             sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
             onChange={(val) => setcapVal(val)}
             />
+        </div>
             
                <center><button className={styles.btn} type='submit'>Enviar</button></center>
             </form>

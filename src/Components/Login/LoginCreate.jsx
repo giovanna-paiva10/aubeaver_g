@@ -91,10 +91,10 @@ const LoginCreate = () => {
                     <div className={styles.content1}>
                         <div className={styles.content2}>
 
-                            <Link to='/login'>Retornar</Link>
-                            
+                           <div className={styles.return}><Link to='/login'>Retornar</Link></div> 
+                            <br />
                             <h2>Cadastre-se</h2>
-                            
+                            <br />
                             <form className={styles.forms} onSubmit={handleSubmit}>  
                                 <select className={styles.select} label="Entrar como" onChange={handleChange}>
                                     <option value="" disabled selected>Entrar como</option>
@@ -128,18 +128,19 @@ const LoginCreate = () => {
                                 <Input label="Senha" type="password" id="password" value={password} setValue={(value) => {
                                     setPassword(value);
                                     validatePassword(value);
-                                }}/><br/>
+                                }}/>
                                 {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
                                 
                                 <label className={styles.checkbox}>
                                     <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={({ target }) => setTermos(target.checked)} />
-                                    Li e aceito os <a href={termosecondicoes} download="TermosecondicoesAubeaver.docx" style={{color: "blue"}}>termos e condições</a>.
+                                    Li e aceito os <a href={termosecondicoes} download="TermosecondicoesAubeaver.docx" style={{color: "blue"}}> termos e condições</a>.
                                 </label>
-                                
+                           <div className={styles.caixa}>
                                 <ReCAPTCHA
                                     sitekey="6LcfIUcqAAAAAK6Uu-si4WIHLwCHUfnN658yGnNS"
                                     onChange={(val) => setCapVal(val)}
                                 />
+                            </div>     
                                
                                 <center><button className={styles.btn} type="submit" disabled={desabilitado}>Cadastre-se</button></center>
                             </form>
