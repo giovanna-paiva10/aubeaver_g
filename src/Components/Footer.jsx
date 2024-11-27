@@ -5,6 +5,7 @@ import iconTik from '../assets/iconTik.svg';
 import iconInsta from '../assets/iconInsta.svg';
 import iconFace2 from '../assets/iconFace2.svg';
 import iconeeditar from '../assets/iconeeditar.png';
+import termosecondicoes from '../assets/TermoseCondições.pdf'
 
 const Footer = () => {
     return (
@@ -16,13 +17,13 @@ const Footer = () => {
                     
                         <h4 className={styles.fttitulo}>AUBEAVER</h4>
                         <ul className={styles.ulft}>
-                            <li><a href="/">Sobre a Ong</a></li>
+                            <li><a href="../#qs">Sobre a nós</a></li>
                             <div className={styles.espaco2}></div>
                             <li><a href="#">Importância da doação</a></li>
                             <div className={styles.espaco2}></div>
-                            <li><a href="#">Parceiros</a></li>
+                            <li><a href="../#ps">Parceiros</a></li>
                             <div className={styles.espaco2}></div>
-                            <li><a href="#">Termos de uso</a></li>
+                            <li><a href={termosecondicoes} download="TermosecondicoesAubeaver.docx">Termos de uso</a></li>
                         </ul>
                     </div>
                     <div className={styles.btn_line}></div>
@@ -30,12 +31,12 @@ const Footer = () => {
                         <div className={styles.espt}>
                     <h4 className={styles.fttitulo}>CAUSAS</h4>
                         <ul className={styles.ulft}>
-                            <li><a href="#">Combate à fome</a></li>
+                            <li><a href="/search?tag=Alimentos">Combate à fome</a></li>
                             <div className={styles.espaco2}></div>
-                            <li><a href="#">Auxílio de itens de higiene</a></li>
+                            <li><a href="/search?tag=Higiene">Auxílio de itens de higiene</a></li>
                             <div className={styles.espaco2}></div>
                          
-                            <li><a href="#">Auxílio de mão de obra</a></li>
+                            <li><a href="/search?tag=Trabalho%20Voluntário">Auxílio de mão de obra</a></li>
                             <div className={styles.espaco2}></div>
                         </ul>
    </div>

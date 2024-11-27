@@ -7,6 +7,7 @@ import foto from '../../assets/rosto.svg';
 import { firestore, auth } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { setDoc, doc } from 'firebase/firestore';
+import termosecondicoes from '../../assets/TermoseCondições.pdf'
 import ReCAPTCHA from 'react-google-recaptcha';
 
 const LoginCreate = () => {
@@ -132,7 +133,7 @@ const LoginCreate = () => {
                                 
                                 <label className={styles.checkbox}>
                                     <input className={styles.inputCheckbox} type="checkbox" value={termos} checked={termos} onChange={({ target }) => setTermos(target.checked)} />
-                                    Li e aceito os termos.
+                                    Li e aceito os <a href={termosecondicoes} download="TermosecondicoesAubeaver.docx" style={{color: "blue"}}>termos e condições</a>.
                                 </label>
                                 
                                 <ReCAPTCHA
