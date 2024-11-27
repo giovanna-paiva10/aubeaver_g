@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import garf from '../assets/garfield.png';
@@ -21,6 +21,7 @@ import row4 from '../assets/row4.webp';
 import comida from '../assets/alimentos.png';
 import maodeobra from '../assets/maodeobra.png';
 import higiene from '../assets/higiene.png';
+import imgab from '../assets/imgab.png'
 
 // Importando Slider do react-slick
 import Slider from 'react-slick';
@@ -30,6 +31,17 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
     const data = [row1, row2, row3, row4]; // Adicione mais imagens se desejar
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+
+    const handleSubmit = () => {
+        if (!nome || !email) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+        }
+        
+        alert("Dados enviados, futuramente retornaremos em sua caixa de e-mails");
+    };
 
     // Configurações do slider
     const settings = {
@@ -42,9 +54,22 @@ const Home = () => {
         autoplay: true,
         autoplaySpeed: 3000, 
         arrows: false,
-        
-        
-    };   
+        responsive: [
+            {
+                breakpoint: 768, // Para tablets
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+            {
+                breakpoint: 480, // Para celulares
+                settings: {
+                    slidesToShow: 1,
+                    dots: true, // Ative os pontos para melhorar a navegação em telas pequenas
+                },
+            },
+        ],
+    };  
 
     return (
         <div id={styles.borda}>
@@ -130,7 +155,7 @@ const Home = () => {
                     O site foi desenvolvido pela GAK, uma empresa que utiliza a tecnologia para promover o bem-estar social e buscar um impacto positivo nas comunidades. Nossa plataforma foi projetada para tornar o processo de doação mais simples, seguro e eficaz, garantindo que cada contribuição chegue de forma direta às causas que realmente precisam de apoio. Com nossa interface intuitiva, o Aubeaver visa aumentar a confiança nas doações e fortalecer a solidariedade social.
                     </div>
                     <div className={styles.contentImg}>
-                        <img className={styles.imggg} src={fotoo} alt="foto" />
+                        <img className={styles.imggg} src={imgab} alt="foto" />
                     </div>
                 </div>
             </div>
@@ -157,10 +182,33 @@ const Home = () => {
                 <p></p>
                 <div className={styles.content4}>
                     <div className={styles.forms}>
-                        <input className={styles.inputt} placeholder="Dgite seu nome" type="text" />
-                        <input className={styles.inputt} placeholder="Dgite seu E-mail" type="text" />
-                       <br></br>
-                        <button className={styles.btst}>Solicitar</button>
+                        <form className={styles.formulario}>
+                            <input 
+                                className={styles.inputt} 
+                                placeholder="Digite seu nome" 
+                                type="text" 
+                                value={nome} 
+                                onChange={(e) => setNome(e.target.value)} 
+                            />
+                            
+                            <input 
+                                className={styles.inputt} 
+                                placeholder="Digite seu E-mail" 
+                                type="text" 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)} 
+                            />
+                            
+                            <p></p>
+                            
+                            <button 
+                                type="button" 
+                                className={styles.btst} 
+                                onClick={handleSubmit}
+                            >
+                            Enviar
+                            </button>
+                        </form>
                     </div>
 
                     <div className={styles.contentText}>

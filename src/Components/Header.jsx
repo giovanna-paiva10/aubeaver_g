@@ -47,9 +47,9 @@ const Header = () => {
         </div>
         
         <ul className={styles.navlinksLarge}>
-          <li><a href="./#qs">Quem somos</a></li>
-          <a href="./#dc">Doação</a>
-          <li><a href="./#ps">Parceiros</a></li>
+          <li><a href="../#qs">Quem somos</a></li>
+          <a href="../#dc">Doação</a>
+          <li><a href="../#ps">Parceiros</a></li>
         </ul>
 
         <div className={`${styles.hamburguer} ${isMenuOpen ? styles.open : ''}`} onClick={toggleMenu}>

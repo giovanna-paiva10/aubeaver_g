@@ -14,21 +14,27 @@ const Footer = () => {
             <div className={styles.container}>
                 <nav className={styles.navSections}>
                     <div className={styles.section}>
-                    
+                    <div className={styles.os2}>
+                            <div className={styles.o1}>
                         <h4 className={styles.fttitulo}>AUBEAVER</h4>
                         <ul className={styles.ulft}>
                             <li><a href="../#qs">Sobre a nós</a></li>
                             <div className={styles.espaco2}></div>
-                            <li><a href="#">Importância da doação</a></li>
+
                             <div className={styles.espaco2}></div>
                             <li><a href="../#ps">Parceiros</a></li>
                             <div className={styles.espaco2}></div>
                             <li><a href={termosecondicoes} download="TermosecondicoesAubeaver.docx">Termos de uso</a></li>
                         </ul>
-                    </div>
+                        </div>
+                    
+                <div className={styles.al}>
                     <div className={styles.btn_line}></div>
-                    <div className={styles.section}>
-                        <div className={styles.espt}>
+                    </div>
+                 <div></div>
+                      
+                            <div className={styles.o2}>
+                            
                     <h4 className={styles.fttitulo}>CAUSAS</h4>
                         <ul className={styles.ulft}>
                             <li><a href="/search?tag=Alimentos">Combate à fome</a></li>
@@ -36,10 +42,11 @@ const Footer = () => {
                             <li><a href="/search?tag=Higiene">Auxílio de itens de higiene</a></li>
                             <div className={styles.espaco2}></div>
                          
-                            <li><a href="/search?tag=Trabalho%20Voluntário">Auxílio de mão de obra</a></li>
+                            <li><a href="/search?tag=Trabalho%20Voluntário">Serviços Voluntários</a></li>
                             <div className={styles.espaco2}></div>
                         </ul>
    </div>
+                    </div>
                     </div>
                 </nav>
 
@@ -53,8 +60,8 @@ const Footer = () => {
                     </ul>
           
                 <section className={styles.secredes}>   
-                   <div> <a href="#tiktok"><img src={iconTik} alt="Icon Tiktok" className={styles.redes} /> </a></div> 
-                   <div> <a href='#facebook'> <img src={iconFace2} alt="Icon Facebook" className={styles.redes} /></a> </div> 
+                   <div> <a href='https://www.tiktok.com/@aubeaverog?_t=8rjNHa8FOEi&_r=1'><img src={iconTik} alt="Icon Tiktok" className={styles.redes} /> </a></div> 
+                   <div> <a href='https://www.facebook.com/groups/aubeaver'> <img src={iconFace2} alt="Icon Facebook" className={styles.redes} /></a> </div> 
                    <div> <a href='https://www.instagram.com/aubeaver?igsh=cnEyNDVwNm90Y3J4'><img src={iconInsta} alt="Icon Instagram" className={styles.redes} /></a> </div> 
                   
                 </section>

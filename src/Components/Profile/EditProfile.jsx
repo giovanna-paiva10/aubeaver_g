@@ -10,6 +10,7 @@ import bted from '../../assets/borda.png';
 import btdentro from '../../assets/bteditar.png';
 import fotosituacao from '../../assets/fotosituacao.svg';
 import lixeira from '../../assets/lixeira.png';
+import { v4 as uuidv4 } from "uuid";
 
 const EditProfile = () => {
     const [previewURL, setPreviewURL] = useState('');
@@ -119,14 +120,18 @@ const EditProfile = () => {
 
     const uploadSituacaoImage = async (file, situacao) => {
         if (!file) return;
-
+    
         try {
             setUpload(true);
             const storage = getStorage();
-            const storageRef = ref(storage, `fotosdesituacao/${file.name}`);
+            
+            const uniqueFileName = `${uuidv4()}_${file.name}`;
+            const storageRef = ref(storage, `fotosdesituacao/${uniqueFileName}`);
+            
             await uploadBytes(storageRef, file);
+            
             const downloadURL = await getDownloadURL(storageRef);
-
+    
             const user = auth.currentUser;
             const userRef = doc(firestore, "Usuários", user.uid);
             await setDoc(userRef, { [situacao]: downloadURL }, { merge: true });
