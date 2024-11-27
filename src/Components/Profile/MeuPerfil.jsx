@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { auth, firestore } from '../../firebase'; 
 import { getDoc, deleteDoc, doc, collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
-import garf from '../../assets/garfield.png'; 
+import placeeholderperfil from '../../assets/do-utilizador.png'; 
 import fotoo from '../../assets/fotoo.png'; 
 import localizacao from '../../assets/locationicon.svg';
 import website from '../../assets/webicon.svg';
@@ -126,7 +126,7 @@ const MeuPerfil = () => {
 
                                 <div className={styles.content1}>
                                     <div className={styles.contentImg}>
-                                        <img className={styles.img} src={userDetails.fotoPerfil || garf} alt="ong" />
+                                        <img className={styles.img} src={userDetails.fotoPerfil || placeeholderperfil} alt="ong" />
                                     </div>
 
 
@@ -200,7 +200,7 @@ const MeuPerfil = () => {
 
                                     <div className={styles.content1}>
                                         <div className={styles.contentImg}>
-                                            <img className={styles.img} src={userDetails.fotoPerfil || garf} alt="ong" />
+                                            <img className={styles.img} src={userDetails.fotoPerfil || placeeholderperfil} alt="ong" />
                                         </div>
 
 

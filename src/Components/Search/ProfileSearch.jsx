@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { firestore } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import styles from "./ProfileSearch.module.css";
-import garf from "../../assets/garfield.png";
+import placeeholderperfil from "../../assets/do-utilizador.png";
 import limite from "../../assets/limite.svg";
 
 const ProfileSearch = () => {
@@ -121,7 +121,7 @@ const ProfileSearch = () => {
                 <div className={styles.contentImg}>
                   <img
                     className={styles.img}
-                    src={ong.fotoPerfil || garf}
+                    src={ong.fotoPerfil || placeeholderperfil}
                     alt="Ong"
                   />
                 </div>

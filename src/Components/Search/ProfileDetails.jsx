@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { firestore, auth } from "../../firebase";
 import foto from "../../assets/rosto.svg";
-import garf from "../../assets/garfield.png";
+import placeeholderperfil from "../../assets/do-utilizador.png";
 import fotoo from "../../assets/fotoo.png";
 import styles from "./ProfileDetails.module.css";
 import localizacao from "../../assets/locationicon.svg";
@@ -564,7 +564,7 @@ const ProfileDetails = () => {
                 <div className={styles.contentImg}>
                   <img
                     className={styles.img}
-                    src={profileData.fotoPerfil || garf}
+                    src={profileData.fotoPerfil || placeeholderperfil}
                     alt="ong"
                   />
                 </div>
