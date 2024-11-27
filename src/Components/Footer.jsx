@@ -20,7 +20,7 @@ const Footer = () => {
                             <div className={styles.espaco2}></div>
                             <li><a href="#">Importância da doação</a></li>
                             <div className={styles.espaco2}></div>
-                            <li><a href="#">Parceiros</a></li>
+                            <li><a href="/#ps">Parceiros</a></li>
                             <div className={styles.espaco2}></div>
                             <li><a href="#">Termos de uso</a></li>
                         </ul>
@@ -30,12 +30,12 @@ const Footer = () => {
                         <div className={styles.espt}>
                     <h4 className={styles.fttitulo}>CAUSAS</h4>
                         <ul className={styles.ulft}>
-                            <li><a href="#">Combate à fome</a></li>
+                            <li><a href="/search?tag=Alimentos">Combate à fome</a></li>
                             <div className={styles.espaco2}></div>
-                            <li><a href="#">Auxílio de itens de higiene</a></li>
+                            <li><a href="/search?tag=Higiene">Auxílio de itens de higiene</a></li>
                             <div className={styles.espaco2}></div>
                          
-                            <li><a href="#">Auxílio de mão de obra</a></li>
+                            <li><a href="/search?tag=Trabalho%20Voluntário">Serviços Voluntários</a></li>
                             <div className={styles.espaco2}></div>
                         </ul>
    </div>
