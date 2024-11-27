@@ -422,7 +422,7 @@
 .input {
   display: flex;
   width: 96%;
-  height: 1vw;
+  height: 3.5vw;
   border-radius: 8px;
   border: none;
   margin: 0% 0% 2% 0%;
@@ -431,7 +431,7 @@
 .select {
   display: flex;
   width: 96%;
-  height: auto;
+  height: 5vw;
   padding: 1.5%;
   border-radius: 8px;
   border: none;
