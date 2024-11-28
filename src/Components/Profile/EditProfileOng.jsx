@@ -238,10 +238,10 @@ const EditProfileOng = () => {
     return (
         <body id={styles.borda}>
         <div className={styles.mainContainer}>
-        <form>
+        <form className={styles.formulario}>
             {ongDetails ? (
                 <>
-                    <div className={styles.espaco}></div>
+            
 <div className={styles.topo}>
                     <div className={styles.seup}>
                         <section className={styles.texto}>
@@ -271,7 +271,7 @@ const EditProfileOng = () => {
                     </div>
                     <center><button type="button" onClick={uploadProfileImage} disabled={upload} className={styles.butsalv}>
                         {upload ? "Enviando..." : "Salvar Foto de Perfil"}
-                    </button></center><br />
+                    </button></center>
                     <div className={styles.todos}>
                     <div className={styles.comp1}>
                  
@@ -397,6 +397,8 @@ const EditProfileOng = () => {
                     <p> </p>
 
                             <div className={styles.botoestrans}>
+
+                                <div className={styles.botoesCaixa}>
                  <button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button>
                        
 
@@ -411,6 +413,8 @@ const EditProfileOng = () => {
                         <button type="button" onClick={handleShowProfile} className={styles.btroxo}>
                             Retornar ao perfil
                         </button>
+
+                        </div>
                         </div>
                 </>
             ) : (

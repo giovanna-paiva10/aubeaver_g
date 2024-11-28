@@ -301,7 +301,7 @@ textarea:focus{
      align-items: center;
      justify-content: center;
      align-items: center;
-     padding: 4px;
+     padding: 12px;
     }
 
     .botaoperigo {
@@ -327,36 +327,40 @@ textarea:focus{
         width: 100%;
         justify-content: space-around;
         flex-wrap: wrap;
+        margin-block: 10vh;
     }
 
    
     .comp1 {
         display: flex;
-        justify-content: left;
-        flex-direction: column;
-       flex-wrap: wrap;
-        gap: 1vw;
+    justify-content: left;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5vw;
+    width: 40%;
     
         
     }
     .comp2 {
         display: flex;
-        justify-content: right;
-        flex-direction: column;
-       
-        gap: 1vw;
+    justify-content: right;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5vw;
+    width: 40%;
     }
 
     .todos {
         justify-content: center;
-        
+        width: 100%;
         display: flex;
         gap: 10vw;
+        
     }
 
  .slct {
     border-radius: 8px;
-    
+    width: 100%;
   padding: 5px;
   border:solid 1px #755071;
   resize: none;
@@ -393,7 +397,22 @@ textarea:focus{
         }
         .topo {
             margin-top: 12%;
+        }
+        .todos{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+        .comp1 {
+            
+        width: 100%;
         
+            
+        }
+        .comp2 {
+        width: 100%;
         }
 
     }
