@@ -134,10 +134,6 @@ a {
     .navlinksMobile {
       width: 220px; /* Ajusta a largura do menu em telas muito pequenas */
     }
-    .imgContainer {
-      width: 60%;
-      margin-left: 3vw;
-      display: flex;
-    }
+    
   }
 }
