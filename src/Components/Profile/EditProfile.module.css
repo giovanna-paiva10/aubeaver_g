@@ -11,6 +11,13 @@
    
 }
 
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+}
+
 .texto {
     gap: 1vw;
 }
@@ -123,23 +130,19 @@ align-items: center;
 justify-content: center;
 }
 
-.botaoperigo {
-    background-color: rgb(192, 37, 37);
-    width: 12vw;
-    height: 3vw;
-    border-radius: 8px;
-}
-
 .todes {
     justify-content: center;
     display: flex;
 }
+
+
 .comps {
     display: flex;
     justify-content: left;
     flex-direction: column;
-   flex-wrap: wrap;
-   gap: 0.3vw;
+    flex-wrap: wrap;
+    gap: 0.5vw;
+    width: 85%;
 }
 
 input {
@@ -159,7 +162,6 @@ input:focus {
  }
 
 textarea {
-  
   width: 35vw;
   border-radius: 8px;
   padding: 0.7vw;
@@ -175,21 +177,46 @@ textarea:focus{
 
 
 .iconst {
-    width: 238x;
+    width: 238px;
     height: 164px;
     flex-direction: line;
-    margin-right: -6rem;
     cursor: pointer;
    }
 
-  
+  .lixeirinha{
+    display: flex;
+    flex-direction: row;
+    
+    
+  }
+
+  .lixeira1 {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: right;
+    width: 35px;
+    height: 35px;
+}
+
+
+.stf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+   }
+
 
    .comps2 {
-   display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 4vw;
+    flex-wrap: wrap;
    
    }
 
@@ -207,15 +234,6 @@ textarea:focus{
     justify-content: right;
    }
 
-   .stf {
-    display: flex;
-   flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 3rem;
-
-
-   }
 
 
 
@@ -249,34 +267,34 @@ textarea:focus{
     }
  
     .btroxo {
-     width: 11vw;
-     height: 3vw;
+     width: 180px;
+     height: 40px;
      border-radius: 8px;
      background-color: #B296AD;
      font-size: max(13px, 1.5vh);
      align-items: center;
      justify-content: center;
-     align-items: center;
+     padding: 0%;
+     margin: 2%;
     }
  
     .btbranco {
  
-     width: 16vw;
-     height: 3vw;
+    width: 180px;
+    height: 40px;
      border-radius: 8px;
- 
-    
      color: #B296AD;
      background-color: white;
      border: solid 1px #B296AD;
      font-size: max(13px, 1.5vh);
      align-items: center;
- 
+     padding: 0%;
+     margin: 2%;
     }
  
     .butsalv {
-     width: 14vw;
-     height: 3vw;
+        width: 160px;
+        height: 40px;
      border-radius: 8px;
      background-color: #517655;
      font-size: max(13px, 1.5vh);
@@ -285,22 +303,32 @@ textarea:focus{
      align-items: center;
     }
 
+    .botaoperigo {
+        background-color: rgb(192, 37, 37);
+        width: 180px;
+        height: 40px;
+        border-radius: 8px;
+        padding: 0%;
+     margin: 2%;
+    }
+
     .botoestras {
-        justify-content: center;
+        justify-content: space-around;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        min-width: 100%;
+    width: 100%;
     }
 
-    .lixeira1 {
-        width: auto;
-        height: auto;
+    .botoesCaixa{
         display: flex;
-        justify-content: center;
-        width: 35px;
-        height: 35px;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
     }
+
+   
     .comp1 {
         display: flex;
         justify-content: left;
@@ -356,4 +384,11 @@ textarea:focus{
         .topo {
             margin-top: 12%;
         }
+    }
+
+    @media (max-width: 900px) {
+        .comps2 {
+           flex-direction: column;
+        }
+
     }
