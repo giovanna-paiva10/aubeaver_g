@@ -113,7 +113,7 @@ const MeuPerfil = () => {
       <body id={styles.borda}>
         
      <div className={styles.mainContainer}> 
-        <form>
+        <form className={styles.formu}>
             {userDetails ? (
                 <>
    
@@ -134,17 +134,25 @@ const MeuPerfil = () => {
                                     <div className={styles.contentText}>
 
                                 <div className={styles.qualquer}>
+                                    
+                                        <div className={styles.textoetag}>
                                         <h1 className={styles.estilooh2}>{userDetails.nome}</h1>
-                                        <br />
+                                        
+                                        <span className={styles.tag2}>{userDetails.Tipo_de_identificador}</span>
+                                        </div>    
+
+                                        
                                         {userDetails.telefone && (
                                             <>
-                                                <h2>Telefone</h2>
-                                                <h3>{userDetails.telefone}</h3>
+                                            <div className={styles.telefone}>
+                                            <h3>Telefone: 
+                                            {userDetails.telefone}</h3>
+                                            </div>
+                                                
                                             </>
                                         )}
+                                    
                                 </div>
-                                       
-                                        <span className={styles.tag}>{userDetails.Tipo_de_identificador}</span>
                                       
                                     </div>
                                     <div className={styles.btnedit}>
@@ -165,7 +173,7 @@ const MeuPerfil = () => {
 
                             <div className={styles.content2}>
                                 <div className={styles.contentText2}>
-                                    <h2 className={styles.estiloh2}>História</h2><br />
+                                    <h2 className={styles.estilooh2}>História</h2><br />
                                     <h4>{userDetails.minhaHistoria}</h4>
                                 </div> 
                             </div>

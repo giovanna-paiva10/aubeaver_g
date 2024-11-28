@@ -9,7 +9,15 @@ header {
   width: 100%;
   display: flex;
 }
-
+.button {
+  background: none; 
+  border: none;
+  color: inherit;
+  font: inherit; 
+  padding: 0; 
+  cursor: pointer; 
+  text-decoration: none;
+}
 /* Container de navegação */
 .navh {
   display: flex;
@@ -106,7 +114,7 @@ a {
 
 .img {
   max-width: 100%;
-  min-width: 75px;
+  min-width: 160px;
 }
 
 /* Menu de navegação aberto */
@@ -134,5 +142,6 @@ a {
     .navlinksMobile {
       width: 220px; /* Ajusta a largura do menu em telas muito pequenas */
     }
+    
   }
 }

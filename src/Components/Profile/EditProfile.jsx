@@ -216,7 +216,7 @@ const EditProfile = () => {
         <body id={styles.borda}>
         <div className={styles.mainContainer}>
        
-       <form>
+       <form className={styles.formulario}>
         
     
             {userDetails ? (
@@ -224,7 +224,7 @@ const EditProfile = () => {
 
 
 
-                    <div className={styles.espaco}></div>
+                    
                     <div className={styles.topo}>
                     <div className={styles.seup}>
                         <section className={styles.texto}>
@@ -256,6 +256,7 @@ const EditProfile = () => {
                             {upload ? "Enviando..." : "Salvar Foto de Perfil"}
                         </button></center><br />
                         </div>
+
                         <div className={styles.todes}>
                         <div className={styles.comps}>
 
@@ -264,10 +265,11 @@ const EditProfile = () => {
                         <label className={styles.titp2}>Telefone</label><input  type="text" id="telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)}/>
                         <div className={styles.espaco}></div>
                         <label className={styles.titp2}>E-mail</label><input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                        <div className={styles.espaco}></div>
+                        
                         </div>
                         </div>
-                        <div className={styles.espaco}></div>
+
+                        <p className={styles.espaco}></p>
                         
                         <div className={styles.comps2}>
                      <section className={styles.suahist}>
@@ -305,6 +307,8 @@ const EditProfile = () => {
                                     )}
                                   
                                 </label>
+
+                    <div className={styles.lixeirinha}>
                                 <input
                                     type="file"
                                     accept="image/*"
@@ -313,6 +317,7 @@ const EditProfile = () => {
                                     style={{ display: 'none' }}
                                 />
                                 <img src={lixeira} alt="Apagar foto 1" className={styles.lixeira1} onClick={() => setFotoSituacao1(null)} style={{ cursor: 'pointer'}}/>
+                    </div>
                                 <label htmlFor="situacao2Upload" >
                                     {fotoSituacao2 ? (
                                         <img src={fotoSituacao2} alt="Foto de Situação 2" className={styles.iconst} />
@@ -321,6 +326,10 @@ const EditProfile = () => {
                                     )}
                                 
                                 </label>
+                              
+
+                        
+                        <div className={styles.lixeirinha}>
                                 <input
                                     type="file"
                                     accept="image/*"
@@ -329,6 +338,7 @@ const EditProfile = () => {
                                     style={{ display: 'none' }}
                                 />
                                 <img src={lixeira} alt="Apagar foto 2" className={styles.lixeira1} onClick={() => setFotoSituacao2(null)} style={{ cursor: 'pointer'}}/>
+                     </div>
 
                                 <label htmlFor="situacao3Upload">
                                     {fotoSituacao3 ? (
@@ -338,6 +348,8 @@ const EditProfile = () => {
                                     )}
                               
                                 </label>
+
+                    <div className={styles.lixeirinha}>
                                 <input
                                     type="file"
                                     accept="image/*"
@@ -347,17 +359,18 @@ const EditProfile = () => {
                                 />
                                 <img src={lixeira} alt="Apagar foto 3" className={styles.lixeira1} onClick={() => setFotoSituacao3(null)} style={{ cursor: 'pointer'}}/>
                                 </div>
+                                </div>
                             </div>
                         </div>
                       
                         <p> </p>
-<div></div>
+
                         <div className={styles.botoestrans}>
-                      <button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button>
-                        
-                      
-                        
                             
+                            <div className={styles.botoesCaixa}>
+                            
+                            <button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button>
+                              
                             <button type="button" onClick={handlePasswordReset} className={styles.btbranco}>
                                 Enviar para o e-mail
                             </button>
@@ -370,6 +383,8 @@ const EditProfile = () => {
                             <button type="button" onClick={handleDeleteAccount} className={styles.botaoperigo}>
                                 Excluir Conta
                             </button>
+
+                            </div>
                             
                         </div>
                     

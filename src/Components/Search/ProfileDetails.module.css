@@ -77,7 +77,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   border-radius: 12px;
 }
 
@@ -223,14 +223,14 @@
 
 .container2 {
   display: flex;
-  width: 100%;
+  width: 99vw;
   height: 100%;
 }
 
 .content3 {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   height: 80vh;
   justify-content: space-around;
   align-items: center;
@@ -278,6 +278,7 @@
 .textarea{
   display: flex;
   width: 100%;
+  height: 16vh;
 }
 
 .modalOverlay {
@@ -297,7 +298,7 @@
   display: flex;
   flex-direction: row;
   width: 68%;
-  height: 50%;
+  height: 64%;
   min-height: 560px;
   border-radius: 20px;
   z-index: 1001;
@@ -317,6 +318,16 @@
   font-size: max(12px, 14px);
   align-items: center;
   padding: auto;
+}
+
+.caixaa {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .textoPequeno {
@@ -382,7 +393,7 @@
   .modalLeft {
     width: 100%;
     border-radius: 20px;
-    height: 90%;
+    height: 100%;
   }
   .modalOverlay {
     width: 100%;
@@ -411,7 +422,7 @@
 .input {
   display: flex;
   width: 96%;
-  height: 1vw;
+  height: 3.5vw;
   border-radius: 8px;
   border: none;
   margin: 0% 0% 2% 0%;
@@ -420,7 +431,7 @@
 .select {
   display: flex;
   width: 96%;
-  height: auto;
+  height: 5vw;
   padding: 1.5%;
   border-radius: 8px;
   border: none;
@@ -493,15 +504,6 @@
   justify-content: center;
   align-items: center;
   gap: 2%;
-}
-
-.caixaa {
-  height: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .botoes {
