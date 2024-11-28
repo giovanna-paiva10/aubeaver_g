@@ -294,13 +294,14 @@ textarea:focus{
  
     .butsalv {
         width: 160px;
-        height: 40px;
+        height: auto;
      border-radius: 8px;
      background-color: #517655;
      font-size: max(13px, 1.5vh);
      align-items: center;
      justify-content: center;
      align-items: center;
+     padding: 4px;
     }
 
     .botaoperigo {
