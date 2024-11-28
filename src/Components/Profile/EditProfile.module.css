@@ -151,7 +151,7 @@ input {
     margin: 0%;
     border-radius: 4px;
     height: 52px;
-    padding-inline: 4%;
+    padding-inline: 1%;
     border-radius: 12px;
     min-width: 15%;
 }
@@ -203,8 +203,9 @@ textarea:focus{
 .stf {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
+    max-width: 20;
     gap: 1rem;
     width: 100%;
    }
@@ -250,8 +251,9 @@ textarea:focus{
    .asfotos {
     
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     max-width: 46%;
+    flex-wrap: wrap;
    }
 
    .tfts{
@@ -344,7 +346,7 @@ textarea:focus{
     .comp2 {
         display: flex;
     justify-content: right;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 0.5vw;
     width: 40%;
@@ -419,7 +421,7 @@ textarea:focus{
 
     @media (max-width: 700px) {
         .seup{
-            margin-top: 10%;
+            margin-top: 13%;
         }
 
     }

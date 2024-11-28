@@ -360,9 +360,9 @@ const EditProfile = () => {
                                 <img src={lixeira} alt="Apagar foto 3" className={styles.lixeira1} onClick={() => setFotoSituacao3(null)} style={{ cursor: 'pointer'}}/>
                                 </div>
                                 </div>
-                            </div>
+                            
                         </div>
-                      
+                        </div>
                         <p> </p>
 
                         <div className={styles.botoestrans}>
