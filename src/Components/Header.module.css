@@ -9,7 +9,15 @@ header {
   width: 100%;
   display: flex;
 }
-
+.button {
+  background: none; 
+  border: none;
+  color: inherit;
+  font: inherit; 
+  padding: 0; 
+  cursor: pointer; 
+  text-decoration: none;
+}
 /* Container de navegação */
 .navh {
   display: flex;

@@ -1,15 +1,30 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from './Header.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logoo from '../assets/logoo.svg';
 import { auth } from '../firebase'; // Certifique-se de que o caminho está correto
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const navigateToSection = (sectionId) => {
+    navigate('/'); 
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   const handleResize = () => {
@@ -21,6 +36,7 @@ const Header = () => {
   const handleLogout = async () => {
     try {
         await auth.signOut();
+        closeMenu();
         window.location.href = "/";
     } catch (error) {
         console.error("Erro ao fazer logout", error.message);
@@ -47,9 +63,9 @@ const Header = () => {
         </div>
         
         <ul className={styles.navlinksLarge}>
-          <li><a href="../#qs">Quem somos</a></li>
-          <a href="../#dc">Doação</a>
-          <li><a href="../#ps">Parceiros</a></li>
+          <li><button className={styles.button} onClick={() => navigateToSection('qs')}>Quem somos</button></li>
+          <li><button className={styles.button} onClick={() => navigateToSection('dc')}>Doação</button></li>
+          <li><button className={styles.button} onClick={() => navigateToSection('ps')}>Parceiros</button></li>
         </ul>
 
         <div className={`${styles.hamburguer} ${isMenuOpen ? styles.open : ''}`} onClick={toggleMenu}>
@@ -61,8 +77,8 @@ const Header = () => {
         <ul className={`${styles.navlinksMobile} ${isMenuOpen ? styles.show : ''}`}>
           {user ? (
             <>
-            <li><Link to='/profile'>Meu Perfil</Link></li>
-            <li><Link to='/notificacoes'>Notificações</Link></li>
+            <li><Link to='/profile' onClick={() => {closeMenu();}}>Meu Perfil</Link></li>
+            <li><Link to='/notificacoes' onClick={() => {closeMenu();}}>Notificações</Link></li>
             <li onClick={handleLogout}>Sair do perfil</li>
             </>
             
