@@ -1,75 +1,94 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Home.module.css';
+
 import garf from '../assets/garfield.png';
 import fotoo from '../assets/fotoo.png';
-import bradesco from '../assets/bradesco.png'
-import cea from '../assets/cea.png'
-import drogasil from '../assets/drogasil.png'
-import natura from '../assets/natura.png'
-import nestle from '../assets/nestle.png'
+import bradesco from '../assets/bradesco.png';
+import cea from '../assets/cea.png';
+import drogasil from '../assets/drogasil.png';
+import natura from '../assets/natura.png';
+import nestle from '../assets/nestle.png';
 import conect from '../assets/conect.png';
 import cc from '../assets/conectandoco.svg';
-import row11 from '../assets/facaparte.png';
-import row21 from '../assets/apoiohis.png'; 
-import row31 from '../assets/juntese.png'; 
-import row41 from '../assets/apoienossa.png'; 
 import row1 from '../assets/row1.webp';
-import row2 from '../assets/row2.webp'; 
-import row3 from '../assets/row3.webp'; 
-import row4 from '../assets/row4.webp'; 
+import row2 from '../assets/row2.webp';
+import row3 from '../assets/row3.webp';
+import row4 from '../assets/row4.webp';
 import comida from '../assets/alimentos.png';
 import maodeobra from '../assets/maodeobra.png';
 import higiene from '../assets/higiene.png';
-import imgab from '../assets/imgab.png'
+import imgab from '../assets/imgab.png';
+import small1 from '../assets/small1.png';
+import small2 from '../assets/small2.png';
+import small11 from '../assets/small11.png';
+import small22 from '../assets/small22.png';
+import small33 from '../assets/small33.png';
+import small44 from '../assets/small44.png';
+
 
 // Importando Slider do react-slick
 import Slider from 'react-slick';
 // Importando os estilos do slick-carousel
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import styles from './Home.module.css';
 
 const Home = () => {
-    const data = [row1, row2, row3, row4]; // Adicione mais imagens se desejar
+    const [data, setData] = useState([row1, row2, row3, row4]); // Adicione mais imagens se desejar
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
 
     const handleSubmit = () => {
         if (!nome || !email) {
-        alert('Por favor, preencha todos os campos.');
-        return;
+            alert('Por favor, preencha todos os campos.');
+            return;
         }
-        
-        alert("Dados enviados, futuramente retornaremos em sua caixa de e-mails");
+
+        alert('Dados enviados, futuramente retornaremos em sua caixa de e-mails');
     };
 
-    // Configurações do slider
+    // Função para atualizar imagens com base no tamanho da tela
+    const updateImages = () => {
+        if (window.innerWidth <= 768) {
+            setData([small11, small22, small33, small44]);
+        } else {
+            setData([row1, row2, row3, row4]);
+        }
+    };
+
+    useEffect(() => {
+        // Configura imagens iniciais
+        updateImages();
+
+        // Adiciona um listener para atualizações no resize
+        window.addEventListener('resize', updateImages);
+
+        // Remove o listener ao desmontar o componente
+        return () => {
+            window.removeEventListener('resize', updateImages);
+        };
+    }, []);
+
     const settings = {
-       // dots: true, 
-        infinite: true, 
-        speed: 500, 
-        slidesToShow: 1, 
-        slidesToScroll: 1, 
-        draggable: true, 
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        draggable: true,
         autoplay: true,
-        autoplaySpeed: 3000, 
+        autoplaySpeed: 3000,
         arrows: false,
+        
         responsive: [
             {
-                breakpoint: 768, // Para tablets
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
-                },
-            },
-            {
-                breakpoint: 480, // Para celulares
-                settings: {
-                    slidesToShow: 1,
-                    dots: true, // Ative os pontos para melhorar a navegação em telas pequenas
+                    dots: true,
                 },
             },
         ],
-    };  
+    };
 
     return (
         <div id={styles.borda}>
@@ -78,7 +97,7 @@ const Home = () => {
                 <Slider {...settings}>
                     {data.map((image, index) => (
                         <div key={index}>
-                            <img src={image} alt="Slider" className={styles.sditem} />
+                            <img src={image} alt={`Slider ${index + 1}`} className={styles.sditem} />
                         </div>
                     ))}
                 </Slider>
