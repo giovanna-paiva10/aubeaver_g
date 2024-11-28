@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Footer.module.css';
 import logo from '../assets/rosto.svg'; // Assuming rosto.svg is the logo image
 import iconTik from '../assets/iconTik.svg';
