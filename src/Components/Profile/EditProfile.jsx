@@ -372,7 +372,7 @@ const EditProfile = () => {
                             <button type="button" onClick={handleSaveChanges} className={styles.btroxo}>Salvar Alterações</button>
                               
                             <button type="button" onClick={handlePasswordReset} className={styles.btbranco}>
-                                Enviar para o e-mail
+                                Redefinir Senha
                             </button>
 
 
