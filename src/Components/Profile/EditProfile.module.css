@@ -390,5 +390,16 @@ textarea:focus{
         .comps2 {
            flex-direction: column;
         }
+        .topo {
+            margin-top: 12%;
+        
+        }
+
+    }
+
+    @media (max-width: 700px) {
+        .seup{
+            margin-top: 10%;
+        }
 
     }
