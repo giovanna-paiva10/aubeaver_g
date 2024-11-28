@@ -87,13 +87,13 @@
   width: 90%;
   height: 28vh;
   color: #797979;
-  padding: 8px 8px 8px 32px;
+  padding: 40px 8px 8px 32px;
   font-size: max(10px, 2vh);
   gap: 8px;
 }
 
 .botao1 {
-  width: 120px;
+  width: 140px;
   height: 44px;
   border-radius: 6px;
   background-color: #b296ad;
@@ -183,6 +183,7 @@
   font-size: max(8px, 2vh);
   box-shadow: 0 0 10px 2px #c5c5c5;
   border-radius: 16px;
+
 }
 
 .espaco {

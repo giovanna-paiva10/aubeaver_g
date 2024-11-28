@@ -128,7 +128,7 @@ const ProfileSearch = () => {
                 <div className={styles.contentText}>
                 <div className={styles.headerText}>
                   <h2 className={styles.eh2}> {ong.nome}</h2> 
-                  <h3 className={styles.icon}><span className={styles.caixaIcone}>Limite de {ong.pedidosAtuais}/{ong.limitePessoas} solicitações</span> <span> <div className={styles.contentIcon}><img className={styles.imgg} src={limite} alt="icone" /></div> </span></h3>
+                  <h3 className={styles.icon}><span className={styles.caixaIcone}>Limite de {ong.pedidosAtuais || 0}/{ong.limitePessoas} solicitações</span> <span> <div className={styles.contentIcon}><img className={styles.imgg} src={limite} alt="icone" /></div> </span></h3>
                 </div>
                   <br/>
 
