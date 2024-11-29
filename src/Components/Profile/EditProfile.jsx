@@ -145,6 +145,26 @@ const EditProfile = () => {
         }
     };
 
+    const deleteSituacaoImage = async (situacao) => {
+        try {
+            const user = auth.currentUser;
+    
+            if (!user) {
+                console.error("Usuário não autenticado");
+                return;
+            }
+    
+            const userRef = doc(firestore, "Usuários", user.uid);
+            await setDoc(userRef, { [situacao]: null }, { merge: true });
+    
+            if (situacao === 'fotoSituacao1') setFotoSituacao1(null);
+            if (situacao === 'fotoSituacao2') setFotoSituacao2(null);
+            if (situacao === 'fotoSituacao3') setFotoSituacao3(null);
+        } catch (error) {
+            console.error("Erro ao remover imagem:", error);
+        }
+    };
+
     const handlePasswordReset = async (e) => {
         e.preventDefault();
         const authInstance = getAuth();
@@ -316,7 +336,7 @@ const EditProfile = () => {
                                     onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao1')}
                                     style={{ display: 'none' }}
                                 />
-                                <img src={lixeira} alt="Apagar foto 1" className={styles.lixeira1} onClick={() => setFotoSituacao1(null)} style={{ cursor: 'pointer'}}/>
+                                <img src={lixeira} alt="Apagar foto 1" className={styles.lixeira1} onClick={() => deleteSituacaoImage('fotoSituacao1')} style={{ cursor: 'pointer'}}/>
                     </div>
                                 <label htmlFor="situacao2Upload" >
                                     {fotoSituacao2 ? (
@@ -337,7 +357,7 @@ const EditProfile = () => {
                                     onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao2')}
                                     style={{ display: 'none' }}
                                 />
-                                <img src={lixeira} alt="Apagar foto 2" className={styles.lixeira1} onClick={() => setFotoSituacao2(null)} style={{ cursor: 'pointer'}}/>
+                                <img src={lixeira} alt="Apagar foto 2" className={styles.lixeira1} onClick={() => deleteSituacaoImage('fotoSituacao2')} style={{ cursor: 'pointer'}}/>
                      </div>
 
                                 <label htmlFor="situacao3Upload">
@@ -357,7 +377,7 @@ const EditProfile = () => {
                                     onChange={(e) => uploadSituacaoImage(e.target.files[0], 'fotoSituacao3')}
                                     style={{ display: 'none' }}
                                 />
-                                <img src={lixeira} alt="Apagar foto 3" className={styles.lixeira1} onClick={() => setFotoSituacao3(null)} style={{ cursor: 'pointer'}}/>
+                                <img src={lixeira} alt="Apagar foto 3" className={styles.lixeira1} onClick={() => deleteSituacaoImage('fotoSituacao3')} style={{ cursor: 'pointer'}}/>
                                 </div>
                                 </div>
                             
