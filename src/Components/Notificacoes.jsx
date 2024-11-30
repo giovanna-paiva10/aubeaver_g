@@ -12,7 +12,9 @@ const Notificacoes = () => {
   const [error, setError] = useState(null);
   const [userDetails, setUserDetails] = useState(null);
   const [userType, setUserType] = useState(null);
-  const [user, setUser] = useState(null);  
+  const [user, setUser] = useState(null);
+  const [filtro, setFiltro] = useState("");
+  const [filteredNotifications, setFilteredNotifications] = useState([]);
 
   const fetchUserData = async (user) => {
     try {
@@ -76,10 +78,10 @@ const Notificacoes = () => {
 
   const handleNegarNotificacao = async (notificationId, ongId) => {
     try {
-      console.log("Tentando excluir a notificação com ID:", notificationId, "para a ONG:", ongId);
+      console.log("Tentando negar a notificação com ID:", notificationId, "para a ONG:", ongId);
   
       if (!notificationId || !ongId) {
-        console.log("IDs inválidos. Não é possível excluir a notificação.");
+        console.log("IDs inválidos. Não é possível processar a notificação.");
         return;
       }
   
@@ -88,59 +90,53 @@ const Notificacoes = () => {
   
       if (notificationDoc.exists()) {
         const notificationData = notificationDoc.data();
-        console.log("Documento de notificações encontrado:", notificationData);
-  
-        const updatedNotifications = notificationData.notifications.filter(
-          (notification) => notification.uid !== notificationId
-        );
-  
-        if (updatedNotifications.length === notificationData.notifications.length) {
-          console.log("A notificação com o ID fornecido não foi encontrada.");
-          return; 
-        }
   
         const notificationIndex = notificationData.notifications.findIndex(
           (notification) => notification.uid === notificationId
         );
-        
+  
+        if (notificationIndex === -1) {
+          console.log("A notificação com o ID fornecido não foi encontrada.");
+          return;
+        }
+  
+        const updatedNotifications = [...notificationData.notifications];
+        updatedNotifications[notificationIndex].status = "a concluir";
+  
         const originalNotification = notificationData.notifications[notificationIndex];
         const userUid = originalNotification.senderUid;
-        
+  
         const returnMessage = {
           uid: uuidv4(),
           title: `Sua ${originalNotification.title} foi negada`,
-          description: `A ${originalNotification.title} relacionada a " ${originalNotification.type} " foi negada pela ONG.`,
+          description: `A ${originalNotification.title} relacionada a "${originalNotification.type}" foi negada pela ONG.`,
           timestamp: new Date(),
-          isRead: false,
           type: `Resposta à ${originalNotification.title}`,
           senderUid: ongId,
-          receiverUid: userUid, 
+          receiverUid: userUid,
         };
   
         const userNotificationRef = doc(firestore, "Notificações", userUid);
-        await setDoc(userNotificationRef, {
-          notifications: arrayUnion(returnMessage),
-        }, { merge: true });
+        await setDoc(
+          userNotificationRef,
+          { notifications: arrayUnion(returnMessage) },
+          { merge: true }
+        );
   
-        await setDoc(notificationRef, { notifications: updatedNotifications });
-        console.log("Notificação excluída com sucesso!");
+        await setDoc(notificationRef, { notifications: updatedNotifications }, { merge: true });
+  
+        const ongRef = doc(firestore, "Ongs", ongId);
+        const ongDoc = await getDoc(ongRef);
+  
+        if (ongDoc.exists()) {
+          const ongData = ongDoc.data();
+          const updatedPedidosAtuais = Math.max(ongData.pedidosAtuais - 1, 0);
+  
+          await setDoc(ongRef, { pedidosAtuais: updatedPedidosAtuais }, { merge: true });
+        }
   
         setNotifications(updatedNotifications);
-  
-        if (userType === "Ong") {
-          const ongRef = doc(firestore, "Ongs", ongId);
-          const ongDoc = await getDoc(ongRef);
-  
-          if (ongDoc.exists()) {
-            const ongData = ongDoc.data();
-            const updatedPedidosAtuais = ongData.pedidosAtuais - 1;
-  
-            await setDoc(ongRef, { pedidosAtuais: updatedPedidosAtuais }, { merge: true });
-            console.log("Campo 'pedidosAtuais' atualizado com sucesso!");
-          } else {
-            console.log("Documento da ONG não encontrado.");
-          }
-        }
+        console.log("Notificação negada com sucesso!");
       } else {
         console.log("Documento de notificações não encontrado para a ONG:", ongId);
       }
@@ -148,13 +144,14 @@ const Notificacoes = () => {
       console.error("Erro ao negar notificação:", error);
     }
   };
+  
 
   const handleAceitarNotificacao = async (notificationId, ongId) => {
     try {
       console.log("Tentando aceitar a notificação com ID:", notificationId, "para a ONG:", ongId);
   
       if (!notificationId || !ongId) {
-        console.log("IDs inválidos. Não é possível aceitar a notificação.");
+        console.log("IDs inválidos. Não é possível processar a notificação.");
         return;
       }
   
@@ -163,66 +160,51 @@ const Notificacoes = () => {
   
       if (notificationDoc.exists()) {
         const notificationData = notificationDoc.data();
-        console.log("Documento de notificações encontrado:", notificationData);
-  
-        const updatedNotifications = notificationData.notifications.filter(
-          (notification) => notification.uid !== notificationId
-        );
-  
-        if (updatedNotifications.length === notificationData.notifications.length) {
-          console.log("A notificação com o ID fornecido não foi encontrada.");
-          return;
-        }
   
         const notificationIndex = notificationData.notifications.findIndex(
           (notification) => notification.uid === notificationId
         );
-        
+  
+        if (notificationIndex === -1) {
+          console.log("A notificação com o ID fornecido não foi encontrada.");
+          return;
+        }
+  
+        const updatedNotifications = [...notificationData.notifications];
+        updatedNotifications[notificationIndex].status = "a concluir";
+  
         const originalNotification = notificationData.notifications[notificationIndex];
         const userUid = originalNotification.senderUid;
-        
+  
         const returnMessage = {
           uid: uuidv4(),
-          title: `Sua ${originalNotification.title} foi foi aceita`,
+          title: `Sua ${originalNotification.title} foi aceita`,
           description: `A ${originalNotification.title} relacionada a "${originalNotification.type}" foi aceita pela ONG.`,
           timestamp: new Date(),
-          isRead: false,
           type: `Resposta à ${originalNotification.title}`,
           senderUid: ongId,
-          receiverUid: userUid,  
+          receiverUid: userUid,
         };
   
-        const userNotificationRef = doc(firestore, "Notificações", userUid); 
-        await setDoc(userNotificationRef, {
-          notifications: arrayUnion(returnMessage),
-        }, { merge: true });
+        const userNotificationRef = doc(firestore, "Notificações", userUid);
+        await setDoc(
+          userNotificationRef,
+          { notifications: arrayUnion(returnMessage) },
+          { merge: true }
+        );
   
-        await setDoc(notificationRef, { notifications: updatedNotifications });
-        console.log("Notificação aceita e excluída com sucesso!");
+        await setDoc(notificationRef, { notifications: updatedNotifications }, { merge: true });
   
         setNotifications(updatedNotifications);
-
-        if (userType === "Ong") {
-          const ongRef = doc(firestore, "Ongs", ongId);
-          const ongDoc = await getDoc(ongRef);
-  
-          if (ongDoc.exists()) {
-            const ongData = ongDoc.data();
-            const updatedPedidosAtuais = ongData.pedidosAtuais + 1;  
-            
-            await setDoc(ongRef, { pedidosAtuais: updatedPedidosAtuais }, { merge: true });
-            console.log("Campo 'pedidosAtuais' atualizado com sucesso!");
-          } else {
-            console.log("Documento da ONG não encontrado.");
-          }
-        }
+        console.log("Notificação aceita com sucesso!");
       } else {
         console.log("Documento de notificações não encontrado para a ONG:", ongId);
       }
     } catch (error) {
       console.error("Erro ao aceitar notificação:", error);
     }
-  };  
+  };
+    
 
   const handleRemoverNotificacao = async (notificationId, userUid) => {
     try {
@@ -253,6 +235,29 @@ const Notificacoes = () => {
       console.error("Erro ao remover notificação:", error);
     }
   };
+  const handleExcluirNotificacaoOng = async (notificationId, ongId) => {
+    try {
+      const notificationRef = doc(firestore, "Notificações", ongId);
+      const notificationDoc = await getDoc(notificationRef);
+  
+      if (notificationDoc.exists()) {
+        const notificationData = notificationDoc.data();
+        const updatedNotifications = notificationData.notifications.filter(
+          (notification) => notification.uid !== notificationId
+        );
+  
+        await setDoc(notificationRef, { notifications: updatedNotifications }, { merge: true });
+        setNotifications(updatedNotifications);
+  
+        console.log("Notificação excluída com sucesso!");
+      } else {
+        console.log("Documento de notificações não encontrado.");
+      }
+    } catch (error) {
+      console.error("Erro ao excluir notificação:", error);
+    }
+  };''
+  
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -267,6 +272,19 @@ const Notificacoes = () => {
 
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    const filtered = notifications.filter((notification) => {
+      if (filtro === "pendente") {
+        return notification.status.toLowerCase() === "pendente";
+      }
+      if (filtro === "a concluir") {
+        return notification.status.toLowerCase() === "a concluir";
+      }
+      return true;
+    });
+    setFilteredNotifications(filtered);
+  }, [filtro, notifications]);
 
   if (loading) {
     return <p>Carregando dados...</p>;
@@ -319,18 +337,20 @@ const Notificacoes = () => {
                 <h3 className={styles.estiloh3}>Notificações</h3>
                 <h4 className={styles.estiloh4}>Seus pedidos, doações e voluntários</h4>
               </div>
+              <button onClick={() => setFiltro("")}>Todas as notificações</button>
+              <button onClick={() => setFiltro("pendente")}>Notficações pendentes</button>
+              <button onClick={() => setFiltro("a concluir")}>Notificações a concluir</button>
             </>
           )}
 
           {userType === "Usuário" && (
             <>
-              <div      className={styles.notdiv}>
+              <div className={styles.notdiv}>
                 <h3 className={styles.estiloh3}>Notificações</h3>
                 <h4 className={styles.estiloh4}>Suas solicitações correspondidas</h4>
               </div>
             </>
           )}
-          
           
           {/* 
           <div className={styles.cont}>
@@ -387,9 +407,10 @@ const Notificacoes = () => {
           </div>
         */}
     <div className={styles.notifications}>
-      <h2>Notificações</h2>
-      {notifications.length > 0 ? (
-      notifications.map((notification, index) => (
+      {console.log(filtro)}
+      <h2>{filtro === "pendente" ? "Pendentes" : filtro === "a concluir" ? "A concluir" : "Todas as notificações"}</h2>
+      {filteredNotifications.length > 0 ? (
+      filteredNotifications.map((notification, index) => (
         <div key={index} className={styles.notificationItem}>
           <h3>{notification.title}</h3>
           <p>{notification.description}</p>
@@ -427,15 +448,20 @@ const Notificacoes = () => {
           </div>
 
             <div className={styles.notificationFooter}>
-          
-              <button onClick={() => handleAceitarNotificacao(notification.uid, user.uid, notification.title)}>
-              Aceitar Doação
-              </button>
-
-              <button onClick={() => handleNegarNotificacao(notification.uid, user.uid, notification.title)}>
-                Negar
-              </button>
-
+                {notification.status !== "a concluir" ? (
+                  <>
+                    <button onClick={() => handleAceitarNotificacao(notification.uid, user.uid, notification.title)}>
+                      Aceitar Doação
+                    </button>
+                    <button onClick={() => handleNegarNotificacao(notification.uid, user.uid, notification.title)}>
+                      Negar
+                    </button>
+                  </>
+                ) : (
+                  <button onClick={() => handleExcluirNotificacaoOng(notification.uid, user.uid)}>
+                    Concluir
+                  </button>
+                )}
             </div>
             </>
           ) : userType === "Ong"  && notification.title === "Requisição" ? (
@@ -468,17 +494,21 @@ const Notificacoes = () => {
             )}
           </div>
 
-            <div className={styles.notificationFooter}>
-              
-          
-              <button onClick={() => handleAceitarNotificacao(notification.uid, user.uid)}>
-              Aceitar Solicitação
-              </button>
-
-              <button onClick={() => handleNegarNotificacao(notification.uid, user.uid)}>
-                Negar
-              </button>
-
+          <div className={styles.notificationFooter}>
+              {notification.status !== "a concluir" ? (
+                <>
+                  <button onClick={() => handleAceitarNotificacao(notification.uid, user.uid, notification.title)}>
+                    Aceitar Doação
+                  </button>
+                  <button onClick={() => handleNegarNotificacao(notification.uid, user.uid, notification.title)}>
+                    Negar
+                  </button>
+                </>
+              ) : (
+                <button onClick={() => handleExcluirNotificacaoOng(notification.uid, user.uid)}>
+                  Concluir
+                </button>
+              )}
             </div>
             </>
           ) : null}
