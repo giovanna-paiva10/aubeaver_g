@@ -328,27 +328,43 @@ const Notificacoes = () => {
 
   return (
     <body id={styles.borda}>
+
+      
       
 <div className={styles.topo}></div>
+
+<div className={styles.mainContainer}>
+
+<div className={styles.notdiv}>
+                <h3 className={styles.estiloh3}>Notificações</h3>
+                <h4 className={styles.estiloh4}></h4>
+
+              </div>
       
+
+      <div className={styles.content}>
       {userType === "Ong" && (
             <>
-              <div className={styles.notdiv}>
-                <h3 className={styles.estiloh3}>Notificações</h3>
-                <h4 className={styles.estiloh4}>Seus pedidos, doações e voluntários</h4>
+              
+
+
+              <div className={styles.caixa}>
+
+               
+
+              <button className={styles.botao1} onClick={() => setFiltro("")}>Todas as notificações</button>
+              <button className={styles.botao1} onClick={() => setFiltro("pendente")}>Notficações pendentes</button>
+              <button  className={styles.botao1} onClick={() => setFiltro("a concluir")}>Notificações a concluir</button>
+
+         
+
               </div>
-              <button onClick={() => setFiltro("")}>Todas as notificações</button>
-              <button onClick={() => setFiltro("pendente")}>Notficações pendentes</button>
-              <button onClick={() => setFiltro("a concluir")}>Notificações a concluir</button>
             </>
           )}
 
           {userType === "Usuário" && (
             <>
-              <div className={styles.notdiv}>
-                <h3 className={styles.estiloh3}>Notificações</h3>
-                <h4 className={styles.estiloh4}>Suas solicitações correspondidas</h4>
-              </div>
+             
             </>
           )}
           
@@ -406,6 +422,8 @@ const Notificacoes = () => {
             </div>
           </div>
         */}
+<div className={styles.caixa2}>
+
     <div className={styles.notifications}>
       {console.log(filtro)}
       <h2>{filtro === "pendente" ? "Pendentes" : filtro === "a concluir" ? "A concluir" : "Todas as notificações"}</h2>
@@ -538,7 +556,13 @@ const Notificacoes = () => {
       <p>Sem notificações.</p>
     )}
     </div>
+
+    </div>
+
+    </div>
     <div></div>
+
+    </div>
     </body>
   );
 };

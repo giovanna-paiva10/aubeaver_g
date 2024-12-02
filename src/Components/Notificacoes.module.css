@@ -2,20 +2,87 @@
   margin-top: 8vh;
 
 }
+
+#borda{
+  width: 100%;
+  height: fit-content;
+  align-items: left;
+ 
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+}
+
+.mainContainer {
+  display: flex;
+  width: 90vw;
+  flex-direction: column;
+  gap: 4rem;
+  margin: auto;
+}
+
+.botao1 {
+  width: 180px;
+  height: 40px;
+  padding: 0%;
+  margin: 0%;
+  border-radius: 6px;
+  background-color: #517655;
+  font-size: max(12px, 1.5vh);
+  align-items: center;
+  justify-content: center;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4rem;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+ 
+}
+
+.caixa{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: auto;
+    width: 90%;
+    gap: 2rem;
+    flex-wrap: wrap;
+      
+ }
+
+.caixa2{
+    display: flex;
+    width: 70%;  
+    justify-content: center;
+}
+
 .notdiv {
   display: flex;
   justify-content: left;
   flex-direction: column;
   margin-left: 3%;
+  width: 100%;
+  
 }
 .notifications {
     font-family: Arial, sans-serif;
     padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    width: 80%;
+    min-width: 320px;
+    margin: auto;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
   }
   
   .notifications h2 {
@@ -85,7 +152,7 @@
   
   .notificationItem .notificationFooter {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-top: 15px;
     font-size: 14px;
@@ -100,15 +167,7 @@
      color: #b6b5b5;
      font-size: max(10px, 1.2rem);
  }
-  #borda{
-    width: 100%;
-    height: fit-content;
-    align-items: left;
-   
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
+
 .cont {
   display: flex;
   width: 100%;
